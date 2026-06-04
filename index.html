@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PLEASURE COMPANY | Spanish Italian Brand Book</title>
+  <style>
+    /* =========================================================
+       PLEASURE COMPANY Spanish Italian Brand Book
+       色や余白はここからまとめて調整できます。
+       ========================================================= */
+    :root {
+      --color-bg: #fffdf8;
+      --color-bg-soft: #fbf4e8;
+      --color-bg-deep: #efe5d4;
+      --color-card: rgba(255, 255, 255, 0.88);
+      --color-text: #2d2a26;
+      --color-text-strong: #1f1d1a;
+      --color-muted: #6f665c;
+      --color-muted-2: #7a7066;
+      --color-gold: #b89b5e;
+      --color-gold-soft: #d6c28a;
+      --color-gold-deep: #b98b3f;
+      --color-wine: #7b1f1d;
+      --color-wine-deep: #4a1717;
+      --line-gold: rgba(185, 139, 63, 0.24);
+      --line-wine: rgba(123, 31, 29, 0.14);
+      --shadow-soft: 0 18px 54px rgba(67, 48, 25, 0.10);
+      --shadow-card: 0 14px 34px rgba(58, 43, 28, 0.08);
+      --radius-card: 8px;
+      --container: min(100% - 32px, 1100px);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        linear-gradient(180deg, #fffdf8 0%, #fbf4e8 48%, #fffdf8 100%);
+      color: var(--color-text);
+      font-family:
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        "YuGothic",
+        "Noto Sans JP",
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+      line-height: 1.8;
+      letter-spacing: 0;
+    }
+
+    img,
+    svg,
+    canvas,
+    video {
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a,
+    [role="link"] {
+      -webkit-tap-highlight-color: rgba(184, 155, 94, 0.18);
+    }
+
+    /* 左上のメニューボタンです。押すとLearning Menuへ移動します。 */
+    .menu-button {
+      position: fixed;
+      z-index: 10;
+      top: max(16px, env(safe-area-inset-top));
+      left: max(16px, env(safe-area-inset-left));
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 11px 16px;
+      border: 1px solid rgba(45, 42, 38, 0.14);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.84);
+      color: var(--color-text-strong);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      box-shadow: 0 10px 28px rgba(55, 39, 21, 0.08);
+      backdrop-filter: blur(18px);
+      cursor: pointer;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        background 180ms ease;
+    }
+
+    .menu-button::before {
+      content: "";
+      width: 17px;
+      height: 11px;
+      margin-right: 8px;
+      background:
+        linear-gradient(var(--color-text-strong), var(--color-text-strong)) top left / 100% 1px no-repeat,
+        linear-gradient(var(--color-text-strong), var(--color-text-strong)) center left / 100% 1px no-repeat,
+        linear-gradient(var(--color-text-strong), var(--color-text-strong)) bottom left / 100% 1px no-repeat;
+      opacity: 0.86;
+    }
+
+    .menu-button:hover,
+    .menu-button:focus-visible {
+      transform: translateY(-1px);
+      border-color: rgba(184, 155, 94, 0.50);
+      background: rgba(255, 255, 255, 0.94);
+      box-shadow: 0 16px 34px rgba(55, 39, 21, 0.12);
+      outline: none;
+    }
+
+    /* =========================================================
+       1. ファーストビュー
+       ========================================================= */
+    .hero {
+      position: relative;
+      isolation: isolate;
+      display: grid;
+      align-items: center;
+      min-height: 100svh;
+      padding: clamp(96px, 17svh, 132px) 0 clamp(54px, 10svh, 88px);
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 82% 15%, rgba(214, 194, 138, 0.28) 0, rgba(214, 194, 138, 0.00) 31%),
+        radial-gradient(circle at 14% 82%, rgba(123, 31, 29, 0.10) 0, rgba(123, 31, 29, 0.00) 34%),
+        linear-gradient(135deg, #fffdf8 0%, #fbf4e8 52%, #efe5d4 100%);
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .hero::before {
+      inset: clamp(28px, 7vw, 86px);
+      border: 1px solid rgba(184, 155, 94, 0.22);
+      border-radius: 999px;
+      opacity: 0.74;
+    }
+
+    .hero::after {
+      width: min(78vw, 720px);
+      height: 1px;
+      left: 50%;
+      bottom: clamp(40px, 9svh, 80px);
+      transform: translateX(-50%);
+      background: linear-gradient(90deg, transparent, rgba(184, 155, 94, 0.72), transparent);
+    }
+
+    .hero-inner {
+      width: var(--container);
+      margin: 0 auto;
+      text-align: center;
+    }
+
+    .brand-label {
+      margin: 0 0 clamp(24px, 7vw, 44px);
+      color: var(--color-wine-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(12px, 3vw, 14px);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      line-height: 1.4;
+      text-transform: uppercase;
+    }
+
+    .hero-title {
+      margin: 0;
+      color: var(--color-text-strong);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(36px, 12vw, 76px);
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 0.98;
+    }
+
+    .hero-title span {
+      display: block;
+    }
+
+    .hero-subtitle {
+      width: min(100%, 760px);
+      margin: clamp(24px, 7vw, 36px) auto 0;
+      color: #352f29;
+      font-size: clamp(16px, 4vw, 24px);
+      font-weight: 600;
+      line-height: 1.65;
+      word-break: keep-all;
+    }
+
+    .hero-copy {
+      width: min(100%, 650px);
+      margin: clamp(18px, 5vw, 26px) auto 0;
+      color: var(--color-muted);
+      font-size: clamp(15px, 3.7vw, 16px);
+      line-height: 2;
+      word-break: keep-all;
+    }
+
+    .next-hint {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 44px;
+      margin-top: clamp(34px, 8vw, 58px);
+      color: var(--color-muted-2);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .next-hint::before,
+    .next-hint::after {
+      content: "";
+      width: 34px;
+      height: 1px;
+      background: rgba(184, 155, 94, 0.46);
+    }
+
+    /* =========================================================
+       共通セクション
+       ========================================================= */
+    .section {
+      position: relative;
+      padding: clamp(72px, 15vw, 128px) 0;
+    }
+
+    .section + .section {
+      border-top: 1px solid rgba(184, 155, 94, 0.16);
+    }
+
+    .section-inner {
+      width: var(--container);
+      margin: 0 auto;
+    }
+
+    .section-inner > *,
+    .about-layout > *,
+    .learning-head > *,
+    .card-grid > *,
+    .mvv-layout > *,
+    .mvv-grid > * {
+      min-width: 0;
+    }
+
+    .section-kicker {
+      margin: 0 0 12px;
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .section-title {
+      margin: 0;
+      color: var(--color-text-strong);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(30px, 8vw, 52px);
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 1.12;
+      word-break: keep-all;
+    }
+
+    .mvv-title-text {
+      word-break: normal;
+    }
+
+    .mvv-title-text .title-line {
+      display: block;
+    }
+
+    .section-title-ja {
+      margin: 0;
+      color: var(--color-text-strong);
+      font-size: clamp(24px, 6vw, 36px);
+      font-weight: 700;
+      line-height: 1.5;
+      word-break: keep-all;
+    }
+
+    .section-lead {
+      margin: 18px 0 0;
+      color: var(--color-muted);
+      font-size: 15px;
+      line-height: 2;
+      word-break: keep-all;
+    }
+
+    /* =========================================================
+       2. Aboutセクション
+       ========================================================= */
+    .about {
+      background: #fffdf8;
+    }
+
+    .about-layout {
+      display: grid;
+      gap: clamp(34px, 7vw, 72px);
+    }
+
+    .about-text {
+      max-width: 760px;
+    }
+
+    .about-text p {
+      margin: 0;
+      color: var(--color-text);
+      font-size: 15px;
+      line-height: 2.1;
+    }
+
+    .about-text p + p {
+      margin-top: 22px;
+    }
+
+    .quiet-rule {
+      width: min(100%, 280px);
+      height: 1px;
+      margin-top: 28px;
+      background: linear-gradient(90deg, var(--color-gold), transparent);
+    }
+
+    /* =========================================================
+       3. Learning Menuセクション
+       ========================================================= */
+    .learning {
+      background:
+        radial-gradient(circle at 100% 0%, rgba(184, 155, 94, 0.10) 0, rgba(184, 155, 94, 0.00) 34%),
+        linear-gradient(180deg, #fbf4e8 0%, #fffdf8 100%);
+      scroll-margin-top: 72px;
+    }
+
+    .learning-head {
+      display: grid;
+      gap: 14px;
+      margin-bottom: clamp(28px, 8vw, 46px);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .learning-card {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      min-height: 184px;
+      padding: 24px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: var(--color-card);
+      box-shadow: var(--shadow-card);
+      cursor: pointer;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        box-shadow 180ms ease,
+        background 180ms ease;
+    }
+
+    .learning-card:hover,
+    .learning-card:focus-visible {
+      transform: translateY(-4px);
+      border-color: rgba(184, 155, 94, 0.50);
+      background: #ffffff;
+      box-shadow: 0 20px 44px rgba(55, 39, 21, 0.12);
+      outline: none;
+    }
+
+    .card-number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      min-width: 34px;
+      height: 34px;
+      margin-bottom: 22px;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: 50%;
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      line-height: 1;
+    }
+
+    .card-title {
+      margin: 0;
+      color: var(--color-text-strong);
+      font-size: clamp(18px, 5vw, 20px);
+      font-weight: 700;
+      line-height: 1.45;
+      word-break: keep-all;
+    }
+
+    .card-text {
+      margin: 10px 0 0;
+      color: var(--color-muted);
+      font-size: 14px;
+      line-height: 1.8;
+      word-break: keep-all;
+    }
+
+    .story-card {
+      border-color: rgba(123, 31, 29, 0.16);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 253, 248, 0.92)),
+        radial-gradient(circle at 100% 0%, rgba(123, 31, 29, 0.08), transparent 35%);
+    }
+
+    .story-card::after {
+      content: "";
+      position: absolute;
+      top: 24px;
+      right: 24px;
+      width: 48px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(123, 31, 29, 0.42));
+    }
+
+    .story-actions {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .story-link {
+      position: relative;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 14px;
+      border: 1px solid rgba(184, 155, 94, 0.48);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.80);
+      color: var(--color-text-strong);
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1.4;
+      text-align: center;
+      word-break: keep-all;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease;
+    }
+
+    .story-link:hover,
+    .story-link:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--color-gold);
+      background: #ffffff;
+      outline: none;
+    }
+
+    /* =========================================================
+       4. MVVセクション
+       ========================================================= */
+    .mvv {
+      background:
+        linear-gradient(180deg, #fffdf8 0%, #fbf4e8 100%);
+    }
+
+    .mvv-layout {
+      display: grid;
+      gap: clamp(28px, 7vw, 46px);
+    }
+
+    .mvv-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+    }
+
+    .mvv-card {
+      padding: 24px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 255, 255, 0.72);
+      box-shadow: var(--shadow-card);
+    }
+
+    .mvv-label {
+      margin: 0 0 12px;
+      color: var(--color-wine);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      line-height: 1.5;
+      text-transform: uppercase;
+    }
+
+    .mvv-copy {
+      margin: 0;
+      color: var(--color-text-strong);
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.75;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    .value-list {
+      display: grid;
+      gap: 6px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .value-list li {
+      position: relative;
+      padding-left: 18px;
+      color: var(--color-text-strong);
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.75;
+      word-break: keep-all;
+    }
+
+    .value-list li::before {
+      content: "";
+      position: absolute;
+      top: 0.78em;
+      left: 0;
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--color-gold);
+    }
+
+    .mvv-description {
+      max-width: 760px;
+      margin: 0;
+      color: var(--color-muted);
+      font-size: 15px;
+      line-height: 2;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    /* =========================================================
+       5. Closingセクション
+       ========================================================= */
+    .closing {
+      min-height: 58svh;
+      display: grid;
+      align-items: center;
+      background:
+        radial-gradient(circle at 50% 0%, rgba(214, 194, 138, 0.22) 0, rgba(214, 194, 138, 0.00) 38%),
+        #fffdf8;
+      text-align: center;
+    }
+
+    .closing-title {
+      margin: 0;
+      color: var(--color-text-strong);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(36px, 10vw, 66px);
+      font-weight: 500;
+      letter-spacing: 0;
+      line-height: 1.05;
+    }
+
+    .closing-copy {
+      width: min(100%, 640px);
+      margin: clamp(20px, 6vw, 30px) auto 0;
+      color: var(--color-muted);
+      font-size: 15px;
+      line-height: 2.1;
+      word-break: keep-all;
+    }
+
+    .footer {
+      padding: 28px 0;
+      border-top: 1px solid rgba(184, 155, 94, 0.16);
+      background: #fffdf8;
+      color: var(--color-muted-2);
+      text-align: center;
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 11px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* =========================================================
+       タブレット・PC表示
+       ========================================================= */
+    @media (min-width: 680px) {
+      :root {
+        --container: min(100% - 56px, 1100px);
+      }
+
+      .about-layout {
+        grid-template-columns: minmax(220px, 0.72fr) minmax(0, 1fr);
+        align-items: start;
+      }
+
+      .learning-head {
+        grid-template-columns: minmax(0, 1fr) minmax(240px, 0.48fr);
+        align-items: end;
+      }
+
+      .card-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .story-card {
+        grid-column: span 2;
+      }
+
+      .story-actions {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .mvv-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (min-width: 980px) {
+      .card-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .story-card {
+        grid-column: span 2;
+      }
+
+      .mvv-layout {
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.25fr);
+        align-items: start;
+      }
+
+      .mvv-description {
+        grid-column: 2;
+      }
+    }
+
+    /* 小さいスマホで文字や装飾が詰まりすぎないようにします。 */
+    @media (max-width: 360px) {
+      :root {
+        --container: min(100% - 28px, 1100px);
+      }
+
+      .menu-button {
+        left: 14px;
+        padding-inline: 14px;
+      }
+
+      .hero {
+        padding-top: 92px;
+      }
+
+      .learning-card,
+      .mvv-card {
+        padding: 21px;
+      }
+
+      .story-link {
+        padding-inline: 12px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- 左上メニュー：Learning Menuセクションへ移動します。 -->
+  <button class="menu-button" type="button" data-scroll-target="#learning-menu" aria-label="Learning Menuへ移動">
+    MENU
+  </button>
+
+  <main>
+    <!-- =======================================================
+         1. ファーストビュー
+         ======================================================= -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-inner">
+        <p class="brand-label">PLEASURE COMPANY</p>
+        <h1 class="hero-title" id="hero-title">
+          <span>Spanish Italian</span>
+          <span>Brand Book</span>
+        </h1>
+        <p class="hero-subtitle">スパニッシュ・イタリアン業態 ブランドブック</p>
+        <p class="hero-copy">
+          ブランドを知り、商品を知り、サービスで伝える。<br>
+          お客様に喜びを届けるための、スタッフのためのブランドブックです。
+        </p>
+        <div class="next-hint" aria-hidden="true">About</div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         2. Aboutセクション
+         ======================================================= -->
+    <section class="section about" aria-labelledby="about-title">
+      <div class="section-inner about-layout">
+        <div>
+          <p class="section-kicker">About</p>
+          <h2 class="section-title-ja" id="about-title">このBrand Bookについて</h2>
+          <div class="quiet-rule" aria-hidden="true"></div>
+        </div>
+
+        <div class="about-text">
+          <p>
+            このBrand Bookは、スパニッシュ・イタリアン業態で働くスタッフが、
+            ブランドの考え方、商品の魅力、サービスの基本を学ぶための入口です。
+          </p>
+          <p>
+            新人スタッフにとっては、基本を知る場所として。
+            経験のあるスタッフにとっては、日々の営業を磨く確認の場所として。
+          </p>
+          <p>
+            料理を運ぶだけではなく、
+            商品の価値を伝え、お客様に楽しい時間を過ごしていただくために。
+          </p>
+          <p>
+            何度でも立ち返れる、
+            プレジャーカンパニーらしいサービスを育てる場所を目指します。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         3. Learning Menuセクション
+         各カードのリンク先は、data-hrefの値を差し替えてください。
+         ======================================================= -->
+    <section class="section learning" id="learning-menu" aria-labelledby="learning-title">
+      <div class="section-inner">
+        <div class="learning-head">
+          <div>
+            <p class="section-kicker">Select Topic</p>
+            <h2 class="section-title" id="learning-title">Learning Menu</h2>
+          </div>
+          <p class="section-lead">必要な内容を選んで学べます。</p>
+        </div>
+
+        <div class="card-grid">
+          <!-- リンク先を変える場合は data-href="#" の # をURLに変更します。 -->
+          <article class="learning-card" role="link" tabindex="0" data-href="#" aria-label="会社MVV Mission・Vision・Valueを知る">
+            <span class="card-number">1</span>
+            <h3 class="card-title">会社MVV</h3>
+            <p class="card-text">Mission・Vision・Valueを知る</p>
+          </article>
+
+          <!-- ブランドストーリーだけ、2つのページへ分けて進めるボタンを入れています。 -->
+          <article class="learning-card story-card" role="link" tabindex="0" data-href="#" aria-label="ブランドストーリー SID BTD TPDのブランドストーリーを知る">
+            <span class="card-number">2</span>
+            <h3 class="card-title">ブランドストーリー</h3>
+            <p class="card-text">
+              SID / BTD / TPDのブランドストーリーを知る。
+              業態ごとの考え方を、別ページで確認できます。
+            </p>
+            <div class="story-actions" aria-label="ブランドストーリーのリンク">
+              <!-- SID / BTD ブランドストーリーのリンク先は、下のhrefを差し替えてください。 -->
+              <a class="story-link" href="#">SID / BTD ブランドストーリー</a>
+              <!-- TPD ブランドストーリーのリンク先は、下のhrefを差し替えてください。 -->
+              <a class="story-link" href="#">TPD ブランドストーリー</a>
+            </div>
+          </article>
+
+          <article class="learning-card" role="link" tabindex="0" data-href="#" aria-label="商品知識 売りの商品・セールストークを学ぶ">
+            <span class="card-number">3</span>
+            <h3 class="card-title">商品知識</h3>
+            <p class="card-text">売りの商品・セールストークを学ぶ</p>
+          </article>
+
+          <article class="learning-card" role="link" tabindex="0" data-href="#" aria-label="8ACTION サービスの基本行動を学ぶ">
+            <span class="card-number">4</span>
+            <h3 class="card-title">8ACTION</h3>
+            <p class="card-text">サービスの基本行動を学ぶ</p>
+          </article>
+
+          <article class="learning-card" role="link" tabindex="0" data-href="#" aria-label="オリエンテーション 働くうえで大切なルールを確認する">
+            <span class="card-number">5</span>
+            <h3 class="card-title">オリエンテーション</h3>
+            <p class="card-text">働くうえで大切なルールを確認する</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         4. MVVセクション
+         ======================================================= -->
+    <section class="section mvv" aria-labelledby="mvv-title">
+      <div class="section-inner mvv-layout">
+        <div>
+          <p class="section-kicker">Company Philosophy</p>
+          <h2 class="section-title mvv-title-text" id="mvv-title">
+            <span class="title-line">PLEASURE COMPANY</span>
+            <span class="title-line">MVV</span>
+          </h2>
+        </div>
+
+        <div class="mvv-grid">
+          <article class="mvv-card">
+            <p class="mvv-label">Mission</p>
+            <p class="mvv-copy">食を通じて、喜びを創造する</p>
+          </article>
+
+          <article class="mvv-card">
+            <p class="mvv-label">Vision</p>
+            <p class="mvv-copy">社員全員で創る会社、年商５０億企業<br>〜PLEASURE COMPANY HOLDINGSへ〜</p>
+          </article>
+
+          <article class="mvv-card">
+            <p class="mvv-label">Value</p>
+            <ul class="value-list">
+              <li>お客様の喜び</li>
+              <li>自分の成長</li>
+              <li>仲間への感謝</li>
+              <li>会社の発展</li>
+              <li>充実した人生</li>
+            </ul>
+          </article>
+        </div>
+
+        <p class="mvv-description">
+          私たちの仕事は、料理やドリンクを提供するだけではありません。
+          お客様に楽しい時間を過ごしていただき、仲間とともに成長し、
+          街に必要とされるレストランをつくることです。
+        </p>
+      </div>
+    </section>
+
+    <!-- =======================================================
+         5. Closingセクション
+         ======================================================= -->
+    <section class="section closing" aria-labelledby="closing-title">
+      <div class="section-inner">
+        <h2 class="closing-title" id="closing-title">Brand, Food, Service.</h2>
+        <p class="closing-copy">
+          ブランドを知り、商品を知り、サービスで伝える。<br>
+          その一つひとつの積み重ねが、<br>
+          お客様の喜びにつながります。
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    PLEASURE COMPANY
+  </footer>
+
+  <script>
+    /* =========================================================
+       JavaScript
+       メニューのスムーズスクロールと、カード全体クリックを設定します。
+       ========================================================= */
+    const menuButton = document.querySelector("[data-scroll-target]");
+    const clickableCards = document.querySelectorAll("[data-href]");
+
+    menuButton.addEventListener("click", () => {
+      const target = document.querySelector(menuButton.dataset.scrollTarget);
+
+      if (target) {
+        target.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    });
+
+    clickableCards.forEach((card) => {
+      card.addEventListener("click", (event) => {
+        const clickedStoryButton = event.target.closest(".story-link");
+
+        if (clickedStoryButton) {
+          return;
+        }
+
+        window.location.href = card.dataset.href;
+      });
+
+      card.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" || event.key === " ") {
+          event.preventDefault();
+          window.location.href = card.dataset.href;
+        }
+      });
+    });
+  </script>
+</body>
+</html>
