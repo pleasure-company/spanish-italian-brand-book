@@ -136,6 +136,7 @@
       isolation: isolate;
       display: grid;
       align-items: center;
+      justify-items: center;
       min-height: 100svh;
       padding: clamp(96px, 17svh, 132px) 0 clamp(54px, 10svh, 88px);
       overflow: hidden;
@@ -170,9 +171,16 @@
     }
 
     .hero-inner {
-      width: var(--container);
+      width: min(100% - 32px, 760px);
+      max-width: 100%;
       margin: 0 auto;
+      justify-self: center;
       text-align: center;
+    }
+
+    .hero-inner > * {
+      max-width: 100%;
+      min-width: 0;
     }
 
     .brand-label {
@@ -216,7 +224,8 @@
       color: var(--color-muted);
       font-size: clamp(15px, 3.7vw, 16px);
       line-height: 2;
-      word-break: keep-all;
+      word-break: normal;
+      overflow-wrap: break-word;
     }
 
     .next-hint {
@@ -452,7 +461,15 @@
       margin-top: 22px;
     }
 
-    .story-link {
+    .product-actions {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .story-link,
+    .product-link {
       position: relative;
       z-index: 2;
       display: inline-flex;
@@ -476,11 +493,20 @@
     }
 
     .story-link:hover,
-    .story-link:focus-visible {
+    .story-link:focus-visible,
+    .product-link:hover,
+    .product-link:focus-visible {
       transform: translateY(-2px);
       border-color: var(--color-gold);
       background: #ffffff;
       outline: none;
+    }
+
+    .knowledge-card {
+      border-color: rgba(184, 155, 94, 0.32);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 253, 248, 0.92)),
+        radial-gradient(circle at 100% 0%, rgba(184, 155, 94, 0.12), transparent 38%);
     }
 
     /* =========================================================
@@ -640,8 +666,16 @@
         grid-column: span 2;
       }
 
+      .knowledge-card {
+        grid-column: span 2;
+      }
+
       .story-actions {
         grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .product-actions {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
       }
 
       .mvv-grid {
@@ -655,6 +689,10 @@
       }
 
       .story-card {
+        grid-column: span 2;
+      }
+
+      .knowledge-card {
         grid-column: span 2;
       }
 
@@ -689,6 +727,14 @@
       }
 
       .story-link {
+        padding-inline: 12px;
+      }
+
+      .product-actions {
+        grid-template-columns: 1fr;
+      }
+
+      .product-link {
         padding-inline: 12px;
       }
     }
@@ -798,16 +844,28 @@
             </p>
             <div class="story-actions" aria-label="ブランドストーリーのリンク">
               <!-- SID / BTD ブランドストーリーのリンク先は、下のhrefを差し替えてください。 -->
-             <a class="story-link" href="sid-btd-brandstory.html">SID / BTD ブランドストーリー</a>
+              <a class="story-link" href="sid-btd-brandstory.html">SID / BTD ブランドストーリー</a>
               <!-- TPD ブランドストーリーのリンク先は、下のhrefを差し替えてください。 -->
               <a class="story-link" href="#">TPD ブランドストーリー</a>
             </div>
           </article>
 
-          <article class="learning-card" role="link" tabindex="0" data-href="#" aria-label="商品知識 売りの商品・セールストークを学ぶ">
+          <article class="learning-card knowledge-card" role="link" tabindex="0" data-href="#" aria-label="商品知識 売りの商品・セールストークを学ぶ">
             <span class="card-number">3</span>
             <h3 class="card-title">商品知識</h3>
             <p class="card-text">売りの商品・セールストークを学ぶ</p>
+            <div class="product-actions" aria-label="商品知識のリンク">
+              <!-- 商品知識ページのリンク先は、各hrefの # をURLに差し替えてください。 -->
+              <a class="product-link" href="#">差し込み</a>
+              <a class="product-link" href="#">ピンチョス</a>
+              <a class="product-link" href="#">タパス</a>
+              <a class="product-link" href="#">サラダ</a>
+              <a class="product-link" href="#">アヒージョ</a>
+              <a class="product-link" href="#">フエゴ</a>
+              <a class="product-link" href="#">パエリア</a>
+              <a class="product-link" href="#">パスタ</a>
+              <a class="product-link" href="#">デザート</a>
+            </div>
           </article>
 
           <article class="learning-card" role="link" tabindex="0" data-href="#" aria-label="8ACTION サービスの基本行動を学ぶ">
@@ -895,6 +953,7 @@
        ========================================================= */
     const menuButton = document.querySelector("[data-scroll-target]");
     const clickableCards = document.querySelectorAll("[data-href]");
+    const innerLinks = document.querySelectorAll(".story-link, .product-link");
 
     menuButton.addEventListener("click", () => {
       const target = document.querySelector(menuButton.dataset.scrollTarget);
@@ -906,9 +965,9 @@
 
     clickableCards.forEach((card) => {
       card.addEventListener("click", (event) => {
-        const clickedStoryButton = event.target.closest(".story-link");
+        const clickedInnerButton = event.target.closest(".story-link, .product-link");
 
-        if (clickedStoryButton) {
+        if (clickedInnerButton) {
           return;
         }
 
@@ -919,6 +978,14 @@
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
           window.location.href = card.dataset.href;
+        }
+      });
+    });
+
+    innerLinks.forEach((link) => {
+      link.addEventListener("click", (event) => {
+        if (link.getAttribute("href") === "#") {
+          event.preventDefault();
         }
       });
     });
