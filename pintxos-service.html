@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一言サービス ピンチョス編 スタッフ教育資料">
+  <title>一言サービス｜ピンチョス編</title>
+  <style>
+    /* =========================================================
+       Pintxos Service / Product Knowledge
+       トップページと同じ白ベースのブランドブック調にそろえています。
+       色や余白を変える場合は、まず下のCSS変数を調整してください。
+       ========================================================= */
+    :root {
+      --color-bg: #fffdf8;
+      --color-bg-soft: #fbf4e8;
+      --color-bg-deep: #efe5d4;
+      --color-card: rgba(255, 255, 255, 0.88);
+      --color-text: #2d2a26;
+      --color-text-strong: #1f1d1a;
+      --color-muted: #6f665c;
+      --color-muted-2: #7a7066;
+      --color-gold: #b89b5e;
+      --color-gold-soft: #d6c28a;
+      --color-gold-deep: #b98b3f;
+      --color-wine: #7b1f1d;
+      --color-wine-deep: #4a1717;
+      --line-gold: rgba(185, 139, 63, 0.24);
+      --line-wine: rgba(123, 31, 29, 0.14);
+      --shadow-soft: 0 18px 54px rgba(67, 48, 25, 0.10);
+      --shadow-card: 0 14px 34px rgba(58, 43, 28, 0.08);
+      --radius-card: 8px;
+      --container: min(100% - 28px, 720px);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 88% 4%, rgba(214, 194, 138, 0.24) 0, rgba(214, 194, 138, 0.00) 30%),
+        radial-gradient(circle at 6% 38%, rgba(123, 31, 29, 0.08) 0, rgba(123, 31, 29, 0.00) 30%),
+        linear-gradient(180deg, #fffdf8 0%, #fbf4e8 44%, #fffdf8 100%);
+      color: var(--color-text);
+      font-family:
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        "YuGothic",
+        "Noto Sans JP",
+        Meiryo,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+      font-size: 15.5px;
+      line-height: 1.85;
+      letter-spacing: 0;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    figure,
+    blockquote,
+    dl,
+    dd,
+    ul {
+      margin: 0;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      -webkit-tap-highlight-color: rgba(184, 155, 94, 0.18);
+    }
+
+    .training-page {
+      width: var(--container);
+      margin: 0 auto;
+      padding: 18px 0 42px;
+    }
+
+    .hero,
+    .section-card {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 253, 248, 0.94)),
+        var(--color-bg);
+      box-shadow: var(--shadow-card);
+    }
+
+    .hero::before,
+    .section-card::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 18px;
+      border: 1px solid rgba(184, 155, 94, 0.16);
+      border-radius: 999px;
+      opacity: 0.62;
+      pointer-events: none;
+    }
+
+    .hero::after,
+    .section-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, rgba(184, 155, 94, 0.72), rgba(123, 31, 29, 0.22), transparent);
+      pointer-events: none;
+    }
+
+    .hero {
+      min-height: calc(100svh - 36px);
+      padding: 26px 20px 24px;
+      background:
+        radial-gradient(circle at 82% 14%, rgba(214, 194, 138, 0.25) 0, rgba(214, 194, 138, 0.00) 34%),
+        radial-gradient(circle at 15% 82%, rgba(123, 31, 29, 0.10) 0, rgba(123, 31, 29, 0.00) 34%),
+        linear-gradient(135deg, #fffdf8 0%, #fbf4e8 54%, #efe5d4 100%);
+    }
+
+    .page-label {
+      position: relative;
+      z-index: 1;
+      margin: 6px 0 22px;
+      color: var(--color-wine-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 16px;
+    }
+
+    .series-title {
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      color: var(--color-text-strong);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 14vw, 72px);
+      font-weight: 500;
+      line-height: 1.04;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .hero-copy {
+      color: var(--color-text-strong);
+      font-size: clamp(21px, 6vw, 30px);
+      font-weight: 800;
+      line-height: 1.52;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .hero-image,
+    .dish-image {
+      overflow: hidden;
+      border: 1px solid rgba(184, 155, 94, 0.26);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(135deg, rgba(251, 244, 232, 0.88), rgba(255, 253, 248, 0.88)),
+        var(--color-bg-soft);
+      box-shadow: 0 12px 28px rgba(58, 43, 28, 0.08);
+    }
+
+    .hero-image {
+      aspect-ratio: 16 / 9;
+      margin-top: 4px;
+    }
+
+    .hero-image img,
+    .dish-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-text,
+    .text-block p,
+    .section-lead,
+    .point-card p,
+    .service-box p,
+    .info-list dd,
+    .check-list li,
+    .footer a {
+      color: var(--color-muted);
+      font-size: 15.5px;
+      font-weight: 500;
+      line-height: 1.9;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .toc {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-gold);
+    }
+
+    .toc a {
+      display: grid;
+      min-height: 44px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.72);
+      color: var(--color-text-strong);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.45;
+      text-align: center;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease;
+    }
+
+    .toc a:hover,
+    .toc a:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--color-gold);
+      background: #ffffff;
+      outline: none;
+    }
+
+    .section-card {
+      margin-top: 22px;
+      padding: 30px 20px 26px;
+      scroll-margin-top: 18px;
+    }
+
+    .section-number {
+      display: inline-grid;
+      min-width: 38px;
+      min-height: 34px;
+      margin-bottom: 14px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: 50%;
+      background: rgba(255, 253, 248, 0.78);
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    h2 {
+      color: var(--color-text-strong);
+      font-size: clamp(25px, 7vw, 36px);
+      font-weight: 800;
+      line-height: 1.42;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    h3 {
+      color: var(--color-text-strong);
+      font-size: clamp(17px, 4.7vw, 20px);
+      font-weight: 800;
+      line-height: 1.52;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .text-block {
+      display: grid;
+      gap: 15px;
+      margin-top: 18px;
+    }
+
+    .emphasis {
+      margin-top: 22px;
+      padding: 18px 16px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-left: 4px solid var(--color-gold);
+      border-radius: var(--radius-card);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.22), transparent 38%),
+        linear-gradient(180deg, #fffefa, #fbf4e8);
+      color: var(--color-text-strong);
+      font-size: clamp(18px, 5vw, 22px);
+      font-weight: 800;
+      line-height: 1.72;
+      word-break: normal;
+      overflow-wrap: break-word;
+      box-shadow: 0 12px 26px rgba(58, 43, 28, 0.08);
+    }
+
+    .point-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .point-card {
+      position: relative;
+      padding: 17px 16px 17px 58px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.78);
+      box-shadow: 0 10px 22px rgba(58, 43, 28, 0.06);
+    }
+
+    .point-number {
+      position: absolute;
+      top: 17px;
+      left: 16px;
+      display: grid;
+      width: 32px;
+      height: 32px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.42);
+      border-radius: 50%;
+      background: rgba(255, 253, 248, 0.84);
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .point-card h3 {
+      margin-bottom: 5px;
+    }
+
+    .section-lead {
+      margin-top: 12px;
+    }
+
+    .product-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .dish-card {
+      overflow: hidden;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 253, 248, 0.92)),
+        var(--color-card);
+      box-shadow: 0 12px 28px rgba(58, 43, 28, 0.08);
+    }
+
+    .dish-image {
+      aspect-ratio: 4 / 3;
+      border-width: 0 0 1px;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .dish-content {
+      display: grid;
+      gap: 12px;
+      padding: 17px 16px 18px;
+    }
+
+    .dish-category {
+      width: fit-content;
+      max-width: 100%;
+      padding: 4px 10px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-radius: 999px;
+      background: rgba(251, 244, 232, 0.78);
+      color: var(--color-gold-deep);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .service-box {
+      padding: 14px;
+      border-radius: var(--radius-card);
+    }
+
+    .service-box.required {
+      border: 1px solid rgba(123, 31, 29, 0.15);
+      background: rgba(123, 31, 29, 0.045);
+    }
+
+    .service-box.value {
+      border: 1px solid rgba(184, 155, 94, 0.30);
+      background: rgba(251, 244, 232, 0.74);
+    }
+
+    .service-box .box-label {
+      margin-bottom: 6px;
+      color: var(--color-wine);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .service-box p {
+      word-break: break-all;
+      overflow-wrap: anywhere;
+    }
+
+    .service-box.required p:last-child {
+      color: var(--color-wine-deep);
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .service-box.value p:last-child {
+      color: var(--color-text-strong);
+      font-weight: 700;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 10px;
+      padding-top: 2px;
+    }
+
+    .info-list div {
+      display: grid;
+      gap: 4px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line-gold);
+    }
+
+    .info-list dt {
+      color: var(--color-gold-deep);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .speech-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .speech-list blockquote {
+      position: relative;
+      padding: 16px 16px 16px 19px;
+      border: 1px solid rgba(184, 155, 94, 0.28);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.82);
+      color: var(--color-text);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.9;
+      word-break: normal;
+      overflow-wrap: break-word;
+      box-shadow: 0 10px 22px rgba(58, 43, 28, 0.06);
+    }
+
+    .speech-list blockquote:nth-child(even) {
+      background: rgba(251, 244, 232, 0.72);
+    }
+
+    .speech-list blockquote::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      bottom: 15px;
+      left: -1px;
+      width: 4px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, var(--color-gold), rgba(123, 31, 29, 0.32));
+    }
+
+    .check-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .check-list li {
+      position: relative;
+      min-height: 44px;
+      padding: 13px 13px 13px 45px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.78);
+      color: var(--color-text-strong);
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(58, 43, 28, 0.05);
+    }
+
+    .check-list li::before {
+      content: "";
+      position: absolute;
+      top: 17px;
+      left: 16px;
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--color-gold);
+      border-radius: 4px;
+      background: #fffdf8;
+    }
+
+    .summary-section {
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.22), transparent 36%),
+        linear-gradient(180deg, rgba(255, 253, 248, 0.96), rgba(251, 244, 232, 0.98)),
+        var(--color-bg);
+    }
+
+    .final-copy {
+      margin-top: 22px;
+      padding: 21px 18px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-left: 4px solid var(--color-gold);
+      border-radius: var(--radius-card);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.24), transparent 38%),
+        linear-gradient(180deg, #fffefa, #fbf4e8);
+      box-shadow: 0 14px 30px rgba(58, 43, 28, 0.08);
+      color: var(--color-text-strong);
+      font-size: clamp(20px, 6vw, 26px);
+      font-weight: 800;
+      line-height: 1.62;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .footer {
+      padding: 24px 0 4px;
+      text-align: center;
+    }
+
+    .footer a {
+      display: inline-grid;
+      min-height: 44px;
+      place-items: center;
+      padding: 10px 16px;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.76);
+      color: var(--color-text-strong);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (min-width: 700px) {
+      :root {
+        --container: min(100% - 56px, 760px);
+      }
+
+      body {
+        font-size: 16px;
+      }
+
+      .training-page {
+        padding: 32px 0 58px;
+      }
+
+      .hero {
+        padding: 36px 38px 34px;
+      }
+
+      .section-card {
+        margin-top: 28px;
+        padding: 36px 38px 34px;
+      }
+
+      .hero-text,
+      .text-block p,
+      .section-lead,
+      .point-card p,
+      .service-box p,
+      .info-list dd,
+      .check-list li {
+        font-size: 16px;
+      }
+
+      .point-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+
+      .point-card {
+        padding: 58px 16px 18px;
+      }
+
+      .point-number {
+        top: 17px;
+        left: 16px;
+      }
+
+      .product-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 360px) {
+      :root {
+        --container: min(100% - 20px, 720px);
+      }
+
+      .hero,
+      .section-card {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .hero::before,
+      .section-card::before {
+        inset: 15px 12px;
+      }
+
+      .toc {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="training-page">
+    <header class="hero" id="top">
+      <div class="page-label">SID / BTD Staff Training</div>
+      <div class="hero-card">
+        <p class="series-title">一言サービス</p>
+        <h1>ピンチョス編</h1>
+        <p class="hero-copy">料理は、届け方で価値が変わる。</p>
+        <figure class="hero-image">
+          <img src="images/pintxos-main.jpg" alt="ピンチョスの盛り合わせ">
+        </figure>
+        <p class="hero-text">
+          ピンチョスは、SID / BTDの食事の入口になる商品です。<br>
+          ひと口サイズで楽しめるスペインらしい料理だからこそ、<br>
+          最初の一言でお客様の期待感を高めることが大切です。
+        </p>
+      </div>
+
+      <nav class="toc" aria-label="ページ内目次">
+        <a href="#about">ピンチョスとは</a>
+        <a href="#mindset">一言サービス</a>
+        <a href="#items">商品別</a>
+        <a href="#talk">基本トーク</a>
+        <a href="#checklist">チェック</a>
+        <a href="#summary">まとめ</a>
+      </nav>
+    </header>
+
+    <section class="section-card" id="about">
+      <div class="section-number">01</div>
+      <h2>ピンチョスとは</h2>
+      <div class="text-block">
+        <p>
+          スペイン北部、バスク地方のサンセバスチャンで親しまれている、<br>
+          ひと口サイズのおつまみ料理です。
+        </p>
+        <p>
+          SID / BTDでは、<br>
+          スペインらしさを感じていただきながら、<br>
+          ワインや乾杯ドリンクと一緒に楽しめるように、<br>
+          Daiオリジナルのアレンジを加えています。
+        </p>
+      </div>
+      <p class="emphasis">最初の一皿におすすめしやすい、<br>食事の入口になる商品です。</p>
+    </section>
+
+    <section class="section-card" id="mindset">
+      <div class="section-number">02</div>
+      <h2>一言サービスで伝えること</h2>
+      <div class="text-block">
+        <p>
+          ピンチョスをご提供するときは、<br>
+          商品名を伝えるだけでなく、<br>
+          「食べ方」「食材」「香り」「ワインとの相性」を一言添えます。
+        </p>
+        <p>
+          料理をただ置くだけでは、ブランド体験にはなりません。<br>
+          お客様により商品の価値を感じていただくために、<br>
+          商品知識と一言サービスをセットで届けます。
+        </p>
+        <p>以下の3つを意識してください。</p>
+      </div>
+
+      <div class="point-grid">
+        <article class="point-card">
+          <span class="point-number">1</span>
+          <h3>食べ方を伝える</h3>
+          <p>お二人で召し上がる場合は、ナイフで切り分けてお召し上がりいただくことを伝える。</p>
+        </article>
+
+        <article class="point-card">
+          <span class="point-number">2</span>
+          <h3>価値を伝える</h3>
+          <p>食材、香り、スペインらしさ、Daiらしいアレンジを伝える。</p>
+        </article>
+
+        <article class="point-card">
+          <span class="point-number">3</span>
+          <h3>次の提案につなげる</h3>
+          <p>ワイン、スパークリング、白ワインなど、ドリンク提案につなげる。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card products-section" id="items">
+      <div class="section-number">03</div>
+      <h2>商品別 一言サービス</h2>
+      <p class="section-lead">
+        提供時は「商品名」「切り分け案内」「価値が上がる一言」「カトラリー」をセットで確認します。
+      </p>
+
+      <div class="product-list">
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pintxos-asiago.jpg" alt="アジアーゴチーズとマッシュルーム">
+          </figure>
+          <div class="dish-content">
+            <p class="dish-category">ピンチョス</p>
+            <h3>アジアーゴチーズとマッシュルーム</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「お二人で召し上がる際は、ナイフで切り分けてお召し上がりください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「クリーム状にしたアジアーゴチーズにフレッシュマッシュルームとアクセントでカリカリに焼いたベーコンをのせています。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>ナイフ / トング</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>フレッシュマッシュルーム、アジアーゴクリーム、カリカリベーコンを使用。<br>アジアーゴチーズは、イタリア北部の牛乳から作られるハードタイプのチーズをクリームで伸ばしたもの。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pintxos-shirasu.jpg" alt="シラスと塩トマト">
+          </figure>
+          <div class="dish-content">
+            <p class="dish-category">ピンチョス</p>
+            <h3>シラスと塩トマト</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「お二人で召し上がる際は、ナイフで切り分けてお召し上がりください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「自家製の塩トマトとアクセントにディルの爽やかな香りを合わせています。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>ナイフ / トング</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>チェリートマトは蜂蜜、ニンニク、塩でマリネ。<br>シラスはフライドオニオンとディルで風味付けしています。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pintxos-mackerel.jpg" alt="炙り鯖と野菜のマリネ">
+          </figure>
+          <div class="dish-content">
+            <p class="dish-category">ピンチョス</p>
+            <h3>炙り鯖と野菜のマリネ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「お二人で召し上がる際は、ナイフで切り分けてお召し上がりください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「炙った鯖にパプリカ・ナスの焼き野菜を合わせて香ばしく仕上げています。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>ナイフ / トング</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>炙り締め鯖、クリームチーズ、エスカリバータ、ギンディージャ、タスマニアマスタードを使用。<br>エスカリバータは、茄子とパプリカの焼き野菜のマリネ。<br>ギンディージャは、青唐辛子の酢漬け。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pintxos-crab.jpg" alt="ズワイ蟹と香草パン粉">
+          </figure>
+          <div class="dish-content">
+            <p class="dish-category">ピンチョス</p>
+            <h3>ズワイ蟹と香草パン粉</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「お二人で召し上がる際は、ナイフで切り分けてお召し上がりください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「バスク地方の名物『チャングーロ』というカニの煮込みです。蟹と蟹味噌の濃厚な味をお楽しみください。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>ナイフ / トング</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>ズワイガニ、蟹味噌、玉ねぎ、長ネギをホールトマト、白ワイン、ブランデーで煮詰めたチャングーロに、香草パン粉を合わせています。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pintxos-brioche.jpg" alt="ハモンセラーノと発酵バターのブリオッシュピンチョス">
+          </figure>
+          <div class="dish-content">
+            <p class="dish-category">ピンチョス</p>
+            <h3>ハモンセラーノと発酵バターのブリオッシュピンチョス</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「お二人で召し上がる際は、ナイフで切り分けてお召し上がりください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「濃厚なコクと塩味の効いたハモンセラーノに甘みのあるブリオッシュの生地を合わせています。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>ナイフ / トング</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>ブリオッシュは、牛乳と卵、バターをたっぷり練り込んだフランス発祥の菓子パン。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pintxos-pancon.jpg" alt="パンコントマテ ハモンセラーノとトマトのブリオッシュ">
+          </figure>
+          <div class="dish-content">
+            <p class="dish-category">ピンチョス</p>
+            <h3>パンコントマテ ハモンセラーノとトマトのブリオッシュ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「お二人で召し上がる際は、ナイフで切り分けてお召し上がりください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「ブリオッシュの生地の上にトマトとハモンセラーノ、仕上げにEXVオリーブオイルをかけています。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>ナイフ / トング</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>ブリオッシュ、トマトピューレ、ハモンセラーノを使用。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card" id="talk">
+      <div class="section-number">04</div>
+      <h2>提供時は、置くだけで終わらせない</h2>
+      <div class="text-block">
+        <p>
+          ピンチョスは、食事の入口になる商品です。<br>
+          提供時の一言で、お客様の期待感が上がります。
+        </p>
+      </div>
+
+      <div class="speech-list">
+        <blockquote>
+          「こちら、ハモンセラーノと発酵バターのブリオッシュピンチョスです。<br>
+          お二人で召し上がる際は、ナイフで切り分けてお召し上がりください。<br>
+          濃厚なコクと塩味のあるハモンセラーノに、甘みのあるブリオッシュを合わせています。」
+        </blockquote>
+
+        <blockquote>
+          「こちら、炙り鯖と野菜のマリネです。<br>
+          お二人で召し上がる際は、ナイフで切り分けてお召し上がりください。<br>
+          炙った鯖にパプリカとナスの焼き野菜を合わせて、香ばしく仕上げています。」
+        </blockquote>
+
+        <blockquote>
+          「こちら、ズワイ蟹と香草パン粉です。<br>
+          バスク地方の名物『チャングーロ』というカニの煮込みです。<br>
+          蟹と蟹味噌の濃厚な味をお楽しみください。」
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="section-card" id="checklist">
+      <div class="section-number">05</div>
+      <h2>ピンチョス提供チェック</h2>
+
+      <ul class="check-list">
+        <li>商品名を正式に伝えられる</li>
+        <li>お二人で召し上がる場合の切り分け案内ができる</li>
+        <li>ナイフ / トングを正しく用意できる</li>
+        <li>食材や味わいを一言で説明できる</li>
+        <li>「最初の一皿におすすめ」と伝えられる</li>
+        <li>ワインや乾杯ドリンクとの相性を伝えられる</li>
+        <li>料理を置くだけでなく、価値が上がる一言を添えられる</li>
+        <li>お客様の反応を見て、次のおすすめにつなげられる</li>
+      </ul>
+    </section>
+
+    <section class="section-card summary-section" id="summary">
+      <div class="section-number">06</div>
+      <h2>ピンチョスは、食事の入口</h2>
+      <div class="text-block">
+        <p>
+          ピンチョスは、SID / BTDの食事の始まりを作る商品です。<br>
+          ひと口サイズだからこそ、最初の一言で印象が変わります。
+        </p>
+        <p>
+          ただ提供するのではなく、<br>
+          食材、食べ方、香り、ワインとの相性を伝えることで、<br>
+          お客様により楽しい時間を届けることができます。
+        </p>
+      </div>
+      <p class="final-copy">料理は、スタッフの一言で価値が上がる。</p>
+    </section>
+
+    <footer class="footer">
+      <a href="#top">ページ上部へ戻る</a>
+    </footer>
+  </main>
+</body>
+</html>
