@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一言サービス タパス編 スタッフ教育資料">
+  <title>一言サービス｜タパス編</title>
+  <style>
+    /* =========================================================
+       Tapas Service / Product Knowledge
+       トップページと同じ白ベースのブランドブック調にそろえています。
+       色や余白を変える場合は、まず下のCSS変数を調整してください。
+       ========================================================= */
+    :root {
+      --color-bg: #fffdf8;
+      --color-bg-soft: #fbf4e8;
+      --color-bg-deep: #efe5d4;
+      --color-card: rgba(255, 255, 255, 0.88);
+      --color-text: #2d2a26;
+      --color-text-strong: #1f1d1a;
+      --color-muted: #6f665c;
+      --color-muted-2: #7a7066;
+      --color-gold: #b89b5e;
+      --color-gold-soft: #d6c28a;
+      --color-gold-deep: #b98b3f;
+      --color-wine: #7b1f1d;
+      --color-wine-deep: #4a1717;
+      --line-gold: rgba(185, 139, 63, 0.24);
+      --line-wine: rgba(123, 31, 29, 0.14);
+      --shadow-card: 0 14px 34px rgba(58, 43, 28, 0.08);
+      --radius-card: 8px;
+      --container: min(100% - 28px, 720px);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 88% 4%, rgba(214, 194, 138, 0.24) 0, rgba(214, 194, 138, 0.00) 30%),
+        radial-gradient(circle at 6% 38%, rgba(123, 31, 29, 0.08) 0, rgba(123, 31, 29, 0.00) 30%),
+        linear-gradient(180deg, #fffdf8 0%, #fbf4e8 44%, #fffdf8 100%);
+      color: var(--color-text);
+      font-family:
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        "YuGothic",
+        "Noto Sans JP",
+        Meiryo,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+      font-size: 15.5px;
+      line-height: 1.85;
+      letter-spacing: 0;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
+    }
+
+    img,
+    object {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    figure,
+    blockquote,
+    dl,
+    dd,
+    ul {
+      margin: 0;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      -webkit-tap-highlight-color: rgba(184, 155, 94, 0.18);
+    }
+
+    .training-page {
+      width: var(--container);
+      margin: 0 auto;
+      padding: 18px 0 42px;
+    }
+
+    .hero,
+    .section-card {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 253, 248, 0.94)),
+        var(--color-bg);
+      box-shadow: var(--shadow-card);
+    }
+
+    .hero::before,
+    .section-card::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 18px;
+      border: 1px solid rgba(184, 155, 94, 0.16);
+      border-radius: 999px;
+      opacity: 0.62;
+      pointer-events: none;
+    }
+
+    .hero::after,
+    .section-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, rgba(184, 155, 94, 0.72), rgba(123, 31, 29, 0.22), transparent);
+      pointer-events: none;
+    }
+
+    .hero {
+      min-height: calc(100svh - 36px);
+      padding: 26px 20px 24px;
+      background:
+        radial-gradient(circle at 82% 14%, rgba(214, 194, 138, 0.25) 0, rgba(214, 194, 138, 0.00) 34%),
+        radial-gradient(circle at 15% 82%, rgba(123, 31, 29, 0.10) 0, rgba(123, 31, 29, 0.00) 34%),
+        linear-gradient(135deg, #fffdf8 0%, #fbf4e8 54%, #efe5d4 100%);
+    }
+
+    .page-label {
+      position: relative;
+      z-index: 1;
+      margin: 6px 0 22px;
+      color: var(--color-wine-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 16px;
+    }
+
+    .series-title {
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      color: var(--color-text-strong);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 14vw, 72px);
+      font-weight: 500;
+      line-height: 1.04;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .hero-copy {
+      color: var(--color-text-strong);
+      font-size: clamp(21px, 6vw, 30px);
+      font-weight: 800;
+      line-height: 1.52;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .hero-image,
+    .dish-image {
+      overflow: hidden;
+      border: 1px solid rgba(184, 155, 94, 0.26);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(135deg, rgba(251, 244, 232, 0.88), rgba(255, 253, 248, 0.88)),
+        var(--color-bg-soft);
+      box-shadow: 0 12px 28px rgba(58, 43, 28, 0.08);
+    }
+
+    .hero-image {
+      aspect-ratio: 16 / 9;
+      margin-top: 4px;
+    }
+
+    .hero-image img,
+    .dish-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-text,
+    .text-block p,
+    .section-lead,
+    .point-card p,
+    .service-box p,
+    .info-list dd,
+    .check-list li,
+    .footer a {
+      color: var(--color-muted);
+      font-size: 15.5px;
+      font-weight: 500;
+      line-height: 1.9;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .toc {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-gold);
+    }
+
+    .toc a {
+      display: grid;
+      min-height: 44px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.72);
+      color: var(--color-text-strong);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.45;
+      text-align: center;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease;
+    }
+
+    .toc a:hover,
+    .toc a:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--color-gold);
+      background: #ffffff;
+      outline: none;
+    }
+
+    .section-card {
+      margin-top: 22px;
+      padding: 30px 20px 26px;
+      scroll-margin-top: 18px;
+    }
+
+    .section-number {
+      display: inline-grid;
+      min-width: 38px;
+      min-height: 34px;
+      margin-bottom: 14px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: 50%;
+      background: rgba(255, 253, 248, 0.78);
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    h2 {
+      color: var(--color-text-strong);
+      font-size: clamp(25px, 7vw, 36px);
+      font-weight: 800;
+      line-height: 1.42;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    h3 {
+      color: var(--color-text-strong);
+      font-size: clamp(17px, 4.7vw, 20px);
+      font-weight: 800;
+      line-height: 1.52;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .text-block {
+      display: grid;
+      gap: 15px;
+      margin-top: 18px;
+    }
+
+    .emphasis {
+      margin-top: 22px;
+      padding: 18px 16px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-left: 4px solid var(--color-gold);
+      border-radius: var(--radius-card);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.22), transparent 38%),
+        linear-gradient(180deg, #fffefa, #fbf4e8);
+      color: var(--color-text-strong);
+      font-size: clamp(18px, 5vw, 22px);
+      font-weight: 800;
+      line-height: 1.72;
+      word-break: normal;
+      overflow-wrap: break-word;
+      box-shadow: 0 12px 26px rgba(58, 43, 28, 0.08);
+    }
+
+    .point-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .point-card {
+      position: relative;
+      padding: 17px 16px 17px 58px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.78);
+      box-shadow: 0 10px 22px rgba(58, 43, 28, 0.06);
+    }
+
+    .point-card.caution-point {
+      border-color: rgba(123, 31, 29, 0.16);
+      background: rgba(123, 31, 29, 0.045);
+    }
+
+    .point-number {
+      position: absolute;
+      top: 17px;
+      left: 16px;
+      display: grid;
+      width: 32px;
+      height: 32px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.42);
+      border-radius: 50%;
+      background: rgba(255, 253, 248, 0.84);
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .caution-point .point-number {
+      color: var(--color-wine);
+      border-color: rgba(123, 31, 29, 0.20);
+    }
+
+    .point-card h3 {
+      margin-bottom: 5px;
+    }
+
+    .caution-point h3 {
+      color: var(--color-wine);
+    }
+
+    .section-lead {
+      margin-top: 12px;
+    }
+
+    .product-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .dish-card {
+      overflow: hidden;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 253, 248, 0.92)),
+        var(--color-card);
+      box-shadow: 0 12px 28px rgba(58, 43, 28, 0.08);
+    }
+
+    .dish-card.caution-card {
+      border-color: rgba(123, 31, 29, 0.18);
+    }
+
+    .dish-image {
+      aspect-ratio: 4 / 3;
+      border-width: 0 0 1px;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .dish-content {
+      display: grid;
+      gap: 12px;
+      padding: 17px 16px 18px;
+    }
+
+    .card-top {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .dish-number {
+      display: grid;
+      min-width: 38px;
+      min-height: 30px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.42);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.84);
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+
+    .tag-list li {
+      padding: 4px 9px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-radius: 999px;
+      background: rgba(251, 244, 232, 0.78);
+      color: var(--color-gold-deep);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .caution-card .tag-list li:first-child {
+      border-color: rgba(123, 31, 29, 0.18);
+      background: rgba(123, 31, 29, 0.045);
+      color: var(--color-wine);
+    }
+
+    .service-box {
+      padding: 14px;
+      border-radius: var(--radius-card);
+    }
+
+    .service-box.required {
+      border: 1px solid rgba(123, 31, 29, 0.15);
+      background: rgba(123, 31, 29, 0.045);
+    }
+
+    .service-box.value {
+      border: 1px solid rgba(184, 155, 94, 0.30);
+      background: rgba(251, 244, 232, 0.74);
+    }
+
+    .service-box .box-label {
+      margin-bottom: 6px;
+      color: var(--color-wine);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .service-box p {
+      word-break: break-all;
+      overflow-wrap: anywhere;
+    }
+
+    .service-box.required p:last-child {
+      color: var(--color-wine-deep);
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .service-box.value p:last-child {
+      color: var(--color-text-strong);
+      font-weight: 700;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 10px;
+      padding-top: 2px;
+    }
+
+    .info-list div {
+      display: grid;
+      gap: 4px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line-gold);
+    }
+
+    .info-list dt {
+      color: var(--color-gold-deep);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .speech-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .speech-list blockquote {
+      position: relative;
+      padding: 16px 16px 16px 19px;
+      border: 1px solid rgba(184, 155, 94, 0.28);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.82);
+      color: var(--color-text);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.9;
+      word-break: normal;
+      overflow-wrap: break-word;
+      box-shadow: 0 10px 22px rgba(58, 43, 28, 0.06);
+    }
+
+    .speech-list blockquote:nth-child(even) {
+      background: rgba(251, 244, 232, 0.72);
+    }
+
+    .speech-list blockquote::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      bottom: 15px;
+      left: -1px;
+      width: 4px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, var(--color-gold), rgba(123, 31, 29, 0.32));
+    }
+
+    .check-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .check-list li {
+      position: relative;
+      min-height: 44px;
+      padding: 13px 13px 13px 45px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.78);
+      color: var(--color-text-strong);
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(58, 43, 28, 0.05);
+    }
+
+    .check-list li::before {
+      content: "";
+      position: absolute;
+      top: 17px;
+      left: 16px;
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--color-gold);
+      border-radius: 4px;
+      background: #fffdf8;
+    }
+
+    .summary-section {
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.22), transparent 36%),
+        linear-gradient(180deg, rgba(255, 253, 248, 0.96), rgba(251, 244, 232, 0.98)),
+        var(--color-bg);
+    }
+
+    .final-copy {
+      margin-top: 22px;
+      padding: 21px 18px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-left: 4px solid var(--color-gold);
+      border-radius: var(--radius-card);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.24), transparent 38%),
+        linear-gradient(180deg, #fffefa, #fbf4e8);
+      box-shadow: 0 14px 30px rgba(58, 43, 28, 0.08);
+      color: var(--color-text-strong);
+      font-size: clamp(20px, 6vw, 26px);
+      font-weight: 800;
+      line-height: 1.62;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .footer {
+      padding: 24px 0 4px;
+      text-align: center;
+    }
+
+    .footer a {
+      display: inline-grid;
+      min-height: 44px;
+      place-items: center;
+      padding: 10px 16px;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.76);
+      color: var(--color-text-strong);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (min-width: 700px) {
+      :root {
+        --container: min(100% - 56px, 760px);
+      }
+
+      body {
+        font-size: 16px;
+      }
+
+      .training-page {
+        padding: 32px 0 58px;
+      }
+
+      .hero {
+        padding: 36px 38px 34px;
+      }
+
+      .section-card {
+        margin-top: 28px;
+        padding: 36px 38px 34px;
+      }
+
+      .hero-text,
+      .text-block p,
+      .section-lead,
+      .point-card p,
+      .service-box p,
+      .info-list dd,
+      .check-list li {
+        font-size: 16px;
+      }
+
+      .point-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .point-card {
+        padding: 58px 16px 18px;
+      }
+
+      .point-number {
+        top: 17px;
+        left: 16px;
+      }
+
+      .product-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 360px) {
+      :root {
+        --container: min(100% - 20px, 720px);
+      }
+
+      .hero,
+      .section-card {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .hero::before,
+      .section-card::before {
+        inset: 15px 12px;
+      }
+
+      .toc {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="training-page">
+    <header class="hero" id="top">
+      <div class="page-label">SID / BTD Staff Training</div>
+      <div class="hero-card">
+        <p class="series-title">一言サービス</p>
+        <h1>タパス編</h1>
+        <p class="hero-copy">前菜は、食事の期待感をつくる。</p>
+        <figure class="hero-image">
+          <img src="images/tapas-charcuterie.jpg" alt="タパスの盛り合わせ">
+        </figure>
+        <p class="hero-text">
+          タパスは、SID / BTDの食事の始まりを楽しくする小皿料理です。<br>
+          乾杯の一杯に合わせたり、ワインのお供として楽しんでいただいたり、<br>
+          お客様の食事時間を豊かにする入口になります。
+        </p>
+      </div>
+
+      <nav class="toc" aria-label="ページ内目次">
+        <a href="#about">タパスとは</a>
+        <a href="#mindset">伝えること</a>
+        <a href="#items">商品別</a>
+        <a href="#talk">基本トーク</a>
+        <a href="#checklist">チェック</a>
+        <a href="#summary">まとめ</a>
+      </nav>
+    </header>
+
+    <section class="section-card" id="about">
+      <div class="section-number">01</div>
+      <h2>タパスとは</h2>
+      <div class="text-block">
+        <p>
+          タパスは、スペインで親しまれている小皿料理です。<br>
+          軽くつまめる冷菜から、揚げ物、温かい料理、ワインに合う一品まで、<br>
+          食事の始まりを楽しくする役割があります。
+        </p>
+        <p>
+          SID / BTDでは、<br>
+          スペインらしさを感じる料理に、<br>
+          イタリアンの食材やDaiらしいアレンジを加えています。
+        </p>
+      </div>
+      <p class="emphasis">タパスは、乾杯から食事の流れをつくる大切なカテゴリーです。</p>
+    </section>
+
+    <section class="section-card" id="mindset">
+      <div class="section-number">02</div>
+      <h2>タパス提供で伝えること</h2>
+      <div class="text-block">
+        <p>
+          タパスをご提供するときは、<br>
+          商品名を伝えるだけでなく、<br>
+          「食べ方」「熱さ」「ソース」「香り」「ワインやビールとの相性」を一言添えます。
+        </p>
+        <p>
+          料理をただ置くだけでは、ブランド体験にはなりません。<br>
+          お客様により商品の価値を感じていただくために、<br>
+          商品知識と一言サービスをセットで届けます。
+        </p>
+        <p>以下の4つを意識してください。</p>
+      </div>
+
+      <div class="point-grid">
+        <article class="point-card">
+          <span class="point-number">1</span>
+          <h3>食べ方を伝える</h3>
+          <p>ソースをつける、混ぜる、温かいうちに食べるなど、楽しみ方を伝える。</p>
+        </article>
+
+        <article class="point-card caution-point">
+          <span class="point-number">2</span>
+          <h3>安全を伝える</h3>
+          <p>鉄板や中が熱い商品は、必ず熱さを伝える。</p>
+        </article>
+
+        <article class="point-card">
+          <span class="point-number">3</span>
+          <h3>価値を伝える</h3>
+          <p>食材、香り、スペインらしさ、Daiらしいアレンジを伝える。</p>
+        </article>
+
+        <article class="point-card">
+          <span class="point-number">4</span>
+          <h3>次の提案につなげる</h3>
+          <p>ワイン、スパークリング、白ワイン、ビールなど、ドリンク提案につなげる。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card products-section" id="items">
+      <div class="section-number">03</div>
+      <h2>商品別 一言サービス</h2>
+      <p class="section-lead">
+        提供時は「商品名」「絶対に言う一言」「価値が上がる一言」「カトラリー」「補足情報」をセットで確認します。
+      </p>
+
+      <div class="product-list">
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/tapas-charcuterie.jpg" alt="シャルキュトリー盛り合わせ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">01</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>冷菜</li>
+                <li>ワイン</li>
+              </ul>
+            </div>
+            <h3>シャルキュトリー盛り合わせ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「生ハムはハモンセラーノ、サラミはイベリコチョリソー、ポルケッタ、鶏白レバーのパテでございます。グリーンマスタードとマスタードピクルスをつけてお召し上がりください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「それぞれ味わいが違うので、ワインと合わせながら少しずつ楽しんでいただけます。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>ナイフ</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>ポルケッタは、イタリア語で豚の丸焼き。<br>自家製のローストポークを使用。<br>鶏白レバーのパテは、なめらかな口当たりと濃厚なコクが特徴で、ワインとの相性が良い商品。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/tapas-carrot-rape.jpg" alt="ドンキのキャロットラペ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">02</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>冷菜</li>
+                <li>白ワイン</li>
+              </ul>
+            </div>
+            <h3>ドンキのキャロットラペ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「スペイン風の人参サラダ“ドンキのキャロットラペ”です。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「オレンジの香りを加えているので、爽やかで食欲をそそる冷菜です。白ワインやスパークリングワインとの相性も抜群です。『ドンキ・ホーテ』というスペインの冒険小説に出てくるレシピを再現しています。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>必要に応じてフォーク</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>人参、オレンジ、レモン、オレンジ皮、にんにく、はちみつ、白ワインビネガー、ブレンドオイルを使用。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/tapas-chickpea-frit.jpg" alt="ひよこ豆のフリット">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">03</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>揚げ物</li>
+                <li>温かいうち</li>
+              </ul>
+            </div>
+            <h3>ひよこ豆のフリット</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「ぜひ温かいうちにお召し上がりください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「滑らかに裏漉ししたひよこ豆を冷やし固めてサクッと揚げました。外はサクッと、中はトロッとした仕上がりになっています。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>ピンチョ</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>ひよこ豆ペースト、バター、パルメザンチーズ、クミンパウダーを使用。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/tapas-pollo-fritto.jpg" alt="シチリア風鶏もも肉の唐揚げ ポッロフリット">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">04</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>揚げ物</li>
+                <li>レモン</li>
+              </ul>
+            </div>
+            <h3>シチリア風鶏もも肉の唐揚げ ポッロフリット</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「シチリア風鶏の唐揚げのポッロフリットです。お好みでレモンをつけてお召し上がりください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「レモンとローズマリーでマリネした鶏もも肉を、チーズを加えた衣でさっくり揚げた、イタリア・シチリアの鶏の唐揚げです。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>必要に応じてトング</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>鶏もも肉2ピース。<br>マリネ液は、玉ねぎ、ブレンドオイル、にんにく、ローズマリー、レモン、グラニュー糖、バター、ミルク、塩。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/tapas-gorgonzola-potato.jpg" alt="ゴルゴンゾーラポテトサラダ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">05</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>冷菜</li>
+                <li>チーズ</li>
+              </ul>
+            </div>
+            <h3>ゴルゴンゾーラポテトサラダ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「ゴルゴンゾーラの香りを楽しんでいただく、大人のポテトサラダです。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「ゴルゴンゾーラの香りとコクを効かせた、ワインにもよく合うポテトサラダです。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>デザートスプーン</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>チーズの香りが特徴なので、ワイン提案につなげやすい商品。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card caution-card">
+          <figure class="dish-image">
+            <img src="images/tapas-truffle-croquette.jpg" alt="トリュフクロケッタ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">06</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>熱注意</li>
+                <li>ワイン</li>
+              </ul>
+            </div>
+            <h3>トリュフクロケッタ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「中が熱々で、トリュフの香りを楽しんでいただくクロケッタです。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「ベシャメルのなめらかさとトリュフの香りがしっかり広がる、ワインにも合う一品です。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>ナイフ</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>中が熱いので、提供時は熱さの注意も伝える。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/tapas-fried-potato.jpg" alt="フライドポテト アンチョビアリオリ＆ブラバスソース">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">07</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>ソース</li>
+                <li>ビール</li>
+              </ul>
+            </div>
+            <h3>フライドポテト アンチョビアリオリ＆ブラバスソース</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「ブラバスという辛いソースとアンチョビアリオリソースをつけてお召し上がりください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「ピリ辛トマトソースのブラバスと、アンチョビが効いたアリオリソースをつけてお召し上がりください。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>必要に応じてトング</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>アリオリソース、ブラバスソース、またはケチャップで楽しむ商品。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/tapas-liver-pate.jpg" alt="白レバーのブリュレパテ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">08</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>ワイン</li>
+                <li>追加案内</li>
+              </ul>
+            </div>
+            <h3>白レバーのブリュレパテ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「メルバトーストは1枚から追加注文いただけます。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「表面のカラメルを割って、マルサラに漬け込んだレーズンと一緒にメルバトーストに塗ってお召し上がりください。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>デザートスプーン / スープスプーン</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>白レバー、ソフリット、バター、生クリーム、マルサラレーズンを使用。<br>ソフリットは香味野菜を炒めたもの。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/tapas-calamari-frit.jpg" alt="カラマリフリット">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">09</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>揚げ物</li>
+                <li>ビール</li>
+              </ul>
+            </div>
+            <h3>カラマリフリット</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「お好みで、タルタルソース、レモンをつけてお召し上がりください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「衣はサクッと、中はふっくら柔らかく揚げています。レモンを絞るとさらに香りが立って、ビールにもぴったりです。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>必要に応じてトング</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>ヤリイカ、フリットベース、ガーリックパウダー、ケイジャンシーズニングを使用。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/tapas-estrellados.jpg" alt="エストレジャドス">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">10</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>混ぜる</li>
+                <li>温菜</li>
+              </ul>
+            </div>
+            <h3>エストレジャドス</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「お好みで卵を崩して、全体を混ぜながらお召し上がりください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「“エストレジャドス”は、スペインの定番卵料理で、ポテトフライと卵を一緒に焼き上げた、ボリュームのある一皿です。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>トング</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>シューストポテトフライ、半熟目玉焼き、ピカティージョを使用。<br>ピカティージョは、スペイン語で細かく刻むという意味。<br>豚ひき肉、ニンニク、オレガノ、白ワイン、ピメントンを使用。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card caution-card">
+          <figure class="dish-image">
+            <img src="images/tapas-callos.jpg" alt="カジョス ハチノスのマドリッド風煮込み">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">11</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>熱注意</li>
+                <li>煮込み</li>
+              </ul>
+            </div>
+            <h3>カジョス ハチノスのマドリッド風煮込み</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「鉄板がお熱いのでお気をつけください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「ハチノスや豚足などコラーゲンたっぷりの食材を使っているので、美容効果もあります。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>必要に応じてスプーン</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>ハチノス、豚トロ、豚足、イベリコチョリソー、ひよこ豆、玉ねぎ、トマト、白ワインを使用。<br>ハチノスは牛の第2胃袋。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/tapas-cheese.jpg" alt="拘りチーズの盛り合わせ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">12</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>チーズ</li>
+                <li>ワイン</li>
+              </ul>
+            </div>
+            <h3>拘りチーズの盛り合わせ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「イタリアのグラナパダーノ、ゴルゴンゾーラ、フランスのブリー、スペインのマンチェゴでございます。マルサラで漬け込んだレーズンとイチジクと一緒にお召し上がりください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「国ごとに味わいの違うチーズを楽しめる盛り合わせです。ワインと合わせて少しずつお楽しみください。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>必要に応じてナイフ</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>グラナパダーノ、ゴルゴンゾーラ、ブリー、マンチェゴを使用。<br>マルサラで漬け込んだレーズンとイチジクを添える。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card caution-card">
+          <figure class="dish-image">
+            <img src="images/tapas-mushroom-oven.jpg" alt="マッシュルームのオーブン焼き">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">13</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>熱注意</li>
+                <li>スペイン</li>
+              </ul>
+            </div>
+            <h3>マッシュルームのオーブン焼き</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「鉄板が大変熱いのでお気をつけてください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「マッシュルームのくぼみに生ハムとイタリアンパセリ、マッシュルームを細かく刻んだものを詰めています。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>ピンチョ</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>熱い鉄板で提供するため、必ず熱さを伝える。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card caution-card">
+          <figure class="dish-image">
+            <img src="images/tapas-tortilla.jpg" alt="焼きたて！熱々！トルティージャ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">14</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>熱注意</li>
+                <li>ソース</li>
+              </ul>
+            </div>
+            <h3>焼きたて！熱々！トルティージャ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「アンチョビを効かせたアリオリソースをのばしてお召し上がりください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「スペイン風のオムレツで、オーダーをいただいてからふわっと半熟に焼き上げています。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>ナイフ</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>卵2個、玉ねぎ、じゃがいもを使用。<br>熱々の商品なので、提供時は温度感も伝える。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card" id="talk">
+      <div class="section-number">04</div>
+      <h2>提供時は、置くだけで終わらせない</h2>
+      <div class="text-block">
+        <p>
+          タパスは、乾杯から食事の流れを作る商品です。<br>
+          提供時の一言で、お客様の期待感が上がります。
+        </p>
+      </div>
+
+      <div class="speech-list">
+        <blockquote>
+          「こちら、ドンキのキャロットラペです。<br>
+          オレンジの香りを加えているので、爽やかで食欲をそそる冷菜です。<br>
+          白ワインやスパークリングとも相性が良いです。」
+        </blockquote>
+
+        <blockquote>
+          「こちら、トリュフクロケッタです。<br>
+          中が熱々で、トリュフの香りを楽しんでいただくクロケッタです。<br>
+          ワインにも合う一品です。」
+        </blockquote>
+
+        <blockquote>
+          「こちら、マッシュルームのオーブン焼きです。<br>
+          鉄板が大変熱いのでお気をつけください。<br>
+          マッシュルームのくぼみに生ハムとイタリアンパセリを詰めています。」
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="section-card" id="checklist">
+      <div class="section-number">05</div>
+      <h2>タパス提供チェック</h2>
+
+      <ul class="check-list">
+        <li>商品名を正式に伝えられる</li>
+        <li>熱い商品は必ず熱さを伝えられる</li>
+        <li>ソースや食べ方の案内ができる</li>
+        <li>必要なカトラリーを正しく用意できる</li>
+        <li>食材や味わいを一言で説明できる</li>
+        <li>ワイン、スパークリング、ビールとの相性を伝えられる</li>
+        <li>料理を置くだけでなく、価値が上がる一言を添えられる</li>
+        <li>お客様の反応を見て、次のおすすめにつなげられる</li>
+      </ul>
+    </section>
+
+    <section class="section-card summary-section" id="summary">
+      <div class="section-number">06</div>
+      <h2>タパスは、食事の流れをつくる</h2>
+      <div class="text-block">
+        <p>
+          タパスは、SID / BTDの食事の始まりを楽しくする商品です。<br>
+          冷菜、揚げ物、温かい料理、ワインに合う一皿まで、<br>
+          お客様の乾杯から食事の流れを作る役割があります。
+        </p>
+        <p>
+          ただ提供するのではなく、<br>
+          食べ方、熱さ、香り、ソース、ワインとの相性を伝えることで、<br>
+          お客様により楽しい時間を届けることができます。
+        </p>
+      </div>
+      <p class="final-copy">タパスは、最初の一言で食事の満足度が変わる。</p>
+    </section>
+
+    <footer class="footer">
+      <a href="#top">ページ上部へ戻る</a>
+    </footer>
+  </main>
+</body>
+</html>
