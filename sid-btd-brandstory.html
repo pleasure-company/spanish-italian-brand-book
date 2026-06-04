@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="SID / BTD ブランドストーリー スタッフ教育資料">
+  <title>SID / BTD ブランドストーリー</title>
+  <style>
+    /* =========================================================
+       SID / BTD Brand Story
+       このHTMLだけで表示できるように、CSSを同じファイル内にまとめています。
+       色や余白を変えたい場合は、まず下のCSS変数を調整してください。
+       ========================================================= */
+    :root {
+      --color-bg: #fffdf8;
+      --color-bg-soft: #fbf4e8;
+      --color-bg-deep: #efe5d4;
+      --color-card: rgba(255, 255, 255, 0.88);
+      --color-text: #2d2a26;
+      --color-text-strong: #1f1d1a;
+      --color-muted: #6f665c;
+      --color-muted-2: #7a7066;
+      --color-gold: #b89b5e;
+      --color-gold-soft: #d6c28a;
+      --color-gold-deep: #b98b3f;
+      --color-wine: #7b1f1d;
+      --color-wine-deep: #4a1717;
+      --line-gold: rgba(185, 139, 63, 0.24);
+      --line-wine: rgba(123, 31, 29, 0.14);
+      --shadow-soft: 0 18px 54px rgba(67, 48, 25, 0.10);
+      --shadow-card: 0 14px 34px rgba(58, 43, 28, 0.08);
+      --radius-card: 8px;
+      --container: min(100% - 28px, 620px);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 90% 4%, rgba(214, 194, 138, 0.24) 0, rgba(214, 194, 138, 0.00) 28%),
+        radial-gradient(circle at 5% 42%, rgba(123, 31, 29, 0.08) 0, rgba(123, 31, 29, 0.00) 30%),
+        linear-gradient(180deg, #fffdf8 0%, #fbf4e8 42%, #fffdf8 100%);
+      color: var(--color-text);
+      font-family:
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        "YuGothic",
+        "Noto Sans JP",
+        Meiryo,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+      font-size: 15.5px;
+      line-height: 1.85;
+      letter-spacing: 0;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    blockquote {
+      margin: 0;
+    }
+
+    img,
+    svg,
+    canvas,
+    video {
+      max-width: 100%;
+    }
+
+    .phone-book {
+      width: var(--container);
+      margin: 0 auto;
+      padding: 18px 0 38px;
+    }
+
+    .page {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      min-height: calc(100svh - 36px);
+      flex-direction: column;
+      margin: 0 0 22px;
+      padding: 26px 21px 30px;
+      overflow: hidden;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 253, 248, 0.94)),
+        var(--color-bg);
+      box-shadow: var(--shadow-card);
+      scroll-snap-align: start;
+    }
+
+    .page::before,
+    .page::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .page::before {
+      inset: 18px;
+      border: 1px solid rgba(184, 155, 94, 0.16);
+      border-radius: 999px;
+      opacity: 0.62;
+    }
+
+    .page::after {
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, rgba(184, 155, 94, 0.72), rgba(123, 31, 29, 0.22), transparent);
+    }
+
+    .page-number {
+      align-self: flex-end;
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      line-height: 1;
+    }
+
+    .page-kicker {
+      width: fit-content;
+      max-width: 100%;
+      margin: 24px 0 10px;
+      color: var(--color-wine);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      word-break: keep-all;
+    }
+
+    h1 {
+      color: var(--color-text-strong);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 12vw, 60px);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    h2 {
+      color: var(--color-text-strong);
+      font-size: clamp(24px, 7vw, 34px);
+      font-weight: 700;
+      line-height: 1.45;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    h3 {
+      color: var(--color-text-strong);
+      font-size: clamp(16px, 4.5vw, 18px);
+      font-weight: 700;
+      line-height: 1.55;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .copy-block {
+      display: grid;
+      gap: 15px;
+      margin-top: 22px;
+    }
+
+    .copy-block p,
+    .product-card p,
+    .value-item p,
+    .shop-panel p,
+    .step-item p,
+    .closing-word {
+      color: var(--color-muted);
+      font-size: 15.5px;
+      font-weight: 500;
+      line-height: 1.9;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .accent,
+    .quote-line {
+      color: var(--color-wine);
+      font-weight: 800;
+    }
+
+    .quote-line {
+      display: inline-block;
+      max-width: 100%;
+      margin: 4px 0;
+      padding: 4px 10px;
+      border: 1px solid rgba(123, 31, 29, 0.14);
+      border-radius: 999px;
+      background: rgba(123, 31, 29, 0.05);
+    }
+
+    /* 表紙ページ */
+    .cover-page {
+      min-height: calc(100svh - 36px);
+      justify-content: center;
+      background:
+        radial-gradient(circle at 82% 14%, rgba(214, 194, 138, 0.28) 0, rgba(214, 194, 138, 0.00) 34%),
+        radial-gradient(circle at 15% 82%, rgba(123, 31, 29, 0.10) 0, rgba(123, 31, 29, 0.00) 34%),
+        linear-gradient(135deg, #fffdf8 0%, #fbf4e8 54%, #efe5d4 100%);
+    }
+
+    .cover-page::before {
+      inset: 28px 18px;
+      border-color: rgba(184, 155, 94, 0.22);
+      opacity: 0.78;
+    }
+
+    .cover-page::after {
+      top: auto;
+      right: 22px;
+      bottom: 34px;
+      left: 22px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(184, 155, 94, 0.58), transparent);
+    }
+
+    .cover-content {
+      display: grid;
+      gap: 18px;
+      padding: 46px 0 56px;
+      text-align: center;
+    }
+
+    .cover-content > * {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .cover-content h1 span {
+      display: block;
+    }
+
+    .brand-name {
+      color: var(--color-wine-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(14px, 4vw, 18px);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      line-height: 1.4;
+    }
+
+    .hero-copy {
+      width: min(100%, 15em);
+      margin: 0 auto;
+      color: var(--color-text-strong);
+      font-size: clamp(20px, 6vw, 28px);
+      font-weight: 700;
+      line-height: 1.62;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .staff-copy {
+      width: fit-content;
+      max-width: 100%;
+      min-height: 44px;
+      margin: 8px auto 0;
+      padding: 13px 16px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.74);
+      color: var(--color-muted);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.75;
+      box-shadow: 0 12px 24px rgba(55, 39, 21, 0.06);
+    }
+
+    .value-list,
+    .shop-list,
+    .product-list,
+    .speech-list,
+    .step-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .value-list > *,
+    .shop-list > *,
+    .product-list > *,
+    .speech-list > *,
+    .step-list > * {
+      min-width: 0;
+    }
+
+    .value-item,
+    .step-item {
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr);
+      gap: 12px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line-gold);
+    }
+
+    .value-item:last-child,
+    .step-item:last-child {
+      border-bottom: 0;
+    }
+
+    .value-number,
+    .step-number {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.42);
+      border-radius: 50%;
+      background: rgba(255, 253, 248, 0.78);
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .value-item h3,
+    .step-item h3 {
+      margin-bottom: 4px;
+      color: var(--color-text-strong);
+    }
+
+    .shop-panel,
+    .product-card {
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.90), rgba(255, 253, 248, 0.88)),
+        var(--color-card);
+      box-shadow: 0 10px 24px rgba(58, 43, 28, 0.07);
+    }
+
+    .shop-panel {
+      display: grid;
+      gap: 10px;
+      padding: 18px 16px;
+    }
+
+    .shop-panel h3 {
+      width: fit-content;
+      min-width: 62px;
+      padding: 4px 12px;
+      border: 1px solid rgba(184, 155, 94, 0.40);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.70);
+      color: var(--color-wine);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    .btd-panel h3 {
+      color: var(--color-gold-deep);
+    }
+
+    .product-card {
+      padding: 16px;
+    }
+
+    .product-role {
+      display: inline-flex;
+      width: fit-content;
+      max-width: 100%;
+      margin-bottom: 8px;
+      padding: 4px 10px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-radius: 999px;
+      background: rgba(251, 244, 232, 0.78);
+      color: var(--color-gold-deep);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .product-card h3 {
+      margin-bottom: 8px;
+      color: var(--color-text-strong);
+      font-size: 17px;
+    }
+
+    .sub-heading {
+      margin-top: 26px;
+      color: var(--color-wine);
+      font-size: 17px;
+    }
+
+    .speech-bubble {
+      position: relative;
+      padding: 15px 16px 15px 18px;
+      border: 1px solid rgba(184, 155, 94, 0.26);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.82);
+      color: var(--color-text);
+      font-size: 14.5px;
+      font-weight: 600;
+      line-height: 1.9;
+      word-break: normal;
+      overflow-wrap: break-word;
+      box-shadow: 0 10px 22px rgba(58, 43, 28, 0.06);
+    }
+
+    .speech-bubble:nth-child(even) {
+      background: rgba(251, 244, 232, 0.72);
+    }
+
+    .speech-bubble::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      bottom: 15px;
+      left: -1px;
+      width: 4px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, var(--color-gold), rgba(123, 31, 29, 0.32));
+    }
+
+    .remember-card,
+    .final-message {
+      margin-top: 22px;
+      padding: 20px 18px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-radius: var(--radius-card);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.24), transparent 38%),
+        linear-gradient(180deg, #fffefa, #fbf4e8);
+      box-shadow: 0 14px 30px rgba(58, 43, 28, 0.08);
+    }
+
+    .remember-card p,
+    .final-message p {
+      color: var(--color-text-strong);
+      font-size: clamp(18px, 5vw, 22px);
+      font-weight: 800;
+      line-height: 1.75;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .small-quote {
+      width: fit-content;
+      max-width: 100%;
+      padding: 6px 10px;
+      border: 1px solid rgba(123, 31, 29, 0.14);
+      border-radius: var(--radius-card);
+      background: rgba(123, 31, 29, 0.05);
+      color: var(--color-wine);
+      font-weight: 800;
+    }
+
+    .final-page {
+      justify-content: center;
+    }
+
+    .final-message {
+      border-left: 4px solid var(--color-gold);
+    }
+
+    .closing-word {
+      margin-top: 14px;
+      color: var(--color-text-strong);
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    @media (min-width: 700px) {
+      :root {
+        --container: min(100% - 56px, 680px);
+      }
+
+      body {
+        font-size: 16px;
+      }
+
+      .phone-book {
+        padding: 32px 0 58px;
+      }
+
+      .page {
+        min-height: 760px;
+        margin-bottom: 28px;
+        padding: 36px 38px 42px;
+      }
+
+      .copy-block p,
+      .product-card p,
+      .value-item p,
+      .shop-panel p,
+      .step-item p {
+        font-size: 16px;
+      }
+
+      .product-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 360px) {
+      :root {
+        --container: min(100% - 20px, 620px);
+      }
+
+      .page {
+        padding: 24px 17px 28px;
+      }
+
+      .page::before {
+        inset: 15px 12px;
+      }
+
+      .cover-content {
+        padding: 42px 0 50px;
+      }
+
+      .speech-bubble {
+        padding-right: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="phone-book" aria-label="SID / BTD ブランドストーリー">
+    <section class="page cover-page" id="page-1">
+      <div class="page-number">01 / 11</div>
+      <div class="cover-content">
+        <p class="brand-name">SID / BTD</p>
+        <h1><span>ブランド</span><span>ストーリー</span></h1>
+        <p class="hero-copy">季節を感じるスペイン・イタリア料理と、ワインを楽しむ時間を届ける。</p>
+        <p class="staff-copy">従業員が覚える、<br>SID / BTDのブランドの考え方</p>
+      </div>
+    </section>
+
+    <section class="page" id="page-2">
+      <div class="page-number">02 / 11</div>
+      <p class="page-kicker">一言でいうと</p>
+      <h2>私たちは、料理を出すだけのお店ではありません。</h2>
+
+      <div class="copy-block">
+        <p><span class="accent">SID / BTD</span>は、<br>季節のおすすめ料理を入口に、<br>スペイン・イタリア料理とワインを通して、<br>お客様の食事時間を豊かにするレストランです。</p>
+        <p>ピンチョス、タパス、アヒージョ、パエリア、パスタ、グリル、デザート。</p>
+        <p>食事の始まりから最後まで、<br>お客様に楽しい時間を届けることが、私たちの仕事です。</p>
+      </div>
+    </section>
+
+    <section class="page" id="page-3">
+      <div class="page-number">03 / 11</div>
+      <p class="page-kicker">コンセプト</p>
+      <h2>季節を感じるスペイン・イタリア料理と、ワインを楽しむ時間を届ける。</h2>
+
+      <div class="copy-block">
+        <p>スパニッシュイタリアン Dai / ブリランテタヴォラ Dai は、<br>スペイン料理を軸に、イタリアンの楽しさも取り入れた、<br>ワインと料理を楽しむレストランです。</p>
+        <p>私たちが大切にしているのは、<br>グランドメニューだけではなく、<br>その時期においしい旬の食材を使った<br>季節メニューをお客様におすすめすることです。</p>
+        <p>ひと口で楽しめるピンチョス、<br>ワインやビールに合うタパス、<br>オリーブオイルとニンニクの香りが広がるアヒージョ、<br>鶏と魚介の旨みを生米から炊き上げる本格パエリア。</p>
+        <p>そこに、生麺パスタやグリル料理、季節ごとのおすすめ料理を組み合わせることで、<br>何度来ても新しい楽しさを感じていただけるお店を目指しています。</p>
+      </div>
+    </section>
+
+    <section class="page" id="page-4">
+      <div class="page-number">04 / 11</div>
+      <p class="page-kicker">2店舗共通で大切にする価値</p>
+      <h2>SID / BTDで大切にする価値</h2>
+
+      <div class="value-list">
+        <article class="value-item">
+          <span class="value-number">1.</span>
+          <div>
+            <h3>季節感</h3>
+            <p>グランドメニューだけでなく、<br>旬の食材を使った季節メニューをおすすめする。</p>
+          </div>
+        </article>
+
+        <article class="value-item">
+          <span class="value-number">2.</span>
+          <div>
+            <h3>スペイン料理らしさ</h3>
+            <p>ピンチョス、タパス、アヒージョ、パエリアを中心に楽しんでいただく。</p>
+          </div>
+        </article>
+
+        <article class="value-item">
+          <span class="value-number">3.</span>
+          <div>
+            <h3>イタリアンの楽しさ</h3>
+            <p>生麺パスタやグリル料理など、<br>食事としての満足感も届ける。</p>
+          </div>
+        </article>
+
+        <article class="value-item">
+          <span class="value-number">4.</span>
+          <div>
+            <h3>ワインとの相性</h3>
+            <p>料理とワイン・ドリンクの組み合わせを提案する。</p>
+          </div>
+        </article>
+
+        <article class="value-item">
+          <span class="value-number">5.</span>
+          <div>
+            <h3>食事の流れ</h3>
+            <p>乾杯から前菜、メイン、デザートまで、<br>最後まで楽しめる時間をつくる。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="page-5">
+      <div class="page-number">05 / 11</div>
+      <p class="page-kicker">SIDとBTDの違い</p>
+      <h2>2店舗の違い</h2>
+
+      <div class="copy-block">
+        <p>ベースのブランドコンセプトは共通です。</p>
+      </div>
+
+      <div class="shop-list">
+        <article class="shop-panel sid-panel">
+          <h3>SID</h3>
+          <p>普段使いから特別な日まで、<br>気軽に季節メニュー・ピンチョス・タパス・パエリア・ワインを楽しめるレストラン。</p>
+        </article>
+
+        <article class="shop-panel btd-panel">
+          <h3>BTD</h3>
+          <p>ベースはSIDと同じです。</p>
+          <p>ただし、ブリランテタヴォラ Dai 勝どき店は、<br>よりアッパーな利用シーンにも対応できるよう、<br>高単価ワインや裏メニューのワイン提案も含めて、<br>少し上質な食事時間を演出する店舗です。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="page-6">
+      <div class="page-number">06 / 11</div>
+      <p class="page-kicker">まずおすすめするもの</p>
+      <h2>おすすめは、まず季節メニューから。</h2>
+
+      <div class="copy-block">
+        <p>グランドメニューはお店の土台です。</p>
+        <p>でも、お客様へ最初におすすめするのは、<br>その時期だけの季節メニューです。</p>
+        <p>季節メニューには、<br><span class="quote-line">「今しか食べられない価値」</span><br>があります。</p>
+        <p>お客様に来店するたびの楽しみを感じていただくために、<br>まずは季節のおすすめから食事を始めていただくことが大切です。</p>
+        <p>そのうえで、<br>ピンチョス、タパス、アヒージョ、パエリア、パスタ、ワインを、<br>お客様の利用シーンに合わせて提案します。</p>
+      </div>
+    </section>
+
+    <section class="page" id="page-7">
+      <div class="page-number">07 / 11</div>
+      <p class="page-kicker">売りの商品とブランド上の役割</p>
+      <h2>売りの商品とブランド上の役割</h2>
+
+      <div class="product-list">
+        <article class="product-card">
+          <p class="product-role">食事の入口</p>
+          <h3>生ハムと発酵バターのブリオッシュピンチョス</h3>
+          <p>スペインらしいピンチョス体験。<br>ワインとの相性を感じていただく入口の商品。</p>
+        </article>
+
+        <article class="product-card">
+          <p class="product-role">ワインのお供</p>
+          <h3>白レバーのブリュレパテ</h3>
+          <p>提供が早く、ワイン提案につなげやすい商品。</p>
+        </article>
+
+        <article class="product-card">
+          <p class="product-role">温かいタパス</p>
+          <h3>マッシュルームのオーブン焼き</h3>
+          <p>スペイン郷土料理の本格感を伝えられる商品。</p>
+        </article>
+
+        <article class="product-card">
+          <p class="product-role">看板料理</p>
+          <h3>赤海老とマッシュルームのアヒージョ</h3>
+          <p>海老の旨みを、バケットと一緒に最後まで楽しめる商品。</p>
+        </article>
+
+        <article class="product-card">
+          <p class="product-role">グリル</p>
+          <h3>黒毛和牛のグリル　マッシュルームのコンディモン</h3>
+          <p>食事の後半に満足感と特別感をつくるメイン料理。<br>黒毛和牛の旨みを楽しんでいただきながら、ワインとの相性も提案しやすい商品。</p>
+        </article>
+
+        <article class="product-card">
+          <p class="product-role">食事の中心</p>
+          <h3>ミクスタパエリア</h3>
+          <p>鶏と魚介の旨みを、生米から炊き上げるメイン料理。</p>
+        </article>
+
+        <article class="product-card">
+          <p class="product-role">定番人気</p>
+          <h3>茄子とモッツァレラのトマトソース</h3>
+          <p>10年前から出数No.1の、安心感ある人気パスタ。</p>
+        </article>
+
+        <article class="product-card">
+          <p class="product-role">食後</p>
+          <h3>バスクチーズケーキ</h3>
+          <p>スペイン・サンセバスチャン発祥の、締めの魅力。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="page-8">
+      <div class="page-number">08 / 11</div>
+      <p class="page-kicker">ファーストタッチ</p>
+      <h2>最初の声かけで、ブランド体験が決まる。</h2>
+
+      <div class="copy-block">
+        <p>お客様に最初に伝えるのは、<br>季節のおすすめメニューがあることと、<br>当店がどんなレストランなのかです。</p>
+      </div>
+
+      <h3 class="sub-heading">ファーストタッチ例</h3>
+
+      <div class="speech-list">
+        <blockquote class="speech-bubble">「本日はご来店ありがとうございます。<br>こちらが季節のおすすめメニューとグランドメニューでございます。<br>当店のご利用は初めてでいらっしゃいますか？」</blockquote>
+
+        <blockquote class="speech-bubble">「ありがとうございます。<br>当店は、スペイン・イタリア料理を中心に、<br>季節の食材を使った料理とワインを楽しんでいただけるレストランでございます。」</blockquote>
+
+        <blockquote class="speech-bubble">「季節のメニューで特におすすめが旬魚のカルパッチョと季節のフルーツのカプレーゼです。<br>一品目でおすすめなのでぜひお召し上がりください。」</blockquote>
+
+        <blockquote class="speech-bubble">「グランドメニューでしたら、<br>ピンチョスやタパス、アヒージョを楽しんでいただいて、<br>メインにパエリアやパスタを選んでいただくのがおすすめです。」</blockquote>
+
+        <blockquote class="speech-bubble">「ワインはボトルのほかに、量り売りでもご用意しております。<br>少量からお楽しみいただけますので、<br>お料理に合わせていろいろお試しいただけます。」</blockquote>
+      </div>
+    </section>
+
+    <section class="page" id="page-9">
+      <div class="page-number">09 / 11</div>
+      <p class="page-kicker">おすすめの流れ</p>
+      <h2>おすすめの流れ</h2>
+
+      <div class="copy-block">
+        <p>お客様には、食事の流れをイメージして提案します。</p>
+      </div>
+
+      <div class="step-list">
+        <article class="step-item">
+          <span class="step-number">1</span>
+          <div>
+            <h3>季節メニュー</h3>
+            <p>まずは、今しか食べられないおすすめ料理から。</p>
+          </div>
+        </article>
+
+        <article class="step-item">
+          <span class="step-number">2</span>
+          <div>
+            <h3>ピンチョス・タパス</h3>
+            <p>乾杯に合わせて、少しずつ楽しめる料理を提案。</p>
+          </div>
+        </article>
+
+        <article class="step-item">
+          <span class="step-number">3</span>
+          <div>
+            <h3>アヒージョ</h3>
+            <p>温かい料理として、バケットと一緒に楽しんでいただく。</p>
+          </div>
+        </article>
+
+        <article class="step-item">
+          <span class="step-number">4</span>
+          <div>
+            <h3>パエリア or パスタ</h3>
+            <p>食事の中心になる料理を提案。</p>
+          </div>
+        </article>
+
+        <article class="step-item">
+          <span class="step-number">5</span>
+          <div>
+            <h3>ワイン・デザート</h3>
+            <p>料理に合わせたワインや、食後のデザートまで楽しんでいただく。</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="page-10">
+      <div class="page-number">10 / 11</div>
+      <p class="page-kicker">スタッフに覚えてほしい一言</p>
+      <h2>スタッフに覚えてほしい一言</h2>
+
+      <div class="copy-block">
+        <p>SID / BTDでまず覚えてほしい言葉は、こちらです。</p>
+      </div>
+
+      <div class="remember-card">
+        <p>季節を感じるスペイン・イタリア料理と、ワインを楽しむ時間を届けるレストランです。</p>
+      </div>
+
+      <div class="copy-block">
+        <p>迷ったら、この一言に戻ります。</p>
+        <p>料理説明も、<br>ワイン提案も、<br>季節メニューのおすすめも、<br>すべてこの言葉につながっています。</p>
+      </div>
+    </section>
+
+    <section class="page final-page" id="page-11">
+      <div class="page-number">11 / 11</div>
+      <p class="page-kicker">まとめ</p>
+      <h2>まとめ</h2>
+
+      <div class="copy-block">
+        <p>SID / BTDのブランドは、単に</p>
+        <p class="small-quote">「スペイン料理とイタリアンがあるお店」</p>
+        <p>ではありません。</p>
+        <p>より正しくは、</p>
+      </div>
+
+      <div class="final-message">
+        <p>季節のおすすめ料理を入口に、<br>ピンチョス・タパス・アヒージョ・パエリア・生麺パスタ・ワインを楽しみ、<br>食事の始まりから最後まで豊かな時間を届けるレストラン</p>
+      </div>
+
+      <p class="closing-word">です。</p>
+    </section>
+  </main>
+</body>
+</html>
