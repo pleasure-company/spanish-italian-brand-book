@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一言サービス デザート編 スタッフ教育資料">
+  <title>一言サービス｜デザート編</title>
+  <style>
+    /* =========================================================
+       Dessert Service / Product Knowledge
+       トップページ、ピンチョス、タパスと同じブランドブック調です。
+       ========================================================= */
+    :root {
+      --color-bg: #fffdf8;
+      --color-bg-soft: #fbf4e8;
+      --color-card: rgba(255, 255, 255, 0.88);
+      --color-text: #2d2a26;
+      --color-text-strong: #1f1d1a;
+      --color-muted: #6f665c;
+      --color-gold: #b89b5e;
+      --color-gold-deep: #b98b3f;
+      --color-wine: #7b1f1d;
+      --color-wine-deep: #4a1717;
+      --line-gold: rgba(185, 139, 63, 0.24);
+      --shadow-card: 0 14px 34px rgba(58, 43, 28, 0.08);
+      --radius-card: 8px;
+      --container: min(100% - 28px, 720px);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 88% 4%, rgba(214, 194, 138, 0.24) 0, rgba(214, 194, 138, 0.00) 30%),
+        radial-gradient(circle at 6% 38%, rgba(123, 31, 29, 0.08) 0, rgba(123, 31, 29, 0.00) 30%),
+        linear-gradient(180deg, #fffdf8 0%, #fbf4e8 44%, #fffdf8 100%);
+      color: var(--color-text);
+      font-family:
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        "YuGothic",
+        "Noto Sans JP",
+        Meiryo,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+      font-size: 15.5px;
+      line-height: 1.85;
+      letter-spacing: 0;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    figure,
+    blockquote,
+    dl,
+    dd,
+    ul {
+      margin: 0;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      -webkit-tap-highlight-color: rgba(184, 155, 94, 0.18);
+    }
+
+    .training-page {
+      width: var(--container);
+      margin: 0 auto;
+      padding: 18px 0 42px;
+    }
+
+    .hero,
+    .section-card {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 253, 248, 0.94)),
+        var(--color-bg);
+      box-shadow: var(--shadow-card);
+    }
+
+    .hero::before,
+    .section-card::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 18px;
+      border: 1px solid rgba(184, 155, 94, 0.16);
+      border-radius: 999px;
+      opacity: 0.62;
+      pointer-events: none;
+    }
+
+    .hero::after,
+    .section-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, rgba(184, 155, 94, 0.72), rgba(123, 31, 29, 0.22), transparent);
+      pointer-events: none;
+    }
+
+    .hero {
+      min-height: calc(100svh - 36px);
+      padding: 26px 20px 24px;
+      background:
+        radial-gradient(circle at 82% 14%, rgba(214, 194, 138, 0.25) 0, rgba(214, 194, 138, 0.00) 34%),
+        radial-gradient(circle at 15% 82%, rgba(123, 31, 29, 0.10) 0, rgba(123, 31, 29, 0.00) 34%),
+        linear-gradient(135deg, #fffdf8 0%, #fbf4e8 54%, #efe5d4 100%);
+    }
+
+    .page-label {
+      position: relative;
+      z-index: 1;
+      margin: 6px 0 22px;
+      color: var(--color-wine-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 16px;
+    }
+
+    .series-title {
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      color: var(--color-text-strong);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(42px, 14vw, 72px);
+      font-weight: 500;
+      line-height: 1.04;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .hero-copy {
+      color: var(--color-text-strong);
+      font-size: clamp(21px, 6vw, 30px);
+      font-weight: 800;
+      line-height: 1.52;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .hero-image,
+    .dish-image {
+      overflow: hidden;
+      border: 1px solid rgba(184, 155, 94, 0.26);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(135deg, rgba(251, 244, 232, 0.88), rgba(255, 253, 248, 0.88)),
+        var(--color-bg-soft);
+      box-shadow: 0 12px 28px rgba(58, 43, 28, 0.08);
+    }
+
+    .hero-image {
+      aspect-ratio: 16 / 9;
+      margin-top: 4px;
+    }
+
+    .hero-image img,
+    .dish-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-text,
+    .text-block p,
+    .section-lead,
+    .point-card p,
+    .service-box p,
+    .info-list dd,
+    .check-list li,
+    .footer a {
+      color: var(--color-muted);
+      font-size: 15.5px;
+      font-weight: 500;
+      line-height: 1.9;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .toc {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-gold);
+    }
+
+    .toc a {
+      display: grid;
+      min-height: 44px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.72);
+      color: var(--color-text-strong);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.45;
+      text-align: center;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease;
+    }
+
+    .toc a:hover,
+    .toc a:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--color-gold);
+      background: #ffffff;
+      outline: none;
+    }
+
+    .section-card {
+      margin-top: 22px;
+      padding: 30px 20px 26px;
+      scroll-margin-top: 18px;
+    }
+
+    .section-number {
+      display: inline-grid;
+      min-width: 38px;
+      min-height: 34px;
+      margin-bottom: 14px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: 50%;
+      background: rgba(255, 253, 248, 0.78);
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    h2 {
+      color: var(--color-text-strong);
+      font-size: clamp(25px, 7vw, 36px);
+      font-weight: 800;
+      line-height: 1.42;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    h3 {
+      color: var(--color-text-strong);
+      font-size: clamp(17px, 4.7vw, 20px);
+      font-weight: 800;
+      line-height: 1.52;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .text-block {
+      display: grid;
+      gap: 15px;
+      margin-top: 18px;
+    }
+
+    .emphasis {
+      margin-top: 22px;
+      padding: 18px 16px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-left: 4px solid var(--color-gold);
+      border-radius: var(--radius-card);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.22), transparent 38%),
+        linear-gradient(180deg, #fffefa, #fbf4e8);
+      color: var(--color-text-strong);
+      font-size: clamp(18px, 5vw, 22px);
+      font-weight: 800;
+      line-height: 1.72;
+      word-break: normal;
+      overflow-wrap: break-word;
+      box-shadow: 0 12px 26px rgba(58, 43, 28, 0.08);
+    }
+
+    .point-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .point-card {
+      position: relative;
+      padding: 17px 16px 17px 58px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.78);
+      box-shadow: 0 10px 22px rgba(58, 43, 28, 0.06);
+    }
+
+    .point-number {
+      position: absolute;
+      top: 17px;
+      left: 16px;
+      display: grid;
+      width: 32px;
+      height: 32px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.42);
+      border-radius: 50%;
+      background: rgba(255, 253, 248, 0.84);
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .point-card h3 {
+      margin-bottom: 5px;
+    }
+
+    .section-lead {
+      margin-top: 12px;
+    }
+
+    .product-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .dish-card {
+      overflow: hidden;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 253, 248, 0.92)),
+        var(--color-card);
+      box-shadow: 0 12px 28px rgba(58, 43, 28, 0.08);
+    }
+
+    .dish-image {
+      aspect-ratio: 4 / 3;
+      border-width: 0 0 1px;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .dish-content {
+      display: grid;
+      gap: 12px;
+      padding: 17px 16px 18px;
+    }
+
+    .card-top {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .dish-number {
+      display: grid;
+      min-width: 38px;
+      min-height: 30px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.42);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.84);
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+
+    .tag-list li {
+      padding: 4px 9px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-radius: 999px;
+      background: rgba(251, 244, 232, 0.78);
+      color: var(--color-gold-deep);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .service-box {
+      padding: 14px;
+      border-radius: var(--radius-card);
+    }
+
+    .service-box.required {
+      border: 1px solid rgba(123, 31, 29, 0.15);
+      background: rgba(123, 31, 29, 0.045);
+    }
+
+    .service-box.value {
+      border: 1px solid rgba(184, 155, 94, 0.30);
+      background: rgba(251, 244, 232, 0.74);
+    }
+
+    .service-box .box-label {
+      margin-bottom: 6px;
+      color: var(--color-wine);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .service-box p {
+      word-break: break-all;
+      overflow-wrap: anywhere;
+      max-width: 100%;
+    }
+
+    .service-box.required p:last-child {
+      color: var(--color-wine-deep);
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .service-box.value p:last-child {
+      color: var(--color-text-strong);
+      font-weight: 700;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 10px;
+      padding-top: 2px;
+    }
+
+    .info-list div {
+      display: grid;
+      gap: 4px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line-gold);
+    }
+
+    .info-list dt {
+      color: var(--color-gold-deep);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .speech-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .speech-list blockquote {
+      position: relative;
+      padding: 16px 16px 16px 19px;
+      border: 1px solid rgba(184, 155, 94, 0.28);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.82);
+      color: var(--color-text);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.9;
+      word-break: normal;
+      overflow-wrap: break-word;
+      box-shadow: 0 10px 22px rgba(58, 43, 28, 0.06);
+    }
+
+    .speech-list blockquote:nth-child(even) {
+      background: rgba(251, 244, 232, 0.72);
+    }
+
+    .speech-list blockquote::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      bottom: 15px;
+      left: -1px;
+      width: 4px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, var(--color-gold), rgba(123, 31, 29, 0.32));
+    }
+
+    .check-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .check-list li {
+      position: relative;
+      min-height: 44px;
+      padding: 13px 13px 13px 45px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.78);
+      color: var(--color-text-strong);
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(58, 43, 28, 0.05);
+    }
+
+    .check-list li::before {
+      content: "";
+      position: absolute;
+      top: 17px;
+      left: 16px;
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--color-gold);
+      border-radius: 4px;
+      background: #fffdf8;
+    }
+
+    .summary-section {
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.22), transparent 36%),
+        linear-gradient(180deg, rgba(255, 253, 248, 0.96), rgba(251, 244, 232, 0.98)),
+        var(--color-bg);
+    }
+
+    .final-copy {
+      margin-top: 22px;
+      padding: 21px 18px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-left: 4px solid var(--color-gold);
+      border-radius: var(--radius-card);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.24), transparent 38%),
+        linear-gradient(180deg, #fffefa, #fbf4e8);
+      box-shadow: 0 14px 30px rgba(58, 43, 28, 0.08);
+      color: var(--color-text-strong);
+      font-size: clamp(20px, 6vw, 26px);
+      font-weight: 800;
+      line-height: 1.62;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .footer {
+      padding: 24px 0 4px;
+      text-align: center;
+    }
+
+    .footer a {
+      display: inline-grid;
+      min-height: 44px;
+      place-items: center;
+      padding: 10px 16px;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.76);
+      color: var(--color-text-strong);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (min-width: 700px) {
+      :root {
+        --container: min(100% - 56px, 760px);
+      }
+
+      body {
+        font-size: 16px;
+      }
+
+      .training-page {
+        padding: 32px 0 58px;
+      }
+
+      .hero {
+        padding: 36px 38px 34px;
+      }
+
+      .section-card {
+        margin-top: 28px;
+        padding: 36px 38px 34px;
+      }
+
+      .hero-text,
+      .text-block p,
+      .section-lead,
+      .point-card p,
+      .service-box p,
+      .info-list dd,
+      .check-list li {
+        font-size: 16px;
+      }
+
+      .point-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .point-card {
+        padding: 58px 16px 18px;
+      }
+
+      .point-number {
+        top: 17px;
+        left: 16px;
+      }
+
+      .product-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 360px) {
+      :root {
+        --container: min(100% - 20px, 720px);
+      }
+
+      .hero,
+      .section-card {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .hero::before,
+      .section-card::before {
+        inset: 15px 12px;
+      }
+
+      .toc {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="training-page">
+    <header class="hero" id="top">
+      <div class="page-label">SID / BTD Staff Training</div>
+      <div class="hero-card">
+        <p class="series-title">一言サービス</p>
+        <h1>デザート編</h1>
+        <p class="hero-copy">食後の余韻を、食べ方と香りでつくる。</p>
+        <figure class="hero-image">
+          <img src="images/dessert-main.jpg" alt="バスクチーズケーキ">
+        </figure>
+        <p class="hero-text">
+          デザートは、SID / BTDの食事時間を締めくくる商品です。<br>
+          甘さ、香り、食感、ソースやトッピングの楽しみ方を一言添えて、<br>
+          食事の最後まで満足していただけるようにします。
+        </p>
+      </div>
+
+      <nav class="toc" aria-label="ページ内目次">
+        <a href="#about">デザートとは</a>
+        <a href="#mindset">伝えること</a>
+        <a href="#items">商品別</a>
+        <a href="#talk">基本トーク</a>
+        <a href="#checklist">チェック</a>
+        <a href="#summary">まとめ</a>
+      </nav>
+    </header>
+
+    <section class="section-card" id="about">
+      <div class="section-number">01</div>
+      <h2>デザートとは</h2>
+      <div class="text-block">
+        <p>
+          デザートは、SID / BTDの食事時間を締めくくる商品です。
+          前菜、アヒージョ、パエリア、パスタを楽しんだあとに、
+          最後の余韻をつくるのがデザートの役割です。
+        </p>
+        <p>
+          お客様にとって、食後のデザートは
+          「もう少しゆっくりしたい」
+          「最後まで楽しみたい」という気持ちに応える提案です。
+        </p>
+        <p>
+          提供時には、甘さ、香り、食感、ソースやトッピングの楽しみ方を一言添えて、
+          食事の最後まで満足していただけるようにします。
+        </p>
+      </div>
+      <p class="emphasis">デザートは、食事の最後の印象をつくる一皿。</p>
+    </section>
+
+    <section class="section-card" id="mindset">
+      <div class="section-number">02</div>
+      <h2>デザート提供で伝えること</h2>
+      <div class="text-block">
+        <p>
+          デザートをご提供するときは、
+          商品名を伝えるだけでなく、
+          食べ方、香り、食感、トッピングの楽しみ方を一言添えます。
+        </p>
+        <p>
+          デザートは、料理の最後に出る商品だからこそ、
+          提供時の一言でお客様の印象に残りやすいカテゴリーです。
+        </p>
+        <p>
+          ソースをかける商品、塩やスパイスで味を変える商品、
+          温かい商品と冷たい商品を合わせる商品は、
+          食べ方を伝えることで価値が上がります。
+        </p>
+      </div>
+
+      <div class="point-grid">
+        <article class="point-card">
+          <span class="point-number">1</span>
+          <h3>食べ方を伝える</h3>
+          <p>ソースをかける、塩をつける、味を変えるなど、楽しみ方を伝える。</p>
+        </article>
+
+        <article class="point-card">
+          <span class="point-number">2</span>
+          <h3>香りを伝える</h3>
+          <p>エスプレッソ、ラム、オレンジ、チョコレート、ナッツなど、香りの特徴を伝える。</p>
+        </article>
+
+        <article class="point-card">
+          <span class="point-number">3</span>
+          <h3>食感を伝える</h3>
+          <p>なめらか、濃厚、パリッと、サクッと、冷たいなど、口に入れた時の楽しさを伝える。</p>
+        </article>
+
+        <article class="point-card">
+          <span class="point-number">4</span>
+          <h3>食後の提案につなげる</h3>
+          <p>コーヒー、紅茶、食後酒などと合わせて、最後の満足感につなげる。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card products-section" id="items">
+      <div class="section-number">03</div>
+      <h2>商品別 一言サービス</h2>
+      <p class="section-lead">
+        提供時は「商品名」「食べ方」「香り」「食感」「カトラリー」をセットで確認します。
+      </p>
+
+      <div class="product-list">
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/dessert-tiramisu.jpg" alt="大人のティラミス">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">01</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>エスプレッソ</li>
+                <li>ナッツ</li>
+              </ul>
+            </div>
+            <h3>大人のティラミス</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「エスプレッソソースをかけてからお召し上がりください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「マスカルポーネのなめらかさと、ジャンドゥーヤアイスのナッツの香りを一緒に楽しめる、大人のティラミスです。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>デザートスプーン</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>マスカルポーネ、アマレッティ、ジャンドゥーヤアイス、フィヤンティーヌ、ココアパウダーを使用。<br>別添えでエスプレッソソース付き。エスプレッソソースは、アルコールなしも選べます。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/dessert-basque-cheesecake.jpg" alt="バスクチーズケーキ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">02</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>ベリー</li>
+                <li>マルドン</li>
+              </ul>
+            </div>
+            <h3>バスクチーズケーキ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「お好みで、ベリーソース、マルドン塩、ピンクペッパーを変えてお召し上がりください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「高温で焼き上げることで、表面は香ばしく、中はなめらかで濃厚な味わいに仕上げています。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>デザートフォーク</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>クリームチーズ、卵、生クリームがベースの生地を滑らかになるまでよく混ぜて、200℃のオーブンで30分焼き上げます。<br>ベリーソース、マルドン塩、ピンクペッパーで味の変化を楽しめるデザート。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/dessert-crema-catalana.jpg" alt="クレマカタラーナ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">03</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>ラム</li>
+                <li>オレンジ</li>
+              </ul>
+            </div>
+            <h3>クレマカタラーナ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「オレンジはラム酒でマリネしています。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「表面のキャラメリゼのパリッとした食感と、オレンジの香りを一緒にお楽しみください。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>デザートスプーン</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>卵は卵黄のみを使用。生クリームとグラニュー糖に、オレンジの皮で風味付けをしています。<br>仕上げに、ラムでマリネしたオレンジをトッピング。スペイン・カタルーニャ地方の伝統的なデザート。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/dessert-gianduja-ice.jpg" alt="ジャンドゥーヤアイス">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">04</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>チョコ</li>
+                <li>ナッツ</li>
+              </ul>
+            </div>
+            <h3>ジャンドゥーヤアイス</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「チョコレートに焙煎したアーモンドとヘーゼルナッツを練り込んだアイスクリームです。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「チョコレートのコクとナッツの香ばしさを、食後に軽く楽しんでいただけます。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>デザートスプーン</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>ジャンドゥーヤは、チョコレートにナッツを合わせたイタリア発祥の味わい。<br>濃厚ながらも、アイスとして食後に召し上がりやすいデザート。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/dessert-vanilla-ice.jpg" alt="バニラアイス">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">05</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>定番</li>
+                <li>口直し</li>
+              </ul>
+            </div>
+            <h3>バニラアイス</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「食後に軽く召し上がりやすい、シンプルなバニラアイスです。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「口直しにもおすすめで、お食事の最後をさっぱり締めていただけます。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>デザートスプーン</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>食後に軽くデザートを楽しみたいお客様におすすめ。<br>お子様やファミリーにも提案しやすい商品。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/dessert-apple-pie.jpg" alt="贅沢アップルパイ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">06</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>温冷</li>
+                <li>シナモン</li>
+              </ul>
+            </div>
+            <h3>贅沢アップルパイ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「ナイフで切り分けてお召し上がりください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">付加価値が上がる一言</p>
+              <p>「赤ワイン、グラニュー糖、シナモンで蜜煮にしたりんごを使い、バニラアイスと一緒に仕上げています。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>カトラリー</dt>
+                <dd>ナイフ / デザートフォーク</dd>
+              </div>
+              <div>
+                <dt>補足情報</dt>
+                <dd>りんごを赤ワイン、グラニュー糖、シナモンで蜜煮にして使用。<br>りんご1/2個分、パイ生地、バニラアイス、シナモンパウダーで仕上げます。温かいパイと冷たいアイスの組み合わせを楽しめるデザート。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card" id="talk">
+      <div class="section-number">04</div>
+      <h2>提供時の基本トーク</h2>
+      <div class="text-block">
+        <p>
+          デザートは、食事の最後の印象をつくる商品です。
+          提供時には、食べ方や香り、味の変化を伝えます。
+        </p>
+      </div>
+
+      <div class="speech-list">
+        <blockquote>
+          「こちら、バスクチーズケーキです。<br>
+          お好みで、ベリーソース、マルドン塩、ピンクペッパーを変えてお召し上がりください。」
+        </blockquote>
+
+        <blockquote>
+          「こちら、大人のティラミスです。<br>
+          エスプレッソソースをかけてからお召し上がりください。<br>
+          マスカルポーネのなめらかさと、ジャンドゥーヤアイスの香りをお楽しみいただけます。」
+        </blockquote>
+
+        <blockquote>
+          「こちら、クレマカタラーナです。<br>
+          オレンジはラム酒でマリネしています。<br>
+          表面のキャラメリゼのパリッとした食感と一緒にお楽しみください。」
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="section-card" id="checklist">
+      <div class="section-number">05</div>
+      <h2>スタッフ用チェックリスト</h2>
+
+      <ul class="check-list">
+        <li>商品名を正式に伝えられる</li>
+        <li>食べ方を一言で案内できる</li>
+        <li>ソースやトッピングの楽しみ方を伝えられる</li>
+        <li>アルコールを使用している商品は、必要に応じて伝えられる</li>
+        <li>必要なカトラリーを正しく用意できる</li>
+        <li>甘さ、香り、食感を一言で説明できる</li>
+        <li>食後のコーヒー、紅茶、食後酒との相性を自然に提案できる</li>
+        <li>食事の最後まで印象に残る一言を添えられる</li>
+      </ul>
+    </section>
+
+    <section class="section-card summary-section" id="summary">
+      <div class="section-number">06</div>
+      <h2>まとめ</h2>
+      <div class="text-block">
+        <p>
+          デザートは、SID / BTDの食事時間を締めくくる商品です。
+        </p>
+        <p>
+          最後の一皿で、
+          お客様の満足感や余韻が変わります。
+        </p>
+        <p>
+          食べ方、香り、食感、味の変化を伝えることで、
+          食後の時間をより楽しいものにできます。
+        </p>
+      </div>
+      <p class="final-copy">デザートは、食事の最後の印象をつくる一皿。</p>
+    </section>
+
+    <footer class="footer">
+      <a href="#top">ページ上部へ戻る</a>
+    </footer>
+  </main>
+</body>
+</html>
