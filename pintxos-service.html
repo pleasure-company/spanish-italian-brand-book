@@ -182,21 +182,25 @@
     h1 {
       color: var(--color-text-strong);
       font-family: Georgia, "Times New Roman", serif;
-      font-size: clamp(42px, 14vw, 72px);
+      font-size: clamp(34px, 9.4vw, 60px);
       font-weight: 500;
       line-height: 1.04;
       letter-spacing: 0;
-      word-break: keep-all;
-      overflow-wrap: anywhere;
+      word-break: normal;
+      line-break: strict;
+      overflow-wrap: break-word;
+      text-wrap: balance;
     }
 
     .hero-copy {
       color: var(--color-text-strong);
-      font-size: clamp(21px, 6vw, 30px);
+      font-size: clamp(18px, 4.8vw, 26px);
       font-weight: 800;
       line-height: 1.52;
-      word-break: keep-all;
-      overflow-wrap: anywhere;
+      word-break: normal;
+      line-break: strict;
+      overflow-wrap: break-word;
+      text-wrap: balance;
     }
 
     .hero-image,
@@ -299,22 +303,26 @@
 
     h2 {
       color: var(--color-text-strong);
-      font-size: clamp(25px, 7vw, 36px);
+      font-size: clamp(22px, 5.7vw, 32px);
       font-weight: 800;
       line-height: 1.42;
       letter-spacing: 0;
-      word-break: keep-all;
-      overflow-wrap: anywhere;
+      word-break: normal;
+      line-break: strict;
+      overflow-wrap: break-word;
+      text-wrap: balance;
     }
 
     h3 {
       color: var(--color-text-strong);
-      font-size: clamp(17px, 4.7vw, 20px);
+      font-size: clamp(16px, 4.1vw, 19px);
       font-weight: 800;
       line-height: 1.52;
       letter-spacing: 0;
-      word-break: keep-all;
-      overflow-wrap: anywhere;
+      word-break: normal;
+      line-break: strict;
+      overflow-wrap: break-word;
+      text-wrap: balance;
     }
 
     .text-block {
@@ -333,7 +341,7 @@
         radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.22), transparent 38%),
         linear-gradient(180deg, #fffefa, #fbf4e8);
       color: var(--color-text-strong);
-      font-size: clamp(18px, 5vw, 22px);
+      font-size: clamp(16px, 4.3vw, 20px);
       font-weight: 800;
       line-height: 1.72;
       word-break: normal;
@@ -411,6 +419,21 @@
       padding: 17px 16px 18px;
     }
 
+    .dish-brand {
+      width: fit-content;
+      max-width: 100%;
+      padding: 3px 9px;
+      border: 1px solid rgba(123, 31, 29, 0.18);
+      border-radius: 999px;
+      background: rgba(123, 31, 29, 0.055);
+      color: var(--color-wine);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.4;
+      letter-spacing: 0.08em;
+    }
+
     .dish-category {
       width: fit-content;
       max-width: 100%;
@@ -448,8 +471,8 @@
     }
 
     .service-box p {
-      word-break: break-all;
-      overflow-wrap: anywhere;
+      word-break: normal;
+      overflow-wrap: break-word;
     }
 
     .service-box.required p:last-child {
@@ -567,7 +590,7 @@
         linear-gradient(180deg, #fffefa, #fbf4e8);
       box-shadow: 0 14px 30px rgba(58, 43, 28, 0.08);
       color: var(--color-text-strong);
-      font-size: clamp(20px, 6vw, 26px);
+      font-size: clamp(17px, 4.8vw, 22px);
       font-weight: 800;
       line-height: 1.62;
       word-break: normal;
@@ -777,6 +800,7 @@
           </figure>
           <div class="dish-content">
             <p class="dish-category">ピンチョス</p>
+            <p class="dish-brand">SID / BTD</p>
             <h3>アジアーゴチーズとマッシュルーム</h3>
 
             <div class="service-box required">
@@ -808,6 +832,7 @@
           </figure>
           <div class="dish-content">
             <p class="dish-category">ピンチョス</p>
+            <p class="dish-brand">SID / BTD</p>
             <h3>シラスと塩トマト</h3>
 
             <div class="service-box required">
@@ -839,6 +864,7 @@
           </figure>
           <div class="dish-content">
             <p class="dish-category">ピンチョス</p>
+            <p class="dish-brand">SID / BTD</p>
             <h3>炙り鯖と野菜のマリネ</h3>
 
             <div class="service-box required">
@@ -870,6 +896,7 @@
           </figure>
           <div class="dish-content">
             <p class="dish-category">ピンチョス</p>
+            <p class="dish-brand">SID / BTD</p>
             <h3>ズワイ蟹と香草パン粉</h3>
 
             <div class="service-box required">
@@ -901,7 +928,8 @@
           </figure>
           <div class="dish-content">
             <p class="dish-category">ピンチョス</p>
-            <h3>ハモンセラーノと発酵バターのブリオッシュピンチョス</h3>
+            <p class="dish-brand">SID / BTD</p>
+            <h3>ハモンセラーノと発酵バターの<br>ブリオッシュピンチョス</h3>
 
             <div class="service-box required">
               <p class="box-label">絶対に言う一言</p>
@@ -932,7 +960,8 @@
           </figure>
           <div class="dish-content">
             <p class="dish-category">ピンチョス</p>
-            <h3>パンコントマテ ハモンセラーノとトマトのブリオッシュ</h3>
+            <p class="dish-brand">SID / BTD</p>
+            <h3>パンコントマテ<br>ハモンセラーノとトマトのブリオッシュ</h3>
 
             <div class="service-box required">
               <p class="box-label">絶対に言う一言</p>
@@ -1024,7 +1053,7 @@
     </section>
 
     <footer class="footer">
-      <a href="#top">ページ上部へ戻る</a>
+      <a href="index.html">トップページに戻る</a>
     </footer>
   </main>
 </body>
