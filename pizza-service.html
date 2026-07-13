@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一言サービス ピッツァ編 スタッフ教育資料">
+  <title>一言サービス｜ピッツァ編</title>
+  <style>
+    :root {
+      --color-bg: #fffdf8;
+      --color-bg-soft: #fbf4e8;
+      --color-card: rgba(255, 255, 255, 0.9);
+      --color-text: #2d2a26;
+      --color-text-strong: #1f1d1a;
+      --color-muted: #6f665c;
+      --color-gold: #b89b5e;
+      --color-gold-deep: #b98b3f;
+      --color-wine: #7b1f1d;
+      --color-wine-deep: #4a1717;
+      --line-gold: rgba(185, 139, 63, 0.24);
+      --shadow-card: 0 14px 34px rgba(58, 43, 28, 0.08);
+      --radius-card: 8px;
+      --container: min(100% - 28px, 720px);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 88% 4%, rgba(214, 194, 138, 0.24) 0, rgba(214, 194, 138, 0) 30%),
+        radial-gradient(circle at 6% 38%, rgba(123, 31, 29, 0.08) 0, rgba(123, 31, 29, 0) 30%),
+        linear-gradient(180deg, #fffdf8 0%, #fbf4e8 44%, #fffdf8 100%);
+      color: var(--color-text);
+      font-family:
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        "YuGothic",
+        "Noto Sans JP",
+        Meiryo,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+      font-size: 15.5px;
+      line-height: 1.85;
+      letter-spacing: 0;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    figure,
+    blockquote,
+    dl,
+    dd,
+    ul {
+      margin: 0;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      -webkit-tap-highlight-color: rgba(184, 155, 94, 0.18);
+    }
+
+    .training-page {
+      width: var(--container);
+      margin: 0 auto;
+      padding: 18px 0 42px;
+    }
+
+    .hero,
+    .section-card {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 253, 248, 0.94)),
+        var(--color-bg);
+      box-shadow: var(--shadow-card);
+    }
+
+    .hero::before,
+    .section-card::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 18px;
+      border: 1px solid rgba(184, 155, 94, 0.16);
+      border-radius: 999px;
+      opacity: 0.62;
+      pointer-events: none;
+    }
+
+    .hero::after,
+    .section-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, rgba(184, 155, 94, 0.72), rgba(123, 31, 29, 0.22), transparent);
+      pointer-events: none;
+    }
+
+    .hero {
+      min-height: calc(100svh - 36px);
+      padding: 26px 20px 24px;
+      background:
+        radial-gradient(circle at 82% 14%, rgba(214, 194, 138, 0.25) 0, rgba(214, 194, 138, 0) 34%),
+        radial-gradient(circle at 15% 82%, rgba(123, 31, 29, 0.10) 0, rgba(123, 31, 29, 0) 34%),
+        linear-gradient(135deg, #fffdf8 0%, #fbf4e8 54%, #efe5d4 100%);
+    }
+
+    .page-label {
+      position: relative;
+      z-index: 1;
+      margin: 6px 0 22px;
+      color: var(--color-wine-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 16px;
+    }
+
+    .series-title {
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      color: var(--color-text-strong);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 9.4vw, 60px);
+      font-weight: 500;
+      line-height: 1.04;
+      letter-spacing: 0;
+      word-break: normal;
+      line-break: strict;
+      overflow-wrap: break-word;
+      text-wrap: balance;
+    }
+
+    .hero-copy {
+      color: var(--color-text-strong);
+      font-size: clamp(18px, 4.8vw, 26px);
+      font-weight: 800;
+      line-height: 1.52;
+      word-break: normal;
+      line-break: strict;
+      overflow-wrap: break-word;
+      text-wrap: balance;
+    }
+
+    .hero-image,
+    .dish-image {
+      overflow: hidden;
+      border: 1px solid rgba(184, 155, 94, 0.26);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(135deg, rgba(251, 244, 232, 0.88), rgba(255, 253, 248, 0.88)),
+        var(--color-bg-soft);
+      box-shadow: 0 12px 28px rgba(58, 43, 28, 0.08);
+    }
+
+    .hero-image {
+      aspect-ratio: 16 / 9;
+      margin-top: 4px;
+    }
+
+    .hero-image img,
+    .dish-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-text,
+    .text-block p,
+    .section-lead,
+    .point-card p,
+    .service-box p,
+    .info-list dd,
+    .check-list li,
+    .footer a {
+      color: var(--color-muted);
+      font-size: 15.5px;
+      font-weight: 500;
+      line-height: 1.9;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .toc {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-gold);
+    }
+
+    .toc a {
+      display: grid;
+      min-height: 44px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.72);
+      color: var(--color-text-strong);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.45;
+      text-align: center;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease;
+    }
+
+    .toc a:hover,
+    .toc a:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--color-gold);
+      background: #ffffff;
+      outline: none;
+    }
+
+    .section-card {
+      margin-top: 22px;
+      padding: 30px 20px 26px;
+      scroll-margin-top: 18px;
+    }
+
+    .section-number {
+      display: inline-grid;
+      min-width: 38px;
+      min-height: 34px;
+      margin-bottom: 14px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: 50%;
+      background: rgba(255, 253, 248, 0.78);
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    h2 {
+      color: var(--color-text-strong);
+      font-size: clamp(22px, 5.7vw, 32px);
+      font-weight: 800;
+      line-height: 1.42;
+      letter-spacing: 0;
+      word-break: normal;
+      line-break: strict;
+      overflow-wrap: break-word;
+      text-wrap: balance;
+    }
+
+    h3 {
+      color: var(--color-text-strong);
+      font-size: clamp(16px, 4.1vw, 19px);
+      font-weight: 800;
+      line-height: 1.52;
+      letter-spacing: 0;
+      word-break: normal;
+      line-break: strict;
+      overflow-wrap: break-word;
+      text-wrap: balance;
+    }
+
+    .dish-title-compact {
+      font-size: clamp(14px, 3.55vw, 18px);
+    }
+
+    .text-block {
+      display: grid;
+      gap: 15px;
+      margin-top: 18px;
+    }
+
+    .emphasis,
+    .common-talk {
+      margin-top: 22px;
+      padding: 18px 16px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-left: 4px solid var(--color-gold);
+      border-radius: var(--radius-card);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.22), transparent 38%),
+        linear-gradient(180deg, #fffefa, #fbf4e8);
+      color: var(--color-text-strong);
+      font-size: clamp(16px, 4.3vw, 20px);
+      font-weight: 800;
+      line-height: 1.72;
+      word-break: normal;
+      overflow-wrap: break-word;
+      box-shadow: 0 12px 26px rgba(58, 43, 28, 0.08);
+    }
+
+    .common-talk .box-label {
+      margin-bottom: 8px;
+      color: var(--color-wine);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .point-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .point-card {
+      position: relative;
+      padding: 17px 16px 17px 58px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.78);
+      box-shadow: 0 10px 22px rgba(58, 43, 28, 0.06);
+    }
+
+    .point-number {
+      position: absolute;
+      top: 17px;
+      left: 16px;
+      display: grid;
+      width: 32px;
+      height: 32px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.42);
+      border-radius: 50%;
+      background: rgba(255, 253, 248, 0.84);
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .point-card h3 {
+      margin-bottom: 5px;
+    }
+
+    .section-lead {
+      margin-top: 12px;
+    }
+
+    .product-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .dish-card {
+      overflow: hidden;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 253, 248, 0.92)),
+        var(--color-card);
+      box-shadow: 0 12px 28px rgba(58, 43, 28, 0.08);
+    }
+
+    .dish-image {
+      aspect-ratio: 4 / 3;
+      border-width: 0 0 1px;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .dish-content {
+      display: grid;
+      gap: 12px;
+      padding: 17px 16px 18px;
+    }
+
+    .card-top {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .dish-number {
+      display: grid;
+      min-width: 38px;
+      min-height: 30px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.42);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.84);
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+
+    .tag-list li {
+      padding: 4px 9px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-radius: 999px;
+      background: rgba(251, 244, 232, 0.78);
+      color: var(--color-gold-deep);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .dish-brand {
+      width: fit-content;
+      max-width: 100%;
+      padding: 3px 9px;
+      border: 1px solid rgba(123, 31, 29, 0.18);
+      border-radius: 999px;
+      background: rgba(123, 31, 29, 0.055);
+      color: var(--color-wine);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.4;
+      letter-spacing: 0.08em;
+    }
+
+    .service-box {
+      padding: 14px;
+      border-radius: var(--radius-card);
+    }
+
+    .service-box.required {
+      border: 1px solid rgba(123, 31, 29, 0.15);
+      background: rgba(123, 31, 29, 0.045);
+    }
+
+    .service-box.value {
+      border: 1px solid rgba(184, 155, 94, 0.30);
+      background: rgba(251, 244, 232, 0.74);
+    }
+
+    .service-box .box-label {
+      margin-bottom: 6px;
+      color: var(--color-wine);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .service-box p {
+      word-break: normal;
+      overflow-wrap: break-word;
+      max-width: 100%;
+    }
+
+    .service-box.required p:last-child {
+      color: var(--color-wine-deep);
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .service-box.value p:last-child {
+      color: var(--color-text-strong);
+      font-weight: 700;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 10px;
+      padding-top: 2px;
+    }
+
+    .info-list div {
+      display: grid;
+      gap: 4px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line-gold);
+    }
+
+    .info-list dt {
+      color: var(--color-gold-deep);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .speech-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .speech-list blockquote {
+      position: relative;
+      padding: 16px 16px 16px 19px;
+      border: 1px solid rgba(184, 155, 94, 0.28);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.82);
+      color: var(--color-text);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.9;
+      word-break: normal;
+      overflow-wrap: break-word;
+      box-shadow: 0 10px 22px rgba(58, 43, 28, 0.06);
+    }
+
+    .speech-list blockquote:nth-child(even) {
+      background: rgba(251, 244, 232, 0.72);
+    }
+
+    .speech-list blockquote::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      bottom: 15px;
+      left: -1px;
+      width: 4px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, var(--color-gold), rgba(123, 31, 29, 0.32));
+    }
+
+    .check-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .check-list li {
+      position: relative;
+      min-height: 44px;
+      padding: 13px 13px 13px 45px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.78);
+      color: var(--color-text-strong);
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(58, 43, 28, 0.05);
+    }
+
+    .check-list li::before {
+      content: "";
+      position: absolute;
+      top: 17px;
+      left: 16px;
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--color-gold);
+      border-radius: 4px;
+      background: #fffdf8;
+    }
+
+    .summary-section {
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.22), transparent 36%),
+        linear-gradient(180deg, rgba(255, 253, 248, 0.96), rgba(251, 244, 232, 0.98)),
+        var(--color-bg);
+    }
+
+    .final-copy {
+      margin-top: 22px;
+      padding: 21px 18px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-left: 4px solid var(--color-gold);
+      border-radius: var(--radius-card);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.24), transparent 38%),
+        linear-gradient(180deg, #fffefa, #fbf4e8);
+      box-shadow: 0 14px 30px rgba(58, 43, 28, 0.08);
+      color: var(--color-text-strong);
+      font-size: clamp(17px, 4.8vw, 22px);
+      font-weight: 800;
+      line-height: 1.62;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .footer {
+      padding: 24px 0 4px;
+      text-align: center;
+    }
+
+    .footer a {
+      display: inline-grid;
+      min-height: 44px;
+      place-items: center;
+      padding: 10px 16px;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.76);
+      color: var(--color-text-strong);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+    @media (min-width: 700px) {
+      :root {
+        --container: min(100% - 56px, 760px);
+      }
+
+      body {
+        font-size: 16px;
+      }
+
+      .training-page {
+        padding: 32px 0 58px;
+      }
+
+      .hero {
+        padding: 36px 38px 34px;
+      }
+
+      .section-card {
+        margin-top: 28px;
+        padding: 36px 38px 34px;
+      }
+
+      .hero-text,
+      .text-block p,
+      .section-lead,
+      .point-card p,
+      .service-box p,
+      .info-list dd,
+      .check-list li {
+        font-size: 16px;
+      }
+
+      .point-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .point-card {
+        padding: 58px 16px 18px;
+      }
+
+      .point-number {
+        top: 17px;
+        left: 16px;
+      }
+
+      .product-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 360px) {
+      :root {
+        --container: min(100% - 20px, 720px);
+      }
+
+      .hero,
+      .section-card {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .hero::before,
+      .section-card::before {
+        inset: 15px 12px;
+      }
+
+      .toc {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="training-page">
+    <header class="hero" id="top">
+      <div class="page-label">TPD Staff Training</div>
+      <div class="hero-card">
+        <p class="series-title">一言サービス</p>
+        <h1>ピッツァ編</h1>
+        <p class="hero-copy">焼きたての熱いうちに、<br>軽くもちもちの食感を届ける。</p>
+        <figure class="hero-image">
+          <img src="images/pizza-main.jpg" alt="薪窯ピッツァ">
+        </figure>
+        <p class="hero-text">
+          TPDのピッツァは、400度を超える高温の薪窯で生地の水分を保ちながら、<br>
+          表面をカリッと焼き上げたもちもちの食感と、口当たりの軽さが特徴です。
+        </p>
+      </div>
+
+      <nav class="toc" aria-label="ページ内目次">
+        <a href="#about">ピッツァとは</a>
+        <a href="#mindset">伝えること</a>
+        <a href="#items">商品別</a>
+        <a href="#talk">基本トーク</a>
+        <a href="#checklist">チェック</a>
+        <a href="#summary">まとめ</a>
+      </nav>
+    </header>
+
+    <section class="section-card" id="about">
+      <div class="section-number">01</div>
+      <h2>ピッツァとは</h2>
+      <div class="text-block">
+        <p>
+          TPDのピッツァは、400度を超える高温の薪窯で焼き上げる看板商品です。
+          生地の水分を保ちながら表面をカリッと焼き上げることで、もちもちで口当たりの軽い食感に仕上がります。
+        </p>
+        <p>
+          焼きたてが一番おいしい商品だからこそ、提供後なるべく早くお召しいただけるように、最初の一言でお伝えします。
+        </p>
+      </div>
+      <p class="emphasis">ピッツァは、焼きたての熱いうちに価値が一番伝わる。</p>
+    </section>
+
+    <section class="section-card" id="mindset">
+      <div class="section-number">02</div>
+      <h2>ピッツァ提供で伝えること</h2>
+      <div class="text-block">
+        <p>
+          ピッツァをご提供するときは、商品名と一緒に、焼きたての熱いうちに召し上がっていただくことを必ず伝えます。
+        </p>
+        <p>
+          チーズ系にははちみつ、ビアンコ系には辛味オイル、トマト系にはハバネロのソースがよく合います。
+          商品に合わせた一言を添えることで、味の楽しみ方が広がります。
+        </p>
+      </div>
+
+      <div class="common-talk">
+        <p class="box-label">全商品共通 絶対に言う一言</p>
+        <p>「焼きたての熱いうちにお召し上がりください」</p>
+      </div>
+
+      <div class="point-grid">
+        <article class="point-card">
+          <span class="point-number">1</span>
+          <h3>焼きたてを伝える</h3>
+          <p>すべてのピッツァで、熱いうちに召し上がっていただくことを伝える。</p>
+        </article>
+
+        <article class="point-card">
+          <span class="point-number">2</span>
+          <h3>おすすめを添える</h3>
+          <p>はちみつ、辛味オイル、ハバネロソースなど、相性のよい食べ方を伝える。</p>
+        </article>
+
+        <article class="point-card">
+          <span class="point-number">3</span>
+          <h3>食材を伝える</h3>
+          <p>チーズ、サラミ、魚介、野菜など、主役になる食材を一言で伝える。</p>
+        </article>
+
+        <article class="point-card">
+          <span class="point-number">4</span>
+          <h3>シーンに合わせる</h3>
+          <p>お子様向け、ワイン向き、辛いもの好き向きなど、お客様に合わせて提案する。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card products-section" id="items">
+      <div class="section-number">03</div>
+      <h2>商品別 一言サービス</h2>
+      <p class="section-lead">
+        提供時は「商品名」「焼きたての案内」「一言サービス」「補足情報」をセットで確認します。
+      </p>
+
+      <div class="product-list">
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pizza-margherita.jpg" alt="マルゲリータ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">01</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>定番</li>
+                <li>トマト</li>
+              </ul>
+            </div>
+            <p class="dish-brand">TPD</p>
+            <h3>マルゲリータ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「焼きたての熱いうちにお召し上がりください」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">一言サービス</p>
+              <p>「イタリア国旗をイメージしたイタリアを代表するピッツァです。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>補足</dt>
+                <dd>ピッツァの定番。TPDのマルゲリータは濃厚なチーズの味わいを活かすために、通常のピッツァとチーズのカットを変えて提供しています。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pizza-marinara.jpg" alt="マリナーラ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">02</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>チーズなし</li>
+                <li>トマト</li>
+              </ul>
+            </div>
+            <p class="dish-brand">TPD</p>
+            <h3>マリナーラ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「焼きたての熱いうちにお召し上がりください」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">一言サービス</p>
+              <p>「船乗りが航海から戻った際によく食べていた、シンプルで食べ飽きないピッツァです。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>補足</dt>
+                <dd>具材はトマトソース、ニンニク、オレガノ、バジルのみ。チーズを使用していないピッツァです。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pizza-siciliana.jpg" alt="シチリアーナ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">03</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>チーズなし</li>
+                <li>アンチョビ</li>
+              </ul>
+            </div>
+            <p class="dish-brand">TPD</p>
+            <h3>シチリアーナ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「焼きたての熱いうちにお召し上がりください」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">一言サービス</p>
+              <p>「イタリア南部のシチリア島でよく使う食材を組み合わせたピッツァです。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>補足</dt>
+                <dd>アンチョビ、オリーブ、トマトソース、ニンニクのみで、チーズを使用していないピッツァです。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pizza-calabrese.jpg" alt="カラブレーゼ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">04</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>辛口</li>
+                <li>サラミ</li>
+              </ul>
+            </div>
+            <p class="dish-brand">TPD</p>
+            <h3>カラブレーゼ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「焼きたての熱いうちにお召し上がりください」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">一言サービス</p>
+              <p>「カラブリア州の特産品の唐辛子と、サラミ、ンドゥイアを使用した辛いピッツァです。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>補足</dt>
+                <dd>辛いもの好きな方におすすめ。ンドゥイア、サルシッチャ、ブロッコリーを使用したピッツァです。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pizza-bianchetti.jpg" alt="ビアンケッティ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">05</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>シラス</li>
+                <li>ピリ辛</li>
+              </ul>
+            </div>
+            <p class="dish-brand">TPD</p>
+            <h3>ビアンケッティ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「焼きたての熱いうちにお召し上がりください」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">一言サービス</p>
+              <p>「ビアンケッティとはイタリア語で白い小魚。沿岸地域で古くから親しまれているピッツァです。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>補足</dt>
+                <dd>アンチョビソース、ニンニク、シラス、唐辛子を使用した、少しピリ辛のピッツァです。辛味オイルとも相性が良いです。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pizza-napoletana.jpg" alt="ナポレターナ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">06</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>トマト</li>
+                <li>アンチョビ</li>
+              </ul>
+            </div>
+            <p class="dish-brand">TPD</p>
+            <h3>ナポレターナ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「焼きたての熱いうちにお召し上がりください」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">一言サービス</p>
+              <p>「ナポリ風を意味するピッツァで、フレッシュなチェリートマトを丸ごと使用しています。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>補足</dt>
+                <dd>ミニトマト、アンチョビ、バジルを使用した、トマトソースを使わないトマトのピッツァです。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pizza-smoky.jpg" alt="スモーキー">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">07</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>燻製</li>
+                <li>ポルケッタ</li>
+              </ul>
+            </div>
+            <p class="dish-brand">TPD</p>
+            <h3>スモーキー</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「焼きたての熱いうちにお召し上がりください」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">一言サービス</p>
+              <p>「燻製モッツァレラチーズに、相性の良い豚バラ肉のローストポルケッタを合わせたピッツァです。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>補足</dt>
+                <dd>スカモルツァ、ポルケッタ、フリアリエッリを使用。フリアリエッリはイタリアの菜花に似た苦味が特徴の野菜です。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pizza-bismarck.jpg" alt="ビスマルク">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">08</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>半熟卵</li>
+                <li>人気</li>
+              </ul>
+            </div>
+            <p class="dish-brand">TPD</p>
+            <h3>ビスマルク</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「焼きたての熱いうちにお召し上がりください」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">一言サービス</p>
+              <p>「とろける半熟卵と沖縄県産の豚トロベーコンを合わせた大人気のピッツァです。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>補足</dt>
+                <dd>ほうれん草、豚トロベーコン、卵、ブラックペッパーを使用。お子様向けに胡椒を抜いて提供することもできます。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pizza-gorgonzola-honey.jpg" alt="ゴルゴンゾーラはちみつ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">09</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>チーズ</li>
+                <li>はちみつ</li>
+              </ul>
+            </div>
+            <p class="dish-brand">TPD</p>
+            <h3>ゴルゴンゾーラ<br>はちみつ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「焼きたての熱いうちにお召し上がりください」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">一言サービス</p>
+              <p>「先ずはそのまま召し上がってゴルゴンゾーラの香りをお楽しみください。お好みではちみつをかけてお召し上がりください。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>補足</dt>
+                <dd>ゴルゴンゾーラ、モッツァレラチーズのチーズピッツァ。ワインとの相性が良いため、ワインをお召し上がりのお客様におすすめしやすい商品です。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pizza-quattro-formaggi.jpg" alt="クワトロフォルマッジ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">10</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>4種チーズ</li>
+                <li>ワイン</li>
+              </ul>
+            </div>
+            <p class="dish-brand">TPD</p>
+            <h3>クワトロフォルマッジ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「焼きたての熱いうちにお召し上がりください」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">一言サービス</p>
+              <p>「4種類のチーズをたっぷり使用した贅沢なピッツァです。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>補足</dt>
+                <dd>モッツァレラチーズ、タレッジオ、スカモルツァ、グラナパダーノを使用。追加ではちみつがおすすめで、ワインにもよく合います。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pizza-mimosa.jpg" alt="ミモザ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">11</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>カラスミ</li>
+                <li>シラス</li>
+              </ul>
+            </div>
+            <p class="dish-brand">TPD</p>
+            <h3>ミモザ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「焼きたての熱いうちにお召し上がりください」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">一言サービス</p>
+              <p>「黄色いミモザの花をイメージした、カラスミをたっぷりかけた贅沢なピッツァです。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>補足</dt>
+                <dd>シラス、ブロッコリー、カラスミを使用。ボラの卵を塩漬けしたカラスミはボッタルガと呼ばれ、イタリア・サルディーニャ島の名産品です。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pizza-rossonero.jpg" alt="ロッソネロ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">12</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>イカ墨</li>
+                <li>魚介</li>
+              </ul>
+            </div>
+            <p class="dish-brand">TPD</p>
+            <h3>ロッソネロ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「焼きたての熱いうちにお召し上がりください」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">一言サービス</p>
+              <p>「赤のロッソと黒のネロをイメージしたピッツァで、イカ墨ソースとトマトで再現しています。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>補足</dt>
+                <dd>トマトソースにイカ墨を入れた深みのあるソースと、魚介、フレッシュトマトが相性の良いピッツァです。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pizza-salmon-genovese.jpg" alt="サーモンジェノベーゼ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">13</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>サーモン</li>
+                <li>バジル</li>
+              </ul>
+            </div>
+            <p class="dish-brand">TPD</p>
+            <h3>サーモン<br>ジェノベーゼ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「焼きたての熱いうちにお召し上がりください」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">一言サービス</p>
+              <p>「バジルの名産地ジェノバ発祥のジェノベーゼソースに、脂の乗ったサーモンのマリネを合わせたピッツァです。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>補足</dt>
+                <dd>ジェノベーゼソース、タスマニア産のトラウトサーモンマリネ、赤玉ねぎ、ケイパーを使用しています。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pizza-bacon-potato-genovese.jpg" alt="ベーコンポテトジェノベーゼ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">14</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>お子様</li>
+                <li>じゃがいも</li>
+              </ul>
+            </div>
+            <p class="dish-brand">TPD</p>
+            <h3>ベーコンポテト<br>ジェノベーゼ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「焼きたての熱いうちにお召し上がりください」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">一言サービス</p>
+              <p>「豚トロベーコンとキタアカリを使用したピッツァです。お子様にもおすすめです。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>補足</dt>
+                <dd>キタアカリ、豚トロベーコン、ジェノベーゼを使用。北海道産のキタアカリは「栗じゃが」と呼ばれ、甘みの強さが特徴です。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pizza-porcini-cream.jpg" alt="ポルチーニクリーム">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">15</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>ポルチーニ</li>
+                <li>香り</li>
+              </ul>
+            </div>
+            <p class="dish-brand">TPD</p>
+            <h3>ポルチーニクリーム</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「焼きたての熱いうちにお召し上がりください」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">一言サービス</p>
+              <p>「イタリアを代表する高級キノコ、ポルチーニをソースに使用した香りが特徴のピッツァです。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>補足</dt>
+                <dd>ポルチーニクリーム、生ハム、マッシュルームスライスなど、香りの良い食材をたくさん使用した贅沢なピッツァです。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pizza-prosciutto-rucola.jpg" alt="生ハムルッコラ">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">16</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>生ハム</li>
+                <li>ルッコラ</li>
+              </ul>
+            </div>
+            <p class="dish-brand">TPD</p>
+            <h3>生ハムルッコラ</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「焼きたての熱いうちにお召し上がりください」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">一言サービス</p>
+              <p>「香りのよいルッコラはチーズや生ハムとの相性が良く、イタリアで古くから親しまれてきた組み合わせのピッツァです。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>補足</dt>
+                <dd>ミニトマト、生ハム、ルッコラ、グラナパダーノを使用。生地でルッコラや生ハムを包んで食べるのがおすすめです。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="dish-card">
+          <figure class="dish-image">
+            <img src="images/pizza-bolognese-cream.jpg" alt="ボロネーゼクリーム">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">17</p>
+              <ul class="tag-list" aria-label="商品タグ">
+                <li>牛肉</li>
+                <li>濃厚</li>
+              </ul>
+            </div>
+            <p class="dish-brand">TPD</p>
+            <h3>ボロネーゼクリーム</h3>
+
+            <div class="service-box required">
+              <p class="box-label">絶対に言う一言</p>
+              <p>「焼きたての熱いうちにお召し上がりください」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">一言サービス</p>
+              <p>「牛肉をたっぷり使用したボロネーゼソースと生クリームを合わせた濃厚なピッツァです。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>補足</dt>
+                <dd>ボロネーゼソース、トマトソース、生クリームを使用。ボロネーゼとは、美食の都ボローニャの伝統的なお肉を使った煮込みソースです。</dd>
+              </div>
+            </dl>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section-card" id="talk">
+      <div class="section-number">04</div>
+      <h2>提供時の基本トーク</h2>
+      <div class="text-block">
+        <p>
+          ピッツァは焼きたてが一番おいしい商品です。
+          提供時には、まず共通の一言を必ず伝えます。
+        </p>
+      </div>
+
+      <div class="common-talk">
+        <p class="box-label">共通トーク</p>
+        <p>「焼きたての熱いうちにお召し上がりください」</p>
+      </div>
+
+      <div class="speech-list">
+        <blockquote>
+          「こちら、マルゲリータです。<br>
+          イタリア国旗をイメージしたイタリアを代表するピッツァです。<br>
+          焼きたての熱いうちにお召し上がりください。」
+        </blockquote>
+
+        <blockquote>
+          「こちら、ゴルゴンゾーラはちみつです。<br>
+          先ずはそのまま召し上がってゴルゴンゾーラの香りをお楽しみください。<br>
+          お好みではちみつをかけてお召し上がりください。」
+        </blockquote>
+
+        <blockquote>
+          「こちら、ビスマルクです。<br>
+          とろける半熟卵と沖縄県産の豚トロベーコンを合わせた大人気のピッツァです。<br>
+          焼きたての熱いうちにお召し上がりください。」
+        </blockquote>
+      </div>
+    </section>
+
+    <section class="section-card" id="checklist">
+      <div class="section-number">05</div>
+      <h2>スタッフ用チェックリスト</h2>
+
+      <ul class="check-list">
+        <li>商品名を正式に伝えられる</li>
+        <li>全商品で「焼きたての熱いうちにお召し上がりください」を伝えられる</li>
+        <li>チーズ系には、はちみつが合うことを伝えられる</li>
+        <li>ビアンコ系には、辛味オイルが合うことを伝えられる</li>
+        <li>トマト系には、ハバネロのソースが合うことを伝えられる</li>
+        <li>商品ごとのセールストークをそのまま伝えられる</li>
+        <li>商品ごとの補足情報を説明できる</li>
+        <li>お子様向け、ワイン向き、辛いもの好き向きなど、お客様に合わせておすすめできる</li>
+      </ul>
+    </section>
+
+    <section class="section-card summary-section" id="summary">
+      <div class="section-number">06</div>
+      <h2>まとめ</h2>
+      <div class="text-block">
+        <p>
+          ピッツァは、TPDの看板商品です。
+        </p>
+        <p>
+          400度を超える高温の薪窯で、生地の水分を保ちながら表面をカリッと焼き上げた、もちもちで口当たりの軽い食感が特徴です。
+        </p>
+        <p>
+          焼きたてが一番おいしいので、提供後なるべく早くお召しいただけるようにお伝えしてください。
+        </p>
+      </div>
+      <p class="final-copy">焼きたての熱いうちに<br>お召し上がりください。</p>
+    </section>
+
+    <footer class="footer">
+      <a href="index.html">トップページに戻る</a>
+    </footer>
+  </main>
+</body>
+</html>
