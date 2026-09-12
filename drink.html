@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="料理とワイン・ドリンクを組み合わせて、お客様に合った一杯を提案するためのドリンク教育。">
+  <title>DRINK | PLEASURE COMPANY Brand Book</title>
+  <style>
+    :root { --bg:#fffdf8; --soft:#fbf4e8; --text:#2d2a26; --muted:#6f665c; --wine:#7b1f1d; --gold:#b89b5e; --line:rgba(185,139,63,.24); }
+    *, *::before, *::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:radial-gradient(circle at 90% 4%,rgba(214,194,138,.24),transparent 28%),linear-gradient(180deg,var(--bg),var(--soft) 42%,var(--bg)); color:var(--text); font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic","Noto Sans JP",Meiryo,system-ui,sans-serif; font-size:16px; line-height:1.9; -webkit-text-size-adjust:100%; }
+    h1,h2,h3,p,blockquote { margin:0; }
+    a { color:inherit; }
+    a:focus-visible { outline:3px solid var(--wine); outline-offset:5px; }
+    .phone-book { width:min(100% - 28px,720px); margin:auto; padding:18px 0 38px; }
+    .book-nav { display:flex; justify-content:space-between; gap:16px; margin:0 0 18px; align-items:center; }
+    .back-link { display:inline-flex; align-items:center; min-height:44px; padding:8px 16px; border:1px solid var(--line); border-radius:999px; background:rgba(255,255,255,.75); color:var(--wine); font-size:14px; font-weight:700; text-decoration:none; }
+    .book-label { color:var(--muted); font-family:Georgia,serif; font-size:12px; letter-spacing:.12em; }
+    .page { position:relative; isolation:isolate; padding:30px 24px 38px; margin-bottom:24px; border:1px solid var(--line); border-radius:8px; background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,253,248,.96)); box-shadow:0 14px 34px rgba(58,43,28,.08); }
+    .page::after { content:""; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,transparent,rgba(184,155,94,.72),rgba(123,31,29,.22),transparent); }
+    .page-number { text-align:right; color:#9a7536; font-family:Georgia,serif; font-size:12px; letter-spacing:.12em; }
+    .page-kicker { margin:22px 0 10px; color:var(--wine); font:700 14px/1.5 Georgia,serif; letter-spacing:.12em; }
+    h1 { font:500 clamp(60px,16vw,86px)/1.1 Georgia,"Times New Roman",serif; }
+    h2 { font-size:clamp(24px,5.8vw,32px); line-height:1.55; overflow-wrap:anywhere; }
+    h3 { font-size:19px; line-height:1.65; }
+    .copy-block { display:grid; gap:18px; margin-top:24px; color:var(--muted); }
+    strong { color:var(--wine); font-weight:800; }
+    .cover-page { background:radial-gradient(circle at 82% 14%,rgba(214,194,138,.28),transparent 34%),radial-gradient(circle at 15% 82%,rgba(123,31,29,.10),transparent 34%),linear-gradient(135deg,var(--bg),var(--soft) 54%,#efe5d4); }
+    .cover-page::before { content:""; position:absolute; z-index:-1; inset:26px 18px; border:1px solid rgba(184,155,94,.22); border-radius:999px; pointer-events:none; }
+    .cover-content { display:grid; gap:24px; padding:48px 0 36px; text-align:center; }
+    .brand-name { color:#4a1717; font:700 14px/1.5 Georgia,serif; letter-spacing:.18em; }
+    .hero-copy { width:min(100%,17em); margin:auto; font-size:clamp(23px,5.8vw,30px); }
+    .cover-page .copy-block { padding-top:24px; border-top:1px solid var(--line); }
+    .quote { padding:18px 20px; border-left:3px solid var(--gold); border-radius:0 8px 8px 0; background:var(--soft); color:var(--wine); font-weight:700; }
+    .quote p + p { margin-top:12px; }
+    .questions { display:grid; gap:12px; padding:0; margin:0; list-style:none; color:var(--wine); font-weight:700; }
+    .questions li { padding:12px 16px; background:var(--soft); border:1px solid var(--line); border-radius:8px; }
+    .dish-list { display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:0; }
+    .dish-list li { padding:5px 16px; border:1px solid var(--line); border-radius:999px; background:var(--soft); color:var(--text); }
+    .lesson-list { margin-top:24px; }
+    .lesson { padding:24px 0; border-top:1px solid var(--line); }
+    .lesson h3 { color:var(--wine); }
+    .lesson .copy-block { margin-top:12px; gap:12px; }
+    .final-page { background:linear-gradient(145deg,#fffdf8,#f5ead9); }
+    .book-footer { display:grid; justify-items:center; gap:24px; padding:12px 0 20px; }
+    @media(min-width:700px) { .phone-book { padding-top:28px; } .page { padding:36px 44px 46px; margin-bottom:28px; } .cover-content { padding:56px 0 42px; } }
+    @media(max-width:360px) { .page { padding:24px 18px 30px; } .book-label { letter-spacing:.04em; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  </style>
+</head>
+<body>
+  <main class="phone-book" aria-label="ドリンク教育">
+    <nav class="book-nav" aria-label="ページナビゲーション">
+      <a class="back-link" href="index.html#learning-menu">Learning Menuへ</a>
+      <span class="book-label">BRAND BOOK</span>
+    </nav>
+    <section class="page cover-page" aria-labelledby="drink-title">
+      <div class="page-number">01 / 05</div>
+      <div class="cover-content">
+        <p class="brand-name">SID / BTD / TPD</p>
+        <h1 id="drink-title">DRINK</h1>
+        <h2 class="hero-copy">料理とドリンクを組み合わせて、食事をもっと楽しくする。</h2>
+      </div>
+      <div class="copy-block">
+        <p>スパニッシュ・イタリアンDai、ブリランテタヴォラDai、トラットリアピッツェリアDaiでは、料理だけではなく、<strong>料理とワイン・ドリンクを一緒に楽しんでいただくこと</strong>を大切にしています。</p>
+        <p>私たちのブランドが届けたいのは、ただ料理やドリンクを提供することではありません。</p>
+        <p>その季節においしい料理をおすすめし、<br>その料理に合うワインやドリンクをご提案する。</p>
+        <p>その一言によって、お客様の食事はもっと楽しく、もっと豊かな時間になります。</p>
+      </div>
+    </section>
+    <section class="page" aria-labelledby="recommend-title">
+      <div class="page-number">02 / 05</div>
+      <p class="page-kicker">RECOMMEND</p>
+      <h2 id="recommend-title">ドリンクを「知っている」から「おすすめできる」へ</h2>
+      <div class="copy-block">
+        <p>ワインについて、最初から難しい知識をすべて覚える必要はありません。</p>
+        <p>大切なのは、</p>
+        <ul class="questions">
+          <li>「これはどんな味なのか」</li>
+          <li>「どんなお客様におすすめできるのか」</li>
+          <li>「どの料理と一緒に楽しんでいただきたいのか」</li>
+        </ul>
+        <p>を少しずつ理解して、<strong>自分の言葉でお客様におすすめできるようになること</strong>です。</p>
+        <p>例えば、</p>
+        <blockquote class="quote">
+          <p>「魚介料理でしたら、こちらのすっきりした白ワインがおすすめです。」</p>
+          <p>「お肉料理でしたら、少ししっかりした赤ワインはいかがですか？」</p>
+        </blockquote>
+        <p>そんな一言からで大丈夫です。</p>
+        <p>商品知識は、お客様に説明するためだけに覚えるものではありません。</p>
+        <p><strong>お客様に合った一杯を提案するために学びます。</strong></p>
+      </div>
+    </section>
+    <section class="page" aria-labelledby="pairing-title">
+      <div class="page-number">03 / 05</div>
+      <p class="page-kicker">FOOD × DRINK</p>
+      <h2 id="pairing-title">料理とドリンクはセットで考える</h2>
+      <div class="copy-block">
+        <p>私たちのお店には、</p>
+        <ul class="dish-list"><li>ピンチョス</li><li>タパス</li><li>アヒージョ</li><li>パエリア</li><li>ピッツァ</li><li>パスタ</li><li>グリル料理</li></ul>
+        <p>など、さまざまな料理があります。</p>
+        <p>料理を覚えるときには、</p>
+        <p class="quote"><strong>「この料理には、どんなドリンクが合うだろう？」</strong></p>
+        <p>というところまで考えてみましょう。</p>
+        <p>料理とドリンクを別々に覚えるのではなく、組み合わせて覚えることで、実際の営業でもおすすめしやすくなります。</p>
+      </div>
+    </section>
+    <section class="page" aria-labelledby="learn-title">
+      <div class="page-number">04 / 05</div>
+      <p class="page-kicker">LEARNING</p>
+      <h2 id="learn-title">このコンテンツで学ぶこと</h2>
+      <div class="copy-block"><p>このドリンク教育では、まず次の4つを学びます。</p></div>
+      <div class="lesson-list">
+        <section class="lesson" aria-labelledby="lesson-1">
+          <h3 id="lesson-1"><a href="wine-basic.html">① ワインの超基礎</a></h3>
+          <div class="copy-block"><p>赤・白・泡・ロゼ・オレンジワインの違いや、辛口・甘口、軽い・しっかりなど、お客様との会話に必要な基本を学びます。</p></div>
+        </section>
+        <section class="lesson" aria-labelledby="lesson-2">
+          <h3 id="lesson-2">② まず覚えるワイン10本</h3>
+          <div class="copy-block">
+            <p>すべてのワインを一度に覚えるのではなく、まず営業でおすすめしやすい10本から覚えていきます。</p>
+            <p>味わいの違うワインをバランスよく覚えることで、お客様の好みに合わせておすすめできる幅を広げていきます。</p>
+          </div>
+        </section>
+        <section class="lesson" aria-labelledby="lesson-3">
+          <h3 id="lesson-3">③ 料理 × ワイン ペアリング</h3>
+          <div class="copy-block">
+            <p>どの料理に、どんなタイプのワインをおすすめすると楽しんでいただきやすいのかを学びます。</p>
+            <p>料理単体ではなく、<strong>料理とワインを組み合わせて提案する力</strong>を身につけていきます。</p>
+          </div>
+        </section>
+        <section class="lesson" aria-labelledby="lesson-4">
+          <h3 id="lesson-4">④ シグネチャーリキュール</h3>
+          <div class="copy-block">
+            <p>ワイン以外にも、私たちのブランドを象徴するドリンクがあります。</p>
+            <p>シグネチャーとして扱うリキュールについて学びます。</p>
+            <p>ただ商品名を覚えるのではなく、<strong>そのドリンクをおすすめする理由まで理解し、自分の言葉で提案できる状態</strong>を目指します。</p>
+          </div>
+        </section>
+      </div>
+    </section>
+    <section class="page final-page" aria-labelledby="goal-title">
+      <div class="page-number">05 / 05</div>
+      <p class="page-kicker">DRINK</p>
+      <h2 id="goal-title">GOAL</h2>
+      <div class="copy-block">
+        <p>目指すのは、</p>
+        <p><strong>「ワインに詳しいスタッフ」になることだけではありません。</strong></p>
+        <p>お客様の好みや注文された料理を見ながら、</p>
+        <p>「でしたら、こちらがおすすめです。」</p>
+        <p>と自信を持って一杯を提案できるスタッフになることです。</p>
+        <p>料理とドリンクを組み合わせて、<br>お客様の食事をもっと楽しい時間にしていきましょう。</p>
+      </div>
+    </section>
+    <footer class="book-footer">
+      <a class="back-link" href="index.html#learning-menu">Learning Menuへ戻る</a>
+      <p class="book-label">PLEASURE COMPANY</p>
+    </footer>
+  </main>
+</body>
+</html>

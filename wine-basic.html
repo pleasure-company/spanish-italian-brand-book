@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="ワインの種類、味わい、代表品種、生産国を学び、自分の言葉でお客様に伝えるためのワインの超基礎。"><title>ワインの超基礎 | WINE BASIC | PLEASURE COMPANY</title><style>
+    :root { --bg:#fffdf8; --soft:#fbf4e8; --text:#2d2a26; --muted:#6f665c; --wine:#7b1f1d; --gold:#b89b5e; --line:rgba(185,139,63,.24); }
+    *, *::before, *::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:radial-gradient(circle at 90% 4%,rgba(214,194,138,.24),transparent 28%),linear-gradient(180deg,var(--bg),var(--soft) 42%,var(--bg)); color:var(--text); font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic","Noto Sans JP",Meiryo,system-ui,sans-serif; font-size:16px; line-height:1.9; -webkit-text-size-adjust:100%; }
+    h1,h2,h3,p,blockquote { margin:0; }
+    a { color:inherit; }
+    a:focus-visible { outline:3px solid var(--wine); outline-offset:5px; }
+    .phone-book { width:min(100% - 28px,720px); margin:auto; padding:18px 0 38px; }
+    .book-nav { display:flex; justify-content:space-between; gap:16px; margin:0 0 18px; align-items:center; }
+    .back-link { display:inline-flex; align-items:center; min-height:44px; padding:8px 16px; border:1px solid var(--line); border-radius:999px; background:rgba(255,255,255,.75); color:var(--wine); font-size:14px; font-weight:700; text-decoration:none; }
+    .book-label { color:var(--muted); font-family:Georgia,serif; font-size:12px; letter-spacing:.12em; }
+    .page { position:relative; isolation:isolate; padding:30px 24px 38px; margin-bottom:24px; border:1px solid var(--line); border-radius:8px; background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,253,248,.96)); box-shadow:0 14px 34px rgba(58,43,28,.08); }
+    .page::after { content:""; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,transparent,rgba(184,155,94,.72),rgba(123,31,29,.22),transparent); }
+    .page-number { text-align:right; color:#9a7536; font-family:Georgia,serif; font-size:12px; letter-spacing:.12em; }
+    .page-kicker { margin:22px 0 10px; color:var(--wine); font:700 14px/1.5 Georgia,serif; letter-spacing:.12em; }
+    h1 { font:500 clamp(60px,16vw,86px)/1.1 Georgia,"Times New Roman",serif; }
+    h2 { font-size:clamp(24px,5.8vw,32px); line-height:1.55; overflow-wrap:anywhere; }
+    h3 { font-size:19px; line-height:1.65; }
+    .copy-block { display:grid; gap:18px; margin-top:24px; color:var(--muted); }
+    strong { color:var(--wine); font-weight:800; }
+    .cover-page { background:radial-gradient(circle at 82% 14%,rgba(214,194,138,.28),transparent 34%),radial-gradient(circle at 15% 82%,rgba(123,31,29,.10),transparent 34%),linear-gradient(135deg,var(--bg),var(--soft) 54%,#efe5d4); }
+    .cover-page::before { content:""; position:absolute; z-index:-1; inset:26px 18px; border:1px solid rgba(184,155,94,.22); border-radius:999px; pointer-events:none; }
+    .cover-content { display:grid; gap:24px; padding:48px 0 36px; text-align:center; }
+    .brand-name { color:#4a1717; font:700 14px/1.5 Georgia,serif; letter-spacing:.18em; }
+    .hero-copy { width:min(100%,17em); margin:auto; font-size:clamp(23px,5.8vw,30px); }
+    .cover-page .copy-block { padding-top:24px; border-top:1px solid var(--line); }
+    .quote { padding:18px 20px; border-left:3px solid var(--gold); border-radius:0 8px 8px 0; background:var(--soft); color:var(--wine); font-weight:700; }
+    .quote p + p { margin-top:12px; }
+    .questions { display:grid; gap:12px; padding:0; margin:0; list-style:none; color:var(--wine); font-weight:700; }
+    .questions li { padding:12px 16px; background:var(--soft); border:1px solid var(--line); border-radius:8px; }
+    .dish-list { display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:0; }
+    .dish-list li { padding:5px 16px; border:1px solid var(--line); border-radius:999px; background:var(--soft); color:var(--text); }
+    .lesson-list { margin-top:24px; }
+    .lesson { padding:24px 0; border-top:1px solid var(--line); }
+    .lesson h3 { color:var(--wine); }
+    .lesson .copy-block { margin-top:12px; gap:12px; }
+    .final-page { background:linear-gradient(145deg,#fffdf8,#f5ead9); }
+    .book-footer { display:grid; justify-items:center; gap:24px; padding:12px 0 20px; }
+    @media(min-width:700px) { .phone-book { padding-top:28px; } .page { padding:36px 44px 46px; margin-bottom:28px; } .cover-content { padding:56px 0 42px; } }
+    @media(max-width:360px) { .page { padding:24px 18px 30px; } .book-label { letter-spacing:.04em; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  
+    h1 { font-size:clamp(42px,11vw,72px); overflow-wrap:anywhere; }
+    .cover-content h2 { font-size:clamp(24px,6vw,32px); }
+    .cover-content h3 { width:min(100%,24em); margin:auto; font-size:18px; line-height:1.8; }
+    .copy-block h3 { margin-top:16px; padding-top:24px; border-top:1px solid var(--line); color:var(--wine); }
+    .copy-block h4 { margin:12px 0 0; font-size:16px; line-height:1.8; color:var(--text); }
+    strong { font-weight:700; }
+    .book-nav { flex-wrap:wrap; }
+    .page { scroll-margin-top:20px; }
+
+    /* メニューの分類色を、ワインの種類・タイプの見出しだけに使用。 */
+    .wine-heading,
+    .copy-block h3.wine-heading {
+      padding:12px 16px;
+      border:1px solid var(--heading-border);
+      border-left:5px solid var(--heading-border);
+      border-radius:6px;
+      background:var(--heading-bg);
+      color:var(--heading-text);
+    }
+    .wine-white { --heading-border:#29945d; --heading-bg:#f1f8ee; --heading-text:#245a3c; }
+    .wine-red { --heading-border:#b33b4c; --heading-bg:#fcf1f1; --heading-text:#792b36; }
+    .wine-sparkling { --heading-border:#d3b644; --heading-bg:#fffbeb; --heading-text:#736022; }
+    .wine-rose { --heading-border:#dd95ac; --heading-bg:#fff3f6; --heading-text:#85435b; }
+    .wine-orange { --heading-border:#d58a33; --heading-bg:#fff6e9; --heading-text:#845118; }
+    .wine-refreshing { --heading-border:#87bd53; --heading-bg:#f4faed; --heading-text:#416829; }
+    .wine-aromatic { --heading-border:#1c9c69; --heading-bg:#eef9f2; --heading-text:#246443; }
+    .wine-rich { --heading-border:#087744; --heading-bg:#edf5ef; --heading-text:#205437; }
+    .wine-light { --heading-border:#e79c92; --heading-bg:#fff5f2; --heading-text:#884c43; }
+    .wine-medium { --heading-border:#cb5260; --heading-bg:#fdf0f2; --heading-text:#8a3542; }
+    .wine-full { --heading-border:#951d39; --heading-bg:#f8edf0; --heading-text:#761f33; }
+
+</style></head><body><main class="phone-book" aria-label="ワインの超基礎"><nav class="book-nav" aria-label="ページナビゲーション"><a class="back-link" href="index.html#learning-menu">Learning Menuへ</a><a class="back-link" href="drink.html">DRINKへ</a></nav>
+<section class="page cover-page" aria-labelledby="wine-basic-title">
+<div class="page-number">01 / 09</div>
+<div class="cover-content"><p class="brand-name">SID / BTD / TPD</p><h1 id="wine-basic-title">WINE BASIC</h1><h2>ワインの超基礎</h2><h3>「どんなワインか」を、自分の言葉で伝えるために。</h3></div>
+<div class="copy-block"><p>ワインについて、最初からすべてを覚える必要はありません。</p>
+<p>まずは「どんな種類があるのか」「味わいをどう表現するのか」を知ることから始めましょう。</p>
+<p>「すっきりした白ワインです」<br>
+「香りが華やかなタイプです」<br>
+「渋みが穏やかで、軽やかな赤ワインです」</p>
+<p>そんな一言で、お客様が選ぶお手伝いをできるようになることが、このページの目標です。</p></div></section>
+<section class="page" aria-labelledby="chapter-2"><div class="page-number">02 / 09</div><p class="page-kicker">WINE BASIC</p><h2 id="chapter-2">1．そもそも、ワインとは？</h2><div class="copy-block"><p>ワインは、<strong>ブドウの果汁を発酵させて造るお酒</strong>です。</p>
+<p>発酵とは、酵母という微生物が、ブドウに含まれる糖分をアルコールなどに変えることです。</p>
+<p>ブドウジュースとワインの大きな違いは、この発酵を経ていることにあります。</p>
+<p>同じブドウから造るお酒でも、使うブドウの種類、育つ場所、造り方によって、香りや味わいは変わります。</p>
+<p>まずは、次のように分けて考えてみましょう。</p>
+<p><strong>品種は「どんなブドウを使っているか」。</strong><br>
+<strong>生産国・産地は「どこで造られているか」。</strong><br>
+<strong>味わいのタイプは「どんな特徴を持つワインか」。</strong></p>
+<p>この3つを分けて覚えると、ワインリストの情報も整理しやすくなります。</p></div></section>
+<section class="page" aria-labelledby="chapter-3"><div class="page-number">03 / 09</div><p class="page-kicker">WINE BASIC</p><h2 id="chapter-3">2．赤・白・泡・ロゼ・オレンジの違い</h2><div class="copy-block"><p>ワインの違いを理解するポイントのひとつが、<strong>ブドウの皮を、果汁と一緒に使うかどうか</strong>です。</p>
+<p>赤やロゼの色は、主にブドウの皮から生まれます。</p>
+<p>皮からは色だけでなく、渋みのもとになる成分も出てきます。</p>
+<h3 class="wine-heading wine-red">赤ワイン｜黒ブドウを、皮と一緒に発酵させる</h3>
+<p>黒ブドウとは、皮が赤紫色や黒紫色をしたブドウのことです。</p>
+<p>赤ワインは、主にこの黒ブドウの果汁を、皮と一緒に発酵させて造ります。</p>
+<p>そのため、皮の色や渋みがワインに移ります。</p>
+<p>ただし、赤ワインがすべて濃厚で渋いわけではありません。</p>
+<p>軽やかなものから、しっかりした飲みごたえのあるものまで、さまざまなタイプがあります。</p>
+<h3 class="wine-heading wine-white">白ワイン｜主に白ブドウの果汁を発酵させる</h3>
+<p>白ブドウとは、皮が黄緑色や黄色をしたブドウのことです。</p>
+<p>白ワインは、一般的にブドウを搾り、皮や種を取り除いた果汁を発酵させて造ります。</p>
+<p>造り方によっては、黒ブドウから白ワインを造ることもできます。</p>
+<p>すっきり爽やかなタイプだけでなく、香りが華やかなものや、まろやかでコクのあるものもあります。</p>
+<h3 class="wine-heading wine-sparkling">泡｜炭酸のあるワイン</h3>
+<p>「泡」は、<strong>スパークリングワイン</strong>のことです。</p>
+<p>ワインに溶け込んだ二酸化炭素によって、シュワシュワとした泡が生まれます。</p>
+<p>白だけでなく、ロゼや赤のスパークリングワインもあります。</p>
+<h4>シャンパーニュは、泡の仲間</h4>
+<p>シャンパーニュは、フランスのシャンパーニュ地方で、定められた条件を満たして造られるスパークリングワインです。</p>
+<p><strong>「高いスパークリングワインならシャンパーニュ」というわけではなく、産地や造り方の条件がある名称</strong>です。</p>
+<h3 class="wine-heading wine-rose">ロゼワイン｜黒ブドウから造る、ピンク色のワイン</h3>
+<p>ロゼは、主に黒ブドウの皮から短い時間で色を取り出して造る、ピンク色のワインです。</p>
+<p>赤ワインほど濃い色になる前に果汁を皮から離すことで、淡い色合いに仕上げます。</p>
+<p><strong>「ピンク色だから甘い」とは限りません。</strong></p>
+<p>ロゼにも辛口から甘口まであり、色だけで甘さを判断することはできません。</p>
+<h3 class="wine-heading wine-orange">オレンジワイン｜白ブドウを、皮と一緒に発酵させる</h3>
+<p>オレンジワインは、白ブドウの果汁を皮と一緒に発酵させて造るワインです。</p>
+<p><strong>果物のオレンジから造るお酒ではありません。</strong></p>
+<p>皮と接することで、オレンジ色や琥珀色の色合い、渋み、厚みのある口当たりなどが生まれます。</p>
+<p>色の濃さや渋みの強さは、造り方によって異なります。</p>
+<p>覚えるときは、<strong>「白ブドウを、赤ワインに近い造り方で仕上げたワイン」</strong>と考えると整理しやすくなります。</p></div></section>
+<section class="page" aria-labelledby="chapter-4"><div class="page-number">04 / 09</div><p class="page-kicker">WINE BASIC</p><h2 id="chapter-4">3．味わいを伝える、基本の言葉</h2><div class="copy-block"><h3>甘口・辛口｜「甘さ」の違い</h3>
+<p>ワインの甘口・辛口は、主にワインに残っている糖分による甘さの違いです。</p>
+<p><strong>甘口は、甘さを感じるタイプ。</strong><br>
+<strong>辛口は、甘さをほとんど感じないタイプ。</strong></p>
+<p>ブドウの糖分が発酵によってどのくらいアルコールに変わり、どのくらい残るかが、甘さに関わります。</p>
+<p>ワインの「辛口」は、唐辛子のように辛いという意味ではありません。</p>
+<p>また、「渋い」「アルコールが強い」という意味でもありません。</p>
+<h3>酸味｜レモンや青リンゴを思わせる、すっぱさ</h3>
+<p>酸味は、口の中に唾液が出てくるような、すっぱさです。</p>
+<p>レモンや青リンゴをイメージすると分かりやすく、ワインでは爽やかさや、すっきりした印象につながります。</p>
+<p>接客では、商品に合わせて「酸味が強いです」だけでなく、<strong>「爽やかな酸味があります」「すっきりした味わいです」</strong>と伝えてみましょう。</p>
+<h3>渋み｜濃くいれたお茶を飲んだときのような感覚</h3>
+<p>渋みは、口の中がキュッと引き締まったり、少し乾いたように感じたりする感覚です。</p>
+<p>濃くいれた紅茶をイメージすると分かりやすく、この感覚に関わる成分を<strong>タンニン</strong>と呼びます。</p>
+<p>ワインのタンニンは、ブドウの皮や種などに由来します。</p>
+<p><strong>酸味の「すっぱい」と、渋みの「口がキュッとする」は、別の感覚</strong>として覚えましょう。</p>
+<h3>軽い・しっかり｜「飲みごたえ」の違い</h3>
+<p>ワインを口に含んだときに感じる、重さや厚み、ふくらみを<strong>ボディ</strong>と呼びます。</p>
+<p>水のさらっとした口当たりと、生クリームの厚みのある口当たりを比べるように、液体が口の中でどのくらい重く感じられるかをイメージしてみましょう。</p>
+<p><strong>軽いワインは、さらっと軽快な印象。</strong><br>
+<strong>しっかりしたワインは、厚みがあり、飲みごたえのある印象。</strong></p>
+<p>ボディには、アルコール分や糖分、タンニンなどが関わります。</p>
+<p><strong>「渋みが強いほど必ずフルボディ」「軽いワインなら必ず低アルコール」とは限りません。</strong></p>
+<h3>フルーティー｜果物を思わせる香りや風味</h3>
+<p>「柑橘のような香り」「桃のような香り」「イチゴのような香り」など、ワインには果物にたとえられる香りがあります。</p>
+<p>これは、その果物が入っているという意味ではなく、ブドウや発酵などから生まれる香りを、身近なものにたとえた表現です。</p>
+<p>ここで大切なのは、<strong>「フルーティー＝甘口」ではないこと。</strong></p>
+<p>果物の香りが豊かでも、糖分による甘さがほとんどない辛口のワインはあります。</p>
+<p>香りと甘さは、分けて考えましょう。</p>
+<p>例えば、こんな説明ができます。</p>
+<p><strong>「香りは華やかですが、味わいは甘さの少ない辛口です。」</strong></p></div></section>
+<section class="page" aria-labelledby="chapter-5"><div class="page-number">05 / 09</div><p class="page-kicker">WINE BASIC</p><h2 id="chapter-5" class="wine-heading wine-white">4．当店の白ワインは、3つのタイプで覚える</h2><div class="copy-block"><p>私たちのお店では、白ワインを<strong>リフレッシング・アロマティック・リッチ</strong>の3タイプで整理しています。</p>
+<h3 class="wine-heading wine-refreshing">リフレッシング｜すっきり、爽やか</h3>
+<p>覚える言葉は、<strong>「フレッシュ」「清涼感」「柑橘」</strong>です。</p>
+<p>爽やかさや、すっきりした印象を伝えたいときのタイプとして覚えましょう。</p>
+<p><strong>お客様への伝え方</strong></p>
+<p>「すっきり爽やかな白ワインがお好みでしたら、こちらがおすすめです。」</p>
+<h3 class="wine-heading wine-aromatic">アロマティック｜香りが華やか</h3>
+<p>覚える言葉は、<strong>「フルーティー」「華やか」「豊かな香り」</strong>です。</p>
+<p>まずは、香りの豊かさが魅力のタイプとして覚えましょう。</p>
+<p><strong>お客様への伝え方</strong></p>
+<p>「香りが華やかな白ワインがお好みでしたら、こちらはいかがですか？」</p>
+<p>香りが華やかでも、必ず甘口とは限りません。</p>
+<p>おすすめする商品の甘さは、別に確認して伝えましょう。</p>
+<h3 class="wine-heading wine-rich">リッチ｜まろやか、コクがある</h3>
+<p>覚える言葉は、<strong>「芳醇」「まろやか」「満足感」</strong>です。</p>
+<p>口当たりのふくらみや、しっかりしたコクを伝えたいときのタイプとして覚えましょう。</p>
+<p>樽を使った造り方によって、バニラやトーストを思わせる香りを持つものもあります。</p>
+<p>ただし、リッチな白ワインのすべてが、強い樽の香りを持つわけではありません。</p>
+<p><strong>お客様への伝え方</strong></p>
+<p>「まろやかで、コクのある白ワインがお好みでしたら、こちらがおすすめです。」</p>
+<h3>3タイプは「特徴」で覚える</h3>
+<p>この3つは、軽い順や高級な順として覚えるのではなく、<strong>「そのワインのどんな魅力を伝えたいか」</strong>で整理しましょう。</p>
+<p>同じブドウ品種でも、産地や造り方によって味わいは変わります。</p>
+<p>品種名だけで分類を決めず、実際の商品リストで確認することが大切です。</p></div></section>
+<section class="page" aria-labelledby="chapter-6"><div class="page-number">06 / 09</div><p class="page-kicker">WINE BASIC</p><h2 id="chapter-6" class="wine-heading wine-red">5．赤ワインは、飲みごたえの3タイプで覚える</h2><div class="copy-block"><p>当店の赤ワインは、<strong>ライト・ミディアム・フル</strong>の3タイプを目安にします。</p>
+<h3 class="wine-heading wine-light">ライト</h3>
+<p><strong>軽快で、なめらかな口当たり。</strong></p>
+<p>お客様への伝え方：</p>
+<p>「軽やかな赤ワインです。」</p>
+<h3 class="wine-heading wine-medium">ミディアム</h3>
+<p><strong>ほどよい飲みごたえとバランス。</strong></p>
+<p>お客様への伝え方：</p>
+<p>「ほどよいコクのある赤ワインです。」</p>
+<h3 class="wine-heading wine-full">フル</h3>
+<p><strong>厚みがあり、力強い飲みごたえ。</strong></p>
+<p>お客様への伝え方：</p>
+<p>「しっかりした赤ワインです。」</p>
+<p>お客様に好みを聞くときは、</p>
+<p><strong>「軽やかなものと、しっかりしたものでは、どちらがお好みですか？」</strong></p>
+<p>という聞き方から始めてみましょう。</p>
+<p>「渋みは少なめがよい」などのお話があれば、ボディとは別に、そのご希望も確認して選びます。</p></div></section>
+<section class="page" aria-labelledby="chapter-7"><div class="page-number">07 / 09</div><p class="page-kicker">WINE BASIC</p><h2 id="chapter-7">6．まず覚える、白・赤それぞれ3つの代表品種</h2><div class="copy-block"><p>品種とは、ブドウの種類のことです。</p>
+<h3 class="wine-heading wine-white">白ワインの代表3品種</h3>
+<h4>シャルドネ｜造り方によって、さまざまな表情を見せる</h4>
+<p>柑橘や桃などを思わせる風味があり、すっきりしたものから、樽を使ったまろやかで厚みのあるものまで、幅広いスタイルになります。</p>
+<p><strong>最初に覚える一言：造り方によって、すっきりにも、まろやかにもなる品種。</strong></p>
+<h4>ソーヴィニヨン・ブラン｜柑橘やハーブのような、爽やかな香り</h4>
+<p>柑橘やハーブを思わせる香りと、爽やかな酸味が特徴の品種です。</p>
+<p>産地や造り方によって、香りの強さや果実の印象も変わります。</p>
+<p><strong>最初に覚える一言：柑橘やハーブのような香りがある、爽やかな品種。</strong></p>
+<h4>リースリング｜華やかな香りと、はっきりした酸味</h4>
+<p>花や柑橘、桃などを思わせる香りがあり、酸味がはっきりしている品種です。</p>
+<p>辛口から甘口まで造られるため、<strong>「リースリング＝甘口」と覚えないこと</strong>が大切です。</p>
+<p><strong>最初に覚える一言：香りが華やかで、酸味があり、辛口も甘口もある品種。</strong></p>
+<h3 class="wine-heading wine-red">赤ワインの代表3品種</h3>
+<h4>カベルネ・ソーヴィニヨン｜しっかりした渋みと飲みごたえ</h4>
+<p>カシスなどの黒い果実を思わせる香りがあり、しっかりした渋みや飲みごたえが出やすい品種です。</p>
+<p><strong>最初に覚える一言：黒い果実の香りと、しっかりした味わい。</strong></p>
+<h4>メルロー｜まろやかで、なめらかな口当たり</h4>
+<p>プラムやチェリーなどを思わせる香りがあり、なめらかな口当たりと、比較的親しみやすい渋みが特徴の品種です。</p>
+<p><strong>最初に覚える一言：果実の風味があり、まろやかでなめらか。</strong></p>
+<h4>ピノ・ノワール｜赤い果実の香りと、軽やかさ</h4>
+<p>イチゴやチェリーなど、赤い果実を思わせる香りが特徴です。</p>
+<p>比較的軽やかなものから、ほどよい飲みごたえのあるものまで造られます。</p>
+<p><strong>最初に覚える一言：赤い果実の香りがある、軽やかで華やかな品種。</strong></p>
+<h3>品種は「味わいのヒント」</h3>
+<p>ここで覚えた特徴は、あくまで入口です。</p>
+<p>同じ品種でも、育つ場所や造り方によって、香りや飲みごたえは変わります。</p>
+<p><strong>品種のイメージだけで決めつけず、その商品の説明と合わせて覚えましょう。</strong></p></div></section>
+<section class="page" aria-labelledby="chapter-8"><div class="page-number">08 / 09</div><p class="page-kicker">WINE BASIC</p><h2 id="chapter-8">7．主なワイン生産国を知る</h2><div class="copy-block"><p>ワインは、世界のさまざまな国で造られています。</p>
+<p>最初は、私たちの料理にもつながるイタリア・スペインと、有名なワイン産地を多く持つフランスを入口にしましょう。</p>
+<h3>フランス</h3>
+<p>ボルドー、ブルゴーニュ、シャンパーニュなど、さまざまな有名産地があります。</p>
+<h3>イタリア</h3>
+<p>地域ごとのブドウ品種やワインが豊富で、多様なスタイルが造られています。</p>
+<h3>スペイン</h3>
+<p>赤・白に加え、スパークリングワインの「カヴァ」などでも知られています。</p>
+<p>このほか、</p>
+<p><strong>ドイツ、ポルトガル、アメリカ、チリ、アルゼンチン、オーストラリア、ニュージーランド、南アフリカ、日本</strong></p>
+<p>なども、ワインを生産する国です。</p>
+<p>最初からすべての国の特徴を暗記する必要はありません。</p>
+<p>まずは、自分のお店のリストに載っている国から覚えていきましょう。</p>
+</div></section>
+<section class="page final-page" aria-labelledby="chapter-9"><div class="page-number">09 / 09</div><p class="page-kicker">WINE BASIC</p><h2 id="chapter-9">GOAL</h2><div class="copy-block"><h3>ワインの種類に、「味わいの一言」を足せるようになる。</h3>
+<p>「白ワインです」だけでなく、</p>
+<p><strong>「柑橘のような香りがする、すっきりした辛口の白ワインです。」</strong></p>
+<p>「赤ワインです」だけでなく、</p>
+<p><strong>「果実の香りがあり、軽やかな味わいの赤ワインです。」</strong></p>
+<p>まずは、このくらいの説明からで大丈夫です。</p>
+<p>分からないことは、無理に答えず、商品資料や先輩に確認しましょう。</p>
+<p>大切なのは、難しい言葉をたくさん使うことではありません。</p>
+<p><strong>お客様が「それなら飲んでみたい」「自分の好みに合いそう」とイメージできる言葉で伝えることです。</strong></p>
+<p>次の「まず覚えるワイン10本」では、この基礎知識を実際の商品と結びつけて学んでいきましょう。</p></div></section>
+<footer class="book-footer"><a class="back-link" href="index.html#learning-menu">Learning Menuへ戻る</a><a class="back-link" href="drink.html">DRINKへ戻る</a><p class="book-label">PLEASURE COMPANY</p></footer></main></body></html>

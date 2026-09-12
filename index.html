@@ -509,6 +509,15 @@
         radial-gradient(circle at 100% 0%, rgba(184, 155, 94, 0.12), transparent 38%);
     }
 
+    .drink-card .product-actions {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+    }
+
+    .drink-card .product-link {
+      font-size: 14px;
+      overflow-wrap: anywhere;
+    }
+
     /* =========================================================
        4. MVVセクション
        ========================================================= */
@@ -869,14 +878,26 @@
             </div>
           </article>
 
-          <article class="learning-card" role="link" tabindex="0" data-href="#" aria-label="8ACTION サービスの基本行動を学ぶ">
+          <article class="learning-card knowledge-card drink-card" aria-labelledby="drink-knowledge-title">
             <span class="card-number">4</span>
+            <h3 class="card-title" id="drink-knowledge-title">ドリンク商品知識</h3>
+            <div class="product-actions" aria-label="ドリンク商品知識のリンク">
+              <a class="product-link" href="drink.html">DRINK</a>
+              <a class="product-link" href="wine-basic.html">ワインの超基礎</a>
+              <a class="product-link" href="drink.html#lesson-2">まず覚えるワイン10本</a>
+              <a class="product-link" href="drink.html#lesson-3">料理 × ワイン ペアリング</a>
+              <a class="product-link" href="drink.html#lesson-4">シグネチャーリキュール</a>
+            </div>
+          </article>
+
+          <article class="learning-card" role="link" tabindex="0" data-href="#" aria-label="8ACTION サービスの基本行動を学ぶ">
+            <span class="card-number">5</span>
             <h3 class="card-title">8ACTION</h3>
             <p class="card-text">サービスの基本行動を学ぶ</p>
           </article>
 
           <article class="learning-card" role="link" tabindex="0" data-href="#" aria-label="オリエンテーション 働くうえで大切なルールを確認する">
-            <span class="card-number">5</span>
+            <span class="card-number">6</span>
             <h3 class="card-title">オリエンテーション</h3>
             <p class="card-text">働くうえで大切なルールを確認する</p>
           </article>
@@ -976,6 +997,10 @@
       });
 
       card.addEventListener("keydown", (event) => {
+        if (event.target !== card) {
+          return;
+        }
+
         if (event.key === "Enter" || event.key === " ") {
           event.preventDefault();
           window.location.href = card.dataset.href;
