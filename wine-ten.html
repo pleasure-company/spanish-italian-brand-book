@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="まず覚える10本のワイン。種類、味わい、お客様へのおすすめ、料理との組み合わせを学びます。"><title>まず覚えるワイン10本 | PLEASURE COMPANY</title><style>
+    :root { --bg:#fffdf8; --soft:#fbf4e8; --text:#2d2a26; --muted:#6f665c; --wine:#7b1f1d; --gold:#b89b5e; --line:rgba(185,139,63,.24); }
+    *, *::before, *::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:radial-gradient(circle at 90% 4%,rgba(214,194,138,.24),transparent 28%),linear-gradient(180deg,var(--bg),var(--soft) 42%,var(--bg)); color:var(--text); font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic","Noto Sans JP",Meiryo,system-ui,sans-serif; font-size:16px; line-height:1.9; -webkit-text-size-adjust:100%; }
+    h1,h2,h3,p,blockquote { margin:0; }
+    a { color:inherit; }
+    a:focus-visible { outline:3px solid var(--wine); outline-offset:5px; }
+    .phone-book { width:min(100% - 28px,720px); margin:auto; padding:18px 0 38px; }
+    .book-nav { display:flex; justify-content:space-between; gap:16px; margin:0 0 18px; align-items:center; }
+    .back-link { display:inline-flex; align-items:center; min-height:44px; padding:8px 16px; border:1px solid var(--line); border-radius:999px; background:rgba(255,255,255,.75); color:var(--wine); font-size:14px; font-weight:700; text-decoration:none; }
+    .book-label { color:var(--muted); font-family:Georgia,serif; font-size:12px; letter-spacing:.12em; }
+    .page { position:relative; isolation:isolate; padding:30px 24px 38px; margin-bottom:24px; border:1px solid var(--line); border-radius:8px; background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,253,248,.96)); box-shadow:0 14px 34px rgba(58,43,28,.08); }
+    .page::after { content:""; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,transparent,rgba(184,155,94,.72),rgba(123,31,29,.22),transparent); }
+    .page-number { text-align:right; color:#9a7536; font-family:Georgia,serif; font-size:12px; letter-spacing:.12em; }
+    .page-kicker { margin:22px 0 10px; color:var(--wine); font:700 14px/1.5 Georgia,serif; letter-spacing:.12em; }
+    h1 { font:500 clamp(60px,16vw,86px)/1.1 Georgia,"Times New Roman",serif; }
+    h2 { font-size:clamp(24px,5.8vw,32px); line-height:1.55; overflow-wrap:anywhere; }
+    h3 { font-size:19px; line-height:1.65; }
+    .copy-block { display:grid; gap:18px; margin-top:24px; color:var(--muted); }
+    strong { color:var(--wine); font-weight:800; }
+    .cover-page { background:radial-gradient(circle at 82% 14%,rgba(214,194,138,.28),transparent 34%),radial-gradient(circle at 15% 82%,rgba(123,31,29,.10),transparent 34%),linear-gradient(135deg,var(--bg),var(--soft) 54%,#efe5d4); }
+    .cover-page::before { content:""; position:absolute; z-index:-1; inset:26px 18px; border:1px solid rgba(184,155,94,.22); border-radius:999px; pointer-events:none; }
+    .cover-content { display:grid; gap:24px; padding:48px 0 36px; text-align:center; }
+    .brand-name { color:#4a1717; font:700 14px/1.5 Georgia,serif; letter-spacing:.18em; }
+    .hero-copy { width:min(100%,17em); margin:auto; font-size:clamp(23px,5.8vw,30px); }
+    .cover-page .copy-block { padding-top:24px; border-top:1px solid var(--line); }
+    .quote { padding:18px 20px; border-left:3px solid var(--gold); border-radius:0 8px 8px 0; background:var(--soft); color:var(--wine); font-weight:700; }
+    .quote p + p { margin-top:12px; }
+    .questions { display:grid; gap:12px; padding:0; margin:0; list-style:none; color:var(--wine); font-weight:700; }
+    .questions li { padding:12px 16px; background:var(--soft); border:1px solid var(--line); border-radius:8px; }
+    .dish-list { display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:0; }
+    .dish-list li { padding:5px 16px; border:1px solid var(--line); border-radius:999px; background:var(--soft); color:var(--text); }
+    .lesson-list { margin-top:24px; }
+    .lesson { padding:24px 0; border-top:1px solid var(--line); }
+    .lesson h3 { color:var(--wine); }
+    .lesson .copy-block { margin-top:12px; gap:12px; }
+    .final-page { background:linear-gradient(145deg,#fffdf8,#f5ead9); }
+    .book-footer { display:grid; justify-items:center; gap:24px; padding:12px 0 20px; }
+    @media(min-width:700px) { .phone-book { padding-top:28px; } .page { padding:36px 44px 46px; margin-bottom:28px; } .cover-content { padding:56px 0 42px; } }
+    @media(max-width:360px) { .page { padding:24px 18px 30px; } .book-label { letter-spacing:.04em; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  
+    h1 { font-size:clamp(42px,11vw,72px); overflow-wrap:anywhere; }
+    .cover-content h2 { font-size:clamp(24px,6vw,32px); }
+    .cover-content h3 { width:min(100%,24em); margin:auto; font-size:18px; line-height:1.8; }
+    .copy-block h3 { margin-top:16px; padding-top:24px; border-top:1px solid var(--line); color:var(--wine); }
+    .copy-block h4 { margin:12px 0 0; font-size:16px; line-height:1.8; color:var(--text); }
+    strong { font-weight:700; }
+    .book-nav { flex-wrap:wrap; }
+    .page { scroll-margin-top:20px; }
+
+    /* メニューの分類色を、ワインの種類・タイプの見出しだけに使用。 */
+    .wine-heading,
+    .copy-block h3.wine-heading {
+      padding:12px 16px;
+      border:1px solid var(--heading-border);
+      border-left:5px solid var(--heading-border);
+      border-radius:6px;
+      background:var(--heading-bg);
+      color:var(--heading-text);
+    }
+    .wine-white { --heading-border:#29945d; --heading-bg:#f1f8ee; --heading-text:#245a3c; }
+    .wine-red { --heading-border:#b33b4c; --heading-bg:#fcf1f1; --heading-text:#792b36; }
+    .wine-sparkling { --heading-border:#d3b644; --heading-bg:#fffbeb; --heading-text:#736022; }
+    .wine-rose { --heading-border:#dd95ac; --heading-bg:#fff3f6; --heading-text:#85435b; }
+    .wine-orange { --heading-border:#d58a33; --heading-bg:#fff6e9; --heading-text:#845118; }
+    .wine-refreshing { --heading-border:#87bd53; --heading-bg:#f4faed; --heading-text:#416829; }
+    .wine-aromatic { --heading-border:#1c9c69; --heading-bg:#eef9f2; --heading-text:#246443; }
+    .wine-rich { --heading-border:#087744; --heading-bg:#edf5ef; --heading-text:#205437; }
+    .wine-light { --heading-border:#e79c92; --heading-bg:#fff5f2; --heading-text:#884c43; }
+    .wine-medium { --heading-border:#cb5260; --heading-bg:#fdf0f2; --heading-text:#8a3542; }
+    .wine-full { --heading-border:#951d39; --heading-bg:#f8edf0; --heading-text:#761f33; }
+
+
+    .wine-name { margin-top:18px; font-size:clamp(23px,5.8vw,30px); }
+    .bottle-type { margin:20px 0 0; font-size:16px; font-weight:700; letter-spacing:.04em; }
+    .copy-block h3 { font-size:17px; }
+    .cover-content h1 { font-family:inherit; font-size:clamp(28px,7.8vw,42px); font-weight:700; line-height:1.55; }
+    .cover-content h2 { font-size:clamp(21px,5vw,26px); }
+</style></head><body><main class="phone-book" aria-label="まず覚えるワイン10本"><nav class="book-nav" aria-label="ページナビゲーション"><a class="back-link" href="index.html#learning-menu">Learning Menuへ</a><a class="back-link" href="drink.html">DRINKへ</a></nav>
+<section class="page cover-page" aria-labelledby="wine-ten-title"><div class="page-number">01 / 13</div><div class="cover-content"><p class="brand-name">SID / BTD / TPD</p><h1 id="wine-ten-title">まず覚える<br>ワイン10本</h1><h2>10本から、ワインのおすすめを始めよう。</h2></div><div class="copy-block"><p>ワインリストに載っているすべてのワインを、最初から覚える必要はありません。</p>
+<p>まずは、味わいの違う<strong>10本のワイン</strong>から覚えていきましょう。</p>
+<p>この10本を覚えることで、</p>
+<p>「乾杯におすすめの泡」</p>
+<p>「すっきりした白」</p>
+<p>「香りが華やかな白」</p>
+<p>「しっかりした赤」</p>
+<p>など、お客様の好みに合わせた基本的なおすすめができるようになります。</p>
+<p>覚えるポイントは、難しい知識ではありません。</p>
+<p><strong>①どこのワイン？<br>
+②何のブドウ？<br>
+③どんな味？<br>
+④どんなお客様におすすめ？<br>
+⑤どんな料理と合わせる？</strong></p>
+<p>この5つを中心に覚えていきましょう。</p></div></section>
+<section class="page" aria-labelledby="wine-1"><div class="page-number">02 / 13</div><p class="bottle-type wine-heading wine-sparkling">01｜泡</p><h2 class="wine-name" id="wine-1">グラハム・ベック ブリュット</h2><div class="copy-block"><h3>まず覚える一言</h3>
+<p><strong>「きめ細かい泡と、爽やかさ・クリーミーさを楽しめる南アフリカのスパークリング。」</strong></p>
+<h3>どんなワイン？</h3>
+<p>南アフリカ・西ケープ州で造られるスパークリングワインです。</p>
+<p>シャルドネとピノ・ノワールを使い、瓶内で二次発酵させる伝統的な製法で造られています。</p>
+<p>生産者の資料では、ライムのようなフレッシュな果実の香り、クリーミーな複雑さ、きめ細かな泡が特徴として紹介されています。</p>
+<h3>基本スペック</h3>
+<p><strong>国：南アフリカ</strong><br>
+<strong>タイプ：スパークリングワイン／辛口</strong><br>
+<strong>品種：シャルドネ、ピノ・ノワール</strong></p>
+<h3>味わい</h3>
+<p>最初に感じやすいのは、柑橘を思わせる爽やかさ。</p>
+<p>そこに、瓶内二次発酵によるクリーミーなニュアンスが加わります。</p>
+<p>ただ爽やかなだけではなく、<strong>フレッシュさとコクの両方を楽しめる泡</strong>として覚えましょう。</p>
+<h3>こんなお客様に</h3>
+<p>「まずは泡から飲みたい」</p>
+<p>「すっきりしているけど、少しコクも欲しい」</p>
+<p>「乾杯の一杯を少し特別にしたい」</p>
+<p>というお客様におすすめしやすい一本です。</p>
+<h3>合わせたい料理</h3>
+<p>乾杯だけでなく、前菜や魚介料理など、食事のスタートから合わせやすいワインです。</p>
+<h3>お客様への一言</h3>
+<p><strong>「柑橘のような爽やかさと、クリーミーできめ細かな泡を楽しめる南アフリカのスパークリングです。」</strong></p></div></section>
+<section class="page" aria-labelledby="wine-2"><div class="page-number">03 / 13</div><p class="bottle-type wine-heading wine-sparkling">02｜シャンパーニュ</p><h2 class="wine-name" id="wine-2">ルイ・ロデレール コレクション</h2><div class="copy-block"><h3>まず覚える一言</h3>
+<p><strong>「フレッシュさ・上品さ・奥行きを楽しめる、世界を代表するシャンパーニュのひとつ。」</strong></p>
+<h3>どんなワイン？</h3>
+<p>フランス・シャンパーニュ地方の歴史あるメゾン、<strong>ルイ・ロデレール</strong>が造るシャンパーニュです。</p>
+<p>現在の「コレクション」シリーズでは、シャルドネ、ピノ・ノワール、ムニエを使用。</p>
+<p>その年のワインだけでなく、過去のワインを継ぎ足していく「パーペチュアル・リザーヴ」などを組み合わせることで、複雑さと安定したスタイルをつくっています。</p>
+<h3>基本スペック</h3>
+<p><strong>国：フランス</strong><br>
+<strong>地方：シャンパーニュ</strong><br>
+<strong>タイプ：シャンパーニュ／辛口</strong><br>
+<strong>主な品種：シャルドネ、ピノ・ノワール、ムニエ</strong></p>
+<h3>味わい</h3>
+<p>柑橘や黄色い果実を思わせるフレッシュな果実味。</p>
+<p>そこにアーモンド、パン、ほのかなスモーキーさなど、さまざまなニュアンスが重なります。</p>
+<p>泡はきめ細かく、上品。</p>
+<p><strong>爽やかさだけではなく、複雑さや奥行きまで楽しめる</strong>のが魅力です。</p>
+<h3>こんなお客様に</h3>
+<p>「せっかくなのでシャンパーニュを飲みたい」</p>
+<p>「記念日なので少し特別なものを」</p>
+<p>「上品で質の高い泡が飲みたい」</p>
+<p>というお客様におすすめします。</p>
+<h3>合わせたい料理</h3>
+<p>乾杯はもちろん、前菜、魚介料理など、食事と一緒にも楽しめます。</p>
+<h3>お客様への一言</h3>
+<p><strong>「きめ細かな泡とフレッシュさがありながら、奥行きもしっかり楽しめるシャンパーニュです。」</strong></p></div></section>
+<section class="page" aria-labelledby="wine-3"><div class="page-number">04 / 13</div><p class="bottle-type wine-heading wine-rose">03｜ロゼ</p><h2 class="wine-name" id="wine-3">ウィスパーリング・エンジェル</h2><div class="copy-block"><h3>まず覚える一言</h3>
+<p><strong>「爽やかで華やか。プロヴァンスを代表する辛口ロゼ。」</strong></p>
+<h3>どんなワイン？</h3>
+<p>フランス南部、<strong>プロヴァンス地方</strong>で造られるロゼワインです。</p>
+<p>シャトー・デスクランが手掛け、現在ではプロヴァンス・ロゼを代表するワインのひとつとして世界的に知られています。</p>
+<p>グルナッシュを中心に、サンソー、ロール（ヴェルメンティーノ）、シラーなどを使用します。</p>
+<h3>基本スペック</h3>
+<p><strong>国：フランス</strong><br>
+<strong>地方：プロヴァンス</strong><br>
+<strong>タイプ：ロゼワイン／辛口</strong><br>
+<strong>主な品種：グルナッシュ、サンソー、ロール、シラー</strong></p>
+<h3>味わい</h3>
+<p>淡いピンク色から受けるイメージの通り、エレガントで爽やかなスタイル。</p>
+<p>赤い果実や花を思わせる華やかさがありながら、味わいはしっかり辛口です。</p>
+<p>ここで覚えてほしいポイントは、</p>
+<p><strong>「ロゼ＝甘い」ではない。</strong></p>
+<p>ということ。</p>
+<p>ウィスパーリング・エンジェルは、<strong>華やか・爽やか・辛口</strong>の3つで覚えましょう。</p>
+<h3>こんなお客様に</h3>
+<p>「白ワイン以外も飲んでみたい」</p>
+<p>「爽やかなワインが好き」</p>
+<p>「華やかなワインが飲みたい」</p>
+<p>というお客様にもおすすめできます。</p>
+<h3>合わせたい料理</h3>
+<p>前菜、魚介、サラダ、タパスなど、軽やかな料理と合わせやすいワインです。</p>
+<h3>お客様への一言</h3>
+<p><strong>「華やかな香りと爽やかさを楽しめる、すっきり辛口のプロヴァンス・ロゼです。」</strong></p></div></section>
+<section class="page" aria-labelledby="wine-4"><div class="page-number">05 / 13</div><p class="bottle-type wine-heading wine-orange">04｜オレンジ</p><h2 class="wine-name" id="wine-4">テヌータ・ラルモニア ポップ・ビアンコ</h2><div class="copy-block"><h3>まず覚える一言</h3>
+<p><strong>「柑橘のような爽やかさと、皮由来の旨味を楽しめるオレンジワイン。」</strong></p>
+<h3>どんなワイン？</h3>
+<p>イタリア・ヴェネト州の<strong>テヌータ・ラルモニア</strong>が造るワインです。</p>
+<p>白ブドウを皮と接触させる時間を設けることで、通常の白ワインとは少し違った色合いや風味が生まれます。</p>
+<p>自社のワイン資料では、<strong>「オレンジワイン・柑橘系・旨味」</strong>というキーワードで整理しています。</p>
+<h3>基本スペック</h3>
+<p><strong>国：イタリア</strong><br>
+<strong>地方：ヴェネト</strong><br>
+<strong>タイプ：オレンジワイン</strong><br>
+<strong>主な品種：ガルガネガなど複数品種</strong></p>
+<h3>味わい</h3>
+<p>黄色から少し琥珀色を帯びたような色合い。</p>
+<p>果実や花のような香りがあり、爽やかな酸味やミネラル感に加えて、皮と接触させることで生まれる複雑さがあります。</p>
+<p>普通の白ワインとは少し違う、<strong>旨味や厚みのある味わい</strong>をイメージしましょう。</p>
+<h3>こんなお客様に</h3>
+<p>「オレンジワインを飲んでみたい」</p>
+<p>「普通の白とは少し違うものが飲みたい」</p>
+<p>「ナチュラルな雰囲気のワインが好き」</p>
+<p>というお客様におすすめしやすい一本です。</p>
+<h3>合わせたい料理</h3>
+<p>魚介料理、フリットなど、幅広い料理と合わせて楽しめます。</p>
+<h3>お客様への一言</h3>
+<p><strong>「白ブドウを皮と一緒に醸した、柑橘の爽やかさと旨味を楽しめるオレンジワインです。」</strong></p></div></section>
+<section class="page" aria-labelledby="wine-5"><div class="page-number">06 / 13</div><p class="bottle-type wine-heading wine-refreshing">05｜白・リフレッシング</p><h2 class="wine-name" id="wine-5">ソアリェイロ アロ</h2><div class="copy-block"><h3>まず覚える一言</h3>
+<p><strong>「爽やか・軽やか・魚介に合わせやすい白。」</strong></p>
+<h3>どんなワイン？</h3>
+<p>ポルトガル北部、ミーニョ地方で造られる白ワインです。</p>
+<p>使われるブドウは、<strong>ロウレイロとアルバリーニョ</strong>。</p>
+<p>現在の生産者資料ではロウレイロ70％、アルバリーニョ30％で、ロウレイロが華やかさ、アルバリーニョが骨格や果実味を与えています。</p>
+<h3>基本スペック</h3>
+<p><strong>国：ポルトガル</strong><br>
+<strong>地方：ミーニョ</strong><br>
+<strong>タイプ：白ワイン／辛口</strong><br>
+<strong>品種：ロウレイロ、アルバリーニョ</strong></p>
+<h3>味わい</h3>
+<p>柑橘や花、トロピカルフルーツを思わせる香り。</p>
+<p>爽やかな酸味があり、アルコールも比較的穏やかで、軽快に楽しめます。</p>
+<p>当店の分類では、まさに<strong>リフレッシング</strong>。</p>
+<p><strong>「すっきり・爽やか・軽やか」</strong>で覚えましょう。</p>
+<h3>こんなお客様に</h3>
+<p>「すっきりした白が好き」</p>
+<p>「重たくないワインがいい」</p>
+<p>「魚介に合うワインが飲みたい」</p>
+<p>というお客様におすすめします。</p>
+<h3>合わせたい料理</h3>
+<p>特におすすめしたいのが<strong>魚介料理</strong>。</p>
+<p>生産者も、魚介、グリルした魚、白身肉などとのペアリングをすすめています。</p>
+<h3>お客様への一言</h3>
+<p><strong>「柑橘のような爽やかさがある、すっきり辛口の白です。魚介料理にもおすすめです。」</strong></p></div></section>
+<section class="page" aria-labelledby="wine-6"><div class="page-number">07 / 13</div><p class="bottle-type wine-heading wine-aromatic">06｜白・アロマティック</p><h2 class="wine-name" id="wine-6">カサ・ベナサル</h2><div class="copy-block"><h3>まず覚える一言</h3>
+<p><strong>「花や柑橘のような、華やかな香りを楽しむ白。」</strong></p>
+<h3>どんなワイン？</h3>
+<p>スペイン・バレンシア地方で造られる白ワインです。</p>
+<p>使われているのは、</p>
+<p><strong>ゲヴュルツトラミネール 60％<br>
+モスカテル 40％</strong></p>
+<p>という、とても香りの豊かな2品種。</p>
+<p>この品種の組み合わせが、アロマティックらしい華やかな個性を生み出しています。</p>
+<h3>基本スペック</h3>
+<p><strong>国：スペイン</strong><br>
+<strong>地方：バレンシア</strong><br>
+<strong>タイプ：白ワイン／辛口</strong><br>
+<strong>品種：ゲヴュルツトラミネール、モスカテル</strong></p>
+<h3>味わい</h3>
+<p>オレンジ、グレープフルーツ、ベルガモットなどの柑橘。</p>
+<p>さらに桃や花を思わせる華やかな香りがあります。</p>
+<p>ここでも大切なのが、</p>
+<p><strong>「香りが華やか＝甘口」ではない。</strong></p>
+<p>ということ。</p>
+<p>香りはとても華やかですが、味わいは辛口です。</p>
+<h3>こんなお客様に</h3>
+<p>「香りのいい白ワインが好き」</p>
+<p>「フルーティーなワインが飲みたい」</p>
+<p>「すっきりだけじゃなく、華やかさも欲しい」</p>
+<p>というお客様におすすめします。</p>
+<h3>合わせたい料理</h3>
+<p>香りを楽しみながら、前菜や魚介料理などと合わせて提案してみましょう。</p>
+<h3>お客様への一言</h3>
+<p><strong>「オレンジや桃、花のような香りがとても華やかな白ワインです。香りはフルーティーですが、味わいは辛口です。」</strong></p></div></section>
+<section class="page" aria-labelledby="wine-7"><div class="page-number">08 / 13</div><p class="bottle-type wine-heading wine-rich">07｜白・リッチ</p><h2 class="wine-name" id="wine-7">ファーザーズ・アイズ</h2><div class="copy-block"><h3>まず覚える一言</h3>
+<p><strong>「シャルドネの果実味と樽の香ばしさを楽しむ、コクのある白。」</strong></p>
+<h3>どんなワイン？</h3>
+<p>イタリア北東部、フリウリ・ヴェネツィア・ジュリアで造られる<strong>シャルドネ100％</strong>の白ワインです。</p>
+<p>新しいアメリカンオークの樽で発酵・熟成を行うことで、シャルドネの果実味に樽由来の香りとコクが加わります。</p>
+<h3>基本スペック</h3>
+<p><strong>国：イタリア</strong><br>
+<strong>地方：フリウリ・ヴェネツィア・ジュリア</strong><br>
+<strong>タイプ：白ワイン／リッチ</strong><br>
+<strong>品種：シャルドネ100％</strong></p>
+<h3>味わい</h3>
+<p>リンゴやレモンなどの果実。</p>
+<p>そこにバニラ、ナッツ、香ばしさなどが重なります。</p>
+<p>口当たりはクリーミーで、しっかりしたコクがありますが、酸味もあるため重たくなりすぎません。</p>
+<p><strong>「まろやか・樽・コク」</strong></p>
+<p>この3つを覚えましょう。</p>
+<h3>こんなお客様に</h3>
+<p>「コクのある白が好き」</p>
+<p>「シャルドネが好き」</p>
+<p>「樽の香りがする白が飲みたい」</p>
+<p>というお客様におすすめします。</p>
+<h3>合わせたい料理</h3>
+<p>グリルした魚介、鶏料理、きのこ、チーズなど。</p>
+<p>軽い前菜だけではなく、<strong>少し味のしっかりした料理にも合わせられる白</strong>です。</p>
+<h3>お客様への一言</h3>
+<p><strong>「シャルドネ100％で、バニラやナッツのような樽の香りと、まろやかなコクを楽しめる白です。」</strong></p></div></section>
+<section class="page" aria-labelledby="wine-8"><div class="page-number">09 / 13</div><p class="bottle-type wine-heading wine-light">08｜赤・ライト</p><h2 class="wine-name" id="wine-8">ナターレ・ヴェルガ キャンティ</h2><div class="copy-block"><h3>まず覚える一言</h3>
+<p><strong>「赤い果実の風味を楽しめる、親しみやすいイタリアの赤。」</strong></p>
+<h3>どんなワイン？</h3>
+<p>イタリア・トスカーナを代表するワインのひとつ、<strong>キャンティ</strong>。</p>
+<p>主要品種は、イタリアを代表する黒ブドウ<strong>サンジョヴェーゼ</strong>です。</p>
+<h3>基本スペック</h3>
+<p><strong>国：イタリア</strong><br>
+<strong>地方：トスカーナ</strong><br>
+<strong>タイプ：赤ワイン／ライト</strong><br>
+<strong>品種：サンジョヴェーゼ</strong></p>
+<h3>味わい</h3>
+<p>チェリーやベリーなど、赤い果実を思わせる香り。</p>
+<p>辛口で、果実味と酸味を楽しめるスタイルです。</p>
+<p>当店ではライトタイプとして、</p>
+<p><strong>「軽快・親しみやすい」</strong></p>
+<p>というイメージで覚えましょう。</p>
+<h3>こんなお客様に</h3>
+<p>「重たい赤は苦手」</p>
+<p>「軽めの赤が飲みたい」</p>
+<p>「料理と合わせやすい赤がいい」</p>
+<p>というお客様におすすめします。</p>
+<h3>合わせたい料理</h3>
+<p>パスタ、肉料理、チーズなど。</p>
+<p>イタリア料理との相性をイメージしやすい一本です。</p>
+<h3>お客様への一言</h3>
+<p><strong>「チェリーのような赤い果実の風味がある、軽やかで親しみやすいイタリアの赤です。」</strong></p></div></section>
+<section class="page" aria-labelledby="wine-9"><div class="page-number">10 / 13</div><p class="bottle-type wine-heading wine-medium">09｜赤・ミディアム</p><h2 class="wine-name" id="wine-9">ガルシアーノ</h2><div class="copy-block"><h3>まず覚える一言</h3>
+<p><strong>「果実味と爽やかさのバランスがいい、スペインのミディアム赤。」</strong></p>
+<h3>どんなワイン？</h3>
+<p>スペイン・ナバーラ地方で造られる赤ワインです。</p>
+<p>名前の「ガルシアーノ」は、</p>
+<p><strong>ガルナッチャ＋グラシアーノ</strong></p>
+<p>という2つのブドウ品種から。</p>
+<p>ガルナッチャ60％、グラシアーノ40％を使用し、約6か月樽で熟成させています。</p>
+<h3>基本スペック</h3>
+<p><strong>国：スペイン</strong><br>
+<strong>地方：ナバーラ</strong><br>
+<strong>タイプ：赤ワイン／ミディアム</strong><br>
+<strong>品種：ガルナッチャ60％、グラシアーノ40％</strong></p>
+<h3>味わい</h3>
+<p>チェリー、ブラックベリー、ラズベリーなどの果実を思わせる香り。</p>
+<p>ガルナッチャが豊かな果実味を、グラシアーノが爽やかな酸味を与えています。</p>
+<p>タンニンはきめ細かく、</p>
+<p><strong>「果実味・ほどよい飲みごたえ・バランス」</strong></p>
+<p>で覚えましょう。</p>
+<h3>こんなお客様に</h3>
+<p>「軽すぎず、重すぎない赤がいい」</p>
+<p>「果実味のある赤が好き」</p>
+<p>「料理に合わせやすい赤が欲しい」</p>
+<p>というお客様におすすめします。</p>
+<h3>合わせたい料理</h3>
+<p>パスタ、パエリア、肉料理など、幅広く合わせて提案しやすい赤ワインです。</p>
+<h3>お客様への一言</h3>
+<p><strong>「果実味がしっかりありながら、重たすぎないバランスのいいスペインの赤です。」</strong></p></div></section>
+<section class="page" aria-labelledby="wine-10"><div class="page-number">11 / 13</div><p class="bottle-type wine-heading wine-full">10｜赤・フル</p><h2 class="wine-name" id="wine-10">ヌエストラ・セニョーラ・デル・ポルタル</h2><div class="copy-block"><h3>まず覚える一言</h3>
+<p><strong>「濃い果実味と樽の香ばしさを楽しめる、力強いスペインの赤。」</strong></p>
+<h3>どんなワイン？</h3>
+<p>スペイン・カタルーニャ州、<strong>D.O.テラ・アルタ</strong>で造られる赤ワインです。</p>
+<p>造り手は、Batea（バテア）にある家族経営のワイナリー、<strong>Celler Piñol（セリェール・ピニョル）</strong>。</p>
+<p>使用するブドウは、</p>
+<p><strong>ガルナッチャ・ティンタ 75％<br>
+カリニェナ 15％<br>
+シラー 10％</strong></p>
+<p>です。</p>
+<p>さらに樽で12か月熟成させています。</p>
+<h3>基本スペック</h3>
+<p><strong>国：スペイン</strong><br>
+<strong>地方：カタルーニャ／テラ・アルタ</strong><br>
+<strong>タイプ：赤ワイン／フル</strong><br>
+<strong>品種：ガルナッチャ・ティンタ、カリニェナ、シラー</strong></p>
+<h3>味わい</h3>
+<p>赤や黒のベリー、ブラックベリーなどを思わせる濃い果実の香り。</p>
+<p>そこに樽熟成による香ばしさや、リコリスを思わせるニュアンスが加わります。</p>
+<p>口当たりにはしっかりしたタンニンと厚みがあり、余韻も長め。</p>
+<p><strong>「濃い果実・力強さ・樽」</strong></p>
+<p>で覚えましょう。</p>
+<h3>こんなお客様に</h3>
+<p>「しっかりした赤が飲みたい」</p>
+<p>「フルボディが好き」</p>
+<p>「肉料理に合わせたい」</p>
+<p>というお客様におすすめします。</p>
+<h3>合わせたい料理</h3>
+<p>特におすすめしたいのは、<strong>グリルした肉料理</strong>。</p>
+<p>生産者もラムや肉料理などとのペアリングをすすめています。</p>
+<h3>お客様への一言</h3>
+<p><strong>「黒い果実の濃さと樽の香ばしさがある、しっかりフルボディのスペインワインです。」</strong></p></div></section>
+<section class="page" aria-labelledby="chapter-12"><div class="page-number">12 / 13</div><p class="page-kicker">WINE SELECTION</p><h2 id="chapter-12">まずは「10本の違い」を覚えよう</h2><div class="copy-block"><p>10本すべての細かい情報を、一度に暗記する必要はありません。</p>
+<p>まずは、この違いを言えるようになりましょう。</p>
+<p><strong>泡｜グラハム・ベック</strong><br>
+爽やか × クリーミー</p>
+<p><strong>シャンパーニュ｜ルイ・ロデレール</strong><br>
+上品 × 複雑 × 特別感</p>
+<p><strong>ロゼ｜ウィスパーリング・エンジェル</strong><br>
+華やか × 爽やか × 辛口</p>
+<p><strong>オレンジ｜ポップ・ビアンコ</strong><br>
+柑橘 × 旨味</p>
+<p><strong>白・リフレッシング｜アロ</strong><br>
+すっきり × 爽やか</p>
+<p><strong>白・アロマティック｜カサ・ベナサル</strong><br>
+華やか × フルーティー</p>
+<p><strong>白・リッチ｜ファーザーズ・アイズ</strong><br>
+まろやか × 樽 × コク</p>
+<p><strong>赤・ライト｜キャンティ</strong><br>
+赤い果実 × 軽やか</p>
+<p><strong>赤・ミディアム｜ガルシアーノ</strong><br>
+果実味 × バランス</p>
+<p><strong>赤・フル｜ヌエストラ・セニョーラ・デル・ポルタル</strong><br>
+濃い果実 × 力強さ × 樽</p></div></section>
+<section class="page final-page" aria-labelledby="chapter-13"><div class="page-number">13 / 13</div><p class="page-kicker">WINE SELECTION</p><h2 id="chapter-13">GOAL</h2><div class="copy-block"><h3>お客様の「好み」から、一本を選べるようになる。</h3>
+<p>ワイン名を10本暗記するだけでは、商品知識を覚えたことにはなりません。</p>
+<p>例えば、</p>
+<p>「すっきりした白が飲みたい」</p>
+<p>と言われたら、</p>
+<p><strong>「でしたら、アロがおすすめです。」</strong></p>
+<p>「香りが華やかなものが好き」</p>
+<p>と言われたら、</p>
+<p><strong>「でしたら、カサ・ベナサルはいかがですか？」</strong></p>
+<p>「しっかりした赤をお肉と合わせたい」</p>
+<p>と言われたら、</p>
+<p><strong>「ヌエストラがおすすめです。」</strong></p>
+<p>と、お客様の言葉から商品につなげられることが大切です。</p>
+<p><strong>ワインを覚える目的は、知識を披露するためではありません。</strong></p>
+<p>お客様の好みや料理に合わせて、</p>
+<p><strong>「でしたら、こちらがおすすめです。」</strong></p>
+<p>と自分の言葉で提案できるようになりましょう。</p></div></section>
+<footer class="book-footer"><a class="back-link" href="index.html#learning-menu">Learning Menuへ戻る</a><a class="back-link" href="wine-basic.html">ワインの超基礎へ</a><p class="book-label">PLEASURE COMPANY</p></footer></main></body></html>
