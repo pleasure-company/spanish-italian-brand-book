@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Dai Signatureの6杯を、お酒のストーリー、味わい、お客様への提案から学びます。"><title>Dai SIGNATURE | PLEASURE COMPANY</title><style>
+    :root { --bg:#fffdf8; --soft:#fbf4e8; --text:#2d2a26; --muted:#6f665c; --wine:#7b1f1d; --gold:#b89b5e; --line:rgba(185,139,63,.24); }
+    *, *::before, *::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:radial-gradient(circle at 90% 4%,rgba(214,194,138,.24),transparent 28%),linear-gradient(180deg,var(--bg),var(--soft) 42%,var(--bg)); color:var(--text); font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic","Noto Sans JP",Meiryo,system-ui,sans-serif; font-size:16px; line-height:1.9; -webkit-text-size-adjust:100%; }
+    h1,h2,h3,p,blockquote { margin:0; }
+    a { color:inherit; }
+    a:focus-visible { outline:3px solid var(--wine); outline-offset:5px; }
+    .phone-book { width:min(100% - 28px,720px); margin:auto; padding:18px 0 38px; }
+    .book-nav { display:flex; justify-content:space-between; gap:16px; margin:0 0 18px; align-items:center; }
+    .back-link { display:inline-flex; align-items:center; min-height:44px; padding:8px 16px; border:1px solid var(--line); border-radius:999px; background:rgba(255,255,255,.75); color:var(--wine); font-size:14px; font-weight:700; text-decoration:none; }
+    .book-label { color:var(--muted); font-family:Georgia,serif; font-size:12px; letter-spacing:.12em; }
+    .page { position:relative; isolation:isolate; padding:30px 24px 38px; margin-bottom:24px; border:1px solid var(--line); border-radius:8px; background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,253,248,.96)); box-shadow:0 14px 34px rgba(58,43,28,.08); }
+    .page::after { content:""; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,transparent,rgba(184,155,94,.72),rgba(123,31,29,.22),transparent); }
+    .page-number { text-align:right; color:#9a7536; font-family:Georgia,serif; font-size:12px; letter-spacing:.12em; }
+    .page-kicker { margin:22px 0 10px; color:var(--wine); font:700 14px/1.5 Georgia,serif; letter-spacing:.12em; }
+    h1 { font:500 clamp(60px,16vw,86px)/1.1 Georgia,"Times New Roman",serif; }
+    h2 { font-size:clamp(24px,5.8vw,32px); line-height:1.55; overflow-wrap:anywhere; }
+    h3 { font-size:19px; line-height:1.65; }
+    .copy-block { display:grid; gap:18px; margin-top:24px; color:var(--muted); }
+    strong { color:var(--wine); font-weight:800; }
+    .cover-page { background:radial-gradient(circle at 82% 14%,rgba(214,194,138,.28),transparent 34%),radial-gradient(circle at 15% 82%,rgba(123,31,29,.10),transparent 34%),linear-gradient(135deg,var(--bg),var(--soft) 54%,#efe5d4); }
+    .cover-page::before { content:""; position:absolute; z-index:-1; inset:26px 18px; border:1px solid rgba(184,155,94,.22); border-radius:999px; pointer-events:none; }
+    .cover-content { display:grid; gap:24px; padding:48px 0 36px; text-align:center; }
+    .brand-name { color:#4a1717; font:700 14px/1.5 Georgia,serif; letter-spacing:.18em; }
+    .hero-copy { width:min(100%,17em); margin:auto; font-size:clamp(23px,5.8vw,30px); }
+    .cover-page .copy-block { padding-top:24px; border-top:1px solid var(--line); }
+    .quote { padding:18px 20px; border-left:3px solid var(--gold); border-radius:0 8px 8px 0; background:var(--soft); color:var(--wine); font-weight:700; }
+    .quote p + p { margin-top:12px; }
+    .questions { display:grid; gap:12px; padding:0; margin:0; list-style:none; color:var(--wine); font-weight:700; }
+    .questions li { padding:12px 16px; background:var(--soft); border:1px solid var(--line); border-radius:8px; }
+    .dish-list { display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:0; }
+    .dish-list li { padding:5px 16px; border:1px solid var(--line); border-radius:999px; background:var(--soft); color:var(--text); }
+    .lesson-list { margin-top:24px; }
+    .lesson { padding:24px 0; border-top:1px solid var(--line); }
+    .lesson h3 { color:var(--wine); }
+    .lesson .copy-block { margin-top:12px; gap:12px; }
+    .final-page { background:linear-gradient(145deg,#fffdf8,#f5ead9); }
+    .book-footer { display:grid; justify-items:center; gap:24px; padding:12px 0 20px; }
+    @media(min-width:700px) { .phone-book { padding-top:28px; } .page { padding:36px 44px 46px; margin-bottom:28px; } .cover-content { padding:56px 0 42px; } }
+    @media(max-width:360px) { .page { padding:24px 18px 30px; } .book-label { letter-spacing:.04em; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  
+    h1 { font-size:clamp(42px,11vw,72px); overflow-wrap:anywhere; }
+    .cover-content h2 { font-size:clamp(24px,6vw,32px); }
+    .cover-content h3 { width:min(100%,24em); margin:auto; font-size:18px; line-height:1.8; }
+    .copy-block h3 { margin-top:16px; padding-top:24px; border-top:1px solid var(--line); color:var(--wine); }
+    .copy-block h4 { margin:12px 0 0; font-size:16px; line-height:1.8; color:var(--text); }
+    strong { font-weight:700; }
+    .book-nav { flex-wrap:wrap; }
+    .page { scroll-margin-top:20px; }
+
+    /* メニューの分類色を、ワインの種類・タイプの見出しだけに使用。 */
+    .wine-heading,
+    .copy-block h3.wine-heading {
+      padding:12px 16px;
+      border:1px solid var(--heading-border);
+      border-left:5px solid var(--heading-border);
+      border-radius:6px;
+      background:var(--heading-bg);
+      color:var(--heading-text);
+    }
+    .wine-white { --heading-border:#29945d; --heading-bg:#f1f8ee; --heading-text:#245a3c; }
+    .wine-red { --heading-border:#b33b4c; --heading-bg:#fcf1f1; --heading-text:#792b36; }
+    .wine-sparkling { --heading-border:#d3b644; --heading-bg:#fffbeb; --heading-text:#736022; }
+    .wine-rose { --heading-border:#dd95ac; --heading-bg:#fff3f6; --heading-text:#85435b; }
+    .wine-orange { --heading-border:#d58a33; --heading-bg:#fff6e9; --heading-text:#845118; }
+    .wine-refreshing { --heading-border:#87bd53; --heading-bg:#f4faed; --heading-text:#416829; }
+    .wine-aromatic { --heading-border:#1c9c69; --heading-bg:#eef9f2; --heading-text:#246443; }
+    .wine-rich { --heading-border:#087744; --heading-bg:#edf5ef; --heading-text:#205437; }
+    .wine-light { --heading-border:#e79c92; --heading-bg:#fff5f2; --heading-text:#884c43; }
+    .wine-medium { --heading-border:#cb5260; --heading-bg:#fdf0f2; --heading-text:#8a3542; }
+    .wine-full { --heading-border:#951d39; --heading-bg:#f8edf0; --heading-text:#761f33; }
+
+
+    .cover-content h1 { font-size:clamp(36px,9.8vw,62px); line-height:1.3; }
+    .cover-content h2 { font-size:clamp(21px,5.3vw,28px); line-height:1.7; }
+    .signature-title { padding:14px 18px; border:1px solid var(--gold); border-left:5px solid var(--gold); border-radius:6px; background:var(--soft); }
+    .copy-block h3 { font-size:18px; }
+    .copy-block .signature-subtitle { margin-top:0; padding-top:0; border:0; color:var(--text); }
+    .copy-block .drink-heading { padding:12px 16px; border:1px solid var(--line); border-radius:6px; background:var(--soft); }
+    .copy-block .preference { color:var(--wine); font-size:17px; }
+</style></head><body><main class="phone-book" aria-label="Dai Signature ドリンク教育"><nav class="book-nav" aria-label="ページナビゲーション"><a class="back-link" href="index.html#learning-menu">Learning Menuへ</a><a class="back-link" href="drink.html">DRINKへ</a></nav>
+<section class="page cover-page" aria-labelledby="signature-title"><div class="page-number">01 / 11</div><div class="cover-content"><p class="brand-name">SID / BTD / TPD</p><h1 id="signature-title">Dai SIGNATURE</h1><h2>私たちのお店だから飲める、一杯をおすすめする。</h2></div><div class="copy-block"><p>ワインだけでなく、私たちのお店には<strong>「Dai Signature」</strong>としておすすめしたいオリジナルドリンクがあります。</p>
+<p>ただカクテルの名前やレシピを覚えるだけではなく、<br>「何のお酒を使っているのか」<br>「そのお酒にはどんなストーリーがあるのか」<br>「どんな香りや味わいなのか」</p>
+<p>まで知ることで、お客様へのおすすめがもっと楽しくなります。</p>
+<p>このページでは、Dai Signatureで使用する特徴的なお酒を中心に学んでいきましょう。</p></div></section>
+<section class="page" aria-labelledby="chapter-2"><div class="page-number">02 / 11</div><p class="page-kicker">Dai SIGNATURE</p><h2 id="chapter-2">1．まずは「リキュール」と「蒸留酒」の違い</h2><div class="copy-block"><p>Signatureで使っているお酒は、すべてが同じ種類ではありません。</p>
+<h3>蒸留酒</h3>
+<p>発酵させたお酒を蒸留して造るお酒です。</p>
+<p>ジン、焼酎、ウイスキー、ブランデーなどがあります。</p>
+<p>今回覚える中では、<br>天使の誘惑 → 芋焼酎<br>ジン・マーレ → ジン<br>がこの仲間です。</p>
+<h3>リキュール</h3>
+<p>蒸留酒などをベースに、果物、ハーブ、スパイス、糖分などを加えて造るお酒です。</p>
+<p>今回覚える中では、<br>日向夏チェロ → 柑橘リキュール<br>スカーレット → アマーロ<br>ベル・ド・ブリエ → 洋梨とコニャックのリキュール</p>
+<p>があります。</p>
+<p>難しく考える必要はありません。</p>
+<p>まずは、<br>「何を使って造られたお酒なのか」<br>を知るところから始めましょう。</p></div></section>
+<section class="page" aria-labelledby="chapter-3"><div class="page-number">03 / 11</div><p class="page-kicker">Dai SIGNATURE</p><h2 id="chapter-3" class="signature-title">2．天使の誘惑</h2><div class="copy-block"><h3 class="signature-subtitle">「芋焼酎」のイメージを変える、長期樽熟成焼酎</h3>
+<p>Dai Signatureの<strong>「天使のレブヒート」</strong>で使用しています。</p>
+<h3>何のお酒？</h3>
+<p>鹿児島県の西酒造が造る芋焼酎です。</p>
+<p>原料には黄金千貫と米麹を使用し、シェリー酒を貯蔵していた古樽で10年間熟成させています。社内資料ではアルコール度数40％、バニラ・ナッツ・ドライフルーツのような樽香、まろやかな口当たりが特徴として整理されています。</p>
+<p>西酒造の公式情報でも、シェリー古樽で10年間熟成することで、甘く香ばしい香りとなめらかな口当たり、長い余韻が生まれると説明されています。</p>
+<h3>覚えるポイント</h3>
+<p>芋焼酎 × シェリー樽 × 10年熟成<br>一般的な芋焼酎とは少し違い、樽熟成によってブランデーやウイスキーを思わせるような香りがあります。</p>
+<p>西酒造では、天使の誘惑を長期樽熟成焼酎として展開しており、2025年にはTWSCで「BEST OF THE BEST」を受賞しています。</p>
+<h3>Daiではどう楽しむ？</h3>
+<h4 class="drink-heading">天使のレブヒート</h4>
+<p>天使の誘惑 30ml<br>モヒートシロップ 15ml<br>炭酸<br>という組み合わせです。</p>
+<p>社内メニューでは、<strong>「シェリー樽で熟成した芋焼酎をハーブシロップと炭酸で割った爽やかな一杯」</strong>と位置づけています。</p>
+<h3>お客様への一言</h3>
+<p>「10年間シェリー樽で熟成させた芋焼酎を使っています。樽の香りがありながら、ハーブと炭酸で爽やかに楽しめる一杯です。」</p></div></section>
+<section class="page" aria-labelledby="chapter-4"><div class="page-number">04 / 11</div><p class="page-kicker">Dai SIGNATURE</p><h2 id="chapter-4" class="signature-title">3．日向夏チェロ</h2><div class="copy-block"><h3 class="signature-subtitle">日本の日向夏から造る、爽やかな柑橘リキュール</h3>
+<p>Dai Signatureの<strong>「日向夏チェロモーニ」</strong>で使用しています。</p>
+<h3>何のお酒？</h3>
+<p>宮崎県綾町で育った無農薬の日向夏の皮を使って造る柑橘リキュールです。</p>
+<p>イタリアの代表的な柑橘リキュール「リモンチェッロ」をベースに考えられたお酒ですが、日向夏らしい爽やかさとほろ苦さを持っています。</p>
+<h3>造りのこだわり</h3>
+<p>社内商品資料では、<br>日向夏の皮をアルコールに漬け込む時間を24時間以内にする<br>ことで、苦味が出すぎないように造られています。</p>
+<p>さらに、<br>粗糖ときび砂糖で造った日向夏シロップを加え、自家栽培のペパーミントを隠し味として使っています。</p>
+<h3>覚えるポイント</h3>
+<p>日向夏 × 柑橘 × 爽やか × ほろ苦い<br>まずはこの4つで覚えましょう。</p>
+<h3>Daiではどう楽しむ？</h3>
+<h4 class="drink-heading">日向夏チェロモーニ</h4>
+<p>日向夏チェロ 30ml<br>グレープフルーツジュース 45ml<br>トニックウォーター<br>で仕上げます。</p>
+<p>社内メニューでは、無農薬の日向夏を一つひとつ手作業で皮をむいて造った日向夏チェロを、スプモーニスタイルで提供する一杯として紹介しています。</p>
+<h3>お客様への一言</h3>
+<p>「宮崎県の日向夏を使った柑橘リキュールです。グレープフルーツとトニックで、爽やかで少しほろ苦く仕上げています。」</p></div></section>
+<section class="page" aria-labelledby="chapter-5"><div class="page-number">05 / 11</div><p class="page-kicker">Dai SIGNATURE</p><h2 id="chapter-5" class="signature-title">4．ジン・マーレ</h2><div class="copy-block"><h3 class="signature-subtitle">地中海をイメージして造られた、ハーブ香るジン</h3>
+<p>Dai Signatureの<strong>「太陽のジントニック」</strong>で使用しています。</p>
+<h3>何のお酒？</h3>
+<p>スペイン・カタルーニャで造られるプレミアムジンです。</p>
+<p>最大の特徴は、一般的なジンに使われるジュニパーベリーなどに加えて、<br>アルベキーナオリーブ<br>ローズマリー<br>バジル</p>
+<p>タイム<br>という、地中海料理を思わせるボタニカルを使用していることです。</p>
+<p>オレンジ、レモンなどの柑橘も使用されています。</p>
+<h3>そもそも「ボタニカル」とは？</h3>
+<p>ジンの香りづけに使われる、ハーブ・スパイス・果皮・植物などの原料のことです。</p>
+<p>ジン・マーレでは、それぞれのボタニカルを個別に浸漬・蒸留してからブレンドする製法が採用されています。</p>
+<h3>味わい</h3>
+<p>ローズマリーやタイムなどのハーブ。</p>
+<p>オリーブの少しサボリーなニュアンス。</p>
+<p>そこに柑橘の爽やかさが加わります。</p>
+<p>公式情報でも、一般的なジンとは異なるハーバルで地中海らしい香りが特徴として紹介されています。</p>
+<h3>覚えるポイント</h3>
+<p>スペイン × 地中海 × オリーブ × ハーブ<br>私たちのスパニッシュ・イタリアンというブランドとも非常につながりやすいお酒です。</p>
+<h3>Daiではどう楽しむ？</h3>
+<h4 class="drink-heading">太陽のジントニック</h4>
+<p>ジン・マーレ 30ml<br>トニックウォーター<br>オレンジ<br>で仕上げます。</p>
+<p>社内メニューでも、<strong>「柑橘やハーブのボタニカルで地中海の風味が特徴的なジン」</strong>として紹介しています。</p>
+<h3>お客様への一言</h3>
+<p>「スペインの地中海ジンを使っています。オリーブやローズマリー、バジル、タイムなどの香りを楽しめるジントニックです。」</p></div></section>
+<section class="page" aria-labelledby="chapter-6"><div class="page-number">06 / 11</div><p class="page-kicker">Dai SIGNATURE</p><h2 id="chapter-6" class="signature-title">5．スカーレット アペリティーヴォ</h2><div class="copy-block"><h3 class="signature-subtitle">イタリアの「アマーロ」を、日本で造る。</h3>
+<p>Dai Signatureの<strong>「日本のカンパリソーダ」</strong>で使用しています。</p>
+<h3>何のお酒？</h3>
+<p>神奈川県相模原市にある伊勢屋酒造が造る、日本のアマーロです。</p>
+<p>「アマーロ」はイタリア語で<strong>「苦い」</strong>という意味。</p>
+<p>ハーブやスパイスなどの植物を使って造られる、苦味を特徴としたリキュールで、カンパリもその仲間として知られています。</p>
+<p>伊勢屋酒造では、築100年の古民家を再生した製造場で、製造から瓶詰めまで家族の手作業で「スカーレット」を造っています。</p>
+<p>相模原市の紹介でも、伊勢屋酒造はイタリア発祥のアマーロを日本で造り、独自のボタニカルレシピを用いて「Scarlet Aperitivo」などを製造していると紹介されています。</p>
+<h3>何が入っている？</h3>
+<p>ベースにはウォッカを使用し、自社栽培を含むさまざまなボタニカルを組み合わせています。</p>
+<p>日本の植物だけに限定せず、海外の原料も取り入れながら、アマーロとしての味わいをつくっています。</p>
+<h3>覚えるポイント</h3>
+<p>日本 × アマーロ × ハーブ × 苦味<br>「日本で造っているカンパリのようなお酒」<br>くらいから覚えると分かりやすいです。</p>
+<h3>Daiではどう楽しむ？</h3>
+<h4 class="drink-heading">日本のカンパリソーダ</h4>
+<p>伊勢屋アペリティーヴォ 30ml<br>ソーダ<br>オレンジ<br>で仕上げます。</p>
+<p>社内メニューでは、<strong>「神奈川相模原市で造る世界に誇るアマーロ」</strong>として紹介しています。</p>
+<h3>お客様への一言</h3>
+<p>「イタリアのアマーロというお酒を、神奈川県相模原で造っています。ハーブの香りと心地よい苦味をソーダで爽やかに楽しめます。」</p></div></section>
+<section class="page" aria-labelledby="chapter-7"><div class="page-number">07 / 11</div><p class="page-kicker">Dai SIGNATURE</p><h2 id="chapter-7" class="signature-title">6．ベル・ド・ブリエ</h2><div class="copy-block"><h3 class="signature-subtitle">洋梨とコニャックを合わせた、フランスのリキュール</h3>
+<p>Dai Signatureの<strong>「洋梨ブリーズ」</strong>で使用しています。</p>
+<h3>何のお酒？</h3>
+<p>フランスの洋梨とコニャックのリキュールです。</p>
+<p>使われているのは、香りの豊かなウィリアムズ種の洋梨。</p>
+<p>公式情報によると、700mlのボトル1本を造るために、約18個分の洋梨が使われています。</p>
+<p>そこにコニャックと、マダガスカル産バニラを使ったバニラシュガーを組み合わせています。着色料や追加香料、カラメル、ニュートラルスピリッツは使用していません。</p>
+<h3>そもそも「コニャック」とは？</h3>
+<p>フランスのコニャック地方で、決められた条件のもと造られるブランデーです。</p>
+<p>ベル・ド・ブリエでは、洋梨の華やかな果実味にコニャックの厚みを加えることで、ただ甘いだけではない複雑な味わいをつくっています。</p>
+<h3>味わい</h3>
+<p>熟した洋梨の華やかな香り。</p>
+<p>コニャックによるまろやかな厚み。</p>
+<p>さらに、バニラや花を思わせるニュアンスがあります。社内商品資料でも、洋梨の香り、コニャックの厚み、バニラや白い花、蜂蜜のような余韻が特徴としてまとめられています。</p>
+<h3>覚えるポイント</h3>
+<p>洋梨 × コニャック × 華やか × まろやか</p>
+<h3>Daiではどう楽しむ？</h3>
+<h4 class="drink-heading">洋梨ブリーズ</h4>
+<p>ベル・ド・ブリエ 30ml<br>桃ジュース 60ml<br>パイナップルジュース 60ml<br>で仕上げます。</p>
+<p>社内メニューでは、<strong>「洋梨をふんだんに使ったコニャックと桃＆パインで爽やかな大人のミックスジュース」</strong>というイメージで紹介しています。</p>
+<h3>お客様への一言</h3>
+<p>「ウィリアムズ洋梨とコニャックから造るフランスのリキュールです。桃とパインを合わせて、華やかでフルーティーに仕上げています。」</p></div></section>
+<section class="page" aria-labelledby="chapter-8"><div class="page-number">08 / 11</div><p class="page-kicker">Dai SIGNATURE</p><h2 id="chapter-8" class="signature-title">7．Daiのレモンサワー</h2><div class="copy-block"><p>Dai Signatureには、もう一つ<strong>「Daiのレモンサワー」</strong>があります。</p>
+<p>社内メニューでは、<br>「レモンを皮ごと使った丸ごとレモンサワー」<br>として紹介しています。</p>
+<p>レシピ上では、レモンサワーの素45mlを炭酸で仕上げます。</p>
+<p>まずは、<br>「普通のレモンサワーではなく、皮まで使ったレモンの風味を楽しむDaiのSignature」<br>として覚えましょう。</p></div></section>
+<section class="page" aria-labelledby="chapter-9"><div class="page-number">09 / 11</div><p class="page-kicker">Dai SIGNATURE</p><h2 id="chapter-9">8．まずは6杯の「違い」を覚えよう</h2><div class="copy-block"><p>細かい知識をすべて暗記する必要はありません。</p>
+<p>まずは、これだけ言えるようになりましょう。</p>
+<h4 class="drink-heading">Daiのレモンサワー</h4>
+<p>→ 丸ごとレモン × 爽やか</p>
+<h4 class="drink-heading">天使のレブヒート</h4>
+<p>→ 10年樽熟成芋焼酎 × ハーブ × 爽やか</p>
+<h4 class="drink-heading">日向夏チェロモーニ</h4>
+<p>→ 日向夏 × 柑橘 × ほろ苦い</p>
+<h4 class="drink-heading">太陽のジントニック</h4>
+<p>→ スペイン × 地中海 × ハーブ</p>
+<h4 class="drink-heading">日本のカンパリソーダ</h4>
+<p>→ 日本のアマーロ × ハーブ × 苦味</p>
+<h4 class="drink-heading">洋梨ブリーズ</h4>
+<p>→ 洋梨 × コニャック × フルーティー</p></div></section>
+<section class="page" aria-labelledby="chapter-10"><div class="page-number">10 / 11</div><p class="page-kicker">Dai SIGNATURE</p><h2 id="chapter-10">9．お客様の好みからおすすめする</h2><div class="copy-block"><p>Signatureをおすすめするときも、難しく考える必要はありません。</p>
+<h3 class="preference">すっきり爽やかなものが好き</h3>
+<p>Daiのレモンサワー</p>
+<h3 class="preference">少し変わった爽やかな一杯が飲みたい</h3>
+<p>天使のレブヒート</p>
+<h3 class="preference">柑橘系が好き</h3>
+<p>日向夏チェロモーニ</p>
+<h3 class="preference">ジントニックが好き・ハーブの香りが好き</h3>
+<p>太陽のジントニック</p>
+<h3 class="preference">苦味のある大人っぽい味が好き</h3>
+<p>日本のカンパリソーダ</p>
+<h3 class="preference">甘さや果実の香りが好き</h3>
+<p>洋梨ブリーズ<br>お客様から、<br>「おすすめのカクテルありますか？」<br>と聞かれたら、</p>
+<p>商品名をいきなり答えるのではなく、<br>「すっきり系と、フルーティーなものだと、どちらがお好きですか？」<br>と聞いてみましょう。</p>
+<p>そこからSignatureにつなげることができます。</p></div></section>
+<section class="page final-page" aria-labelledby="chapter-11"><div class="page-number">11 / 11</div><p class="page-kicker">Dai SIGNATURE</p><h2 id="chapter-11">GOAL</h2><div class="copy-block"><h3 class="signature-subtitle">「Daiだから飲める一杯」を、自分の言葉でおすすめする。</h3>
+<p>Signatureドリンクを覚える目的は、レシピを暗記することだけではありません。</p>
+<p>例えば、<br>「太陽のジントニックです。」<br>だけではなく、<br>「スペインの地中海ジンを使っていて、オリーブやハーブの香りを楽しめるジントニックです。」</p>
+<p>と伝える。</p>
+<p>「日本のカンパリソーダです。」<br>だけではなく、<br>「神奈川県で造られている日本のアマーロを使った、ハーブの香りと苦味を楽しめる一杯です。」<br>と伝える。</p>
+<p>その一言があることで、Signatureドリンクはただのカクテルではなく、お客様にとって新しい体験になります。</p>
+<p>ワインだけでなく、<br>「Daiに来たからこそ飲める一杯」<br>も、自信を持っておすすめできるようになりましょう。</p></div></section>
+<footer class="book-footer"><a class="back-link" href="index.html#learning-menu">Learning Menuへ戻る</a><a class="back-link" href="drink.html">DRINKへ戻る</a><p class="book-label">PLEASURE COMPANY</p></footer></main></body></html>

@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="料理とワインを一緒に楽しむ理由を考える。Daiの料理と10本のワインから学ぶペアリング。"><title>料理 × ワイン ペアリング | PLEASURE COMPANY</title><style>
+    :root { --bg:#fffdf8; --soft:#fbf4e8; --text:#2d2a26; --muted:#6f665c; --wine:#7b1f1d; --gold:#b89b5e; --line:rgba(185,139,63,.24); }
+    *, *::before, *::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:radial-gradient(circle at 90% 4%,rgba(214,194,138,.24),transparent 28%),linear-gradient(180deg,var(--bg),var(--soft) 42%,var(--bg)); color:var(--text); font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic","Noto Sans JP",Meiryo,system-ui,sans-serif; font-size:16px; line-height:1.9; -webkit-text-size-adjust:100%; }
+    h1,h2,h3,p,blockquote { margin:0; }
+    a { color:inherit; }
+    a:focus-visible { outline:3px solid var(--wine); outline-offset:5px; }
+    .phone-book { width:min(100% - 28px,720px); margin:auto; padding:18px 0 38px; }
+    .book-nav { display:flex; justify-content:space-between; gap:16px; margin:0 0 18px; align-items:center; }
+    .back-link { display:inline-flex; align-items:center; min-height:44px; padding:8px 16px; border:1px solid var(--line); border-radius:999px; background:rgba(255,255,255,.75); color:var(--wine); font-size:14px; font-weight:700; text-decoration:none; }
+    .book-label { color:var(--muted); font-family:Georgia,serif; font-size:12px; letter-spacing:.12em; }
+    .page { position:relative; isolation:isolate; padding:30px 24px 38px; margin-bottom:24px; border:1px solid var(--line); border-radius:8px; background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,253,248,.96)); box-shadow:0 14px 34px rgba(58,43,28,.08); }
+    .page::after { content:""; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,transparent,rgba(184,155,94,.72),rgba(123,31,29,.22),transparent); }
+    .page-number { text-align:right; color:#9a7536; font-family:Georgia,serif; font-size:12px; letter-spacing:.12em; }
+    .page-kicker { margin:22px 0 10px; color:var(--wine); font:700 14px/1.5 Georgia,serif; letter-spacing:.12em; }
+    h1 { font:500 clamp(60px,16vw,86px)/1.1 Georgia,"Times New Roman",serif; }
+    h2 { font-size:clamp(24px,5.8vw,32px); line-height:1.55; overflow-wrap:anywhere; }
+    h3 { font-size:19px; line-height:1.65; }
+    .copy-block { display:grid; gap:18px; margin-top:24px; color:var(--muted); }
+    strong { color:var(--wine); font-weight:800; }
+    .cover-page { background:radial-gradient(circle at 82% 14%,rgba(214,194,138,.28),transparent 34%),radial-gradient(circle at 15% 82%,rgba(123,31,29,.10),transparent 34%),linear-gradient(135deg,var(--bg),var(--soft) 54%,#efe5d4); }
+    .cover-page::before { content:""; position:absolute; z-index:-1; inset:26px 18px; border:1px solid rgba(184,155,94,.22); border-radius:999px; pointer-events:none; }
+    .cover-content { display:grid; gap:24px; padding:48px 0 36px; text-align:center; }
+    .brand-name { color:#4a1717; font:700 14px/1.5 Georgia,serif; letter-spacing:.18em; }
+    .hero-copy { width:min(100%,17em); margin:auto; font-size:clamp(23px,5.8vw,30px); }
+    .cover-page .copy-block { padding-top:24px; border-top:1px solid var(--line); }
+    .quote { padding:18px 20px; border-left:3px solid var(--gold); border-radius:0 8px 8px 0; background:var(--soft); color:var(--wine); font-weight:700; }
+    .quote p + p { margin-top:12px; }
+    .questions { display:grid; gap:12px; padding:0; margin:0; list-style:none; color:var(--wine); font-weight:700; }
+    .questions li { padding:12px 16px; background:var(--soft); border:1px solid var(--line); border-radius:8px; }
+    .dish-list { display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:0; }
+    .dish-list li { padding:5px 16px; border:1px solid var(--line); border-radius:999px; background:var(--soft); color:var(--text); }
+    .lesson-list { margin-top:24px; }
+    .lesson { padding:24px 0; border-top:1px solid var(--line); }
+    .lesson h3 { color:var(--wine); }
+    .lesson .copy-block { margin-top:12px; gap:12px; }
+    .final-page { background:linear-gradient(145deg,#fffdf8,#f5ead9); }
+    .book-footer { display:grid; justify-items:center; gap:24px; padding:12px 0 20px; }
+    @media(min-width:700px) { .phone-book { padding-top:28px; } .page { padding:36px 44px 46px; margin-bottom:28px; } .cover-content { padding:56px 0 42px; } }
+    @media(max-width:360px) { .page { padding:24px 18px 30px; } .book-label { letter-spacing:.04em; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  
+    h1 { font-size:clamp(42px,11vw,72px); overflow-wrap:anywhere; }
+    .cover-content h2 { font-size:clamp(24px,6vw,32px); }
+    .cover-content h3 { width:min(100%,24em); margin:auto; font-size:18px; line-height:1.8; }
+    .copy-block h3 { margin-top:16px; padding-top:24px; border-top:1px solid var(--line); color:var(--wine); }
+    section[aria-labelledby="chapter-5"] .copy-block > h3 {
+      padding:14px 18px;
+      border:1px solid var(--gold);
+      border-left:5px solid var(--gold);
+      border-radius:6px;
+      background:var(--soft);
+      color:var(--wine);
+    }
+    .copy-block h4 { margin:12px 0 0; font-size:16px; line-height:1.8; color:var(--text); }
+    strong { font-weight:700; }
+    .book-nav { flex-wrap:wrap; }
+    .page { scroll-margin-top:20px; }
+
+    /* メニューの分類色を、ワインの種類・タイプの見出しだけに使用。 */
+    .wine-heading,
+    .copy-block h3.wine-heading {
+      padding:12px 16px;
+      border:1px solid var(--heading-border);
+      border-left:5px solid var(--heading-border);
+      border-radius:6px;
+      background:var(--heading-bg);
+      color:var(--heading-text);
+    }
+    .wine-white { --heading-border:#29945d; --heading-bg:#f1f8ee; --heading-text:#245a3c; }
+    .wine-red { --heading-border:#b33b4c; --heading-bg:#fcf1f1; --heading-text:#792b36; }
+    .wine-sparkling { --heading-border:#d3b644; --heading-bg:#fffbeb; --heading-text:#736022; }
+    .wine-rose { --heading-border:#dd95ac; --heading-bg:#fff3f6; --heading-text:#85435b; }
+    .wine-orange { --heading-border:#d58a33; --heading-bg:#fff6e9; --heading-text:#845118; }
+    .wine-refreshing { --heading-border:#87bd53; --heading-bg:#f4faed; --heading-text:#416829; }
+    .wine-aromatic { --heading-border:#1c9c69; --heading-bg:#eef9f2; --heading-text:#246443; }
+    .wine-rich { --heading-border:#087744; --heading-bg:#edf5ef; --heading-text:#205437; }
+    .wine-light { --heading-border:#e79c92; --heading-bg:#fff5f2; --heading-text:#884c43; }
+    .wine-medium { --heading-border:#cb5260; --heading-bg:#fdf0f2; --heading-text:#8a3542; }
+    .wine-full { --heading-border:#951d39; --heading-bg:#f8edf0; --heading-text:#761f33; }
+
+
+    .cover-content h1 { font-family:inherit; font-size:clamp(28px,7.8vw,42px); font-weight:700; line-height:1.55; }
+    .cover-content h2 { font-size:clamp(20px,5vw,26px); line-height:1.75; }
+    .copy-block { gap:16px; }
+    .copy-block h4 { color:var(--wine); }
+    .pairing-table { width:100%; border-collapse:collapse; table-layout:fixed; font-size:16px; }
+    .pairing-table th,.pairing-table td { padding:14px 10px; border-bottom:1px solid var(--line); text-align:left; vertical-align:top; overflow-wrap:anywhere; }
+    .pairing-table thead { background:var(--soft); color:var(--text); }
+    .pairing-table th[scope=row] { font-weight:600; color:var(--text); }
+    .pairing-table th:first-child { width:34%; }
+    .table-wrap { margin-inline:-8px; }
+    @media(max-width:480px) {
+      .pairing-table thead { position:absolute; width:1px; height:1px; overflow:hidden; clip-path:inset(50%); }
+      .pairing-table,.pairing-table tbody,.pairing-table tr,.pairing-table th,.pairing-table td { display:block; width:100%; }
+      .pairing-table th:first-child { width:100%; }
+      .pairing-table tr { margin-bottom:18px; padding:12px; border:1px solid var(--line); border-radius:6px; }
+      .pairing-table th,.pairing-table td { border:0; padding:5px 0; }
+      .pairing-table td::before { content:attr(data-label); display:block; font-size:14px; color:var(--muted); font-weight:700; }
+      .table-wrap { margin-inline:0; }
+    }
+</style></head><body><main class="phone-book" aria-label="料理とワインのペアリング"><nav class="book-nav" aria-label="ページナビゲーション"><a class="back-link" href="index.html#learning-menu">Learning Menuへ</a><a class="back-link" href="drink.html">DRINKへ</a></nav>
+<section class="page cover-page" aria-labelledby="pairing-title"><div class="page-number">01 / 10</div><div class="cover-content"><p class="brand-name">SID / BTD / TPD</p><h1 id="pairing-title">料理 × ワイン<br>ペアリング</h1><h2>正解を当てるのではなく、「一緒に楽しむ理由」を考える。</h2></div><div class="copy-block"><p>「この料理には、どのワインが合いますか？」<br>お客様から聞かれることも多い質問です。</p>
+<p>ワインに詳しくないと、<br>「間違ったワインをおすすめしたらどうしよう」<br>と思うかもしれません。</p>
+<p>でも、ペアリングに絶対にこれしか合わないという正解があるわけではありません。</p>
+<p>同じ料理でも、お客様の好みやソース、調理方法によっておすすめするワインは変わります。</p>
+<p>まずは難しく考えず、<br>「この料理のどんな特徴に、ワインのどんな特徴を合わせるか」<br>を考えてみましょう。</p></div></section>
+<section class="page" aria-labelledby="chapter-2"><div class="page-number">02 / 10</div><p class="page-kicker">FOOD × WINE</p><h2 id="chapter-2">1．そもそも、ペアリングとは？</h2><div class="copy-block"><p>ペアリングとは、<br>料理とワインを組み合わせて、お互いをよりおいしく楽しむこと。</p>
+<p>料理だけで食べてもおいしい。</p>
+<p>ワインだけで飲んでもおいしい。</p>
+<p>でも、一緒に楽しむことで、<br>「料理がもっとおいしく感じる」<br>「ワインがもっとおいしく感じる」</p>
+<p>そんな組み合わせがあります。</p>
+<p>私たちが目指すのは、難しい専門用語を使って説明することではありません。</p>
+<p>「この料理でしたら、このワインがおすすめです。」<br>と、お客様に一歩踏み込んだ提案ができるようになることです。</p></div></section>
+<section class="page" aria-labelledby="chapter-3"><div class="page-number">03 / 10</div><p class="page-kicker">FOOD × WINE</p><h2 id="chapter-3">2．まず覚える、ペアリングの5つの考え方</h2><div class="copy-block"><p>すべての料理とワインの組み合わせを暗記する必要はありません。</p>
+<p>まずは、次の5つから考えてみましょう。</p>
+<h3>① 軽い料理には、軽やかなワイン</h3>
+<p>料理とワインの<strong>「重さ」を合わせる</strong>考え方です。</p>
+<p>例えば、<br>カルパッチョやサラダのような軽やかな料理に、とても濃厚で力強い赤ワインを合わせると、ワインの印象が強くなりすぎることがあります。</p>
+<p>反対に、しっかりした肉料理に、とても軽いワインを合わせると、料理にワインが負けてしまうことがあります。</p>
+<p>そこで、<br>軽い料理 → 軽やかなワイン<br>しっかりした料理 → コクのあるワイン</p>
+<p>をひとつの基本にします。</p>
+<p>例えば、<br>魚介や野菜を使った前菜<br>→ リフレッシングな白</p>
+<p>クリームやチーズを使った料理<br>→ リッチな白<br>牛肉のグリル</p>
+<p>→ フルタイプの赤<br>というように考えます。</p>
+<p>まずは、<br>「料理とワインの重さを合わせる」<br>と覚えましょう。</p>
+<h3>② 爽やかな料理には、爽やかなワイン</h3>
+<p>レモンやトマト、魚介など、爽やかさを感じる料理には、酸味のあるすっきりしたワインが合わせやすくなります。</p>
+<p>例えば、<br>カルパッチョ<br>魚介料理</p>
+<p>サラダ<br>トマトを使った料理<br>など。</p>
+<p>こんなときに活躍するのが、<br>リフレッシングタイプの白ワインや、辛口のロゼ、スパークリングワイン。</p>
+<p>料理の爽やかさとワインの爽やかさをつなげるイメージです。</p>
+<p>料理とワインの似ているところを合わせる。</p>
+<p>これもペアリングの基本です。</p>
+<h3>③ 脂のある料理には、酸味や泡</h3>
+<p>揚げ物や脂のある料理を食べ続けると、口の中に油分が残ります。</p>
+<p>そこで合わせやすいのが、<br>酸味のあるワインやスパークリングワイン。</p>
+<p>爽やかな酸味や泡によって、次の一口へ進みやすくなります。</p>
+<p>例えば、<br>フリット<br>フライドポテト</p>
+<p>生ハム<br>脂のある肉料理<br>など。</p>
+<p>そんなときは、<br>「泡ですっきり楽しみませんか？」<br>という提案もできます。</p>
+<p>スパークリングワインは乾杯だけのワインではありません。</p>
+<p>料理と一緒に楽しめるワインとして提案してみましょう。</p>
+<h3>④ コクのある料理には、コクのあるワイン</h3>
+<p>クリーム、バター、チーズ、きのこなどを使った料理には、まろやかでコクのあるワインを合わせやすくなります。</p>
+<p>ここで活躍するのが、<br>リッチタイプの白ワイン。</p>
+<p>例えば、樽を使ったシャルドネには、バニラやナッツ、トーストを思わせる香りを持つものがあります。</p>
+<p>チーズやクリーム、香ばしく焼いた料理などと合わせることで、お互いのコクや香ばしさを楽しめます。</p>
+<p>つまり、<br>濃厚な料理 × リッチなワイン<br>という考え方です。</p>
+<h3>⑤ 肉料理には、赤ワインの「強さ」を合わせる</h3>
+<p>「肉には赤」と覚えるだけでは、もう一歩足りません。</p>
+<p>肉料理にも、<br>鶏<br>豚</p>
+<p>牛<br>ラム<br>などがあり、さらに調理方法やソースによって味の強さが変わります。</p>
+<p>そこで、<br>料理が軽め → ライトな赤<br>料理にコクがある → ミディアムな赤</p>
+<p>料理が力強い → フルな赤<br>と考えてみましょう。</p>
+<p>例えば、<br>トマト系のパスタ<br>→ ライト〜ミディアム</p>
+<p>豚肉のグリル<br>→ ミディアム<br>黒毛和牛など、しっかりした肉料理</p>
+<p>→ ミディアム〜フル<br>というように考えられます。</p>
+<p>大切なのは、<br>「肉だから赤」ではなく、「この料理の強さなら、どの赤が合うだろう？」<br>と考えることです。</p></div></section>
+<section class="page" aria-labelledby="chapter-4"><div class="page-number">04 / 10</div><p class="page-kicker">FOOD × WINE</p><h2 id="chapter-4">3．迷ったら「色」を合わせて考えてみる</h2><div class="copy-block"><p>ペアリングに慣れていないうちは、料理とワインの色から考える方法もあります。</p>
+<p>例えば、</p>
+<h4 class="wine-heading wine-white">白・緑の料理</h4>
+<p>魚介、野菜、ハーブなど<br>→ 白ワイン</p>
+<h4 class="wine-heading wine-rose">ピンク・赤の料理</h4>
+<p>生ハム、トマトなど<br>→ ロゼや軽めの赤</p>
+<h4 class="wine-heading wine-full">茶色・濃い色の料理</h4>
+<p>グリルした肉、煮込み、濃厚なソースなど<br>→ しっかりした赤<br>もちろん、これだけでペアリングが決まるわけではありません。</p>
+<p>でも、<br>「何をおすすめしたらいいか全く分からない」<br>というときの入口として使えます。</p></div></section>
+<section class="page" aria-labelledby="chapter-5"><div class="page-number">05 / 10</div><p class="page-kicker">FOOD × WINE</p><h2 id="chapter-5">4．Daiの料理から考えてみよう</h2><div class="copy-block"><p>ここからは、実際の料理をイメージして考えてみましょう。</p>
+<h3>ピンチョス・タパス</h3>
+<h4>おすすめ</h4>
+<p>泡／ロゼ／リフレッシングな白<br>いろいろな味を少しずつ楽しむピンチョスやタパスには、一つの料理だけに強く寄せすぎないワインがおすすめです。</p>
+<p>食事のスタートでもあるので、爽やかな泡や白、ロゼから始めると、その後の料理にもつなげやすくなります。</p>
+<h4>10本から選ぶなら</h4>
+<p>グラハム・ベック<br>ウィスパーリング・エンジェル<br>アロ</p>
+<h4>接客トーク</h4>
+<p>「前菜をいろいろ召し上がるのでしたら、最初はすっきりした泡や白がおすすめです。」</p>
+<h3>カルパッチョ・魚介料理</h3>
+<h4>おすすめ</h4>
+<p>リフレッシングな白／泡／ロゼ<br>魚介の繊細な味わいを邪魔しにくく、レモンや柑橘を思わせる爽やかなワインが合わせやすい組み合わせです。</p>
+<h4>10本から選ぶなら</h4>
+<p>アロ<br>アロは、すっきりした酸味と爽やかさがあり、魚介料理との組み合わせを覚えやすい一本です。</p>
+<h4>接客トーク</h4>
+<p>「魚介でしたら、柑橘のような爽やかさのあるアロがおすすめです。」</p>
+<h3>アヒージョ</h3>
+<h4>おすすめ</h4>
+<p>リフレッシングな白／泡<br>アヒージョは、オリーブオイルとニンニクを使った料理。</p>
+<p>オイルのコクがあるため、爽やかな酸味のある白や泡を合わせることで、次の一口へ進みやすくなります。</p>
+<p>特に魚介のアヒージョなら、すっきりした白をおすすめしやすくなります。</p>
+<h4>10本から選ぶなら</h4>
+<p>アロ<br>グラハム・ベック</p>
+<h4>接客トーク</h4>
+<p>「アヒージョでしたら、オイルのコクをすっきり楽しめる白ワインがおすすめです。」</p>
+<h3>パエリア</h3>
+<h4>おすすめ</h4>
+<p>白／ロゼ／ミディアムな赤<br>パエリアは、具材によっておすすめを変えられる料理です。</p>
+<p>魚介を中心としたパエリアなら、<br>→ リフレッシングな白やロゼ<br>肉の旨味がしっかり入ったパエリアなら、</p>
+<p>→ ミディアムな赤<br>というように考えられます。</p>
+<h4>10本から選ぶなら</h4>
+<p>魚介の印象を楽しむなら<br>アロ<br>華やかに楽しむなら</p>
+<p>ウィスパーリング・エンジェル<br>少ししっかり合わせるなら<br>ガルシアーノ</p>
+<h4>接客トーク</h4>
+<p>「パエリアでしたら、魚介に合わせて白もおすすめですし、少ししっかり楽しむならスペインの赤もおすすめです。」</p>
+<h3>ピッツァ</h3>
+<h4>おすすめ</h4>
+<p>ロゼ／ライト〜ミディアムの赤<br>ピッツァも、トッピングによっておすすめが変わります。</p>
+<p>トマトを使ったピッツァなら、トマトの酸味と相性のよい軽やかな赤。</p>
+<p>チーズや肉をしっかり使ったピッツァなら、少し飲みごたえのある赤。</p>
+<p>というように考えます。</p>
+<h4>10本から選ぶなら</h4>
+<p>ナターレ・ヴェルガ キャンティ<br>ガルシアーノ</p>
+<h4>接客トーク</h4>
+<p>「トマトとチーズのピッツァでしたら、重たすぎない赤ワインが合わせやすいですよ。」</p>
+<h3>パスタ</h3>
+<h4>おすすめは「ソース」で考える</h4>
+<p>パスタは「パスタだからこのワイン」と決めるのではなく、ソースを見ることが大切です。</p>
+<h4 class="wine-heading wine-refreshing">オイル・魚介系</h4>
+<p>→ リフレッシングな白<br>アロ</p>
+<h4 class="wine-heading wine-rich">クリーム・チーズ系</h4>
+<p>→ リッチな白<br>ファーザーズ・アイズ</p>
+<h4 class="wine-heading wine-light">トマト系</h4>
+<p>→ ライト〜ミディアムな赤<br>キャンティ／ガルシアーノ</p>
+<h4 class="wine-heading wine-full">肉を使った濃厚なソース</h4>
+<p>→ ミディアム〜フルな赤<br>ガルシアーノ／ヌエストラ</p>
+<h4>接客トーク</h4>
+<p>「こちらのパスタでしたら、ソースに合わせてこのワインがおすすめです。」<br>パスタは、麺ではなくソースを見る。</p>
+<p>これを覚えておきましょう。</p>
+<h3>グリル料理</h3>
+<h4>おすすめ</h4>
+<p>ミディアム〜フルの赤<br>肉を高温で焼くことで生まれる香ばしさや、肉の旨味に合わせて、赤ワインも飲みごたえのあるものを選びます。</p>
+<h4>10本から選ぶなら</h4>
+<p>ガルシアーノ<br>ヌエストラ・セニョーラ・デル・ポルタル<br>特に黒毛和牛など、しっかりした肉料理ならフルタイプのヌエストラを提案しやすくなります。</p>
+<h4>接客トーク</h4>
+<p>「お肉のグリルでしたら、果実味とコクのある赤ワインを合わせるのがおすすめです。」</p></div></section>
+<section class="page" aria-labelledby="chapter-6"><div class="page-number">06 / 10</div><p class="page-kicker">FOOD × WINE</p><h2 id="chapter-6">5．「まず覚える10本」を料理につなげる</h2><div class="copy-block"><p>迷ったら、まずこの組み合わせから始めましょう。</p>
+<div class="table-wrap"><table class="pairing-table"><thead><tr><th scope="col">ワイン</th><th scope="col">覚える特徴</th><th scope="col">合わせたい料理</th></tr></thead><tbody>
+<tr><th scope="row">グラハム・ベック</th><td data-label="覚える特徴">爽やか × クリーミー</td><td data-label="合わせたい料理">前菜・フリット・アヒージョ</td></tr>
+<tr><th scope="row">ルイ・ロデレール</th><td data-label="覚える特徴">上品 × 複雑</td><td data-label="合わせたい料理">前菜・魚介・特別な日の乾杯</td></tr>
+<tr><th scope="row">ウィスパーリング・エンジェル</th><td data-label="覚える特徴">華やか × 爽やか</td><td data-label="合わせたい料理">タパス・魚介・サラダ</td></tr>
+<tr><th scope="row">ポップ・ビアンコ</th><td data-label="覚える特徴">柑橘 × 旨味</td><td data-label="合わせたい料理">前菜・魚介・フリット</td></tr>
+<tr><th scope="row">アロ</th><td data-label="覚える特徴">すっきり × 爽やか</td><td data-label="合わせたい料理">カルパッチョ・魚介・アヒージョ</td></tr>
+<tr><th scope="row">カサ・ベナサル</th><td data-label="覚える特徴">華やか × フルーティー</td><td data-label="合わせたい料理">前菜・魚介</td></tr>
+<tr><th scope="row">ファーザーズ・アイズ</th><td data-label="覚える特徴">まろやか × 樽 × コク</td><td data-label="合わせたい料理">チーズ・クリーム・グリル</td></tr>
+<tr><th scope="row">キャンティ</th><td data-label="覚える特徴">赤い果実 × 軽やか</td><td data-label="合わせたい料理">ピッツァ・トマト系パスタ</td></tr>
+<tr><th scope="row">ガルシアーノ</th><td data-label="覚える特徴">果実味 × バランス</td><td data-label="合わせたい料理">パエリア・パスタ・豚などの肉料理</td></tr>
+<tr><th scope="row">ヌエストラ</th><td data-label="覚える特徴">濃い果実 × 力強さ × 樽</td><td data-label="合わせたい料理">牛肉・しっかりしたグリル</td></tr>
+</tbody></table></div></div></section>
+<section class="page" aria-labelledby="chapter-7"><div class="page-number">07 / 10</div><p class="page-kicker">FOOD × WINE</p><h2 id="chapter-7">6．ペアリングは、お客様の好みが最優先</h2><div class="copy-block"><p>ここまでいろいろな組み合わせを紹介しました。</p>
+<p>でも、忘れてはいけないことがあります。</p>
+<p>ペアリングよりも、お客様の好みが大切です。</p>
+<p>例えば、<br>「お肉には赤がおすすめです」<br>と考えていても、お客様が、</p>
+<p>「赤ワインは苦手で、白が好きです」<br>ということであれば、無理に赤をおすすめする必要はありません。</p>
+<p>そんなときは、<br>「でしたら、白の中でも少しコクのあるタイプはいかがですか？」<br>と提案できます。</p>
+<p>例えば、肉料理にリッチタイプのファーザーズ・アイズを合わせる。</p>
+<p>これも立派なペアリングです。</p>
+<p>「一般的に何が合うか」＋「お客様が何を好きか」<br>この2つから、おすすめを考えましょう。</p></div></section>
+<section class="page" aria-labelledby="chapter-8"><div class="page-number">08 / 10</div><p class="page-kicker">FOOD × WINE</p><h2 id="chapter-8">7．おすすめするときは「理由」を一言つける</h2><div class="copy-block"><p>ペアリングの提案で大切なのは、<br>ワイン名だけを伝えないこと。</p>
+<p>例えば、<br>「アロがおすすめです。」<br>だけではなく、</p>
+<p>「魚介料理なので、柑橘のような爽やかさのあるアロがおすすめです。」<br>「ヌエストラがおすすめです。」<br>だけではなく、</p>
+<p>「お肉のグリルなので、果実味とコクのあるヌエストラがおすすめです。」<br>と伝えます。</p>
+<p>おすすめする理由が一言あるだけで、お客様も、<br>「なるほど。だからこのワインなんだ。」<br>と選びやすくなります。</p></div></section>
+<section class="page" aria-labelledby="chapter-9"><div class="page-number">09 / 10</div><p class="page-kicker">FOOD × WINE</p><h2 id="chapter-9">迷ったときの3STEP</h2><div class="copy-block"><h3>STEP 1｜何を注文している？</h3>
+<p>まず料理を見ます。</p>
+<p>魚介？<br>野菜？<br>チーズ？</p>
+<p>トマト？<br>肉？</p>
+<h3>STEP 2｜料理は軽い？しっかり？</h3>
+<p>次に料理の重さを考えます。</p>
+<p>軽い料理 → 軽やかなワイン<br>しっかりした料理 → コクのあるワイン</p>
+<h3>STEP 3｜お客様は何が好き？</h3>
+<p>最後に、<br>「白と赤でしたら、どちらがお好みですか？」<br>「すっきりしたものと、コクのあるものでは、どちらがお好みですか？」</p>
+<p>と聞いてみましょう。</p>
+<p>料理だけで決めるのではなく、料理 × お客様の好みからワインを選びます。</p></div></section>
+<section class="page final-page" aria-labelledby="chapter-10"><div class="page-number">10 / 10</div><p class="page-kicker">FOOD × WINE</p><h2 id="chapter-10">GOAL</h2><div class="copy-block"><p>「この料理なら、このワインがおすすめです。」を言えるようになる。</p>
+<p>すべての料理とワインの組み合わせを暗記する必要はありません。</p>
+<p>まず覚えるのは、<br>軽い料理には、軽やかなワイン。</p>
+<p>爽やかな料理には、爽やかなワイン。</p>
+<p>脂のある料理には、酸味や泡。</p>
+<p>コクのある料理には、コクのあるワイン。</p>
+<p>肉料理には、料理の強さに合わせた赤ワイン。</p>
+<p>この5つです。</p>
+<p>そこから、お客様の好みを聞いて、<br>「でしたら、こちらがおすすめです。」<br>につなげていきましょう。</p>
+<p>ペアリングとは、知識を披露するためのものではありません。</p>
+<p>料理とワインを組み合わせることで、お客様の食事をもっと楽しい時間にするための提案です。</p></div></section>
+<footer class="book-footer"><a class="back-link" href="index.html#learning-menu">Learning Menuへ戻る</a><a class="back-link" href="wine-ten.html">まず覚えるワイン10本へ</a><p class="book-label">PLEASURE COMPANY</p></footer></main></body></html>
