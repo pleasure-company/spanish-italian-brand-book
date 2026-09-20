@@ -329,10 +329,6 @@
       font-size: clamp(14px, 3.55vw, 18px);
     }
 
-    .dish-title-compact .keep-line {
-      white-space: nowrap;
-    }
-
     .text-block {
       display: grid;
       gap: 15px;
@@ -423,6 +419,7 @@
 
     .dish-content {
       display: grid;
+      grid-template-columns: minmax(0, 1fr);
       gap: 12px;
       padding: 17px 16px 18px;
     }
@@ -744,7 +741,8 @@
       <div class="text-block">
         <p>
           スペイン北部、バスク地方のサンセバスチャンで親しまれている、<br>
-          ひと口サイズのおつまみ料理です。
+          ひと口サイズのおつまみ料理です。<br>
+          名前は、スペイン語で「串」「突き刺すこと」を意味する「pincho」に由来します。
         </p>
         <p>
           SID / BTDでは、<br>
@@ -958,6 +956,10 @@
                 <dt>補足情報</dt>
                 <dd>ブリオッシュは、牛乳と卵、バターをたっぷり練り込んだフランス発祥の菓子パン。</dd>
               </div>
+              <div>
+                <dt>生ハムとバターの知識</dt>
+                <dd>ハモンセラーノはスペイン産の生ハム。「山のハム」という意味があり、スペイン産白豚のもも肉を塩漬けし、冷涼な山岳地帯の空気で乾燥・熟成させた伝統的な生ハムです。<br>発酵バターは、生クリームに乳酸菌を加えて発酵させて作るバターです。</dd>
+              </div>
             </dl>
           </div>
         </article>
@@ -969,7 +971,7 @@
           <div class="dish-content">
             <p class="dish-category">ピンチョス</p>
             <p class="dish-brand">SID / BTD</p>
-            <h3 class="dish-title-compact">パンコントマテ<br><span class="keep-line">ハモンセラーノとトマトのブリオッシュ</span></h3>
+            <h3 class="dish-title-compact">パンコントマテ<br>ハモンセラーノとトマトのブリオッシュ</h3>
 
             <div class="service-box required">
               <p class="box-label">絶対に言う一言</p>
@@ -989,6 +991,10 @@
               <div>
                 <dt>補足情報</dt>
                 <dd>ブリオッシュ、トマトピューレ、ハモンセラーノを使用。</dd>
+              </div>
+              <div>
+                <dt>ハモンセラーノとは</dt>
+                <dd>ハモンセラーノはスペイン産の生ハム。「山のハム」という意味があり、スペイン産白豚のもも肉を塩漬けし、冷涼な山岳地帯の空気で乾燥・熟成させた伝統的な生ハムです。</dd>
               </div>
             </dl>
           </div>
