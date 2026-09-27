@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="ハートランドとヒューガルデンホワイト、ラガーとエールの違い、クラフトビールの基礎を学ぶドリンク商品知識。"><title>ビールの基礎とクラフトビール | PLEASURE COMPANY</title><style>
+    :root { --bg:#fffdf8; --soft:#fbf4e8; --text:#2d2a26; --muted:#6f665c; --wine:#7b1f1d; --gold:#b89b5e; --line:rgba(185,139,63,.24); }
+    *, *::before, *::after { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; background:radial-gradient(circle at 90% 4%,rgba(214,194,138,.24),transparent 28%),linear-gradient(180deg,var(--bg),var(--soft) 42%,var(--bg)); color:var(--text); font-family:"Hiragino Kaku Gothic ProN","Yu Gothic","YuGothic","Noto Sans JP",Meiryo,system-ui,sans-serif; font-size:16px; line-height:1.9; -webkit-text-size-adjust:100%; }
+    h1,h2,h3,p,blockquote { margin:0; }
+    a { color:inherit; }
+    a:focus-visible { outline:3px solid var(--wine); outline-offset:5px; }
+    .phone-book { width:min(100% - 28px,720px); margin:auto; padding:18px 0 38px; }
+    .book-nav { display:flex; justify-content:space-between; gap:16px; margin:0 0 18px; align-items:center; }
+    .back-link { display:inline-flex; align-items:center; min-height:44px; padding:8px 16px; border:1px solid var(--line); border-radius:999px; background:rgba(255,255,255,.75); color:var(--wine); font-size:14px; font-weight:700; text-decoration:none; }
+    .book-label { color:var(--muted); font-family:Georgia,serif; font-size:12px; letter-spacing:.12em; }
+    .page { position:relative; isolation:isolate; padding:30px 24px 38px; margin-bottom:24px; border:1px solid var(--line); border-radius:8px; background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,253,248,.96)); box-shadow:0 14px 34px rgba(58,43,28,.08); }
+    .page::after { content:""; position:absolute; top:0; left:0; right:0; height:3px; background:linear-gradient(90deg,transparent,rgba(184,155,94,.72),rgba(123,31,29,.22),transparent); }
+    .page-number { text-align:right; color:#9a7536; font-family:Georgia,serif; font-size:12px; letter-spacing:.12em; }
+    .page-kicker { margin:22px 0 10px; color:var(--wine); font:700 14px/1.5 Georgia,serif; letter-spacing:.12em; }
+    h1 { font:500 clamp(60px,16vw,86px)/1.1 Georgia,"Times New Roman",serif; }
+    h2 { font-size:clamp(24px,5.8vw,32px); line-height:1.55; overflow-wrap:anywhere; }
+    h3 { font-size:19px; line-height:1.65; }
+    .copy-block { display:grid; gap:18px; margin-top:24px; color:var(--muted); }
+    strong { color:var(--wine); font-weight:800; }
+    .cover-page { background:radial-gradient(circle at 82% 14%,rgba(214,194,138,.28),transparent 34%),radial-gradient(circle at 15% 82%,rgba(123,31,29,.10),transparent 34%),linear-gradient(135deg,var(--bg),var(--soft) 54%,#efe5d4); }
+    .cover-page::before { content:""; position:absolute; z-index:-1; inset:26px 18px; border:1px solid rgba(184,155,94,.22); border-radius:999px; pointer-events:none; }
+    .cover-content { display:grid; gap:24px; padding:48px 0 36px; text-align:center; }
+    .brand-name { color:#4a1717; font:700 14px/1.5 Georgia,serif; letter-spacing:.18em; }
+    .hero-copy { width:min(100%,17em); margin:auto; font-size:clamp(23px,5.8vw,30px); }
+    .cover-page .copy-block { padding-top:24px; border-top:1px solid var(--line); }
+    .quote { padding:18px 20px; border-left:3px solid var(--gold); border-radius:0 8px 8px 0; background:var(--soft); color:var(--wine); font-weight:700; }
+    .quote p + p { margin-top:12px; }
+    .questions { display:grid; gap:12px; padding:0; margin:0; list-style:none; color:var(--wine); font-weight:700; }
+    .questions li { padding:12px 16px; background:var(--soft); border:1px solid var(--line); border-radius:8px; }
+    .dish-list { display:flex; flex-wrap:wrap; gap:10px; list-style:none; padding:0; margin:0; }
+    .dish-list li { padding:5px 16px; border:1px solid var(--line); border-radius:999px; background:var(--soft); color:var(--text); }
+    .lesson-list { margin-top:24px; }
+    .lesson { padding:24px 0; border-top:1px solid var(--line); }
+    .lesson h3 { color:var(--wine); }
+    .lesson .copy-block { margin-top:12px; gap:12px; }
+    .final-page { background:linear-gradient(145deg,#fffdf8,#f5ead9); }
+    .book-footer { display:grid; justify-items:center; gap:24px; padding:12px 0 20px; }
+    @media(min-width:700px) { .phone-book { padding-top:28px; } .page { padding:36px 44px 46px; margin-bottom:28px; } .cover-content { padding:56px 0 42px; } }
+    @media(max-width:360px) { .page { padding:24px 18px 30px; } .book-label { letter-spacing:.04em; } }
+    @media(prefers-reduced-motion:reduce) { html { scroll-behavior:auto; } }
+  
+    h1 { font-size:clamp(42px,11vw,72px); overflow-wrap:anywhere; }
+    .book-nav { flex-wrap:wrap; }
+    .beer-card { margin-top:24px; padding:22px; border:1px solid var(--line); border-radius:8px; background:var(--soft); }
+    .beer-card h3 { color:var(--wine); }
+    .beer-card .copy-block { margin-top:14px; gap:12px; }
+    .beer-facts { display:grid; gap:12px; margin:18px 0 0; }
+    .beer-facts div { display:grid; gap:4px; }
+    .beer-facts dt { color:var(--wine); font-size:13px; font-weight:700; }
+    .beer-facts dd { margin:0; color:var(--muted); }
+    .chapter-links { display:grid; gap:10px; margin-top:24px; }
+    .chapter-links a { padding:12px 16px; border:1px solid var(--line); border-radius:8px; background:var(--soft); text-decoration:none; font-weight:700; color:var(--wine); }
+    .chapter-links a:hover { background:#fff; }
+    .page { scroll-margin-top:20px; }
+    @media(max-width:360px) { .beer-card { padding:18px; } }
+</style></head><body>
+<main class="phone-book" aria-label="ビールの基礎とクラフトビール">
+<nav class="book-nav" aria-label="ページナビゲーション"><a class="back-link" href="index.html#learning-menu">Learning Menuへ</a><a class="back-link" href="drink.html">DRINKへ</a></nav>
+<section class="page cover-page" aria-labelledby="beer-title"><div class="page-number">01 / 04</div><div class="cover-content"><p class="brand-name">SID / BTD / TPD</p><h1 id="beer-title">BEER BASIC</h1><h2 class="hero-copy">ビールの基礎とクラフトビール</h2></div><div class="copy-block"><p>定番ビールと、定期的に入れ替わるクラフトビールについて学びます。</p><p>ビールの種類や、香り・苦味・コク・飲み口などの違いを知り、お客様の好みに合わせておすすめできる力を身につけていきます。</p><p>銘柄を覚えるだけではなく、それぞれのビールの特徴を自分の言葉で伝え、料理との組み合わせまで提案できる状態を目指します。</p></div>
+<nav class="chapter-links" aria-label="このページで学ぶこと"><a href="#regular-beers">1．まず覚える定番2本</a><a href="#beer-types">2．ビールの2つのタイプ</a><a href="#craft-beer">3．クラフトビールとは</a></nav></section><section class="page" aria-labelledby="regular-beers"><div class="page-number">02 / 04</div><p class="page-kicker">BEER BASIC</p><h2 id="regular-beers">1．まず覚える定番2本</h2><article class="beer-card"><h3>キリン ハートランド</h3><dl class="beer-facts"><div><dt>スタイル</dt><dd>ピルスナー系のラガービール</dd></div><div><dt>香り</dt><dd>爽やかなホップの香り</dd></div><div><dt>味わい</dt><dd>すっきり・クリア・軽快</dd></div></dl></article><article class="beer-card"><h3>ヒューガルデンホワイト</h3><dl class="beer-facts"><div><dt>スタイル</dt><dd>ベルジャン・ホワイト（小麦を使った白ビール）</dd></div><div><dt>香り</dt><dd>柑橘・スパイス・フルーティー</dd></div><div><dt>味わい</dt><dd>苦味控えめ・柔らか・爽やか</dd></div></dl><div class="copy-block"><p>オレンジピールを思わせる柑橘系の爽やかな香りと、コリアンダー由来のスパイシーなニュアンス。苦味は穏やかで、やわらかくフルーティーな飲み口です。</p></div></article></section><section class="page" aria-labelledby="beer-types"><div class="page-number">03 / 04</div><p class="page-kicker">BEER BASIC</p><h2 id="beer-types">2．ビールの2つのタイプ</h2><div class="copy-block"><p>ビールは、発酵に使う酵母や発酵方法によって、大きく「ラガー」と「エール」の２つに分けられます。</p><p>同じような原料から造られていても、発酵方法の違いによって、香りや味わいが変わります。</p></div><article class="beer-card"><h3>ラガー｜下面発酵ですっきり爽やか</h3><div class="copy-block"><p>10℃以下の低温で時間をかけて発酵させる「下面発酵製法」で造られるビールです。</p><p>すっきりとした飲み口と爽快感があり、クリアで飲みやすい味わいが特徴のビールです。</p><p>キリンハートランドもここに分類されます。</p></div><div class="copy-block"><p class="quote">最初に覚える一言:すっきり爽やかで、キレのある味わい。</p><p>代表的なスタイル:ピルスナー、メルツェン、ヘレス、ボック</p></div></article><article class="beer-card"><h3>エール｜上面発酵で香り豊か</h3><div class="copy-block"><p>20℃前後の常温で比較的短時間で発酵させる「上面発酵製法」で造られます。</p><p>フルーティーで華やかな香りが出やすく、ラガーに比べて香りや味わいに個性を感じやすいタイプです。</p><p>ヒューガルデンもここに分類されます。</p></div><div class="copy-block"><p class="quote">最初に覚える一言:香り豊かで、個性を楽しめる味わい。</p><p>代表的なスタイル:ペールエール、IPA、ヴァイツェン、ベルジャンホワイト</p></div></article></section><section class="page" aria-labelledby="craft-beer"><div class="page-number">04 / 04</div><p class="page-kicker">CRAFT BEER</p><h2 id="craft-beer">3．クラフトビールとは</h2><div class="copy-block"><p>小規模な醸造所などが、造り手のこだわりを活かして造る個性豊かなビールです。</p><p>クラフトビールという1つの味やスタイルがあるわけではなく、ラガーにもエールにも様々なクラフトビールがあります。</p><p>原料や造り方によって、香り・苦味・コク・色・飲み口など、それぞれに違った個性を楽しめるのが特徴です。</p><p>まずは「ビアスタイル」を知ることで、そのビールの味わいをイメージできるようになりましょう。</p></div></section><footer class="book-footer"><a class="back-link" href="drink.html">DRINKへ戻る</a><a class="back-link" href="index.html#learning-menu">Learning Menuへ戻る</a><p class="book-label">PLEASURE COMPANY</p></footer></main></body></html>
