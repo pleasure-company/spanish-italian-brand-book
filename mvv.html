@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PLEASURE COMPANY MVV（Mission・Vision・Value） スタッフ教育資料">
+  <title>会社MVV | PLEASURE COMPANY</title>
+  <style>
+    /* =========================================================
+       PLEASURE COMPANY MVV
+       このHTMLだけで表示できるように、CSSを同じファイル内にまとめています。
+       色や余白を変えたい場合は、まず下のCSS変数を調整してください。
+       ========================================================= */
+    :root {
+      --color-bg: #fffdf8;
+      --color-bg-soft: #fbf4e8;
+      --color-bg-deep: #efe5d4;
+      --color-card: rgba(255, 255, 255, 0.88);
+      --color-text: #2d2a26;
+      --color-text-strong: #1f1d1a;
+      --color-muted: #6f665c;
+      --color-muted-2: #7a7066;
+      --color-gold: #b89b5e;
+      --color-gold-soft: #d6c28a;
+      --color-gold-deep: #b98b3f;
+      --color-wine: #7b1f1d;
+      --color-wine-deep: #4a1717;
+      --line-gold: rgba(185, 139, 63, 0.24);
+      --line-wine: rgba(123, 31, 29, 0.14);
+      --shadow-soft: 0 18px 54px rgba(67, 48, 25, 0.10);
+      --shadow-card: 0 14px 34px rgba(58, 43, 28, 0.08);
+      --radius-card: 8px;
+      --container: min(100% - 28px, 620px);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 90% 4%, rgba(214, 194, 138, 0.24) 0, rgba(214, 194, 138, 0.00) 28%),
+        radial-gradient(circle at 5% 42%, rgba(123, 31, 29, 0.08) 0, rgba(123, 31, 29, 0.00) 30%),
+        linear-gradient(180deg, #fffdf8 0%, #fbf4e8 42%, #fffdf8 100%);
+      color: var(--color-text);
+      font-family:
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        "YuGothic",
+        "Noto Sans JP",
+        Meiryo,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+      font-size: 15.5px;
+      line-height: 1.85;
+      letter-spacing: 0;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    blockquote {
+      margin: 0;
+    }
+
+    img,
+    svg,
+    canvas,
+    video {
+      max-width: 100%;
+    }
+
+    .phone-book {
+      width: var(--container);
+      margin: 0 auto;
+      padding: 18px 0 38px;
+    }
+
+    .page {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      min-height: calc(100svh - 36px);
+      flex-direction: column;
+      margin: 0 0 22px;
+      padding: 26px 21px 30px;
+      overflow: hidden;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 253, 248, 0.94)),
+        var(--color-bg);
+      box-shadow: var(--shadow-card);
+      scroll-snap-align: start;
+    }
+
+    .page::before,
+    .page::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .page::before {
+      inset: 18px;
+      border: 1px solid rgba(184, 155, 94, 0.16);
+      border-radius: 999px;
+      opacity: 0.62;
+    }
+
+    .page::after {
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, rgba(184, 155, 94, 0.72), rgba(123, 31, 29, 0.22), transparent);
+    }
+
+    .page-number {
+      align-self: flex-end;
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      line-height: 1;
+    }
+
+    .page-kicker {
+      width: fit-content;
+      max-width: 100%;
+      margin: 24px 0 10px;
+      color: var(--color-wine);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      word-break: keep-all;
+    }
+
+    h1 {
+      color: var(--color-text-strong);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 12vw, 60px);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    h2 {
+      color: var(--color-text-strong);
+      font-size: clamp(24px, 7vw, 34px);
+      font-weight: 700;
+      line-height: 1.45;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    h3 {
+      color: var(--color-text-strong);
+      font-size: clamp(16px, 4.5vw, 18px);
+      font-weight: 700;
+      line-height: 1.55;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .copy-block {
+      display: grid;
+      gap: 15px;
+      margin-top: 22px;
+    }
+
+    .copy-block p,
+    .product-card p,
+    .value-item p,
+    .shop-panel p,
+    .step-item p,
+    .closing-word {
+      color: var(--color-muted);
+      font-size: 15.5px;
+      font-weight: 500;
+      line-height: 1.9;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .accent,
+    .quote-line {
+      color: var(--color-wine);
+      font-weight: 800;
+    }
+
+    .quote-line {
+      display: inline-block;
+      max-width: 100%;
+      margin: 4px 0;
+      padding: 4px 10px;
+      border: 1px solid rgba(123, 31, 29, 0.14);
+      border-radius: 999px;
+      background: rgba(123, 31, 29, 0.05);
+    }
+
+    /* 表紙ページ */
+    .cover-page {
+      min-height: calc(100svh - 36px);
+      justify-content: center;
+      background:
+        radial-gradient(circle at 82% 14%, rgba(214, 194, 138, 0.28) 0, rgba(214, 194, 138, 0.00) 34%),
+        radial-gradient(circle at 15% 82%, rgba(123, 31, 29, 0.10) 0, rgba(123, 31, 29, 0.00) 34%),
+        linear-gradient(135deg, #fffdf8 0%, #fbf4e8 54%, #efe5d4 100%);
+    }
+
+    .cover-page::before {
+      inset: 28px 18px;
+      border-color: rgba(184, 155, 94, 0.22);
+      opacity: 0.78;
+    }
+
+    .cover-page::after {
+      top: auto;
+      right: 22px;
+      bottom: 34px;
+      left: 22px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(184, 155, 94, 0.58), transparent);
+    }
+
+    .cover-content {
+      display: grid;
+      gap: 18px;
+      padding: 46px 0 56px;
+      text-align: center;
+    }
+
+    .cover-content > * {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .cover-content h1 span {
+      display: block;
+    }
+
+    .brand-name {
+      color: var(--color-wine-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(14px, 4vw, 18px);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      line-height: 1.4;
+    }
+
+    .hero-copy {
+      width: min(100%, 15em);
+      margin: 0 auto;
+      color: var(--color-text-strong);
+      font-size: clamp(20px, 6vw, 28px);
+      font-weight: 700;
+      line-height: 1.62;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .staff-copy {
+      width: fit-content;
+      max-width: 100%;
+      min-height: 44px;
+      margin: 8px auto 0;
+      padding: 13px 16px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.74);
+      color: var(--color-muted);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.75;
+      box-shadow: 0 12px 24px rgba(55, 39, 21, 0.06);
+    }
+
+    .value-list,
+    .shop-list,
+    .product-list,
+    .speech-list,
+    .step-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .value-list > *,
+    .shop-list > *,
+    .product-list > *,
+    .speech-list > *,
+    .step-list > * {
+      min-width: 0;
+    }
+
+    .value-item,
+    .step-item {
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr);
+      gap: 12px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line-gold);
+    }
+
+    .value-item:last-child,
+    .step-item:last-child {
+      border-bottom: 0;
+    }
+
+    .value-number,
+    .step-number {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.42);
+      border-radius: 50%;
+      background: rgba(255, 253, 248, 0.78);
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .value-item h3,
+    .step-item h3 {
+      margin-bottom: 4px;
+      color: var(--color-text-strong);
+    }
+
+    .shop-panel,
+    .product-card {
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.90), rgba(255, 253, 248, 0.88)),
+        var(--color-card);
+      box-shadow: 0 10px 24px rgba(58, 43, 28, 0.07);
+    }
+
+    .shop-panel {
+      display: grid;
+      gap: 10px;
+      padding: 18px 16px;
+    }
+
+    .shop-panel h3 {
+      width: fit-content;
+      min-width: 62px;
+      padding: 4px 12px;
+      border: 1px solid rgba(184, 155, 94, 0.40);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.70);
+      color: var(--color-wine);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    .btd-panel h3 {
+      color: var(--color-gold-deep);
+    }
+
+    .product-card {
+      padding: 16px;
+    }
+
+    .product-role {
+      display: inline-flex;
+      width: fit-content;
+      max-width: 100%;
+      margin-bottom: 8px;
+      padding: 4px 10px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-radius: 999px;
+      background: rgba(251, 244, 232, 0.78);
+      color: var(--color-gold-deep);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .product-card h3 {
+      margin-bottom: 8px;
+      color: var(--color-text-strong);
+      font-size: 17px;
+    }
+
+    .sub-heading {
+      margin-top: 26px;
+      color: var(--color-wine);
+      font-size: 17px;
+    }
+
+    .speech-bubble {
+      position: relative;
+      padding: 15px 16px 15px 18px;
+      border: 1px solid rgba(184, 155, 94, 0.26);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.82);
+      color: var(--color-text);
+      font-size: 14.5px;
+      font-weight: 600;
+      line-height: 1.9;
+      word-break: normal;
+      overflow-wrap: break-word;
+      box-shadow: 0 10px 22px rgba(58, 43, 28, 0.06);
+    }
+
+    .speech-bubble:nth-child(even) {
+      background: rgba(251, 244, 232, 0.72);
+    }
+
+    .speech-bubble::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      bottom: 15px;
+      left: -1px;
+      width: 4px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, var(--color-gold), rgba(123, 31, 29, 0.32));
+    }
+
+    .remember-card,
+    .final-message {
+      margin-top: 22px;
+      padding: 20px 18px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-radius: var(--radius-card);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.24), transparent 38%),
+        linear-gradient(180deg, #fffefa, #fbf4e8);
+      box-shadow: 0 14px 30px rgba(58, 43, 28, 0.08);
+    }
+
+    .remember-card p,
+    .final-message p {
+      color: var(--color-text-strong);
+      font-size: clamp(18px, 5vw, 22px);
+      font-weight: 800;
+      line-height: 1.75;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .small-quote {
+      width: fit-content;
+      max-width: 100%;
+      padding: 6px 10px;
+      border: 1px solid rgba(123, 31, 29, 0.14);
+      border-radius: var(--radius-card);
+      background: rgba(123, 31, 29, 0.05);
+      color: var(--color-wine);
+      font-weight: 800;
+    }
+
+    .final-page {
+      justify-content: center;
+    }
+
+    .final-message {
+      border-left: 4px solid var(--color-gold);
+    }
+
+    .closing-word {
+      margin-top: 14px;
+      color: var(--color-text-strong);
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    @media (min-width: 700px) {
+      :root {
+        --container: min(100% - 56px, 680px);
+      }
+
+      body {
+        font-size: 16px;
+      }
+
+      .phone-book {
+        padding: 32px 0 58px;
+      }
+
+      .page {
+        min-height: 760px;
+        margin-bottom: 28px;
+        padding: 36px 38px 42px;
+      }
+
+      .copy-block p,
+      .product-card p,
+      .value-item p,
+      .shop-panel p,
+      .step-item p {
+        font-size: 16px;
+      }
+
+      .product-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 360px) {
+      :root {
+        --container: min(100% - 20px, 620px);
+      }
+
+      .page {
+        padding: 24px 17px 28px;
+      }
+
+      .page::before {
+        inset: 15px 12px;
+      }
+
+      .cover-content {
+        padding: 42px 0 50px;
+      }
+
+      .speech-bubble {
+        padding-right: 14px;
+      }
+    }
+  
+    /* ===== MVVページ用の追加スタイル ===== */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 8px 14px;
+      border: 1px solid rgba(184, 155, 94, 0.40);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.86);
+      color: var(--color-wine);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(58, 43, 28, 0.06);
+    }
+
+    .nav-brand {
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+    }
+
+    .mvv-map {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .mvv-map-item {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+      padding: 14px 16px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .mvv-map-label {
+      color: var(--color-wine);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .mvv-map-label small {
+      display: block;
+      color: var(--color-muted-2);
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .mvv-map-item p {
+      color: var(--color-muted);
+      font-size: 14.5px;
+      font-weight: 600;
+      line-height: 1.75;
+    }
+
+    .statement {
+      margin-top: 24px;
+      padding: 26px 18px;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: var(--radius-card);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.26), transparent 42%),
+        linear-gradient(180deg, #fffefa, #fbf4e8);
+      text-align: center;
+      box-shadow: 0 14px 30px rgba(58, 43, 28, 0.08);
+    }
+
+    .statement-label {
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .statement-copy {
+      margin-top: 8px;
+      color: var(--color-wine-deep);
+      font-size: clamp(21px, 6.4vw, 30px);
+      font-weight: 800;
+      line-height: 1.55;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .statement-sub {
+      margin-top: 6px;
+      color: var(--color-muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .scene-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .scene-item {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 12px;
+      padding: 13px 14px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.86);
+    }
+
+    .scene-value {
+      color: var(--color-wine);
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.6;
+    }
+
+    .scene-item p {
+      color: var(--color-muted);
+      font-size: 14.5px;
+      font-weight: 600;
+      line-height: 1.75;
+    }
+
+    .cycle {
+      margin-top: 22px;
+      padding: 18px 16px;
+      border: 1px dashed rgba(184, 155, 94, 0.55);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.7);
+      color: var(--color-text-strong);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 2.1;
+      text-align: center;
+    }
+
+    .cycle .arrow {
+      display: block;
+      color: var(--color-gold-deep);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .page-footer-nav {
+      margin-top: 26px;
+      text-align: center;
+    }
+
+    @media (max-width: 420px) {
+      .mvv-map-item,
+      .scene-item {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 4px;
+      }
+    }
+  
+    .pillar-list { display: grid; gap: 12px; margin-top: 22px; }
+    .pillar {
+      padding: 16px;
+      border: 1px solid var(--line-gold);
+      border-left: 4px solid var(--color-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 255, 255, 0.86);
+    }
+    .pillar-num {
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+    .pillar h3 { margin: 2px 0 6px; color: var(--color-wine); }
+    .pillar p { color: var(--color-muted); font-size: 14.5px; font-weight: 600; line-height: 1.8; }
+    .value-link {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 2px 10px;
+      border: 1px solid rgba(123, 31, 29, 0.16);
+      border-radius: 999px;
+      background: rgba(123, 31, 29, 0.05);
+      color: var(--color-wine);
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      line-height: 1.6 !important;
+    }
+    .vision-goal { display: grid; gap: 10px; margin-top: 22px; }
+    .vision-goal .step-item { padding: 12px 0; }
+    .joy-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+    .joy-pair div {
+      padding: 16px 10px;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: var(--radius-card);
+      background: linear-gradient(180deg, #fffefa, #fbf4e8);
+      color: var(--color-wine-deep);
+      font-size: 16px;
+      font-weight: 800;
+      text-align: center;
+    }
+    .kpi {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--line-gold);
+      color: var(--color-text) !important;
+      font-size: 13.5px !important;
+    }
+    .kpi-tag {
+      display: inline-block;
+      margin-right: 8px;
+      padding: 1px 9px;
+      border-radius: 999px;
+      background: var(--color-wine);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      vertical-align: 1px;
+    }
+    .final-heading { margin-top: 24px; }
+  </style>
+</head>
+<body>
+  <main class="phone-book" aria-label="PLEASURE COMPANY MVV">
+    <nav class="top-nav" aria-label="ページ移動">
+      <a class="back-link" href="index.html#learning-menu">← Learning Menuへ</a>
+      <span class="nav-brand">PLEASURE COMPANY</span>
+    </nav>
+
+    <section class="page cover-page" id="page-1">
+      <div class="page-number">01 / 08</div>
+      <div class="cover-content">
+        <p class="brand-name">PLEASURE COMPANY</p>
+        <h1><span>MVV</span></h1>
+        <p class="hero-copy">食を通じて、喜びを創造する。</p>
+        <p class="staff-copy">Mission・Vision・Valueを知り、<br>毎日の仕事の「なぜ」を理解する</p>
+      </div>
+    </section>
+
+    <section class="page" id="page-2">
+      <div class="page-number">02 / 08</div>
+      <p class="page-kicker">創業の思い</p>
+      <h2>「プレジャー」とは、「喜び」という意味です。</h2>
+
+      <div class="joy-pair">
+        <div>お客様が<br>喜ぶ</div>
+        <div>従業員が<br>喜ぶ</div>
+      </div>
+
+      <div class="copy-block">
+        <p>そんな会社を作りたい。<br>これが、プレジャーカンパニーの<span class="accent">創業の思い</span>です。</p>
+      </div>
+
+      <div class="mvv-map">
+        <div class="mvv-map-item">
+          <p class="mvv-map-label">Mission<small>使命</small></p>
+          <p>私たちは何のために働くのか。</p>
+        </div>
+        <div class="mvv-map-item">
+          <p class="mvv-map-label">Vision<small>目指す姿</small></p>
+          <p>私たちはどこを目指しているのか。</p>
+        </div>
+        <div class="mvv-map-item">
+          <p class="mvv-map-label">Value<small>行動の基準</small></p>
+          <p>私たちは何を大切にして行動するのか。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" id="page-3">
+      <div class="page-number">03 / 08</div>
+      <p class="page-kicker">Mission</p>
+      <h2>私たちは、何のために働くのか。</h2>
+
+      <div class="statement">
+        <p class="statement-label">Mission</p>
+        <p class="statement-copy">食を通じて、<br>喜びを創造する</p>
+      </div>
+
+      <div class="pillar-list">
+        <article class="pillar">
+          <p class="pillar-num">01</p>
+          <h3>感動の追求と提供</h3>
+          <p>プレジャーカンパニーは、感動の追求と提供をするために、QSCを凡事徹底して、お客様に喜ばれる、そして街や社会から必要とされる会社を目指します。</p>
+        </article>
+        <article class="pillar">
+          <p class="pillar-num">02</p>
+          <h3>従業員の物心両面の喜びの追求と提供</h3>
+          <p>プレジャーカンパニーは、従業員の物心両面の喜びの追求と提供をするために、従業員が仕事を好きになれる環境を整え、会社を好きになってもらい、長く働きたいと思える会社を目指します。</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="page-4">
+      <div class="page-number">04 / 08</div>
+      <p class="page-kicker">Vision</p>
+      <h2>2029年度中の達成に向けて、目指すこと。</h2>
+
+      <div class="statement">
+        <p class="statement-label">Vision</p>
+        <p class="statement-copy">社員全員で創る会社、<br>年商50億企業</p>
+        <p class="statement-sub">〜PLEASURE COMPANY HOLDINGSへ〜</p>
+      </div>
+
+      <div class="step-list vision-goal">
+        <article class="step-item">
+          <span class="step-number">1</span>
+          <div><p>「SK-8ACTIONの凡事徹底」と「ブランドの磨き上げ」で、圧倒的なQSCVを提供する</p></div>
+        </article>
+        <article class="step-item">
+          <span class="step-number">2</span>
+          <div><p>人事システムの運用・定着で、ヒトが楽しく成長できる環境を作る</p></div>
+        </article>
+        <article class="step-item">
+          <span class="step-number">3</span>
+          <div><p>チェーン店から個店へ。「街の資産」となるような「地域No.1レストラン」にする</p></div>
+        </article>
+        <article class="step-item">
+          <span class="step-number">4</span>
+          <div><p>DXを駆使して「営業利益15％」を達成する</p></div>
+        </article>
+        <article class="step-item">
+          <span class="step-number">5</span>
+          <div><p>M&amp;A、インバウンド事業・海外事業立ち上げで「ドメイン」を拡大させる</p></div>
+        </article>
+      </div>
+
+      <div class="copy-block">
+        <p>諦めることなく、常に全力で走り続けています。</p>
+      </div>
+    </section>
+
+    <section class="page" id="page-5">
+      <div class="page-number">05 / 08</div>
+      <p class="page-kicker">経営目標（定性）</p>
+      <h2>無関心をなくし、<br>全員参加で<br>成果を生む会社へ</h2>
+
+      <div class="copy-block">
+        <p>Visionに向けて、会社全体で取り組む4つの目標です。<br>それぞれの<span class="accent">KPI</span>（達成を測る数字）もあわせて確認しましょう。</p>
+      </div>
+
+      <div class="pillar-list">
+        <article class="pillar">
+          <p class="pillar-num">01</p>
+          <h3>人事をDX化<br>「カオナビ」の導入・運用</h3>
+          <p class="kpi"><span class="kpi-tag">KPI</span>社員リアクション率100％、VALUEカード稼働率80％、CSS稼働率90％、M資格「B」を10人</p>
+        </article>
+        <article class="pillar">
+          <p class="pillar-num">02</p>
+          <h3>「SK-8ACTION」の凡事徹底で成果を生み、全員プレジャースタンダードへ</h3>
+          <p class="kpi"><span class="kpi-tag">KPI</span>8ACTION達成率80％、NEW資格手当プレジャースタンダード50％</p>
+        </article>
+        <article class="pillar">
+          <p class="pillar-num">03</p>
+          <h3>チェーン店から個店へ</h3>
+          <p>〜パーソナライズサービスとブランドの磨き上げ〜</p>
+          <p class="kpi"><span class="kpi-tag">KPI</span>リコグニション店舗基準数100％、店舗オリジナルメニュー稼働率100％・店舗試食会提案率100％</p>
+        </article>
+        <article class="pillar">
+          <p class="pillar-num">04</p>
+          <h3>焼肉屋のブランド向上と経営基盤の再構築</h3>
+          <p class="kpi"><span class="kpi-tag">KPI</span>5億企業へ</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="page" id="page-6">
+      <div class="page-number">06 / 08</div>
+      <p class="page-kicker">Value</p>
+      <h2>一人ひとりの考え方と、行動の基準。</h2>
+
+      <div class="value-list">
+        <article class="value-item">
+          <span class="value-number">1</span>
+          <div>
+            <h3>お客様の喜び</h3>
+            <p>お客様に喜んでいただくこと。飲食店は、ここから全てが始まります。</p>
+            <p class="value-link">Mission「感動の追求と提供」</p>
+          </div>
+        </article>
+        <article class="value-item">
+          <span class="value-number">2</span>
+          <div>
+            <h3>自分の成長</h3>
+            <p>そのためには、目標を持って、自分の成長を目指し努力することが大事。</p>
+          </div>
+        </article>
+        <article class="value-item">
+          <span class="value-number">3</span>
+          <div>
+            <h3>仲間への感謝</h3>
+            <p>一緒に働く仲間に感謝の気持ちを持ち、最高のチームを作る。</p>
+          </div>
+        </article>
+        <article class="value-item">
+          <span class="value-number">4</span>
+          <div>
+            <h3>会社の発展</h3>
+            <p>一人ひとりの社員が結果を意識し、勝ち続ける繁盛店を目指す。</p>
+          </div>
+        </article>
+        <article class="value-item">
+          <span class="value-number">5</span>
+          <div>
+            <h3>充実した人生</h3>
+            <p>仕事において充実した人生を手にでき、物心両面の喜びが得られる。</p>
+            <p class="value-link">Mission「従業員の物心両面の喜びの追求と提供」</p>
+          </div>
+        </article>
+      </div>
+
+      <div class="remember-card">
+        <p>「Value」を全社員が心がけていく中で、Missionに近づいていく。</p>
+      </div>
+    </section>
+
+    <section class="page" id="page-7">
+      <div class="page-number">07 / 08</div>
+      <p class="page-kicker">現場でのValue</p>
+      <h2>毎日の営業では、こう表れます。</h2>
+
+      <div class="scene-list">
+        <div class="scene-item">
+          <p class="scene-value">お客様の喜び</p>
+          <p>全員が笑顔でアイコンタクト。呼ばれる前に気づいて、先に動く。</p>
+        </div>
+        <div class="scene-item">
+          <p class="scene-value">自分の成長</p>
+          <p>今月の目標を決めて、商品の「一言サービス」を自分の言葉で伝えてみる。</p>
+        </div>
+        <div class="scene-item">
+          <p class="scene-value">仲間への感謝</p>
+          <p>忙しいときこそ声をかけ合い、フォローしてくれた仲間に「ありがとう」を伝える。</p>
+        </div>
+        <div class="scene-item">
+          <p class="scene-value">会社の発展</p>
+          <p>季節メニューやワインをおすすめし、お店の売上という結果を意識する。</p>
+        </div>
+        <div class="scene-item">
+          <p class="scene-value">充実した人生</p>
+          <p>できたことを振り返り、仕事の中にやりがいと喜びを見つける。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="page final-page" id="page-8">
+      <div class="page-number">08 / 08</div>
+      <h2 class="final-heading">まとめ</h2>
+
+      <div class="final-message">
+        <p>食を通じて、喜びを創造する。</p>
+      </div>
+
+      <div class="copy-block">
+        <p>お客様が喜び、従業員が喜ぶ。<br>そのために、一人ひとりがValueを心がけて行動します。</p>
+        <p>迷ったときは、このMVVに立ち返りましょう。</p>
+      </div>
+
+      <div class="page-footer-nav">
+        <a class="back-link" href="index.html#learning-menu">← Learning Menuへ戻る</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

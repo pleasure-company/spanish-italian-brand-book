@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="入社オリエンテーション スタッフ教育資料">
+  <title>オリエンテーション | PLEASURE COMPANY</title>
+  <style>
+    /* =========================================================
+       PLEASURE COMPANY 8ACTION
+       このHTMLだけで表示できるように、CSSを同じファイル内にまとめています。
+       色や余白を変えたい場合は、まず下のCSS変数を調整してください。
+       ========================================================= */
+    :root {
+      --color-bg: #fffdf8;
+      --color-bg-soft: #fbf4e8;
+      --color-bg-deep: #efe5d4;
+      --color-card: rgba(255, 255, 255, 0.88);
+      --color-text: #2d2a26;
+      --color-text-strong: #1f1d1a;
+      --color-muted: #6f665c;
+      --color-muted-2: #7a7066;
+      --color-gold: #b89b5e;
+      --color-gold-soft: #d6c28a;
+      --color-gold-deep: #b98b3f;
+      --color-wine: #7b1f1d;
+      --color-wine-deep: #4a1717;
+      --line-gold: rgba(185, 139, 63, 0.24);
+      --line-wine: rgba(123, 31, 29, 0.14);
+      --shadow-soft: 0 18px 54px rgba(67, 48, 25, 0.10);
+      --shadow-card: 0 14px 34px rgba(58, 43, 28, 0.08);
+      --radius-card: 8px;
+      --container: min(100% - 28px, 620px);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 90% 4%, rgba(214, 194, 138, 0.24) 0, rgba(214, 194, 138, 0.00) 28%),
+        radial-gradient(circle at 5% 42%, rgba(123, 31, 29, 0.08) 0, rgba(123, 31, 29, 0.00) 30%),
+        linear-gradient(180deg, #fffdf8 0%, #fbf4e8 42%, #fffdf8 100%);
+      color: var(--color-text);
+      font-family:
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        "YuGothic",
+        "Noto Sans JP",
+        Meiryo,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+      font-size: 15.5px;
+      line-height: 1.85;
+      letter-spacing: 0;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    blockquote {
+      margin: 0;
+    }
+
+    img,
+    svg,
+    canvas,
+    video {
+      max-width: 100%;
+    }
+
+    .phone-book {
+      width: var(--container);
+      margin: 0 auto;
+      padding: 18px 0 38px;
+    }
+
+    .page {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      min-height: calc(100svh - 36px);
+      flex-direction: column;
+      margin: 0 0 22px;
+      padding: 26px 21px 30px;
+      overflow: hidden;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 253, 248, 0.94)),
+        var(--color-bg);
+      box-shadow: var(--shadow-card);
+      scroll-snap-align: start;
+    }
+
+    .page::before,
+    .page::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .page::before {
+      inset: 18px;
+      border: 1px solid rgba(184, 155, 94, 0.16);
+      border-radius: 999px;
+      opacity: 0.62;
+    }
+
+    .page::after {
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, rgba(184, 155, 94, 0.72), rgba(123, 31, 29, 0.22), transparent);
+    }
+
+    .page-number {
+      align-self: flex-end;
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      line-height: 1;
+    }
+
+    .page-kicker {
+      width: fit-content;
+      max-width: 100%;
+      margin: 24px 0 10px;
+      color: var(--color-wine);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      word-break: keep-all;
+    }
+
+    h1 {
+      color: var(--color-text-strong);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 12vw, 60px);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    h2 {
+      color: var(--color-text-strong);
+      font-size: clamp(24px, 7vw, 34px);
+      font-weight: 700;
+      line-height: 1.45;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    h3 {
+      color: var(--color-text-strong);
+      font-size: clamp(16px, 4.5vw, 18px);
+      font-weight: 700;
+      line-height: 1.55;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .copy-block {
+      display: grid;
+      gap: 15px;
+      margin-top: 22px;
+    }
+
+    .copy-block p,
+    .product-card p,
+    .value-item p,
+    .shop-panel p,
+    .step-item p,
+    .closing-word {
+      color: var(--color-muted);
+      font-size: 15.5px;
+      font-weight: 500;
+      line-height: 1.9;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .accent,
+    .quote-line {
+      color: var(--color-wine);
+      font-weight: 800;
+    }
+
+    .quote-line {
+      display: inline-block;
+      max-width: 100%;
+      margin: 4px 0;
+      padding: 4px 10px;
+      border: 1px solid rgba(123, 31, 29, 0.14);
+      border-radius: 999px;
+      background: rgba(123, 31, 29, 0.05);
+    }
+
+    /* 表紙ページ */
+    .cover-page {
+      min-height: calc(100svh - 36px);
+      justify-content: center;
+      background:
+        radial-gradient(circle at 82% 14%, rgba(214, 194, 138, 0.28) 0, rgba(214, 194, 138, 0.00) 34%),
+        radial-gradient(circle at 15% 82%, rgba(123, 31, 29, 0.10) 0, rgba(123, 31, 29, 0.00) 34%),
+        linear-gradient(135deg, #fffdf8 0%, #fbf4e8 54%, #efe5d4 100%);
+    }
+
+    .cover-page::before {
+      inset: 28px 18px;
+      border-color: rgba(184, 155, 94, 0.22);
+      opacity: 0.78;
+    }
+
+    .cover-page::after {
+      top: auto;
+      right: 22px;
+      bottom: 34px;
+      left: 22px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(184, 155, 94, 0.58), transparent);
+    }
+
+    .cover-content {
+      display: grid;
+      gap: 18px;
+      padding: 46px 0 56px;
+      text-align: center;
+    }
+
+    .cover-content > * {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .cover-content h1 span {
+      display: block;
+    }
+
+    .brand-name {
+      color: var(--color-wine-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(14px, 4vw, 18px);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      line-height: 1.4;
+    }
+
+    .hero-copy {
+      width: min(100%, 15em);
+      margin: 0 auto;
+      color: var(--color-text-strong);
+      font-size: clamp(20px, 6vw, 28px);
+      font-weight: 700;
+      line-height: 1.62;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .staff-copy {
+      width: fit-content;
+      max-width: 100%;
+      min-height: 44px;
+      margin: 8px auto 0;
+      padding: 13px 16px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.74);
+      color: var(--color-muted);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.75;
+      box-shadow: 0 12px 24px rgba(55, 39, 21, 0.06);
+    }
+
+    .value-list,
+    .shop-list,
+    .product-list,
+    .speech-list,
+    .step-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .value-list > *,
+    .shop-list > *,
+    .product-list > *,
+    .speech-list > *,
+    .step-list > * {
+      min-width: 0;
+    }
+
+    .value-item,
+    .step-item {
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr);
+      gap: 12px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line-gold);
+    }
+
+    .value-item:last-child,
+    .step-item:last-child {
+      border-bottom: 0;
+    }
+
+    .value-number,
+    .step-number {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.42);
+      border-radius: 50%;
+      background: rgba(255, 253, 248, 0.78);
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .value-item h3,
+    .step-item h3 {
+      margin-bottom: 4px;
+      color: var(--color-text-strong);
+    }
+
+    .shop-panel,
+    .product-card {
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.90), rgba(255, 253, 248, 0.88)),
+        var(--color-card);
+      box-shadow: 0 10px 24px rgba(58, 43, 28, 0.07);
+    }
+
+    .shop-panel {
+      display: grid;
+      gap: 10px;
+      padding: 18px 16px;
+    }
+
+    .shop-panel h3 {
+      width: fit-content;
+      min-width: 62px;
+      padding: 4px 12px;
+      border: 1px solid rgba(184, 155, 94, 0.40);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.70);
+      color: var(--color-wine);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    .btd-panel h3 {
+      color: var(--color-gold-deep);
+    }
+
+    .product-card {
+      padding: 16px;
+    }
+
+    .product-role {
+      display: inline-flex;
+      width: fit-content;
+      max-width: 100%;
+      margin-bottom: 8px;
+      padding: 4px 10px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-radius: 999px;
+      background: rgba(251, 244, 232, 0.78);
+      color: var(--color-gold-deep);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .product-card h3 {
+      margin-bottom: 8px;
+      color: var(--color-text-strong);
+      font-size: 17px;
+    }
+
+    .sub-heading {
+      margin-top: 26px;
+      color: var(--color-wine);
+      font-size: 17px;
+    }
+
+    .speech-bubble {
+      position: relative;
+      padding: 15px 16px 15px 18px;
+      border: 1px solid rgba(184, 155, 94, 0.26);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.82);
+      color: var(--color-text);
+      font-size: 14.5px;
+      font-weight: 600;
+      line-height: 1.9;
+      word-break: normal;
+      overflow-wrap: break-word;
+      box-shadow: 0 10px 22px rgba(58, 43, 28, 0.06);
+    }
+
+    .speech-bubble:nth-child(even) {
+      background: rgba(251, 244, 232, 0.72);
+    }
+
+    .speech-bubble::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      bottom: 15px;
+      left: -1px;
+      width: 4px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, var(--color-gold), rgba(123, 31, 29, 0.32));
+    }
+
+    .remember-card,
+    .final-message {
+      margin-top: 22px;
+      padding: 20px 18px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-radius: var(--radius-card);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.24), transparent 38%),
+        linear-gradient(180deg, #fffefa, #fbf4e8);
+      box-shadow: 0 14px 30px rgba(58, 43, 28, 0.08);
+    }
+
+    .remember-card p,
+    .final-message p {
+      color: var(--color-text-strong);
+      font-size: clamp(18px, 5vw, 22px);
+      font-weight: 800;
+      line-height: 1.75;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .small-quote {
+      width: fit-content;
+      max-width: 100%;
+      padding: 6px 10px;
+      border: 1px solid rgba(123, 31, 29, 0.14);
+      border-radius: var(--radius-card);
+      background: rgba(123, 31, 29, 0.05);
+      color: var(--color-wine);
+      font-weight: 800;
+    }
+
+    .final-page {
+      justify-content: center;
+    }
+
+    .final-message {
+      border-left: 4px solid var(--color-gold);
+    }
+
+    .closing-word {
+      margin-top: 14px;
+      color: var(--color-text-strong);
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    @media (min-width: 700px) {
+      :root {
+        --container: min(100% - 56px, 680px);
+      }
+
+      body {
+        font-size: 16px;
+      }
+
+      .phone-book {
+        padding: 32px 0 58px;
+      }
+
+      .page {
+        min-height: 760px;
+        margin-bottom: 28px;
+        padding: 36px 38px 42px;
+      }
+
+      .copy-block p,
+      .product-card p,
+      .value-item p,
+      .shop-panel p,
+      .step-item p {
+        font-size: 16px;
+      }
+
+      .product-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 360px) {
+      :root {
+        --container: min(100% - 20px, 620px);
+      }
+
+      .page {
+        padding: 24px 17px 28px;
+      }
+
+      .page::before {
+        inset: 15px 12px;
+      }
+
+      .cover-content {
+        padding: 42px 0 50px;
+      }
+
+      .speech-bubble {
+        padding-right: 14px;
+      }
+    }
+  
+    /* ===== MVVページ用の追加スタイル ===== */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 8px 14px;
+      border: 1px solid rgba(184, 155, 94, 0.40);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.86);
+      color: var(--color-wine);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(58, 43, 28, 0.06);
+    }
+
+    .nav-brand {
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+    }
+
+    .mvv-map {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .mvv-map-item {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+      padding: 14px 16px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .mvv-map-label {
+      color: var(--color-wine);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .mvv-map-label small {
+      display: block;
+      color: var(--color-muted-2);
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .mvv-map-item p {
+      color: var(--color-muted);
+      font-size: 14.5px;
+      font-weight: 600;
+      line-height: 1.75;
+    }
+
+    .statement {
+      margin-top: 24px;
+      padding: 26px 18px;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: var(--radius-card);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.26), transparent 42%),
+        linear-gradient(180deg, #fffefa, #fbf4e8);
+      text-align: center;
+      box-shadow: 0 14px 30px rgba(58, 43, 28, 0.08);
+    }
+
+    .statement-label {
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .statement-copy {
+      margin-top: 8px;
+      color: var(--color-wine-deep);
+      font-size: clamp(21px, 6.4vw, 30px);
+      font-weight: 800;
+      line-height: 1.55;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .statement-sub {
+      margin-top: 6px;
+      color: var(--color-muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .scene-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .scene-item {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 12px;
+      padding: 13px 14px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.86);
+    }
+
+    .scene-value {
+      color: var(--color-wine);
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.6;
+    }
+
+    .scene-item p {
+      color: var(--color-muted);
+      font-size: 14.5px;
+      font-weight: 600;
+      line-height: 1.75;
+    }
+
+    .cycle {
+      margin-top: 22px;
+      padding: 18px 16px;
+      border: 1px dashed rgba(184, 155, 94, 0.55);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.7);
+      color: var(--color-text-strong);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 2.1;
+      text-align: center;
+    }
+
+    .cycle .arrow {
+      display: block;
+      color: var(--color-gold-deep);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .page-footer-nav {
+      margin-top: 26px;
+      text-align: center;
+    }
+
+    @media (max-width: 420px) {
+      .mvv-map-item,
+      .scene-item {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 4px;
+      }
+    }
+  
+    .pillar-list { display: grid; gap: 12px; margin-top: 22px; }
+    .pillar {
+      padding: 16px;
+      border: 1px solid var(--line-gold);
+      border-left: 4px solid var(--color-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 255, 255, 0.86);
+    }
+    .pillar-num {
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+    .pillar h3 { margin: 2px 0 6px; color: var(--color-wine); }
+    .pillar p { color: var(--color-muted); font-size: 14.5px; font-weight: 600; line-height: 1.8; }
+    .value-link {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 2px 10px;
+      border: 1px solid rgba(123, 31, 29, 0.16);
+      border-radius: 999px;
+      background: rgba(123, 31, 29, 0.05);
+      color: var(--color-wine);
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      line-height: 1.6 !important;
+    }
+    .vision-goal { display: grid; gap: 10px; margin-top: 22px; }
+    .vision-goal .step-item { padding: 12px 0; }
+    .joy-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+    .joy-pair div {
+      padding: 16px 10px;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: var(--radius-card);
+      background: linear-gradient(180deg, #fffefa, #fbf4e8);
+      color: var(--color-wine-deep);
+      font-size: 16px;
+      font-weight: 800;
+      text-align: center;
+    }
+    .kpi {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--line-gold);
+      color: var(--color-text) !important;
+      font-size: 13.5px !important;
+    }
+    .kpi-tag {
+      display: inline-block;
+      margin-right: 8px;
+      padding: 1px 9px;
+      border-radius: 999px;
+      background: var(--color-wine);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      vertical-align: 1px;
+    }
+    .final-heading { margin-top: 24px; }
+  
+    /* ===== 8ACTIONページ用 ===== */
+    .toc { display: grid; gap: 8px; margin-top: 22px; }
+    .toc a {
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr) 16px;
+      gap: 10px;
+      align-items: center;
+      min-height: 52px;
+      padding: 10px 14px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 255, 255, 0.86);
+      color: var(--color-text-strong);
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.5;
+      text-decoration: none;
+      box-shadow: 0 6px 14px rgba(58, 43, 28, 0.05);
+    }
+    .toc a::after { content: "›"; color: var(--color-gold-deep); font-size: 20px; }
+    .toc-num {
+      display: grid; width: 32px; height: 32px; place-items: center;
+      border-radius: 50%; background: var(--color-wine); color: #fff;
+      font-family: Georgia, "Times New Roman", serif; font-size: 15px; font-weight: 700;
+    }
+    .toc a.toc-sub { grid-template-columns: 38px minmax(0, 1fr) 16px; background: rgba(251, 244, 232, 0.7); }
+    .toc a.toc-sub .toc-num { background: var(--color-gold-deep); font-size: 12px; }
+
+    .action-head { display: flex; align-items: flex-start; gap: 14px; margin-top: 18px; }
+    .action-num {
+      flex: 0 0 auto;
+      color: var(--color-wine);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 0.9;
+    }
+    .action-head h2 { padding-top: 4px; }
+
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+    .tag {
+      padding: 3px 11px;
+      border: 1px solid rgba(184, 155, 94, 0.45);
+      border-radius: 999px;
+      background: rgba(251, 244, 232, 0.85);
+      color: var(--color-gold-deep);
+      font-size: 12.5px;
+      font-weight: 800;
+      line-height: 1.6;
+    }
+
+    .goal-box {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border: 1px solid rgba(123, 31, 29, 0.18);
+      border-radius: var(--radius-card);
+      background: rgba(123, 31, 29, 0.04);
+    }
+    .goal-box .goal-label {
+      color: var(--color-wine);
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+    .goal-box ul { margin: 6px 0 0; padding-left: 1.2em; }
+    .goal-box li { color: var(--color-text-strong); font-size: 14.5px; font-weight: 700; line-height: 1.75; }
+
+    .block-title {
+      margin-top: 28px;
+      padding-left: 10px;
+      border-left: 4px solid var(--color-gold);
+      color: var(--color-wine);
+      font-size: 16.5px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .point-list { display: grid; gap: 10px; margin-top: 14px; }
+    .point {
+      padding: 13px 15px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 255, 255, 0.86);
+    }
+    .point h3 { font-size: 15.5px; color: var(--color-text-strong); }
+    .point h3 .pn { color: var(--color-gold-deep); margin-right: 6px; }
+    .point p { margin-top: 4px; color: var(--color-muted); font-size: 14.5px; font-weight: 600; line-height: 1.8; }
+    .point .arrow-line { color: var(--color-wine); font-weight: 800; }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 14px; }
+    .mini {
+      padding: 12px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.9);
+    }
+    .mini strong { display: block; color: var(--color-wine); font-size: 14px; line-height: 1.5; }
+    .mini span { display: block; margin-top: 4px; color: var(--color-muted); font-size: 13px; font-weight: 600; line-height: 1.65; }
+
+    .talk-list { display: grid; gap: 8px; margin-top: 14px; }
+    .talk {
+      display: grid;
+      grid-template-columns: 104px minmax(0, 1fr);
+      gap: 10px;
+      padding: 11px 13px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 255, 255, 0.86);
+    }
+    .talk .scene { color: var(--color-gold-deep); font-size: 13px; font-weight: 800; line-height: 1.6; }
+    .talk .line { color: var(--color-text-strong); font-size: 14.5px; font-weight: 700; line-height: 1.7; }
+    .talk .line small { display: block; color: var(--color-muted-2); font-size: 12.5px; font-weight: 600; }
+
+    .chain {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border: 1px dashed rgba(184, 155, 94, 0.6);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.75);
+      color: var(--color-text-strong);
+      font-size: 14.5px;
+      font-weight: 700;
+      line-height: 2;
+    }
+    .chain b { color: var(--color-gold-deep); }
+
+    .ng-box {
+      margin-top: 14px;
+      padding: 13px 15px;
+      border: 1px solid rgba(123, 31, 29, 0.25);
+      border-radius: var(--radius-card);
+      background: rgba(123, 31, 29, 0.05);
+    }
+    .ng-box p { color: var(--color-wine-deep); font-size: 14px; font-weight: 700; line-height: 1.8; }
+
+    .key-message {
+      margin-top: 24px;
+      padding: 18px 16px;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-left: 4px solid var(--color-gold);
+      border-radius: var(--radius-card);
+      background: linear-gradient(180deg, #fffefa, #fbf4e8);
+      color: var(--color-text-strong);
+      font-size: clamp(16px, 4.6vw, 19px);
+      font-weight: 800;
+      line-height: 1.75;
+    }
+
+    .compare { display: grid; gap: 8px; margin-top: 14px; }
+    .compare div { padding: 12px 14px; border-radius: var(--radius-card); font-size: 14px; font-weight: 700; line-height: 1.75; }
+    .compare .normal { border: 1px solid var(--line-gold); background: rgba(255, 255, 255, 0.86); color: var(--color-muted); }
+    .compare .upper { border: 1px solid rgba(123, 31, 29, 0.25); background: rgba(123, 31, 29, 0.05); color: var(--color-wine-deep); }
+
+    .term-list { display: grid; gap: 0; margin-top: 14px; border-top: 1px solid var(--line-gold); }
+    .term {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: 10px;
+      padding: 10px 2px;
+      border-bottom: 1px solid var(--line-gold);
+    }
+    .term dt { color: var(--color-wine); font-size: 14px; font-weight: 800; line-height: 1.6; }
+    .term dd { margin: 0; color: var(--color-muted); font-size: 13.5px; font-weight: 600; line-height: 1.7; }
+
+    .to-top { margin-top: 26px; text-align: right; }
+    .to-top a { color: var(--color-gold-deep); font-size: 13px; font-weight: 800; text-decoration: none; }
+
+    @media (max-width: 420px) {
+      .talk, .term { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+      .action-num { font-size: 52px; }
+    }
+    .compare b { color: inherit; }
+    .term dt { word-break: normal; overflow-wrap: anywhere; }
+  
+    /* ===== オリエンテーションページ用 ===== */
+    .info-table { width: 100%; margin-top: 14px; border-collapse: collapse; font-size: 14px; }
+    .info-table th, .info-table td {
+      padding: 10px 8px;
+      border-bottom: 1px solid var(--line-gold);
+      text-align: left;
+      vertical-align: top;
+      line-height: 1.7;
+    }
+    .info-table th { width: 30%; color: var(--color-wine); font-weight: 800; white-space: nowrap; }
+    .info-table td { color: var(--color-text); font-weight: 600; }
+    .info-table.grid th { width: auto; white-space: normal; background: rgba(251, 244, 232, 0.8); font-size: 13px; }
+    .info-table.grid td { font-size: 13.5px; }
+    .table-scroll { overflow-x: auto; }
+    .history { margin-top: 14px; border-left: 2px solid var(--color-gold-soft); padding-left: 14px; }
+    .history div { position: relative; padding: 6px 0; }
+    .history div::before {
+      content: ""; position: absolute; left: -20px; top: 14px;
+      width: 10px; height: 10px; border-radius: 50%; background: var(--color-gold);
+    }
+    .history time { display: block; color: var(--color-gold-deep); font-size: 12.5px; font-weight: 800; }
+    .history span { color: var(--color-text-strong); font-size: 14.5px; font-weight: 700; line-height: 1.6; }
+    .shop-hours { display: grid; gap: 8px; margin-top: 14px; }
+    .shop-hours div { padding: 10px 13px; border: 1px solid var(--line-gold); border-radius: var(--radius-card); background: rgba(255, 255, 255, 0.86); }
+    .shop-hours strong { display: block; color: var(--color-text-strong); font-size: 14.5px; }
+    .shop-hours span { display: block; color: var(--color-muted); font-size: 13.5px; font-weight: 600; line-height: 1.7; }
+    .two-col { display: grid; gap: 12px; margin-top: 14px; }
+    .ol-list { margin: 10px 0 0; padding-left: 1.5em; }
+    .ol-list li { color: var(--color-text-strong); font-size: 14.5px; font-weight: 700; line-height: 1.9; }
+    .link-btn {
+      display: inline-flex; align-items: center; min-height: 40px; margin-top: 12px; padding: 8px 16px;
+      border-radius: 999px; background: var(--color-wine); color: #fff; font-size: 13.5px; font-weight: 800; text-decoration: none;
+    }
+    .color-chip { display: inline-block; min-width: 56px; padding: 2px 8px; border-radius: 4px; font-size: 12.5px; font-weight: 800; text-align: center; }
+    .chip-blue { background: #2f6fb3; color: #fff; }
+    .chip-beige { background: #d9a441; color: #fff; }
+    .chip-white { background: #fff; color: #333; border: 1px solid #999; }
+    .chip-brown { background: #7a4a1e; color: #fff; }
+    .pre { white-space: pre-line; }
+    @media (min-width: 700px) { .two-col { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+  <main class="phone-book" aria-label="オリエンテーション">
+    <nav class="top-nav" aria-label="ページ移動">
+      <a class="back-link" href="index.html#learning-menu">← Learning Menuへ</a>
+      <span class="nav-brand">PLEASURE COMPANY</span>
+    </nav>
+
+    <section class="page cover-page" id="page-1">
+      <div class="page-number">01 / 15</div>
+      <div class="cover-content">
+        <p class="brand-name">PLEASURE COMPANY</p>
+        <h1><span>オリエン</span><span>テーション</span></h1>
+        <p class="hero-copy">入社オリエンテーション</p>
+        <p class="staff-copy">働くうえで大切なルールを確認する</p>
+      </div>
+    </section>
+
+    <section class="page" id="contents">
+      <div class="page-number">02 / 15</div>
+      <p class="page-kicker">Contents</p>
+      <h2>オリエンテーション</h2>
+      <nav class="toc" aria-label="オリエンテーション目次">
+        <a href="#company"><span class="toc-num">1</span>会社概要・沿革</a>
+        <a href="#brands"><span class="toc-num">2</span>ブランド紹介</a>
+        <a href="#shops"><span class="toc-num">3</span>店舗情報・系列店</a>
+        <a href="#mvv"><span class="toc-num">4</span>MVV 企業理念</a>
+        <a href="#qsc"><span class="toc-num">5</span>サービス・キッチン8ACTION</a>
+        <a href="#restaurant"><span class="toc-num">6</span>レストランとは？</a>
+        <a href="#career"><span class="toc-num">7</span>キャリアパス制度</a>
+        <a href="#tunag"><span class="toc-num">8</span>TUNAG・今月の目標</a>
+        <a href="#house-rule"><span class="toc-num">9</span>ハウスルール</a>
+        <a href="#appearance"><span class="toc-num">10</span>アピアランス</a>
+        <a href="#hygiene"><span class="toc-num">11</span>手洗い・衛生</a>
+        <a href="#others"><span class="toc-num">12</span>その他（清掃・ハウスミーティング）</a>
+        <a href="#recreation"><span class="toc-num">13</span>レクリエーション</a>
+      </nav>
+    </section>
+
+    <!-- 1 会社概要・沿革 -->
+    <section class="page" id="company">
+      <div class="page-number">03 / 15</div>
+      <p class="page-kicker">01</p>
+      <h2>会社概要</h2>
+      <table class="info-table">
+        <tr><th>社名</th><td>株式会社プレジャーカンパニー<br>（PLEASURE COMPANY INC.）</td></tr>
+        <tr><th>設立</th><td>２０１０年２月１０日</td></tr>
+        <tr><th>本社所在地</th><td>〒２２５-００１１<br>横浜市青葉区あざみ野1-5-2 あざみ野リッセ1階</td></tr>
+        <tr><th>電話番号</th><td>０４５-５３０-９３３１</td></tr>
+        <tr><th>URL</th><td>www.pleasure-company.com</td></tr>
+        <tr><th>取締役</th><td>代表取締役社長　望月大輔<br>他3名</td></tr>
+        <tr><th>資本金</th><td>７００万</td></tr>
+        <tr><th>年商</th><td>２8億3730万（20店舗）</td></tr>
+        <tr><th>従業員数</th><td>４５１名（社員１３７名　パートナー３１４名）<br>※２０２６年２月</td></tr>
+        <tr><th>グループ会社</th><td>（株）Crest Factory<br>（株）LEAD LIVE COMPANY</td></tr>
+      </table>
+
+      <h3 class="block-title">沿革</h3>
+      <div class="history">
+        <div><time>２０１０．４．１３</time><span>［アジアンビストロDaiたまプラーザ店］オープン</span></div>
+        <div><time>２０１１．９．２７</time><span>［アジアンビストロDai新百合ヶ丘店］オープン</span></div>
+        <div><time>２０１２．５．２８</time><span>［ワインビストロDaiたまプラーザ店］オープン　［スパニッシュイタリアンDai］に業態チェンジ</span></div>
+        <div><time>２０１３．８．６</time><span>［アジアンビストロDai青葉台店］オープン</span></div>
+        <div><time>２０１３．４．２２</time><span>［炭焼き大たまプラーザ店］オープン</span></div>
+        <div><time>２０１３．６．１０</time><span>［アジアンビストロDai日吉店］オープン</span></div>
+        <div><time>２０１４．４．２１</time><span>［トラットリア＆ピッツェリアDai町田店］オープン</span></div>
+        <div><time>２０１４．９．８</time><span>［アジアンビストロDai駒沢店］オープン</span></div>
+        <div><time>２０１５．２．２</time><span>弊社初の独立支援店舗［RIKI-A三軒茶屋］オープン</span></div>
+        <div><time>２０１５．１１．２５</time><span>［アジアンビストロDai武蔵小杉店］オープン</span></div>
+        <div><time>２０１６．５．１０</time><span>［アジアンビストロDai東京ガーデンテラス店］オープン</span></div>
+        <div><time>２０１７．４．２８</time><span>［アジアンビストロDai二子玉川店］オープン</span></div>
+        <div><time>２０１８．９．２５</time><span>［アジアンビストロDai日本橋店］オープン</span></div>
+        <div><time>２０１８．１１．８</time><span>［炭焼き大新百合ヶ丘店］オープン</span></div>
+        <div><time>２０１９．１．２１</time><span>［アジアンビストロDaiあざみ野店］オープン</span></div>
+        <div><time>２０２０．９．７</time><span>［大喜楼たまプラーザ店］オープン</span></div>
+        <div><time>２０２１．６．１</time><span>［アジアンビストロDai立川グリーンスプリングス店］オープン</span></div>
+        <div><time>２０２１．１２．１</time><span>［炭焼き大立川グリーンスプリングス店］オープン</span></div>
+        <div><time>２０２３．７．３</time><span>［アジアンビストロDai那覇店］オープン</span></div>
+        <div><time>２０２３．９．２５</time><span>［キャナルカフェ勝どき］オープン</span></div>
+        <div><time>２０２３．１０．１０</time><span>［アジアンビストロDai勝どき店］オープン</span></div>
+        <div><time>２０２３．１０．１０</time><span>［ブリランテタヴォラDai勝どき店］オープン</span></div>
+        <div><time>&nbsp;</time><span>［YAKINIKU A FIVE 徳］M&amp;A</span></div>
+      </div>
+      <p class="to-top"><a href="#contents">↑ 目次へ</a></p>
+    </section>
+
+    <!-- 2 ブランド紹介 -->
+    <section class="page" id="brands">
+      <div class="page-number">04 / 15</div>
+      <p class="page-kicker">02</p>
+      <h2>ブランド紹介</h2>
+      <div class="point-list">
+        <div class="point"><h3>●アジアンビストロDai</h3><p>タイ・ベトナム・インドネシア・中国などのアジア各国の本格エスニック料理を中心に、ビール・ワインに合う小皿料理から多彩なグリル料理まで楽しめる今までにない新しいレストラン<br>“アジアンビストロ”</p></div>
+        <div class="point"><h3>●スパニッシュ&amp;イタリアンDai・ブリランテ タヴォラDai</h3><p>シェフこだわりの自家製手打ちパスタを中心に、ワインに合う幅広いアンティパスト（前菜）、黒毛和牛を中心とした数々のグリル料理までを楽しめる使い勝手の良いイタリアンレストラン</p></div>
+        <div class="point"><h3>●トラットリア＆ピッツェリアDai</h3><p>薪窯で焼き上げた”軽さ“にこだわったDaiオリジナルピッツァと自家製手打ちパスタを中心に、ワインに合う幅広いアンティパスト（前菜）からグリル料理まで楽しめる使い勝手の良いイタリアンレストラン</p></div>
+        <div class="point"><h3>●炭焼き大</h3><p>本格備長炭で国産新鮮鶏の串焼きから黒毛和牛・鴨などの特選素材まで焼きあげる炭焼きを中心に、市場直送の鮮魚から、ワイン、日本酒に合う創作前菜までを楽しめる炭焼きレストラン</p></div>
+        <div class="point"><h3>●大喜楼</h3><p>北京ダックやフカヒレ・中華の定番料理や自家製点心を中心にワインやビール・多種の紹興酒の組み合わせが楽しい今までにない新しいチャイニーズレストラン</p></div>
+        <div class="point"><h3>●YAKINIKU A FIVE 徳</h3><p>綺麗な夜景を見下ろしながら、落ち着いた空間で焼肉を愉しめる「YAKINIKU A FIVE 徳」。<br>使用している食材はA5ランクの最高級の黒毛和牛です。</p></div>
+        <div class="point"><h3>●Canal Cafe</h3><p>今、話題の【嫌気発酵】された豆で作る 淹れたてコーヒーと ハワイで定番の【ポキ】をメインに 手作りスイーツも多数楽しめる新たなカフェ</p></div>
+      </div>
+      <div class="key-message">店舗名「ダイ」の名前の由来は、社長の名前［大輔］というだけでなく、お客様にとっても、従業員にとっても大好きなお店という意味合いが込められています。</div>
+      <div class="copy-block"><p>どのコンセプトも、地域のお客様に愛され、必要とされる<br><span class="accent">「食を通じて街の喜びを創造できるレストラン」</span>作りを目指しています！！</p></div>
+      <p class="to-top"><a href="#contents">↑ 目次へ</a></p>
+    </section>
+
+    <!-- 3 店舗情報 -->
+    <section class="page" id="shops">
+      <div class="page-number">05 / 15</div>
+      <p class="page-kicker">03</p>
+      <h2>店舗情報・系列店</h2>
+      <div class="shop-hours">
+        <div><strong>●アジアンビストロDai　たまプラーザ店</strong><span>＊営業時間：11時～23時（LO22時）／ランチ：毎日11時～14時　席数：／32席</span></div>
+        <div><strong>●アジアンビストロDai　新百合ケ丘店</strong><span>＊営業時間：11時～23時（LO22時）／ランチ：毎日11時～14時　席数：／48席</span></div>
+        <div><strong>●アジアンビストロDai　青葉台店</strong><span>＊営業時間：11時～23時（LO22時）／ランチ：毎日11時～14時　席数：／42席</span></div>
+        <div><strong>●アジアンビストロDai　日吉店</strong><span>＊営業時間：11時～23時（LO22時）／ランチ：毎日11時～14時　席数：／40席<br>月曜定休</span></div>
+        <div><strong>●アジアンビストロDai　駒沢店</strong><span>＊営業時間：11時～23時（LO22時）／ランチ：毎日11時～14時　席数：／76席</span></div>
+        <div><strong>●アジアンビストロDai　武蔵小杉店</strong><span>＊営業時間：11時～23時（LO22時）／ランチ：毎日11時～14時　席数：／83席</span></div>
+        <div><strong>●アジアンビストロDai　東京ガーデンテラス店</strong><span>＊営業時間：11.5時～23時（LO22時）／ランチ：毎日11時～15時　席数：／69席</span></div>
+        <div><strong>●アジアンビストロDai　二子玉川店</strong><span>＊営業時間：11時～23時（LO22時）／ランチ：毎日11時～15時　席数：／152席</span></div>
+        <div><strong>●アジアンビストロDai　日本橋店</strong><span>＊営業時間：11.5時～23時（LO22時）／ランチ：毎日11時～15時　席数：／166席</span></div>
+        <div><strong>●アジアンビストロDai　立川GS店</strong><span>＊営業時間：11時～22時（LO21時）／ランチ：毎日11時～15時　席数：／130席</span></div>
+        <div><strong>●アジアンビストロDai　勝どき店</strong><span>＊営業時間：11時～23時（LO22時）／ランチ：毎日11時～15時　席数：／90席</span></div>
+        <div><strong>●スパニッシュ&amp;イタリアンDai　たまプラーザ店</strong><span>＊営業時間：11時～22時（LO21時）／ランチ：毎日11時～14時　席数：／56席</span></div>
+        <div><strong>●ブリランテ タヴォラDai　勝どき店</strong><span>＊営業時間：11時～23時（LO22時）／ランチ：毎日11時～14時　席数：／81席</span></div>
+        <div><strong>●トラットリア＆ピッツェリアDai　町田店</strong><span>＊営業時間：11時～23時（LO22時）／ランチ：毎日11時～14時　席数：／48席</span></div>
+        <div><strong>●炭焼き大　たまプラーザ店</strong><span>＊営業時間：月～金15時～23時（LO22時)　席数：／40席<br>土日祝11時～23時（LO22時）</span></div>
+        <div><strong>●炭焼き大　新百合ヶ丘店</strong><span>＊営業時間：11時～23時（LO22時）　ランチ：毎日11時～14時　席数：／59席</span></div>
+        <div><strong>●炭焼き大　立川GS店</strong><span>＊営業時間：11時～22時（LO21時）　ランチ：毎日11時～15時　席数：／120席</span></div>
+        <div><strong>●大喜楼たまプラーザ店</strong><span>＊営業時間：11時～22時（LO21時）／ランチ：毎日11時～14時　席数：／62席</span></div>
+        <div><strong>●Canal Cafe</strong><span>＊営業時間：9時〜20時（LO19時）席数：／40席</span></div>
+        <div><strong>●YAKINIKU A FIVE 徳</strong><span>＊営業時間：月～金祝　17時～23時（LO22時30分)　席数：／40席<br>土日　11:00 - 15:00　(LO 14:30)　17:00 - 23:00　(LO 22:30)</span></div>
+      </div>
+      <h3 class="block-title">●その他</h3>
+      <ol class="ol-list">
+        <li>全店舗ランチタイムでもグランドメニューを頼めます</li>
+        <li>一部の店舗は平日と週末のランチメニューが異なります</li>
+        <li>一部の店舗はアイドルタイム(15時〜17時）をクローズしています</li>
+        <li>12月31日～1月1日は全店舗定休日です。※一部の店舗を除く</li>
+      </ol>
+      <p class="to-top"><a href="#contents">↑ 目次へ</a></p>
+    </section>
+
+    <!-- 4 MVV -->
+    <section class="page" id="mvv">
+      <div class="page-number">06 / 15</div>
+      <p class="page-kicker">04</p>
+      <h2>MVV　企業理念</h2>
+
+      <h3 class="block-title">Pleasure Company Mission　〜常に挑戦し続けること〜</h3>
+      <div class="statement"><p class="statement-copy">食を通じて、<br>喜びを創造する</p></div>
+      <div class="point-list">
+        <div class="point"><h3>１．感動の追求と提供</h3><p>プレジャーカンパニーは感動の追求と提供をするために、QSCを凡事徹底して、お客様に喜ばれる、街や社会から必要とされる会社を目指します。</p></div>
+        <div class="point"><h3>２．従業員の物心両面の喜びの追求と提供</h3><p>プレジャーカンパニーは従業員の物心両面の喜びの追求と提供をするために、従業員が仕事を好きになれる環境を整え、会社を好きになってもらい、長く働きたいと思える会社を目指します。</p></div>
+      </div>
+
+      <h3 class="block-title">Pleasure Company Vision　〜2029年3月までに目指すこと〜</h3>
+      <div class="copy-block"><p><span class="accent">PLEASURE COMPANY HOLDINGSへ</span></p></div>
+      <ol class="ol-list">
+        <li>「SK-8ACTIONの凡事徹底」と「ブランドの磨き上げ」で圧倒的なQSCVを提供する</li>
+        <li>人事システムの運用・定着でヒトが楽しく成長できる環境を作る</li>
+        <li>チェーン店から個店へ  「街の資産」となるような「地域NO１レストラン」にする</li>
+        <li>DXを駆使して「営業利益１５％」を達成する</li>
+        <li>M&amp;A、インバウンド事業・海外事業立ち上げで「ドメイン」を拡大させる</li>
+      </ol>
+
+      <h3 class="block-title">Pleasure Company Value　～すべての考え方や行動の基準～</h3>
+      <ol class="ol-list">
+        <li>お客様の喜び</li>
+        <li>自分の成長</li>
+        <li>仲間への感謝</li>
+        <li>会社の発展</li>
+        <li>充実した人生</li>
+      </ol>
+
+      <h3 class="block-title">●お客様の喜び</h3>
+      <div class="copy-block">
+        <p>飲食業の仕事の本質はお客様に喜んでいただくこと</p>
+        <p>お客様は<br>「美味しいものを食べたい」<br>「仕事の疲れをいやしたい」<br>「仲間や家族との大切な時間を楽しみたい」<br>など様々な気持ちで飲食業に訪れます。</p>
+        <p>飲食業は、そんな様々な人に元気や幸せを提供する仕事です。</p>
+        <p>決まった時間を労働することや、上司に言われたことをすることは、仕事ではなく、作業です。</p>
+        <p>飲食業の仕事は、作業ではなく、お客様に幸せな時間を提供し、喜んでいただくという、ゴールを求められる仕事だということを理解しなくてはいけません。</p>
+      </div>
+      <div class="key-message">これが飲食業で働くことの本質です。</div>
+      <a class="link-btn" href="mvv.html">会社MVVのページを見る →</a>
+      <p class="to-top"><a href="#contents">↑ 目次へ</a></p>
+    </section>
+
+    <!-- 5 QSC / 8ACTION -->
+    <section class="page" id="qsc">
+      <div class="page-number">07 / 15</div>
+      <p class="page-kicker">05</p>
+      <h2>サービス・キッチン<br>8ACTIONの凡事徹底</h2>
+      <div class="term-list">
+        <dl class="term"><dt>Q</dt><dd>クオリティー：料理・ドリンクが美味しい、鮮度が良い</dd></dl>
+        <dl class="term"><dt>S</dt><dd>サービス：気配り、おもてなしの心、エンターテイメント</dd></dl>
+        <dl class="term"><dt>C</dt><dd>クリンリネス：雰囲気が良い、清潔で快適な店内</dd></dl>
+      </div>
+      <div class="copy-block">
+        <p>それぞれの頭文字をとってQSCと言います</p>
+        <p>「QSC」の３つを高めていくことが、お客様に喜んでいただくために必要なことと言われています。<br>しかし、QSCを高めていくことは、どこの飲食店もやっている当たり前のことです。<br>普通にやっているだけなら他のお店と変わりません。</p>
+      </div>
+      <div class="statement"><p class="statement-copy">QSCを凡事徹底する</p></div>
+      <div class="point-list">
+        <div class="point"><h3>★凡事徹底とは？</h3><p>当たり前のことを、当たり前じゃないくらいのレベルで行えば、当たり前じゃない結果が生まれる</p></div>
+      </div>
+      <div class="copy-block">
+        <p>QSCを凡事徹底することをまとめた理念が「サービス・キッチン8ACTION」</p>
+        <p>「SK-8ACTION」は毎月、月間目標に掲げてチーム一丸となって努力しています</p>
+      </div>
+
+      <div class="two-col">
+        <div class="point">
+          <h3>サービス8ACTION</h3>
+          <ol class="ol-list">
+            <li>全員が笑顔でアイコンタクト</li>
+            <li>５秒に１回顔を上げる</li>
+            <li>感動のお出迎え</li>
+            <li>商品知識・おすすめ・フードコーディネート・フィードバック</li>
+            <li>付加価値が上がるご提供</li>
+            <li>アンティシペイション・リコグニション</li>
+            <li>ハイスタンダードなオペレーション</li>
+            <li>心温まるお見送り</li>
+          </ol>
+          <a class="link-btn" href="8action.html">8ACTIONのページを見る →</a>
+        </div>
+        <div class="point">
+          <h3>キッチン8ACTION</h3>
+          <ol class="ol-list">
+            <li>安心安全キレイな仕事</li>
+            <li>感動のお出迎えとお見送り</li>
+            <li>伝票の向こう側を見ろ</li>
+            <li>一皿に拘れ、妥協するな</li>
+            <li>スピードもクオリティー</li>
+            <li>魅せるキッチンをつくれ</li>
+            <li>腕を磨けクリエイティブを磨け</li>
+            <li>商売人であれ</li>
+          </ol>
+        </div>
+      </div>
+      <p class="to-top"><a href="#contents">↑ 目次へ</a></p>
+    </section>
+
+    <!-- 6 レストランとは -->
+    <section class="page" id="restaurant">
+      <div class="page-number">08 / 15</div>
+      <p class="page-kicker">06</p>
+      <h2>レストランとは？</h2>
+
+      <h3 class="block-title">●レストランの仕事の魅力</h3>
+      <div class="copy-block">
+        <p>・人間にとって、3大欲求の1つの食欲<br>・人間にとって幸せな生活を送っていくための衣・食・住<br>など人間が生きていくうえで食というものは、当たり前ですが欠かせないものです。</p>
+        <p>「世界には色々な料理があって、知らない料理を食べた時の喜び・驚き・誇らしさ」<br>「想像を超えた美味しい料理を食べた時の幸福感・満足感」<br>「お腹がすいたときに料理を食べた時の安心感・幸せさ」<br>「大切な仲間や家族・異性と食事を食べながら交わす幸せな空間・安堵感」<br>など人にとって食は人生の楽しみの1つです。</p>
+        <p><span class="accent">レストランって、そんな人生の楽しみの1つである食事や空間を提供出来る仕事です。</span></p>
+        <p>「あるお客様にとっては、心が温かくなり、自然と笑顔になれる場所」<br>「あるお客様にとっては、仕事帰りに一杯ひっかけていく楽しみなお気に入りな場所」<br>「あるお客様にとっては、1ヵ月に1回の家族の団欒としてのとっておきの場所」<br>「あるお客様にとっては、2人が出会った思い出の場所」</p>
+        <p><span class="accent">レストランって、そんなお客様の幸せや喜びのお手伝いが出来る仕事です。</span></p>
+        <p>これからの時代、ロボットの開発やシステムの開発も発展していけば、そういうものに取って代わられてしまう職種もあるでしょう。でも、飲食業は、人が人を直接に関わって、元気に、幸せに・感動させることが出来る温かさ・優しさなどのハートフルな部分がいっぱいあるやりがいのある仕事です。</p>
+      </div>
+
+      <h3 class="block-title">●レストランってどんな場所？</h3>
+      <div class="copy-block">
+        <p>“レストラン”<br>もともとは、ヨーロッパで確立されたレストレ（修復する）という言葉から来ていると言われていて、<span class="accent">「元気を回復させる場所」</span>という意味です。</p>
+        <p>食事だけを提供しているなら、コンビニやスーパーなどの中食と変わりません。</p>
+        <p>レストランとは、ただ食べ物・飲み物を売るだけの場所ではなく、お客様に楽しんでもらう、元気になってもらう、幸せになってもらう、ステータスを感じてもらう<br>そういうエンターテイメントな場所なんです。</p>
+      </div>
+
+      <h3 class="block-title">●レストランとはエンターテイメント</h3>
+      <div class="copy-block">
+        <p>レストランは、エンターテイメントな場所であると言いましたが、いわばレストランは舞台です。<br>そうなると、自分自身は舞台で演じる俳優ってことになります。<br>なので、舞台を見に来ていただいている人たちに対して最高のショーを見せることが僕たちレストランで働く人の仕事ということになります。</p>
+        <p>最高のショーを見せることが仕事なわけですから、自分は演じたと思っていても、それがお客様に伝わっていなかったら意味ないですよね？</p>
+        <p><span class="accent">伝えるとは自分が主語ですが、伝わるとはお客様が主語です。</span><br>恋愛に例えるならば、心の中で相手のことを好きと思っているだけじゃ伝わりませんよね？<br>伝わるには、伝わるように表現をしないといけませんよね？<br>それはレストランだったら、明るい笑顔だったり、ハイっていう元気な返事であり、格好良く料理を作る姿であり、ありがとうございますって感謝の言葉などになります。</p>
+        <p>しかし、ほとんどの飲食店では、目的を見失い、出来た気になっているだけで実際にはお客様に伝わっていない場合がほとんどです。<br>それは、お客様に伝わるような表現が足りていないのです。</p>
+        <p>そして、舞台には、主役がいると思いますが、主役だけが凄くても良いショーにはなりませんよね？<br>レストランも一緒で、新人であろうが、キッチンであろうが、パートナーであろうが、全ての人でレストランという舞台を演じてこそ最高のショーになるんです。</p>
+        <p>みんなで１つの最高のレストランという舞台を作るんです。<br>そして、それがお客様に伝わって初めて感動を生むレストランが生まれるんです。</p>
+      </div>
+      <div class="key-message">格好良い内装、色とりどりの美味しい料理、磨き上げられたグラスなど、そういうものに、人でしか作り上げることができない「おもてなし」や「空気感」があってレストランという舞台は完成するんです。</div>
+
+      <h3 class="block-title">●感性を磨く</h3>
+      <div class="copy-block">
+        <p>飲食店だけじゃなくビジネスには感性が必要です。<br>髪型、洋服、インテリア、食事、音楽、絵画、書籍など、この世の中のほとんどのことの良い・悪いなどを無意識に感性で判断していることって多いと思います。<br>でも、どういうのが格好良いとか、美しいとか、おしゃれとか、面白いとかって定義がないんですよね。</p>
+        <p>それは、感性で判断しているからです。逆に感性で判断するからこそ、ダサい？面白くない？高い？とかのマイナスの要素も判断しているんです。<br>重要なことは、提供しているものを人にどう感じてもらえるか？ってことが大切です。格好良いってどんなものか？お客様を感動させるってどうやってするのか？綺麗な盛り付けは？<br>感性っていうのは、こういうことに対して感じ取る力、表現できる力って言えると思います。</p>
+        <p>レストランは食事を提供するだけの場所ではないと言いましたが、お客様にワクワク、刺激、エロさ、楽しさ、カッコよさ、憧れなどそういう感性を与えるエンターテイメントな場所です。<br>レストランで働く中では、感性で判断を下す場面が多々あります。なので、感性を身につけていけるようにしましょう。</p>
+        <p>そのためには、まずは自分自身が感動したり、喜んだり、楽しんだり、そういう感性を磨き続けなくてはいけません。一番良いのは、実際に色々なお店に行き、食べて体験し、勉強することです。</p>
+      </div>
+      <p class="to-top"><a href="#contents">↑ 目次へ</a></p>
+    </section>
+
+    <!-- 7 キャリアパス -->
+    <section class="page" id="career">
+      <div class="page-number">09 / 15</div>
+      <p class="page-kicker">07</p>
+      <h2>キャリアパス制度</h2>
+      <div class="point-list">
+        <div class="point"><h3>●「キャリアパス」とはキャリアを積む道</h3><p>キャリアアップしていくと時給も上がっていきます！！</p></div>
+        <div class="point"><h3>●「キャリアステップシート」で</h3><p>どうすればキャリアが上がるか・時給が上がるかを見える化しているので、頑張れば頑張った分だけ時給が上がります！！<br>※キャリアアップすると新しいシートになります</p></div>
+      </div>
+      <div class="copy-block"><p><span class="accent">社員登用OK</span></p></div>
+
+      <h3 class="block-title">●見える報酬と見えざる報酬</h3>
+      <div class="copy-block">
+        <p>見える報酬とは給与のことです。目標もなしにただ働くだけだったら、給料という見える報酬しか手に入りません。<br>働いている時間も長く感じるでしょうし、つまらなく感じるでしょう。<br>パートナーになる目的は、お金を稼ぐことが1番の理由かもしれませんが、お金だけを追うのであれば見える報酬しか手に入りません。<br>しかし、お金だけじゃなく自分の成長を目指して働けば、自己成長という見えざる報酬も手に出来ます。</p>
+        <p>その見えざる報酬の自己成長は、あなたの財産になってくれることでしょう！！それは、今後、社会に出た時に役立つ力となるでしょう。</p>
+        <p>労働をするということでお金を得ることは出来ますが、逆に時間を使っています。<br>お金は使っても、また増やせますが、時間は使ってしまったら元には戻せません。<br>貴重な時間を使ってくれるわけですから、是非とも自己成長を手にしてほしいと思います。</p>
+      </div>
+
+      <h3 class="block-title">キャリアステップシート</h3>
+      <div class="copy-block"><p>✳️キャリアステップシート　→（評価の見える化 ＋ 人材教育手法）</p></div>
+      <div class="step-list">
+        <article class="step-item"><span class="step-number">1</span><div><h3>20日にシートが配布</h3><p>→登録いただくメールアドレスにURLが届きます</p></div></article>
+        <article class="step-item"><span class="step-number">2</span><div><h3>25日までに自己評価を記入</h3><p>（カオナビアプリのダウンロードもしくはブラウザから）</p></div></article>
+        <article class="step-item"><span class="step-number">3</span><div><h3>月末に上長が評価を記入したものがフィードバックされます</h3></div></article>
+      </div>
+      <div class="key-message">全項目が[○]で昇給‼</div>
+      <div class="ng-box"><p>⚠期限内の提出必須<br>全て○でも過ぎたらキャリアアップ対象外です</p></div>
+      <p class="to-top"><a href="#contents">↑ 目次へ</a></p>
+    </section>
+
+    <!-- 8 TUNAG / 目標 -->
+    <section class="page" id="tunag">
+      <div class="page-number">10 / 15</div>
+      <p class="page-kicker">08</p>
+      <h2>TUNAG・今月の目標</h2>
+
+      <h3 class="block-title">TUNAG</h3>
+      <div class="copy-block">
+        <p>「TUNAG」とは社内で情報を共有したり、コミュニケーションを取ることができる社内SNSのこと。<br>上長が入社情報を総務に送り登録後に使えるようになります</p>
+        <p>「TUNAG」では、各種ホウレンソウはもちろん日々の営業を振り返る日報や、本部が行うValueブログ、広報からの掲載情報など定期的に配信しています。目を通したら、「いいね」を押すか、意見があればどんどんコメントください。</p>
+      </div>
+
+      <h3 class="block-title">今月の全社目標・店舗目標</h3>
+      <div class="copy-block"><p>✳️サービス８ACTION　目標設定・共有フロー<br>毎月、会社が設定する全社目標・各店が設定する店舗目標　TUNAG制度：【今月の店舗目標】に共有</p></div>
+      <div class="step-list">
+        <article class="step-item"><span class="step-number">1</span><div><h3>20日まで！</h3><p>担当者（マネージャーやシェフ）が店舗目標を決めて共有する</p></div></article>
+        <article class="step-item"><span class="step-number">2</span><div><h3>25日まで！</h3><p>各スタッフは、当月の振り返りと設定された目標に対する個人目標をコメントする<br>※目標修正の場合はコメントを修正してもらう</p></div></article>
+        <article class="step-item"><span class="step-number">3</span><div><h3>月末</h3><p>上長（担当者）は月末にフィードバックをコメントして１ヵ月を振り返る</p></div></article>
+      </div>
+
+      <h3 class="block-title">店舗ビジョンを達成するために・キャリアを上げるために</h3>
+      <div class="point-list">
+        <div class="point"><h3>◎店舗月間目標</h3><p>毎月、月間目標を掲げてチーム一丸となって努力しています。“TUNAG”にて、月間目標と具体的行動がUPされます。カオナビで今月の振り返りと来月の目標を記入しよう！</p></div>
+        <div class="point"><h3>◎凡事徹底</h3><p>当たり前のことを、当たり前じゃないくらいのレベルで行えば、当たり前じゃない結果が生まれる</p></div>
+      </div>
+      <ol class="ol-list">
+        <li>目標が何か必ず確認</li>
+        <li>日々の営業で意識する行動を前月25日までに決める</li>
+      </ol>
+      <div class="chain">店舗Vision達成するために <b>→</b> サービス８Action <b>→</b> 店舗Vision達成に近づく<br>キャリアステップシート <b>→</b> キャリアアップ（毎月実施‼）</div>
+      <p class="to-top"><a href="#contents">↑ 目次へ</a></p>
+    </section>
+
+    <!-- 9 ハウスルール -->
+    <section class="page" id="house-rule">
+      <div class="page-number">11 / 15</div>
+      <p class="page-kicker">09</p>
+      <h2>ハウスルール</h2>
+
+      <h3 class="block-title">●シフト</h3>
+      <div class="copy-block">
+        <p>1ヵ月を2回に分けてシフトを作成します。<br>シフト期間、シフト提出日、提出方法、シフト完成日は下の表になっています。<br>半月ごとにシフトを作成するので、自分のスケジュールに合わせて申告出来ます</p>
+      </div>
+      <div class="table-scroll">
+        <table class="info-table grid">
+          <tr><th>シフト期間</th><th>シフト提出日</th><th>シフト提出方法</th><th>シフト完成日</th></tr>
+          <tr><td>前半分（1日～15日）</td><td>前月20日まで</td><td rowspan="2">らくしふ</td><td>前月25日</td></tr>
+          <tr><td>後半分（16日～月末）</td><td>当月5日まで</td><td>当月10日</td></tr>
+        </table>
+      </div>
+      <div class="point-list">
+        <div class="point"><p>①シフトが完成したら、LINEで送付します。<br>各自が責任を持って確認し、漏れのないようにお願いします。</p></div>
+        <div class="point"><p>②シフトが完成してからの、シフト変更は受け付けません。<br>当日欠勤は、お客様だけでなく、その日に働く仲間にも迷惑をかけてしまいます<br>体調不良など当日欠勤する場合は従業員同士声かけあって助け合っていきましょう</p></div>
+      </div>
+
+      <h3 class="block-title">●喫煙ルール</h3>
+      <div class="copy-block">
+        <p>喫煙者は、従業員用の所定の喫煙スペースを使用してください。<br>店舗によっては敷地内に喫煙スペースを設けられていない事もあります。<br>その時は店舗から離れて、近隣の喫煙スペースを使用して下さい。</p>
+        <p>全店舗店内は“禁煙”でお客様もご案内しています。<br>営業時間内・外問わず、店内での喫煙は言語道断です。</p>
+      </div>
+
+      <h3 class="block-title">●休憩</h3>
+      <div class="copy-block">
+        <p>休憩は6時間以上の勤務に発生します。<br>6時間以上8時間未満・・・45分　　8時間以上・・・60分</p>
+        <p>責任者から休憩の指示が出たら、所定の休憩所で休憩を取ります<br>バーにお茶があるので好きな種類のものを飲んでください<br>勤務中でも喉が渇いたら好きに飲んでいいですが、必ずお客様から見えない場所で飲むようにしてください。</p>
+      </div>
+
+      <h3 class="block-title">●賄いルール</h3>
+      <ol class="ol-list">
+        <li>休憩中や上がった後に賄いを食べれます</li>
+        <li>ロングで勤務するパートナーは2回食べれます（8時間勤務以上）</li>
+        <li>賄いは、賄い手当（1出勤×140円）−  賄い控除（1出勤×140円）<br>＝実質0円負担が給与明細にのります</li>
+        <li>「いただきます」「ごちそうさまでした」の挨拶も忘れないように。</li>
+      </ol>
+
+      <h3 class="block-title">●出退勤ルール</h3>
+      <div class="point-list">
+        <div class="point"><h3>①出勤</h3><p>出勤したらパソコンのぴかいちに社員コードでログインして打刻する<br>11時出勤の場合　11時1分になると11時15分からの扱いとなります</p></div>
+        <div class="point"><h3>②休憩</h3><p>休憩時間を1分でも過ぎると15分多くの休憩となります</p></div>
+        <div class="point"><h3>③退勤</h3><p>出勤と同じように打刻し、勤怠管理表に記入する</p></div>
+      </div>
+
+      <h3 class="block-title">●給与関係</h3>
+      <table class="info-table">
+        <tr><th>時給</th><td>→キャリアパス制度参照</td></tr>
+        <tr><th>交通費</th><td>→全額支給(交通系ICの金額)</td></tr>
+        <tr><th>〆と支払日</th><td>→末締め・15日払い</td></tr>
+        <tr><th>指定銀行</th><td>→横浜銀行たまプラーザ支店　口座がない人は作成お願いします</td></tr>
+      </table>
+
+      <h3 class="block-title">●福利厚生</h3>
+      <div class="point-list">
+        <div class="point"><h3>★レストラン割引制度</h3><p>弊社レストランを割引価格で利用できる<br>来店する前に予約し、店舗名・氏名・同行者を伝えること<br>家族（２親等）で来店・・・２０％OFF<br>パートナー同士で来店・・・２０％OFF<br>社外の人と来店・・・１０％OFF</p></div>
+        <div class="point"><h3>★スタッフ紹介手当</h3><p>スタッフを紹介してくれたスタッフに支給する手当<br>○パートナー紹介　→2万円　※3か月以上の継続勤務終了後、支給<br>○正社員紹介　→10万円　※3か月以上の継続勤務終了後、支給</p></div>
+        <div class="point"><h3>★レクリエーション</h3><p>各種コンテストや各種イベントに参加可能<br>宴会に参加する場合¥3,000を給与から天引き</p></div>
+      </div>
+      <p class="to-top"><a href="#contents">↑ 目次へ</a></p>
+    </section>
+
+    <!-- 10 アピアランス -->
+    <section class="page" id="appearance">
+      <div class="page-number">12 / 15</div>
+      <p class="page-kicker">10</p>
+      <h2>アピアランス</h2>
+      <div class="copy-block">
+        <p>アピアランスとは？<br><span class="accent">アピアランス = 身だしなみ</span></p>
+        <p>着地はお客様がどう思うか？</p>
+        <p>相手に好意をもってもらう清潔感のある身だしなみを心がけましょう！！</p>
+      </div>
+      <div class="key-message">おしゃれと身だしなみの違い<br>［おしゃれ］は自分の為　［身だしなみ］はお客様の為</div>
+
+      <h3 class="block-title">●ユニフォーム</h3>
+      <div class="copy-block"><p>○Tシャツ支給×２枚　○エプロン支給 ×1枚<br>※個人管理なので洗って使用<br>○動きやすい靴(黒色)　○動きやすい長ズボン（黒色）</p></div>
+
+      <h3 class="block-title">●装飾品</h3>
+      <div class="term-list">
+        <dl class="term"><dt>○時計</dt><dd>時計は派手なものでなければ着用可</dd></dl>
+        <dl class="term"><dt>○ピアス</dt><dd>ピアスに関しては派手なもの、垂れ下がるものは不可<br>キッチンは衛生の観点から不可</dd></dl>
+        <dl class="term"><dt>○指輪</dt><dd>結婚指輪のみ可</dd></dl>
+        <dl class="term"><dt>○名札</dt><dd>苗字入りの物が配布されるので、必ず所定の場所につける</dd></dl>
+      </div>
+
+      <h3 class="block-title">●頭髪・髭・香水</h3>
+      <div class="term-list">
+        <dl class="term"><dt>○頭髪</dt><dd>基本は明るすぎない、清潔な髪型<br>赤髪や金髪などの奇抜な色は不可　肩にかかる場合は縛る</dd></dl>
+        <dl class="term"><dt>○髭</dt><dd>髭は無精髭は不可、綺麗に整える</dd></dl>
+        <dl class="term"><dt>○香水</dt><dd>香水は使用禁止</dd></dl>
+      </div>
+
+      <h3 class="block-title">●爪</h3>
+      <div class="copy-block"><p>手のひらから見て爪が見えない長さに整える<br>清潔に保つ<br>マニキュアは透明、肌色のみ可。</p></div>
+      <p class="to-top"><a href="#contents">↑ 目次へ</a></p>
+    </section>
+
+    <!-- 11 衛生 -->
+    <section class="page" id="hygiene">
+      <div class="page-number">13 / 15</div>
+      <p class="page-kicker">11</p>
+      <h2>手洗い・衛生</h2>
+
+      <h3 class="block-title">手洗いマニュアル</h3>
+      <div class="step-list">
+        <article class="step-item"><span class="step-number">1</span><div><p>手を水で濡らす</p></div></article>
+        <article class="step-item"><span class="step-number">2</span><div><p>手洗い洗剤を手に取る</p></div></article>
+        <article class="step-item"><span class="step-number">3</span><div><p>手のひらをよく洗う</p></div></article>
+        <article class="step-item"><span class="step-number">4</span><div><p>手の甲をよく洗う</p></div></article>
+        <article class="step-item"><span class="step-number">5</span><div><p>指の間をよく洗う</p></div></article>
+        <article class="step-item"><span class="step-number">6</span><div><p>親指をクルクルとよく洗う</p></div></article>
+        <article class="step-item"><span class="step-number">7</span><div><p>指先、爪の間をよく洗う</p></div></article>
+        <article class="step-item"><span class="step-number">8</span><div><p>手首もクルクルよく洗う</p></div></article>
+        <article class="step-item"><span class="step-number">9</span><div><p>流水でしっかりよくすすぐ</p></div></article>
+        <article class="step-item"><span class="step-number">10</span><div><p>ペーパータオルで水分を良く拭き取り、乾燥させる</p></div></article>
+      </div>
+      <div class="copy-block"><p>出勤時は当たり前、仕込の合間、肉魚触った後、ゴミに触れた後、お金を触った後、休憩後、トイレ後、なども手を洗いましょう</p></div>
+
+      <h3 class="block-title">人間の手は菌だらけ！</h3>
+      <div class="point-list">
+        <div class="point"><h3>✳️切り傷手荒れは食中毒の元</h3><p>人の皮膚には菌が沢山います。その中でも代表的な保有菌種は【黄色ブドウ球菌】です。<br>この黄色ブドウ球菌は食中毒の原因となる細菌です。<br>この黄色ブドウ球菌は【常在菌】として保有している人が割合で３０％、10人に3人と言われています。<br>切り傷手荒れは【菌の温床】と言われています。<br>切り傷手荒れをした際は手袋を着用しますが手袋の中は蒸れてますよね？<br>菌の発育条件は【水分】、【栄養】、【温度】で成り立ってます。<br>手袋の中はまさにこの3つの条件が兼ね備わった環境なんです。<br>手袋を着用している事は危険との裏返しという事を知っておいてください！！</p></div>
+      </div>
+
+      <h3 class="block-title">✳️手洗いチェック表の記入</h3>
+      <div class="copy-block">
+        <p>手を洗った後は「正」の字で記入してください</p>
+        <p>プレジャーカンパニー全店で使用している手洗い洗剤は洗浄と同時に殺菌消毒もできます。<br>こまめに手洗いしましょう！</p>
+      </div>
+
+      <h3 class="block-title">✳️アルコールスプレーの重要性と役割</h3>
+      <div class="copy-block">
+        <p>アルコールは殺菌、除菌効果がある為に使用してもらいます。<br>仕込んだ物を保管する容器、食材を直接入れて混ぜ合わせるボール、冷蔵庫の取っ手、コールドテーブル、作業台等、様々な加熱しない器材、場所で使用します。</p>
+        <p>※アルコールは、汚れ水分がある場所に噴霧しても効果は半減です。汚れを落とし乾燥させてからアルコールをかけ効果的に殺菌除菌して下さい！！</p>
+      </div>
+
+      <h3 class="block-title">●仕込みシールの書き方と書く意味</h3>
+      <div class="copy-block">
+        <p>安全な物・美味しいものをお客様に提供する為に、仕込んだ物を入れた容器に仕込みシールを貼っています。</p>
+        <p>(１)仕込み名　(２)仕込み日時　(３)担当者　の名前を書いて冷蔵庫にしまう際に表に見える向きで先入れ先出しでしまいます。</p>
+        <p>※先入れ先出しとは<br>先に仕込んだ物を順番に提供していかないと物が悪くなって腐ってしまいますので、仕込み日時が古い物を前面に持ってきて、新しく仕込んだ物を奥にしまう事です。</p>
+      </div>
+
+      <h3 class="block-title">●冷蔵・冷凍庫温度管理表</h3>
+      <div class="copy-block">
+        <p>冷蔵庫、冷凍庫が開けっ放しだったり・壊れていたりすれば適正温度にならず食材は腐ってしまいます</p>
+        <p>毎日最低３回、<br>(１)営業前<br>(２)アイドルタイム中<br>(３)営業後<br>に各冷蔵冷凍庫の温度チェックを行い記入して下さい。</p>
+        <p>それに伴い冷蔵庫の取っ手は色々な人が触り食中毒の可能性がある危険な箇所です。<br>ここも上記の温度チェックの際にしっかりと拭き取り掃除をしてアルコールをかけてチェック表に記入して下さい！</p>
+      </div>
+
+      <h3 class="block-title">●検品、納品の仕方</h3>
+      <div class="copy-block">
+        <p>様々な食材が毎日納品されます。<br>納品されているモノと伝票をチェックして食材、備品に漏れがないように確認して下さい！<br>納品されてくる段ボールは店舗に届くまでどこに置かれているかも分からないので、店舗での保管に使うのは絶対やめましょう。<br>お客様の見えるところにも置かない。<br>納品物も仕込み品と同じで先入れ先出しして下さい！</p>
+      </div>
+
+      <h3 class="block-title">●定位置管理</h3>
+      <div class="copy-block">
+        <p>食材・消耗品・冷蔵庫の中など物の定位置を守ることで複数人が同じルールの中で仕事をでき作業効率が上がりますし、素早く商品を作る為にも定位置管理は凄く重要です。</p>
+        <p>冷蔵庫の中は上記で説明した仕込みシールを表に見せて、冷蔵庫開けた瞬間に分かるようにしていきます。</p>
+      </div>
+
+      <h3 class="block-title">●ダスター管理、使い方</h3>
+      <div class="copy-block"><p>店舗における、色分けされたタオル地の布を「ダスター」と呼んでいます。</p></div>
+      <div class="term-list">
+        <dl class="term"><dt><span class="color-chip chip-blue">青</span></dt><dd>テーブルの拭き上げのみに使用します。</dd></dl>
+        <dl class="term"><dt><span class="color-chip chip-beige">ベージュ</span></dt><dd>作業台、コールドテーブル用</dd></dl>
+        <dl class="term"><dt><span class="color-chip chip-white">白</span></dt><dd>まな板・包丁用、こまめに手洗い洗浄を行います。</dd></dl>
+        <dl class="term"><dt><span class="color-chip chip-brown">茶</span></dt><dd>掃除用(油汚れや床から近い汚れ)</dd></dl>
+      </div>
+      <div class="copy-block"><p>営業終了後は洗浄⇒煮沸（殺菌）⇒漂白（除菌）⇒洗浄⇒乾燥を（ハンガー等にかけて）して衛生的に保ちます。</p></div>
+      <p class="to-top"><a href="#contents">↑ 目次へ</a></p>
+    </section>
+
+    <!-- 12 その他 -->
+    <section class="page" id="others">
+      <div class="page-number">14 / 15</div>
+      <p class="page-kicker">12</p>
+      <h2>その他</h2>
+
+      <h3 class="block-title">●日常清掃</h3>
+      <div class="copy-block"><p>★日常清掃とは普段目に見える部分や汚れがすぐたまる部分を毎日の営業の中で清掃していく事です。ポジションで割り振るか、当日出勤した人で割り振るかは店舗次第です。汚れが溜まる前に清掃する意識を持ち常に綺麗なお店を維持して下さい！</p></div>
+
+      <h3 class="block-title">●定期清掃</h3>
+      <div class="copy-block"><p>★定期清掃とは日常清掃とは逆で目に見えない箇所、汚れが余りたまらない個所を3日～1週間に一回清掃する項目の事です。ここは表にしておかないと見落としがちで1ヵ月後にもう落ちない頑固汚れになって発見されるケースもあります。<br>そうなる前に、常にきれいな状態を保つために表を活用します。自分がどこを担当するのかを必ず確認し、漏れがないようにやりましょう。</p></div>
+      <div class="key-message">＊飲食店を経営するうえで、清掃はとても重要な位置を占めています。<br>埃の舞った空間で食事をするより、全てのものが整理整頓され、磨かれたお皿とシルバーで食べる料理の方が美味しいと思いませんか？</div>
+      <div class="copy-block"><p>清掃は感覚がマヒしてしまいがちです。ごみが落ちていることに慣れてしまわないように、常に感覚を研ぎ澄ましてください。</p></div>
+
+      <h3 class="block-title">●ハウスミーティング</h3>
+      <div class="copy-block">
+        <p>★ハウスミーティングは、毎月１回、各店舗ごとに社員＋パートナー、つまり店舗のスタッフ全員で会議を行います。<br>ミーティングは会議進行役として議長（ファシリテーター）、内容を書き留めるため書記を立てて行っています。<br>ファシリテーターはパートナーが主体性を持って取り組んでいけるように会議をコントロールしていくという能力が求められてきます。<br>パートナーは自由参加ですので、参加したくなるような、勉強になる、楽しいミーティングにしていきましょう。</p>
+        <p>※ファシリテーターとは…　会議の進行役ですが、良い会議にするために、参加者の意見を引き出しながら、議論をまとめ、解決策へと導けるような手腕が求められます。</p>
+        <p>ハウスミーティングは、お店がもっとよくなるために、仕組みやルールを作ったり、議論し合ったりするミーティングです。<br>各々が問題提起 → 解決策を述べ、議長が周りの意見をまとめ→決議します。<br>どこの会社でも会議（ミーティング）で意思決定されて会社が運営されていくことがほとんどです。<br>何も意見を言わずにただ参加しているのではなく、お店を一緒に変えていけるように積極的に参画していきましょう。<br>参加出来なかった人は書記が作成した議事録を読んでください。</p>
+      </div>
+      <p class="to-top"><a href="#contents">↑ 目次へ</a></p>
+    </section>
+
+    <!-- 13 レクリエーション -->
+    <section class="page" id="recreation">
+      <div class="page-number">15 / 15</div>
+      <p class="page-kicker">13</p>
+      <h2>レクリエーション</h2>
+      <div class="point-list">
+        <div class="point"><h3>2月　●サービスコンテスト・料理コンテスト＆ 新年会</h3><p>毎年、2月にサービスコンテスト・料理コンテストを開催します。<br>全従業員がサービス技術・料理技術を競い合うコンテストを開催しています。<br>サーバーや料理人達の日々の技術の努力の積み重ねの目標になっています。<br><br>★報酬一例<br>サービスコンテスト優勝者・準優勝者：賞金 ＋ 賞状 ＋ ディナーレストラン研修<br>料理コンテスト優勝者・準優勝者：賞金 ＋ 賞状 ＋ 海外研修<br><br>そして、その後に新年会を行っています。</p></div>
+        <div class="point"><h3>4月　●経営計画発表会 ＆ 創業記念パーティー・PC-AWARD</h3><p>毎年、４月に社員全員参加の経営計画の発表会を行います。<br>会社が、今年どこに向かうのか？何を行うのか？の年間の目標・方針を発表します。<br>年間の目標に対して社員全員でチャレンジしていきたい、共有したい思いでやっています。<br><br>そして、その後に会社の創業月を祝う全従業員参加の創業記念パーティーを行っています。<br>創業記念パーティーでは年間最優秀店舗や各種個人賞を発表するプレジャーカンパニーAWARDの表彰も行います。</p></div>
+        <div class="point"><h3>8月　● BBQ</h3><p>毎年、８月に全社員＋社員の家族＋業者様でBBQを行います。<br>日頃のリフレッシュと店舗間を越えての人材の交流・家族同士のふれあいなどを目的に行っています。</p></div>
+      </div>
+      <div class="copy-block"><p>レクリエーションは多くの金額がかかるため、参加した従業員は一定額を給与から天引きさせてもらっています。　→会費：3,000円</p></div>
+      <p class="to-top"><a href="#contents">↑ 目次へ</a></p>
+      <div class="page-footer-nav">
+        <a class="back-link" href="index.html#learning-menu">← Learning Menuへ戻る</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
