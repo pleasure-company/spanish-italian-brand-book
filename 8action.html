@@ -1,0 +1,1701 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="サービス8アクション スタッフ教育資料">
+  <title>8ACTION サービスの基本行動 | PLEASURE COMPANY</title>
+  <style>
+    /* =========================================================
+       PLEASURE COMPANY 8ACTION
+       このHTMLだけで表示できるように、CSSを同じファイル内にまとめています。
+       色や余白を変えたい場合は、まず下のCSS変数を調整してください。
+       ========================================================= */
+    :root {
+      --color-bg: #fffdf8;
+      --color-bg-soft: #fbf4e8;
+      --color-bg-deep: #efe5d4;
+      --color-card: rgba(255, 255, 255, 0.88);
+      --color-text: #2d2a26;
+      --color-text-strong: #1f1d1a;
+      --color-muted: #6f665c;
+      --color-muted-2: #7a7066;
+      --color-gold: #b89b5e;
+      --color-gold-soft: #d6c28a;
+      --color-gold-deep: #b98b3f;
+      --color-wine: #7b1f1d;
+      --color-wine-deep: #4a1717;
+      --line-gold: rgba(185, 139, 63, 0.24);
+      --line-wine: rgba(123, 31, 29, 0.14);
+      --shadow-soft: 0 18px 54px rgba(67, 48, 25, 0.10);
+      --shadow-card: 0 14px 34px rgba(58, 43, 28, 0.08);
+      --radius-card: 8px;
+      --container: min(100% - 28px, 620px);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 90% 4%, rgba(214, 194, 138, 0.24) 0, rgba(214, 194, 138, 0.00) 28%),
+        radial-gradient(circle at 5% 42%, rgba(123, 31, 29, 0.08) 0, rgba(123, 31, 29, 0.00) 30%),
+        linear-gradient(180deg, #fffdf8 0%, #fbf4e8 42%, #fffdf8 100%);
+      color: var(--color-text);
+      font-family:
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        "YuGothic",
+        "Noto Sans JP",
+        Meiryo,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+      font-size: 15.5px;
+      line-height: 1.85;
+      letter-spacing: 0;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    blockquote {
+      margin: 0;
+    }
+
+    img,
+    svg,
+    canvas,
+    video {
+      max-width: 100%;
+    }
+
+    .phone-book {
+      width: var(--container);
+      margin: 0 auto;
+      padding: 18px 0 38px;
+    }
+
+    .page {
+      position: relative;
+      isolation: isolate;
+      display: flex;
+      min-height: calc(100svh - 36px);
+      flex-direction: column;
+      margin: 0 0 22px;
+      padding: 26px 21px 30px;
+      overflow: hidden;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.86), rgba(255, 253, 248, 0.94)),
+        var(--color-bg);
+      box-shadow: var(--shadow-card);
+      scroll-snap-align: start;
+    }
+
+    .page::before,
+    .page::after {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .page::before {
+      inset: 18px;
+      border: 1px solid rgba(184, 155, 94, 0.16);
+      border-radius: 999px;
+      opacity: 0.62;
+    }
+
+    .page::after {
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, rgba(184, 155, 94, 0.72), rgba(123, 31, 29, 0.22), transparent);
+    }
+
+    .page-number {
+      align-self: flex-end;
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      line-height: 1;
+    }
+
+    .page-kicker {
+      width: fit-content;
+      max-width: 100%;
+      margin: 24px 0 10px;
+      color: var(--color-wine);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      line-height: 1.5;
+      text-transform: uppercase;
+      word-break: keep-all;
+    }
+
+    h1 {
+      color: var(--color-text-strong);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(38px, 12vw, 60px);
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: break-word;
+    }
+
+    h2 {
+      color: var(--color-text-strong);
+      font-size: clamp(24px, 7vw, 34px);
+      font-weight: 700;
+      line-height: 1.45;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    h3 {
+      color: var(--color-text-strong);
+      font-size: clamp(16px, 4.5vw, 18px);
+      font-weight: 700;
+      line-height: 1.55;
+      letter-spacing: 0;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .copy-block {
+      display: grid;
+      gap: 15px;
+      margin-top: 22px;
+    }
+
+    .copy-block p,
+    .product-card p,
+    .value-item p,
+    .shop-panel p,
+    .step-item p,
+    .closing-word {
+      color: var(--color-muted);
+      font-size: 15.5px;
+      font-weight: 500;
+      line-height: 1.9;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .accent,
+    .quote-line {
+      color: var(--color-wine);
+      font-weight: 800;
+    }
+
+    .quote-line {
+      display: inline-block;
+      max-width: 100%;
+      margin: 4px 0;
+      padding: 4px 10px;
+      border: 1px solid rgba(123, 31, 29, 0.14);
+      border-radius: 999px;
+      background: rgba(123, 31, 29, 0.05);
+    }
+
+    /* 表紙ページ */
+    .cover-page {
+      min-height: calc(100svh - 36px);
+      justify-content: center;
+      background:
+        radial-gradient(circle at 82% 14%, rgba(214, 194, 138, 0.28) 0, rgba(214, 194, 138, 0.00) 34%),
+        radial-gradient(circle at 15% 82%, rgba(123, 31, 29, 0.10) 0, rgba(123, 31, 29, 0.00) 34%),
+        linear-gradient(135deg, #fffdf8 0%, #fbf4e8 54%, #efe5d4 100%);
+    }
+
+    .cover-page::before {
+      inset: 28px 18px;
+      border-color: rgba(184, 155, 94, 0.22);
+      opacity: 0.78;
+    }
+
+    .cover-page::after {
+      top: auto;
+      right: 22px;
+      bottom: 34px;
+      left: 22px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(184, 155, 94, 0.58), transparent);
+    }
+
+    .cover-content {
+      display: grid;
+      gap: 18px;
+      padding: 46px 0 56px;
+      text-align: center;
+    }
+
+    .cover-content > * {
+      min-width: 0;
+      max-width: 100%;
+    }
+
+    .cover-content h1 span {
+      display: block;
+    }
+
+    .brand-name {
+      color: var(--color-wine-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(14px, 4vw, 18px);
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      line-height: 1.4;
+    }
+
+    .hero-copy {
+      width: min(100%, 15em);
+      margin: 0 auto;
+      color: var(--color-text-strong);
+      font-size: clamp(20px, 6vw, 28px);
+      font-weight: 700;
+      line-height: 1.62;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .staff-copy {
+      width: fit-content;
+      max-width: 100%;
+      min-height: 44px;
+      margin: 8px auto 0;
+      padding: 13px 16px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.74);
+      color: var(--color-muted);
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1.75;
+      box-shadow: 0 12px 24px rgba(55, 39, 21, 0.06);
+    }
+
+    .value-list,
+    .shop-list,
+    .product-list,
+    .speech-list,
+    .step-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .value-list > *,
+    .shop-list > *,
+    .product-list > *,
+    .speech-list > *,
+    .step-list > * {
+      min-width: 0;
+    }
+
+    .value-item,
+    .step-item {
+      display: grid;
+      grid-template-columns: 40px minmax(0, 1fr);
+      gap: 12px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line-gold);
+    }
+
+    .value-item:last-child,
+    .step-item:last-child {
+      border-bottom: 0;
+    }
+
+    .value-number,
+    .step-number {
+      display: grid;
+      width: 34px;
+      height: 34px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.42);
+      border-radius: 50%;
+      background: rgba(255, 253, 248, 0.78);
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .value-item h3,
+    .step-item h3 {
+      margin-bottom: 4px;
+      color: var(--color-text-strong);
+    }
+
+    .shop-panel,
+    .product-card {
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.90), rgba(255, 253, 248, 0.88)),
+        var(--color-card);
+      box-shadow: 0 10px 24px rgba(58, 43, 28, 0.07);
+    }
+
+    .shop-panel {
+      display: grid;
+      gap: 10px;
+      padding: 18px 16px;
+    }
+
+    .shop-panel h3 {
+      width: fit-content;
+      min-width: 62px;
+      padding: 4px 12px;
+      border: 1px solid rgba(184, 155, 94, 0.40);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.70);
+      color: var(--color-wine);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 15px;
+      text-align: center;
+    }
+
+    .btd-panel h3 {
+      color: var(--color-gold-deep);
+    }
+
+    .product-card {
+      padding: 16px;
+    }
+
+    .product-role {
+      display: inline-flex;
+      width: fit-content;
+      max-width: 100%;
+      margin-bottom: 8px;
+      padding: 4px 10px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-radius: 999px;
+      background: rgba(251, 244, 232, 0.78);
+      color: var(--color-gold-deep);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .product-card h3 {
+      margin-bottom: 8px;
+      color: var(--color-text-strong);
+      font-size: 17px;
+    }
+
+    .sub-heading {
+      margin-top: 26px;
+      color: var(--color-wine);
+      font-size: 17px;
+    }
+
+    .speech-bubble {
+      position: relative;
+      padding: 15px 16px 15px 18px;
+      border: 1px solid rgba(184, 155, 94, 0.26);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.82);
+      color: var(--color-text);
+      font-size: 14.5px;
+      font-weight: 600;
+      line-height: 1.9;
+      word-break: normal;
+      overflow-wrap: break-word;
+      box-shadow: 0 10px 22px rgba(58, 43, 28, 0.06);
+    }
+
+    .speech-bubble:nth-child(even) {
+      background: rgba(251, 244, 232, 0.72);
+    }
+
+    .speech-bubble::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      bottom: 15px;
+      left: -1px;
+      width: 4px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, var(--color-gold), rgba(123, 31, 29, 0.32));
+    }
+
+    .remember-card,
+    .final-message {
+      margin-top: 22px;
+      padding: 20px 18px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-radius: var(--radius-card);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.24), transparent 38%),
+        linear-gradient(180deg, #fffefa, #fbf4e8);
+      box-shadow: 0 14px 30px rgba(58, 43, 28, 0.08);
+    }
+
+    .remember-card p,
+    .final-message p {
+      color: var(--color-text-strong);
+      font-size: clamp(18px, 5vw, 22px);
+      font-weight: 800;
+      line-height: 1.75;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .small-quote {
+      width: fit-content;
+      max-width: 100%;
+      padding: 6px 10px;
+      border: 1px solid rgba(123, 31, 29, 0.14);
+      border-radius: var(--radius-card);
+      background: rgba(123, 31, 29, 0.05);
+      color: var(--color-wine);
+      font-weight: 800;
+    }
+
+    .final-page {
+      justify-content: center;
+    }
+
+    .final-message {
+      border-left: 4px solid var(--color-gold);
+    }
+
+    .closing-word {
+      margin-top: 14px;
+      color: var(--color-text-strong);
+      font-size: 19px;
+      font-weight: 800;
+    }
+
+    @media (min-width: 700px) {
+      :root {
+        --container: min(100% - 56px, 680px);
+      }
+
+      body {
+        font-size: 16px;
+      }
+
+      .phone-book {
+        padding: 32px 0 58px;
+      }
+
+      .page {
+        min-height: 760px;
+        margin-bottom: 28px;
+        padding: 36px 38px 42px;
+      }
+
+      .copy-block p,
+      .product-card p,
+      .value-item p,
+      .shop-panel p,
+      .step-item p {
+        font-size: 16px;
+      }
+
+      .product-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 360px) {
+      :root {
+        --container: min(100% - 20px, 620px);
+      }
+
+      .page {
+        padding: 24px 17px 28px;
+      }
+
+      .page::before {
+        inset: 15px 12px;
+      }
+
+      .cover-content {
+        padding: 42px 0 50px;
+      }
+
+      .speech-bubble {
+        padding-right: 14px;
+      }
+    }
+  
+    /* ===== MVVページ用の追加スタイル ===== */
+    .top-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 40px;
+      padding: 8px 14px;
+      border: 1px solid rgba(184, 155, 94, 0.40);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.86);
+      color: var(--color-wine);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(58, 43, 28, 0.06);
+    }
+
+    .nav-brand {
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+    }
+
+    .mvv-map {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .mvv-map-item {
+      display: grid;
+      grid-template-columns: 92px minmax(0, 1fr);
+      gap: 12px;
+      align-items: center;
+      padding: 14px 16px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 255, 255, 0.82);
+    }
+
+    .mvv-map-label {
+      color: var(--color-wine);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 17px;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .mvv-map-label small {
+      display: block;
+      color: var(--color-muted-2);
+      font-family: "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", sans-serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .mvv-map-item p {
+      color: var(--color-muted);
+      font-size: 14.5px;
+      font-weight: 600;
+      line-height: 1.75;
+    }
+
+    .statement {
+      margin-top: 24px;
+      padding: 26px 18px;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: var(--radius-card);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.26), transparent 42%),
+        linear-gradient(180deg, #fffefa, #fbf4e8);
+      text-align: center;
+      box-shadow: 0 14px 30px rgba(58, 43, 28, 0.08);
+    }
+
+    .statement-label {
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    .statement-copy {
+      margin-top: 8px;
+      color: var(--color-wine-deep);
+      font-size: clamp(21px, 6.4vw, 30px);
+      font-weight: 800;
+      line-height: 1.55;
+      word-break: keep-all;
+      overflow-wrap: anywhere;
+    }
+
+    .statement-sub {
+      margin-top: 6px;
+      color: var(--color-muted);
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .scene-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .scene-item {
+      display: grid;
+      grid-template-columns: 120px minmax(0, 1fr);
+      gap: 12px;
+      padding: 13px 14px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.86);
+    }
+
+    .scene-value {
+      color: var(--color-wine);
+      font-size: 14px;
+      font-weight: 800;
+      line-height: 1.6;
+    }
+
+    .scene-item p {
+      color: var(--color-muted);
+      font-size: 14.5px;
+      font-weight: 600;
+      line-height: 1.75;
+    }
+
+    .cycle {
+      margin-top: 22px;
+      padding: 18px 16px;
+      border: 1px dashed rgba(184, 155, 94, 0.55);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.7);
+      color: var(--color-text-strong);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 2.1;
+      text-align: center;
+    }
+
+    .cycle .arrow {
+      display: block;
+      color: var(--color-gold-deep);
+      font-size: 13px;
+      line-height: 1.4;
+    }
+
+    .page-footer-nav {
+      margin-top: 26px;
+      text-align: center;
+    }
+
+    @media (max-width: 420px) {
+      .mvv-map-item,
+      .scene-item {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 4px;
+      }
+    }
+  
+    .pillar-list { display: grid; gap: 12px; margin-top: 22px; }
+    .pillar {
+      padding: 16px;
+      border: 1px solid var(--line-gold);
+      border-left: 4px solid var(--color-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 255, 255, 0.86);
+    }
+    .pillar-num {
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+    }
+    .pillar h3 { margin: 2px 0 6px; color: var(--color-wine); }
+    .pillar p { color: var(--color-muted); font-size: 14.5px; font-weight: 600; line-height: 1.8; }
+    .value-link {
+      display: inline-block;
+      margin-top: 6px;
+      padding: 2px 10px;
+      border: 1px solid rgba(123, 31, 29, 0.16);
+      border-radius: 999px;
+      background: rgba(123, 31, 29, 0.05);
+      color: var(--color-wine);
+      font-size: 12px !important;
+      font-weight: 800 !important;
+      line-height: 1.6 !important;
+    }
+    .vision-goal { display: grid; gap: 10px; margin-top: 22px; }
+    .vision-goal .step-item { padding: 12px 0; }
+    .joy-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 20px; }
+    .joy-pair div {
+      padding: 16px 10px;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: var(--radius-card);
+      background: linear-gradient(180deg, #fffefa, #fbf4e8);
+      color: var(--color-wine-deep);
+      font-size: 16px;
+      font-weight: 800;
+      text-align: center;
+    }
+    .kpi {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px dashed var(--line-gold);
+      color: var(--color-text) !important;
+      font-size: 13.5px !important;
+    }
+    .kpi-tag {
+      display: inline-block;
+      margin-right: 8px;
+      padding: 1px 9px;
+      border-radius: 999px;
+      background: var(--color-wine);
+      color: #fff;
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.06em;
+      vertical-align: 1px;
+    }
+    .final-heading { margin-top: 24px; }
+  
+    /* ===== 8ACTIONページ用 ===== */
+    .toc { display: grid; gap: 8px; margin-top: 22px; }
+    .toc a {
+      display: grid;
+      grid-template-columns: 38px minmax(0, 1fr) 16px;
+      gap: 10px;
+      align-items: center;
+      min-height: 52px;
+      padding: 10px 14px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 255, 255, 0.86);
+      color: var(--color-text-strong);
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.5;
+      text-decoration: none;
+      box-shadow: 0 6px 14px rgba(58, 43, 28, 0.05);
+    }
+    .toc a::after { content: "›"; color: var(--color-gold-deep); font-size: 20px; }
+    .toc-num {
+      display: grid; width: 32px; height: 32px; place-items: center;
+      border-radius: 50%; background: var(--color-wine); color: #fff;
+      font-family: Georgia, "Times New Roman", serif; font-size: 15px; font-weight: 700;
+    }
+    .toc a.toc-sub { grid-template-columns: 38px minmax(0, 1fr) 16px; background: rgba(251, 244, 232, 0.7); }
+    .toc a.toc-sub .toc-num { background: var(--color-gold-deep); font-size: 12px; }
+
+    .action-head { display: flex; align-items: flex-start; gap: 14px; margin-top: 18px; }
+    .action-num {
+      flex: 0 0 auto;
+      color: var(--color-wine);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 64px;
+      font-weight: 700;
+      line-height: 0.9;
+    }
+    .action-head h2 { padding-top: 4px; }
+
+    .tag-row { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 16px; }
+    .tag {
+      padding: 3px 11px;
+      border: 1px solid rgba(184, 155, 94, 0.45);
+      border-radius: 999px;
+      background: rgba(251, 244, 232, 0.85);
+      color: var(--color-gold-deep);
+      font-size: 12.5px;
+      font-weight: 800;
+      line-height: 1.6;
+    }
+
+    .goal-box {
+      margin-top: 18px;
+      padding: 14px 16px;
+      border: 1px solid rgba(123, 31, 29, 0.18);
+      border-radius: var(--radius-card);
+      background: rgba(123, 31, 29, 0.04);
+    }
+    .goal-box .goal-label {
+      color: var(--color-wine);
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+    }
+    .goal-box ul { margin: 6px 0 0; padding-left: 1.2em; }
+    .goal-box li { color: var(--color-text-strong); font-size: 14.5px; font-weight: 700; line-height: 1.75; }
+
+    .block-title {
+      margin-top: 28px;
+      padding-left: 10px;
+      border-left: 4px solid var(--color-gold);
+      color: var(--color-wine);
+      font-size: 16.5px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .point-list { display: grid; gap: 10px; margin-top: 14px; }
+    .point {
+      padding: 13px 15px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 255, 255, 0.86);
+    }
+    .point h3 { font-size: 15.5px; color: var(--color-text-strong); }
+    .point h3 .pn { color: var(--color-gold-deep); margin-right: 6px; }
+    .point p { margin-top: 4px; color: var(--color-muted); font-size: 14.5px; font-weight: 600; line-height: 1.8; }
+    .point .arrow-line { color: var(--color-wine); font-weight: 800; }
+
+    .grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin-top: 14px; }
+    .mini {
+      padding: 12px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.9);
+    }
+    .mini strong { display: block; color: var(--color-wine); font-size: 14px; line-height: 1.5; }
+    .mini span { display: block; margin-top: 4px; color: var(--color-muted); font-size: 13px; font-weight: 600; line-height: 1.65; }
+
+    .talk-list { display: grid; gap: 8px; margin-top: 14px; }
+    .talk {
+      display: grid;
+      grid-template-columns: 104px minmax(0, 1fr);
+      gap: 10px;
+      padding: 11px 13px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 255, 255, 0.86);
+    }
+    .talk .scene { color: var(--color-gold-deep); font-size: 13px; font-weight: 800; line-height: 1.6; }
+    .talk .line { color: var(--color-text-strong); font-size: 14.5px; font-weight: 700; line-height: 1.7; }
+    .talk .line small { display: block; color: var(--color-muted-2); font-size: 12.5px; font-weight: 600; }
+
+    .chain {
+      margin-top: 14px;
+      padding: 14px 16px;
+      border: 1px dashed rgba(184, 155, 94, 0.6);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.75);
+      color: var(--color-text-strong);
+      font-size: 14.5px;
+      font-weight: 700;
+      line-height: 2;
+    }
+    .chain b { color: var(--color-gold-deep); }
+
+    .ng-box {
+      margin-top: 14px;
+      padding: 13px 15px;
+      border: 1px solid rgba(123, 31, 29, 0.25);
+      border-radius: var(--radius-card);
+      background: rgba(123, 31, 29, 0.05);
+    }
+    .ng-box p { color: var(--color-wine-deep); font-size: 14px; font-weight: 700; line-height: 1.8; }
+
+    .key-message {
+      margin-top: 24px;
+      padding: 18px 16px;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-left: 4px solid var(--color-gold);
+      border-radius: var(--radius-card);
+      background: linear-gradient(180deg, #fffefa, #fbf4e8);
+      color: var(--color-text-strong);
+      font-size: clamp(16px, 4.6vw, 19px);
+      font-weight: 800;
+      line-height: 1.75;
+    }
+
+    .compare { display: grid; gap: 8px; margin-top: 14px; }
+    .compare div { padding: 12px 14px; border-radius: var(--radius-card); font-size: 14px; font-weight: 700; line-height: 1.75; }
+    .compare .normal { border: 1px solid var(--line-gold); background: rgba(255, 255, 255, 0.86); color: var(--color-muted); }
+    .compare .upper { border: 1px solid rgba(123, 31, 29, 0.25); background: rgba(123, 31, 29, 0.05); color: var(--color-wine-deep); }
+
+    .term-list { display: grid; gap: 0; margin-top: 14px; border-top: 1px solid var(--line-gold); }
+    .term {
+      display: grid;
+      grid-template-columns: 112px minmax(0, 1fr);
+      gap: 10px;
+      padding: 10px 2px;
+      border-bottom: 1px solid var(--line-gold);
+    }
+    .term dt { color: var(--color-wine); font-size: 14px; font-weight: 800; line-height: 1.6; }
+    .term dd { margin: 0; color: var(--color-muted); font-size: 13.5px; font-weight: 600; line-height: 1.7; }
+
+    .to-top { margin-top: 26px; text-align: right; }
+    .to-top a { color: var(--color-gold-deep); font-size: 13px; font-weight: 800; text-decoration: none; }
+
+    @media (max-width: 420px) {
+      .talk, .term { grid-template-columns: minmax(0, 1fr); gap: 2px; }
+      .action-num { font-size: 52px; }
+    }
+    .compare b { color: inherit; }
+    .term dt { word-break: normal; overflow-wrap: anywhere; }
+  </style>
+</head>
+<body>
+  <main class="phone-book" aria-label="サービス8アクション">
+    <nav class="top-nav" aria-label="ページ移動">
+      <a class="back-link" href="index.html#learning-menu">← Learning Menuへ</a>
+      <span class="nav-brand">PLEASURE COMPANY</span>
+    </nav>
+
+    <section class="page cover-page" id="page-1">
+      <div class="page-number">01 / 11</div>
+      <div class="cover-content">
+        <p class="brand-name">PLEASURE COMPANY</p>
+        <h1><span>8ACTION</span></h1>
+        <p class="hero-copy">サービス8アクション</p>
+        <p class="staff-copy">サービスの基本行動を学ぶ</p>
+      </div>
+    </section>
+
+    <section class="page" id="contents">
+      <div class="page-number">02 / 11</div>
+      <p class="page-kicker">Contents</p>
+      <h2>サービス8アクション</h2>
+      <nav class="toc" aria-label="8ACTION一覧">
+        <a href="#action-1"><span class="toc-num">1</span>全員が笑顔でアイコンタクト</a>
+        <a href="#action-2"><span class="toc-num">2</span>5秒に1回顔を上げる</a>
+        <a href="#action-3"><span class="toc-num">3</span>感動のお出迎え</a>
+        <a href="#action-4"><span class="toc-num">4</span>商品知識・おすすめ・フードコーディネート・フィードバック</a>
+        <a href="#action-5"><span class="toc-num">5</span>付加価値が上がるご提供</a>
+        <a href="#action-6"><span class="toc-num">6</span>アンティシペイション・リコグニション</a>
+        <a href="#action-7"><span class="toc-num">7</span>ハイスタンダードなオペレーション</a>
+        <a href="#action-8"><span class="toc-num">8</span>心温まるお見送り</a>
+        <a class="toc-sub" href="#glossary"><span class="toc-num">付録</span>現場で使えるサービス用語集</a>
+      </nav>
+    </section>
+
+    <!-- ===================== ACTION 1 ===================== -->
+    <section class="page" id="action-1">
+      <div class="page-number">03 / 11</div>
+      <p class="page-kicker">Action 1</p>
+      <div class="action-head">
+        <span class="action-num">1</span>
+        <h2>全員が笑顔で<br>アイコンタクト</h2>
+      </div>
+      <div class="tag-row"><span class="tag">ポイント</span><span class="tag">笑顔が絶対条件</span><span class="tag">スタッフ同士、お客様とのアイコンタクト</span><span class="tag">チームで徹底</span></div>
+      <div class="goal-box">
+        <p class="goal-label">ゴール設定</p>
+        <ul>
+          <li>どのタイミングでも、スタッフ全員が笑顔！</li>
+          <li>お客様とスタッフ、スタッフ同士のアイコンタクトが連鎖し、お客様の安心感とチーム全体の空気感を生み出している</li>
+        </ul>
+      </div>
+
+      <h3 class="block-title">― プレジャーカンパニーで働く上での“絶対条件”―</h3>
+      <div class="copy-block">
+        <p>ウェルカム、感謝の気持ちを、言葉がなくとも伝えることのできる最強の接客術であり、プレジャーカンパニーでは“いつでも”“だれでも”「笑顔」でいることが接客の基本中の基本と考えていて、最も大切にしていることでもあります。</p>
+        <p>「笑顔でアイコンタクト」──それが“この人に接客してもらえて良かった”につながる最初の一歩。 スキルや経験ではなく、誰でも初日から実践できる最大の武器です。</p>
+      </div>
+
+      <h3 class="block-title">― なぜ「笑顔」と「アイコンタクト」が“絶対条件”なのか ―</h3>
+      <div class="grid-2">
+        <div class="mini"><strong>第一印象における大きな要素</strong><span>一瞬で安心感、良い印象を与えられ、「このお店は感じがいい」と思ってもらえる</span></div>
+        <div class="mini"><strong>言葉がなくても伝わる</strong><span>国籍・年齢・性別を問わず“通じる”表現</span></div>
+        <div class="mini"><strong>人と人の距離を縮める</strong><span>明るく活気ある空間が生まれる</span></div>
+        <div class="mini"><strong>チーム全体の雰囲気が上がる</strong><span>話しかけやすくなる。<br>お店の空気がやわらかくなる</span></div>
+      </div>
+
+      <h3 class="block-title">―実践のポイント 笑顔とアイコンタクトの作法―</h3>
+      <div class="point-list">
+        <div class="point"><h3><span class="pn">①</span>目をみる</h3><p>必ず顔を上げて相手の目をしっかり見る</p></div>
+        <div class="point"><h3><span class="pn">②</span>口角を上げる</h3><p>常に柔らかい表情をキープ</p></div>
+      </div>
+      <div class="copy-block">
+        <p>※ 笑顔は目にも出す マスク越しでも“目で伝える意識”<br>※ 一瞬でいいから必ず合わせる<br>すれ違いざまにも「目線＋表情（ニコッ）」<br>※ チーム同士でも笑顔 スタッフ同士の表情が“店の空気”を作る</p>
+      </div>
+
+      <h3 class="block-title">1人が笑顔でも、「いい接客」は生まれません。</h3>
+      <div class="copy-block">
+        <p>全員が高いレベルで笑顔とアイコンタクトを届けてこそ、お客様は“このお店にまた来たい”と感じます。</p>
+        <p>逆に、笑顔のないスタッフが1人でもいると、お客様には「マイナスの印象」が残ります。</p>
+        <p>「どのタイミングでも、誰と目が合っても、笑顔が返ってくる店」こそ“また来たくなるお店”。<br>そのイメージを全スタッフで共有しましょう。</p>
+      </div>
+
+      <h3 class="block-title">― 忙しい時こそ、“笑顔とアイコンタクト”を忘れない―</h3>
+      <div class="copy-block">
+        <p>忙しさに追われて、笑顔を忘れる<br>オーダーの処理・対応に集中して、目を合わせない…<br>これはお客様にとって関係のないことです。</p>
+        <p>忙しいとき、自分が苦しい時ほど“笑顔”を意識してキープできるのが一流です。</p>
+      </div>
+
+      <h3 class="block-title">― チームで実現する「笑顔とアイコンタクトの連鎖」―</h3>
+      <div class="copy-block">
+        <p>1人だけが笑顔でも、空気は変わらないです。しかし全員が笑顔とアイコンタクトを意識すると、お店の空気が劇的に明るくなります。</p>
+      </div>
+      <div class="chain">連鎖のイメージは、笑顔で働く <b>→</b> その笑顔のスタッフを見る <b>→</b> 他のスタッフも笑顔になる <b>→</b> その空気をお客様が見る（感じる） <b>→</b> お客様もリラックスする <b>→</b> 心地よい空間を作り出す <b>→</b> スタッフも楽しく働ける <b>→</b> お客様も笑顔になる。</div>
+      <div class="copy-block">
+        <p>「笑顔とアイコンタクトの連鎖」は、知識や技術のいらない、プレジャーカンパニーの求めるチームワークです。</p>
+      </div>
+
+      <h3 class="block-title">笑顔とアイコンタクトは最強の基本</h3>
+      <div class="copy-block">
+        <p>笑顔で対応することで、空気を和らげる・親近感を生む<br>顔を上げてアイコンタクトを意識することで、安心感・誠実さ・信頼を与える<br>チーム全体で徹底することがお客様に喜んでいただく基本です。</p>
+        <p>笑顔とアイコンタクトだけで、また会いたくなる人になれます。</p>
+        <p>プレジャーカンパニーが求めるサービスは、特別な言葉や行動ではなく、お客様に喜んでいただきたいという気持ちから生まれます。その気持ちは、まず「笑顔」と「アイコンタクト」を届けることから始まります。</p>
+      </div>
+      <div class="key-message">お客様にとっての“感動”は、スタッフの「笑顔」と「アイコンタクト」から生まれると言っても過言ではありません。</div>
+      <p class="to-top"><a href="#contents">↑ 8ACTION一覧へ</a></p>
+    </section>
+
+    <!-- ===================== ACTION 2 ===================== -->
+    <section class="page" id="action-2">
+      <div class="page-number">04 / 11</div>
+      <p class="page-kicker">Action 2</p>
+      <div class="action-head">
+        <span class="action-num">2</span>
+        <h2>5秒に1回<br>顔を上げる</h2>
+      </div>
+      <div class="tag-row"><span class="tag">ポイント</span><span class="tag">５秒の意識</span><span class="tag">顔を上げる意味</span><span class="tag">全ての8アクションのベース</span></div>
+      <div class="goal-box">
+        <p class="goal-label">ゴール設定</p>
+        <ul>
+          <li>顔を上げる事から気付きを生んでいる</li>
+          <li>顔が下がるポイントを理解している</li>
+        </ul>
+      </div>
+
+      <h3 class="block-title">― 気づきは“見る習慣”からしか生まれない ―</h3>
+      <div class="copy-block">
+        <p><span class="accent">「顔を上げる」は、最初の接客</span></p>
+        <p>ホールに立つスタッフは、ただ立っているだけではいる意味がありません。<br>その場にいながら、周囲の様子を察知し、先回りして動くのがウェイターの仕事。<br>「顔を上げる」というシンプルな行動が、お客様の安心感・居心地の良さ、その積み重ねがお客様の感動につながります。</p>
+      </div>
+
+      <h3 class="block-title">「顔を上げる」だけで変わる５つのポイント</h3>
+      <div class="grid-2">
+        <div class="mini"><strong>気付きのスピードが上がる</strong><span>呼ばれる前に気づける＝ご要望の先取り（アンティシペイション※後述）が自然にできる</span></div>
+        <div class="mini"><strong>お客様の不安が減る</strong><span>「見てくれている＝気づいてくれる」安心感が生まれる</span></div>
+        <div class="mini"><strong>ミスやクレームが減る</strong><span>トラブルにいち早く気付くことが出来て、早期対応できる</span></div>
+        <div class="mini"><strong>チーム連携がよくなる</strong><span>他のスタッフの動きも見えて、フォローしあえる</span></div>
+        <div class="mini"><strong>店全体が引き締まる</strong><span>ホール全体の“空気”“雰囲気”が整い、活気が出る</span></div>
+      </div>
+
+      <h3 class="block-title">なぜ「5秒に1回」なのか？</h3>
+      <div class="point-list">
+        <div class="point"><p>・数字があると、習慣化しやすい</p></div>
+        <div class="point"><p>・忙しくても、5秒に1回くらいなら無理なく意識できる（“意識する”というのがとても重要）</p></div>
+        <div class="point"><p>・5秒おきに視線を上げれば、お客様の“変化の瞬間”を見逃さない</p></div>
+        <div class="point"><p>・5秒に1回顔を上げていれば、呼ばれない・気づけるスタッフになれる。</p></div>
+      </div>
+
+      <h3 class="block-title">顔が下がりやすいポイント</h3>
+      <div class="term-list">
+        <dl class="term"><dt>①拭き上げ</dt><dd>お皿やカトラリーを拭き上げている時</dd></dl>
+        <dl class="term"><dt>②ウォッシャー</dt><dd>お皿を洗っている時、洗い上がったお皿を元に戻す時</dd></dl>
+        <dl class="term"><dt>③リセット</dt><dd>テーブルを拭き上げている時、テーブルの備品をセットしている時</dd></dl>
+        <dl class="term"><dt>④サービス中</dt><dd>オーダーテイク中、ご提供中など</dd></dl>
+        <dl class="term"><dt>⑤チェック</dt><dd>レジ操作中、お釣りを返す時や、カードを返す時</dd></dl>
+        <dl class="term"><dt>⑥ドリンクメイク</dt><dd>手元に集中しすぎない</dd></dl>
+        <dl class="term"><dt>⑦電話</dt><dd>電話をしている時や予約台帳を記入している時</dd></dl>
+      </div>
+
+      <h3 class="block-title">「全員が笑顔でアイコンタクト」と組み合わせる</h3>
+      <div class="copy-block">
+        <p>“笑顔”と“アイコンタクト”に加えて“5秒に一回顔を上げる”ことがトップレベルのウェイターになる第一歩です。顔を上げずに呼ばれて動くのは、後手の対応になりただの“御用聞き”です。</p>
+        <p>「気にしてくれている」とお客様に思わせるだけで、安心と信頼を与えることができます。</p>
+        <p>ウェイターの基本は「気付く」ことです。逆を言えばお客様を“見ていない”ということは、ウェイターとしてお客様に喜んでいただくことは不可能という事です。</p>
+        <p>サービスの質を上げるには、技術や言葉よりも、“見る習慣”を持つことが最も効果的な第一歩です。<br>まずは「見る（顔を上げる）」意識を徹底して、次に「気付く」そして「アンティシペイション」に繋げることが重要です。</p>
+      </div>
+      <div class="key-message">「5秒に1回顔を上げる」は他の全てのサービス8アクションのベースとなる最も基本的な行動です。<br>ここを高いレベルで徹底できることにより、全てのサービス8アクションに、より高い効果を生むことができます。</div>
+      <p class="to-top"><a href="#contents">↑ 8ACTION一覧へ</a></p>
+    </section>
+
+    <!-- ===================== ACTION 3 ===================== -->
+    <section class="page" id="action-3">
+      <div class="page-number">05 / 11</div>
+      <p class="page-kicker">Action 3</p>
+      <div class="action-head">
+        <span class="action-num">3</span>
+        <h2>感動の<br>お出迎え</h2>
+      </div>
+      <div class="tag-row"><span class="tag">ポイント</span><span class="tag">笑顔と声のトーン</span><span class="tag">予約把握</span><span class="tag">オーバーアクション（表現力）</span></div>
+      <div class="goal-box">
+        <p class="goal-label">ゴール設定</p>
+        <ul>
+          <li>キッチンも含めた全スタッフの“最高の笑顔“で、第一印象からお客様に感動を！</li>
+          <li>着席までにお客様がワクワクする空間を作る</li>
+        </ul>
+      </div>
+
+      <h3 class="block-title">― “お客様の喜び”へつながる第一歩 ―</h3>
+      <div class="copy-block">
+        <p>お客様は入店した最初の5秒でお店の印象を決めると言われています。第一印象を出来るだけプラスにしておくことで、ご滞在中の中間サービスもより円滑に入れる空気感を作り出します。だからこそ「お出迎え」はただの“作業”ではなく、感動を生むための第一歩であることを理解しましょう。</p>
+        <p>お客様に「また来たい！」と思っていただくには、まず私たちが「来てくれて嬉しい！」という気持ちを伝えることです。</p>
+        <p>感動のお出迎えをお客様に感じていただく為に、実践するポイントを８つ紹介します。</p>
+      </div>
+
+      <h3 class="block-title">― 【感動のお出迎え】具体的行動パターン ―</h3>
+      <div class="point-list">
+        <div class="point"><h3><span class="pn">①</span>全員が笑顔でアイコンタクト</h3><p>スタッフが最高の笑顔でお客様をお出迎え。<br>一人一人の笑顔が空間の印象を決めるといっても過言ではないです。<br>レセプションから店内スタッフへ、ホールからキッチンへ笑顔のリレーでお客様に繋げましょう。</p></div>
+        <div class="point"><h3><span class="pn">②</span>一歩以上近づく</h3><p>お客様の目を見てご挨拶。 声だけでなく、アイコンタクトと一歩以上近づくことが「ご来店ありがとうございます」の表現になります。</p></div>
+        <div class="point"><h3><span class="pn">③</span>オーバーアクション</h3><p>入り口から離れていてもお客様に伝わるオーバーアクションを意識しましょう</p></div>
+        <div class="point"><h3><span class="pn">④</span>ワクワクした明るい声を届ける</h3><p>１トーン高く、ハキハキした声がお客様をワクワクさせます。<br>語尾を跳ね上げて語尾スキップを意識しお客様の方を見て積極的に声を届けましょう。</p></div>
+        <div class="point"><h3><span class="pn">⑤</span>ドアは絶対に開けさせない</h3><p>「お客様に手を煩わせない」というホスピタリティの基本姿勢、正面、左右、階段等からの入店を予測して、先手のお出迎えをするために「５秒に1回顔を上げる」（入り口を見る）意識を全員で行うことで、より徹底度が増します。</p></div>
+        <div class="point"><h3><span class="pn">⑥</span>予約把握の徹底</h3><p>タブレットを確認しないレベルが理想です。ご予約メモは最低でも全スタッフが取るようにし、予約のお客様には「お待ちしておりました、ご予約ありがとうございます」など一言添えた上で、先手の対応を目指しましょう。</p></div>
+        <div class="point"><h3><span class="pn">⑦</span>リコグニション活用</h3><p>「あ、どうも！〇〇様、お久しぶりです」などの一言で再来店のお客様に特別感を与えます。<br>覚えてくれている喜びは信頼と安心に変わります。</p></div>
+        <div class="point"><h3><span class="pn">⑧</span>空席状況の常時把握</h3><p>「今すぐご案内できます」「○○分ほどお待ちいただきます」即答できる準備をしましょう。<br>その為にはスタッフ間の情報共有が必要です。</p></div>
+      </div>
+
+      <h3 class="block-title">― １ランク上のお出迎えを目指すポイント―</h3>
+      <div class="point-list">
+        <div class="point"><h3>【予約対応】</h3><p>全スタッフが自セクションの予約は必ずメモすることに加え、次に来店されるであろうお客様の配席を頭に入れておくことで、ご来店された際にスムーズなご案内が可能です。<br>タブレットやメモで予約を確認することなくテーブルまでのご案内を心掛けましょう。</p></div>
+        <div class="point"><h3>【全員で最高のウェルカム】</h3><p>入り口を開けた瞬間の第一印象！１０年来の親友を出迎える時のような満開の笑顔でお出迎え。担当ウェイターは片手を上げ（こちらへどうぞ！）という気持ちを乗せて「こんにちは！」と一歩以上近づくことでウェルカム感が増幅します。<br>席にご案内されるまでには、バースタッフが体を前のめりにしてご挨拶。キッチンスタッフが作業しながらも全員がお客様の方を見てご挨拶。【全員】が重要なポイントです。</p></div>
+        <div class="point"><h3>【特別感】</h3><p>決して“贔屓”ではなく、常連様への“特別感”を表現することは大切です。<br>「あ、どうも！」と一言添えるだけで、認識されている安心感が生まれ、その後の会話や中間サービスがスムーズに行えることにもつながります。<br>またパーソナルな会話が生まれることで、お店全体に柔らかい雰囲気を作ることが出来ます。</p></div>
+      </div>
+
+      <h3 class="block-title">感動のお出迎えはチーム力で完成する</h3>
+      <div class="copy-block">
+        <p>お出迎えの質は、スタッフ1人では決まりません。<br>入口、ウェイター、バー、キッチン……言ってしまえば、そこで楽しそうにお食事をされるお客様が作り出す空気感でさえ、そのお客様へのお出迎えになり得ます。<br>着席されるまでのすべての連携で作り上げられます。</p>
+      </div>
+      <div class="key-message">「感動の入口演出」は、声を掛け合い、情報をつなぎ、笑顔でテーブルまでご案内することで食事をされる前からワクワク感を与えることができます。</div>
+      <p class="to-top"><a href="#contents">↑ 8ACTION一覧へ</a></p>
+    </section>
+
+    <!-- ===================== ACTION 4 ===================== -->
+    <section class="page" id="action-4">
+      <div class="page-number">06 / 11</div>
+      <p class="page-kicker">Action 4</p>
+      <div class="action-head">
+        <span class="action-num">4</span>
+        <h2>商品知識・おすすめ<br>・フードコーディネート<br>・フィードバック</h2>
+      </div>
+      <div class="tag-row"><span class="tag">ポイント</span><span class="tag">価値を伝える</span><span class="tag">ヒトの温かみ</span><span class="tag">繋がりを意識</span><span class="tag">ニーズを汲み取る</span></div>
+      <div class="goal-box">
+        <p class="goal-label">ゴール設定</p>
+        <ul>
+          <li>次回のご来店に繋がるように“記憶”に残る印象体験をお客様にご提供</li>
+          <li>全ての商品の基本項目がわかる</li>
+          <li>お店のおすすめ、自分のおすすめを持っている</li>
+          <li>コーディネートの基本項目がわかる</li>
+          <li>フィードバックを取り、店舗で共有できる</li>
+        </ul>
+      </div>
+
+      <h3 class="block-title">― 圧倒的な【商品知識】が信頼をつくる ―</h3>
+      <div class="copy-block">
+        <p>「なんでも聞いてください！」と言える自信、持てていますか？</p>
+        <p>商品知識は、ただの暗記ではなく、「おすすめ・フードコーディネート・フィードバック」につながる「お客様との会話を生む引き出し」です。</p>
+        <p>商品知識は“料理を運ぶ人”ではなく“価値を伝えるプロ”になる為に必要なスキルです。<br>“活きた”商品知識を心掛けましょう！</p>
+      </div>
+      <h3 class="block-title">商品知識の基本項目</h3>
+      <div class="term-list">
+        <dl class="term"><dt>商品名</dt><dd>読み方・略称・通称（スタッフ間の用語）</dd></dl>
+        <dl class="term"><dt>味・風味</dt><dd>甘い？さっぱり？香ばしい？</dd></dl>
+        <dl class="term"><dt>食材・原産地</dt><dd>国産？輸入？ビールの原産国など</dd></dl>
+        <dl class="term"><dt>調理法</dt><dd>低温調理・グリル・生仕立て など</dd></dl>
+        <dl class="term"><dt>提供温度</dt><dd>熱い・冷たい・常温などの差</dd></dl>
+        <dl class="term"><dt>提供スピード</dt><dd>すぐ出る？10分かかる？30分かかるのは何故？</dd></dl>
+        <dl class="term"><dt>ペアリング</dt><dd>どのドリンクと相性がいいか</dd></dl>
+        <dl class="term"><dt>アレルゲン</dt><dd>表示義務8項目、コンタミネーションの理解</dd></dl>
+        <dl class="term"><dt>ベジタリアン</dt><dd>ビーガン、ベジタリアンの理解</dd></dl>
+        <dl class="term"><dt>こだわり</dt><dd>店舗で仕込んでいるなどの価値</dd></dl>
+        <dl class="term"><dt>アレンジ</dt><dd>辛みやボリュームなど</dd></dl>
+      </div>
+      <div class="copy-block"><p>＊知識が深まると、会話も信頼も自然と生まれます。</p></div>
+
+      <h3 class="block-title">― 【おすすめ】は“お店の自己紹介” ―</h3>
+      <div class="copy-block">
+        <p>おすすめとは、“押し売り”ではなく<span class="accent">「お店の楽しみ方の提案」</span></p>
+        <p>特に初来店のお客様には「何が人気？」「何食べればいい？」という不安があります。</p>
+      </div>
+      <h3 class="block-title">おすすめの基本項目</h3>
+      <div class="point-list">
+        <div class="point"><h3>お店のおすすめ</h3><p>初来店のお客様に特に有効<br>タパス・メインなど各カテゴリーの人気メニューを把握しましょう。</p></div>
+        <div class="point"><h3>自分のおすすめ</h3><p>お店のおすすめ以外にも自分のおすすめを持っていると幅が広がります</p></div>
+        <div class="point"><h3>季節のおすすめ</h3><p>差し込みメニューなど「今」しか味わえない価値を伝える</p></div>
+      </div>
+
+      <h3 class="block-title">― お客様と一緒につくる【フードコーディネート】 ―</h3>
+      <div class="copy-block">
+        <p>フードコーディネートとは、料理・ドリンクの全体を組み立てることです。その中で<br>「飲みながらちょっとつまみたい」<br>「今日はがっつり食べたい」<br>「みんなでシェアしたい」など<br>お客様によって目的、ニーズが異なります。</p>
+        <p>そのニーズに合わせて全体の流れを整える“フードコーディネート”ができると、お客様は「このスタッフさん、わかってくれている！」と感じます。</p>
+      </div>
+      <h3 class="block-title">コーディネートの基本項目</h3>
+      <div class="term-list">
+        <dl class="term"><dt>ボリューム</dt><dd>全体的なボリューム、1品に対する個数やプレート数</dd></dl>
+        <dl class="term"><dt>タイミング</dt><dd>「AFTER」「ASAP」「SAME」の判断</dd></dl>
+        <dl class="term"><dt>ドリンクとの相性</dt><dd>「ワインに合わせて少し塩味の効いたものを…」</dd></dl>
+        <dl class="term"><dt>滞在時間に合わせる</dt><dd>長時間なら前菜→メイン→デザートの流れを提案</dd></dl>
+        <dl class="term"><dt>お腹の具合</dt><dd>「軽めに仕上げますか？」などのご提案</dd></dl>
+        <dl class="term"><dt>お好み</dt><dd>ニンニク、パクチー、ハーブなど、ビジネスやお子様、ここまでのオーダーから推測。アレルギーも事前に確認し、選択肢を絞ってあげる</dd></dl>
+      </div>
+      <div class="copy-block"><p>＊注文された商品だけで終わらず、商品知識・おすすめを駆使し＋1品を自然に提案できるのがプロ！</p></div>
+
+      <h3 class="block-title">― 【フィードバック】＝答え合わせ ―</h3>
+      <div class="copy-block">
+        <p>せっかくおすすめしたのに、「どうだったか」を聞かないのはただの自己満足です。</p>
+        <p>フィードバックとは、次回の来店・次の提案のヒントになる、一番大切な“聞く力“です。</p>
+      </div>
+      <h3 class="block-title">フィードバックのタイミング</h3>
+      <div class="talk-list">
+        <div class="talk"><p class="scene">【おすすめしたものを提供した後】</p><p class="line">「いかがでしたか？お口に合いましたか？」</p></div>
+        <div class="talk"><p class="scene">【新メニュー】</p><p class="line">「ご意見伺いたくて、どうでしたか？」</p></div>
+        <div class="talk"><p class="scene">【常連様の“いつもの”】</p><p class="line">「やっぱりコレですね！」→「今日も大丈夫でしたか？」</p></div>
+        <div class="talk"><p class="scene">【浮かない表情】</p><p class="line">「なにかお気づきの点ありましたら、遠慮なく…」</p></div>
+        <div class="talk"><p class="scene">【コース料理】</p><p class="line">「皆さん、お楽しみいただけましたか？」</p></div>
+        <div class="talk"><p class="scene">【デザート前】</p><p class="line">「お腹の具合いかがですか？」「甘いもの、お召し上がりになりますか？」</p></div>
+        <div class="talk"><p class="scene">【伝票を置くとき】</p><p class="line">「本日いかがでしたか？気になる点などございましたか？」などの全体の感想</p></div>
+        <div class="talk"><p class="scene">【感想が返ってきた時】</p><p class="line">（良くても悪くても）必ず「キッチンに伝えますね」と一言添える</p></div>
+      </div>
+      <div class="copy-block"><p>＊「聞かれた＝気にかけてくれている」ことが伝わるだけで、信頼は格段にアップします。</p></div>
+
+      <h3 class="block-title">一口召し上がったあと／お皿を下げるとき</h3>
+      <div class="point-list">
+        <div class="point">
+          <h3>おすすめしたものを提供した後</h3>
+          <div class="compare">
+            <div class="upper"><b>一口召し上がったあと</b>（お客様の反応を見て、タイミングよく）<br>プラスαの商品知識、アレンジの食べ方を提案できる<br>お客様の反応を見て、味の感想を伺いながら、おすすめした理由や食材のこだわり、別の食べ方・アレンジもご案内できる。</div>
+            <div class="normal"><b>お皿を下げるとき</b>（召し上がり終えたあと）<br>料理のアレンジ提案ができない<br>すでに食べ終わっているため、料理自体の感想は伺えるが、アレンジや追加提案にはつながりにくい。</div>
+          </div>
+        </div>
+        <div class="point">
+          <h3>新メニュー</h3>
+          <div class="compare">
+            <div class="upper"><b>一口召し上がったあと</b><br>お客様のリアルな感想が聞ける<br>実際に召し上がった直後の反応を伺い、今後のメニュー改善や、他のお客様へのおすすめにも活かせる。</div>
+            <div class="normal"><b>お皿を下げるとき</b><br>満足度の確認はできる<br>「美味しかったです」「よかったです」などの感想は伺えるが、すでに食べ終わっているため具体的な改善点の把握は難しい。</div>
+          </div>
+        </div>
+        <div class="point">
+          <h3>浮かない表情</h3>
+          <div class="compare">
+            <div class="upper"><b>一口召し上がったあと</b><br>その場で調整・改善ができる<br>「少し辛いですか？」などお声がけし、辛さをマイルドにする、グリルにさらに火を入れるなど、お好みに合わせた調整が可能。</div>
+            <div class="normal"><b>お皿を下げるとき</b><br>もう少し早く聞くべき<br>残している・端に寄せている状態なので、すでに食べ進めていないため、味の調整や改善はできない。<br>お皿を下げる前に、早めにお声がけして確認することが大切。</div>
+          </div>
+        </div>
+        <div class="point">
+          <h3>コース料理</h3>
+          <div class="compare">
+            <div class="upper"><b>一口召し上がったあと</b><br>この後の流れに合わせた提案ができる<br>食事の中間で、このあとお持ちする料理をご案内し、お客様の召し上がるペースや量を見ながら、量が足りなさそうであれば追加の料理やドリンクをご提案できる。</div>
+            <div class="normal"><b>お皿を下げるとき</b><br>追加の提案につなげにくい<br>コースの終盤では、場合によっては締めのご挨拶などが入るタイミングになるため追加の料理やドリンクのご提案がしづらくなる。</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="block-title">フィードバックトーク例</h3>
+      <div class="copy-block">
+        <p>お客様の反応に合わせて、以下のフレーズを参考にしてみましょう。<br>自然な会話の中で、お客様の気持ちを引き出すことが大切です。</p>
+      </div>
+      <div class="point-list">
+        <div class="point"><h3>反応が良いとき（美味しい・満食されているとき）</h3><p>例<br>「お口に合ってよかったです！」<br>「気に入っていただけて嬉しいです！」<br>「こちらは○○がこだわりの一品です。ぜひまた召し上がってください」<br>「次は○○もおすすめです。よろしければいかがですか？」</p></div>
+        <div class="point"><h3>反応が普通のとき（特に感想がない・静かに召し上がっているとき）</h3><p>例<br>「こちらの料理は、〇〇のソースでお召し上がりいただくのもおすすめです」<br>「他にも気になるお料理はございますか？」<br>「何かご要望があれば、いつでもお伺いいたします」</p></div>
+        <div class="point"><h3>反応がいまひとつのとき（残されている・浮かない表情のとき）</h3><p>例<br>「お味はいかがでしょうか？何か気になる点はございましたか？」<br>「こちらの食べ方もおすすめです」<br>「〇〇（調味料やソース）をお持ちいたしましょうか。また違う味わいをお楽しみいただけます。」<br>「お口に合わないものがございましたら、遠慮なくお知らせください」<br>「他にお好みの味や食材などはございますか？」</p></div>
+      </div>
+
+      <h3 class="block-title">繋がりを意識して磨きをかけること</h3>
+      <div class="copy-block">
+        <p>「商品知識」をつけてお客様に「おすすめ」と「コーディネート」を行い「フィードバック」を実施することで新しい商品知識がつき、さらにポイントをついたおすすめや自分にしかできないコーディネートができるようになっていきます。</p>
+        <p>それぞれを単体で考えるのではなくそれぞれの繋がりを意識しましょう</p>
+      </div>
+      <div class="chain">４つを繋げるイメージ<br>商品知識 <b>→</b> おすすめ <b>→</b> フードコーディネート <b>→</b> フィードバック <b>→</b> 商品知識</div>
+
+      <h3 class="block-title">「提案力」が、サービスをより“記憶”に残します。</h3>
+      <div class="key-message">あなたの一言で、<br>料理はもっと美味しく、<br>時間はもっと楽しく、<br>思い出はもっと深くなる。</div>
+      <div class="copy-block">
+        <p>「この人に任せれば安心」<br>「またあの人に会いたい」<br>そんな風に思っていただけるサービスは、商品を届けるだけでは生まれません。</p>
+        <p>提案して、喜んでもらい、感想をもらう。<br>この一連の流れが、お客様の信頼とリピートを生む鍵になります。</p>
+        <p><span class="accent">DXが進む時代、この項目が最重要と言ってもいいです。</span></p>
+      </div>
+      <p class="to-top"><a href="#contents">↑ 8ACTION一覧へ</a></p>
+    </section>
+
+    <!-- ===================== ACTION 5 ===================== -->
+    <section class="page" id="action-5">
+      <div class="page-number">07 / 11</div>
+      <p class="page-kicker">Action 5</p>
+      <div class="action-head">
+        <span class="action-num">5</span>
+        <h2>付加価値が<br>上がるご提供</h2>
+      </div>
+      <div class="tag-row"><span class="tag">ポイント</span><span class="tag">付加価値の理解</span><span class="tag">提供前に出来る事</span><span class="tag">提供時の所作</span></div>
+      <div class="goal-box">
+        <p class="goal-label">ゴール設定</p>
+        <ul>
+          <li>“置いて”終わりではなく、商品価値を何倍にも上げる</li>
+          <li>ポイント・所作を全員が徹底</li>
+        </ul>
+      </div>
+
+      <h3 class="block-title">―付加価値とは―</h3>
+      <div class="statement">
+        <p class="statement-copy">ウェイターができる、<br>最後の味付け。</p>
+        <p class="statement-sub">１００点の料理、ドリンクを１２０点にして提供するイメージ。</p>
+      </div>
+
+      <h3 class="block-title">―商品を提供する前に出来ることを考える―</h3>
+      <div class="copy-block">
+        <p>“付加価値が上がるご提供”は、お客様に商品をお届けする前から始まっています。<br>お客様の元へ商品を提供する前に心掛けるポイントを紹介します。</p>
+      </div>
+      <div class="point-list">
+        <div class="point"><h3><span class="pn">①</span>ご提供の順番を考える</h3><p>基本となる、冷菜→温菜→メイン→デザートの流れをベースに、お客様のニーズをくみ取る</p></div>
+        <div class="point"><h3><span class="pn">②</span>料理のタイミングを考える</h3><p>ビジネス、お子様連れのファミリー、ご年配、団体様、、などお客様のタイプを見極める</p></div>
+        <div class="point"><h3><span class="pn">③</span>①,②をお客様に提案する</h3><p>思い込みサービスは厳禁！「ASAP」「CHILD」「AFTER」を使い分ける</p></div>
+        <div class="point"><h3><span class="pn">④</span>3秒チェックの徹底</h3><p>お皿の汚れ、温度、盛り付けの確認</p></div>
+        <div class="point"><h3><span class="pn">⑤</span>テーブルに入るタイミングを狙う</h3><p>ファーストドリンクやプレート提供時は全員揃っているか、お客様の会話を止めてしまわない。</p></div>
+        <div class="point"><h3><span class="pn">⑥</span>テーブルに入る位置を考える</h3><p>テーブルの「正面」を考える。お子様や荷物をまたがない</p></div>
+        <div class="point"><h3><span class="pn">⑦</span>パーソナルスペースへの入り方</h3><p>会話中であればまずはお客様の視界に体をおく。空間の壁にノックするイメージ</p></div>
+        <div class="point"><h3><span class="pn">⑧</span>ポジショニングサービス</h3><p>「キッズファースト」「レディファースト」「ホスト・ゲスト」<br>レストランサービスとして当たり前</p></div>
+      </div>
+
+      <h3 class="block-title">―ウェイターの所作だけで価値を上げられる―</h3>
+      <div class="copy-block"><p>ご提供時の所作チェック</p></div>
+      <div class="term-list">
+        <dl class="term"><dt>笑顔</dt><dd>必ず添える。基本中の基本</dd></dl>
+        <dl class="term"><dt>目線</dt><dd>お客様とアイコンタクト</dd></dl>
+        <dl class="term"><dt>動作</dt><dd>ゆっくり・丁寧に</dd></dl>
+        <dl class="term"><dt>声</dt><dd>語尾までハキハキ・明るく</dd></dl>
+        <dl class="term"><dt>商品名</dt><dd>正式名称を伝える</dd></dl>
+      </div>
+
+      <h3 class="block-title">「付加価値」を生む３つの要素</h3>
+      <div class="point-list">
+        <div class="point"><h3>ホスピタリティ</h3><p><span class="arrow-line">→マニュアルにとらわれない心のこもったお客様に沿った対応、思いやりの姿勢</span><br>＜笑顔、アイコンタクト、声のトーン＞<br>出来て当たり前の“基本中の基本”。加えて、「会話」のような抑揚をつけることでお客様との距離感は一気に縮まります。“説明”ではなく“会話”を意識。</p></div>
+        <div class="point"><h3>アンティシペイション</h3><p><span class="arrow-line">→ご要望の先読みで、期待以上の体験（サービス）を提供</span><br>＜パーソナライズシートの活用し、提供に結びつける＞<br>お子様用のコーディネートやASAPが必要なお一人様、団体様の提供タイミングなどを見極め、引き続き“お客様の観察”をすることで次の料理の提供タイミングを確認</p></div>
+        <div class="point"><h3>パーソナライゼーション</h3><p><span class="arrow-line">→お客様を認識することで得られる高い満足度</span><br>＜リコグニションの活用＞<br>常連様の好みに合わせた提供、ゲストからの提供や、毎回取り皿を交換するお客様、チェイサーのペース、グラスを置く位置などを観察しすぐにサービスに活かす</p></div>
+      </div>
+
+      <h3 class="block-title">―実践！価値を高める「一言サービス」５タイプ―</h3>
+      <div class="copy-block">
+        <p>ご提供のポイントを理解しただけではただの「作業」の延長線上です。<br>お客様に、より商品の価値を感じていただくため決め手が「一言サービス」<br>「商品知識」と「セールストーク」の２つが重要でウェイターとしての腕の見せ所です。</p>
+      </div>
+      <div class="talk-list">
+        <div class="talk"><p class="scene">安心を与える</p><p class="line">「器が熱いのでお気をつけください」<small>信頼と配慮が伝わる</small></p></div>
+        <div class="talk"><p class="scene">食べ方を提案</p><p class="line">「2種類のソースをつけて、味の変化をお楽しみください」<small>ワクワク感UP</small></p></div>
+        <div class="talk"><p class="scene">季節・時事ネタ</p><p class="line">「今日は冷えますね。体が温まる一皿です」<small>共感・会話のきっかけに</small></p></div>
+        <div class="talk"><p class="scene">会話タイプ</p><p class="line">「わたしもこれ大好きなんです！」<small>コミュニケーションが生まれる</small></p></div>
+        <div class="talk"><p class="scene">こだわり伝達</p><p class="line">「表面を軽く炙って、香ばしさを引き立てております」<small>食べる前の期待感UP</small></p></div>
+        <div class="talk"><p class="scene">ペアリング意識</p><p class="line">「今お召し上がりいただいているドリンクと相性抜群です」</p></div>
+      </div>
+
+      <h3 class="block-title">商品だけでなく、「気持ち」も一緒に届けよう</h3>
+      <div class="copy-block">
+        <p>ご提供は、“ヒト”を通じて届けるからこそ、価値が上がります。<br>一回一回が「レストランのプレゼン」という意識を持ち、スタッフ一人ひとりが、“商品と自分の両方”を売っている瞬間という認識を持つことが重要です。<br>ただの作業で終わらせずに「人にしかできないサービス」で商品も、ヒトも価値を倍増させましょう。</p>
+        <p>同じドリンク、同じ料理でも、誰が・どうやって・どんな言葉で届けたかによって、お客様の感じ方は大きく変わります。</p>
+      </div>
+      <div class="key-message">「ただ出された」ではなく、<br>「あなたが届けてくれたから美味しかった」<br>そう思ってもらえるような“ご提供”を目指しましょう。</div>
+      <p class="to-top"><a href="#contents">↑ 8ACTION一覧へ</a></p>
+    </section>
+
+    <!-- ===================== ACTION 6 ===================== -->
+    <section class="page" id="action-6">
+      <div class="page-number">08 / 11</div>
+      <p class="page-kicker">Action 6</p>
+      <div class="action-head">
+        <span class="action-num">6</span>
+        <h2>アンティシペイション<br>リコグニション</h2>
+      </div>
+      <div class="tag-row"><span class="tag">ポイント</span><span class="tag">予備動作</span><span class="tag">チームで情報活用</span><span class="tag">パーソナライズサービス</span></div>
+      <div class="goal-box">
+        <p class="goal-label">ゴール設定</p>
+        <ul>
+          <li>アンティシペイション８ヶ条の実践</li>
+          <li>リコグニションを駆使し、スタッフのファンがいる</li>
+          <li>パーソナライズサービスで感動を提供</li>
+        </ul>
+      </div>
+
+      <h3 class="block-title">― サービスの【神髄】 アンティシペイションとリコグニション ―</h3>
+      <div class="copy-block">
+        <p><span class="accent">◆サービス8アクション全ての集大成◆</span></p>
+        <p>アンティシペイションは、お客様が「して欲しい」と思っていることを言われる前にしてさしあげる力。<br>リコグニションは、お客様を“認知”し、それをサービスに活かす力。<br>この2つを磨けば、サービスは作業から「演出」へと見え方が変わります。</p>
+        <p>この力は、お客様がご来店された瞬間から、ご退店されるまでの時間、常に必要とされ活かすことの出来る力で、他のサービス8アクションと組み合わせる事により、さらに効果的な印象をお客様に与えることが出来るプレジャーカンパニーのウェイターとして求める重要な8アクションです。</p>
+      </div>
+
+      <h3 class="block-title">―アンティシペイション＝ご要望の先取り（予測・先読み） ―</h3>
+      <div class="copy-block">
+        <p>お客様に呼ばれて動くのは、ただの御用聞きであり、それは“サービス”とは言えません。<br>お客様が「こうしてほしい」と呼ぶ前に、予想して先手で行動している状態を目指します。</p>
+        <p>例えば…<br>「すみません、お水…」→グラスが半分以下になっていたので注ぎにいく<br>「すいません、伝票を…」→カバンを閉じる・メニューを片付けていたので会計を用意する<br>「これ頼みたい」→メニューを置いた／視線を上げたので→呼ばれる前に注文を伺いにいく</p>
+        <p>これらを “呼び動作”といい、お客様が“呼ぶ”前にニーズを読み取って動けるのが、アンティシペイションの基本です。</p>
+      </div>
+      <h3 class="block-title">３つの呼び動作</h3>
+      <div class="grid-2">
+        <div class="mini"><strong>表情</strong><span>表情の「晴れ」「曇り」</span></div>
+        <div class="mini"><strong>行動</strong><span>キョロキョロ<br>メニューを置く</span></div>
+        <div class="mini"><strong>会話</strong><span>「トイレどこかな？」<br>「お腹いっぱいだね」</span></div>
+      </div>
+
+      <h3 class="block-title">“アンティシペイション８ヶ条“</h3>
+      <div class="point-list">
+        <div class="point"><h3><span class="pn">①</span>ファーストオーダー</h3><p>メニューを置く・視線が上がる<br><span class="arrow-line">→すぐに伺いに行く</span></p></div>
+        <div class="point"><h3><span class="pn">②</span>セカンドオーダー</h3><p>タブレットを開く・空のグラスを気にしている<br><span class="arrow-line">→声をかける・提案する</span></p></div>
+        <div class="point"><h3><span class="pn">③</span>バッシング</h3><p>お皿が重ねられている・テーブルの隅に寄せられている<br><span class="arrow-line">→ 下げて「お味はいかがでしたか？」</span></p></div>
+        <div class="point"><h3><span class="pn">④</span>備品</h3><p>取り皿がない・トングが必要<br><span class="arrow-line">→テーブル状況を常に把握し、食事の進行に応じて持っていく</span><br>※年配の方への爪楊枝など、お客様に合わせた備品</p></div>
+        <div class="point"><h3><span class="pn">⑤</span>トイレ</h3><p>立ち上がって周囲をキョロキョロ<br><span class="arrow-line">→近づいて声をかける</span><br>※女性には“お化粧室”というワードを使う</p></div>
+        <div class="point"><h3><span class="pn">⑥</span>リフィール</h3><p>氷の音・グラスを傾ける仕草<br><span class="arrow-line">→注ぎにいく・おかわりを提案</span></p></div>
+        <div class="point"><h3><span class="pn">⑦</span>デザート</h3><p>食後にメニューを開き出す・メニューの視線が右下<br><span class="arrow-line">→「デザートはいかがですか？」</span></p></div>
+        <div class="point"><h3><span class="pn">⑧</span>チェック（お会計）</h3><p>荷物をまとめる・上着を着る・目が合う<br><span class="arrow-line">→会計伝票を持参する</span></p></div>
+      </div>
+
+      <h3 class="block-title">＜応用実践例＞</h3>
+      <div class="copy-block">
+        <p>＊応用としては、「お客様がスタッフを“呼びたいと思う前”に行動に移す」事です。</p>
+        <p>辛い料理を提供 → 一口目を召し上がる → 味わう → 辛いと感じる（A） → 水が欲しいと思う → スタッフを探す（B） → 水を頼む（C）</p>
+      </div>
+      <div class="compare">
+        <div class="normal">この場合（C）のタイミングは御用聞き（B）のタイミングで水を提供するのが普通のアンティシペイション。</div>
+        <div class="upper">（A）のタイミングで「お水をご用意しておきますね」とスっと提供できるのが１ランク上のアンティシペイション。</div>
+      </div>
+
+      <h3 class="block-title">―リコグニション＝顧客認知（認識・記憶）―</h3>
+      <div class="copy-block">
+        <p>リコグニションとは『顧客認知力』のことです。 プレジャーカンパニー流に言い換えると『お客様に興味を持ち、楽しんで頂く為にそのお客様の情報を知り、チームで共有する』ことです。</p>
+        <p>「このスタッフ、私のこと覚えてくれている」「名前で呼んでくれた」「好きな料理を知っている」<br>そんな“認知されている嬉しさ”が、信頼と安心感を生みます。</p>
+      </div>
+      <h3 class="block-title">リコグニション ７つのポイント</h3>
+      <div class="term-list">
+        <dl class="term"><dt>好き、または嫌いな食材</dt><dd>飲食店の基本</dd></dl>
+        <dl class="term"><dt>特定の曜日/時間/席</dt><dd>ご来店情報を知る</dd></dl>
+        <dl class="term"><dt>セルフコーディネート</dt><dd>必ずオーダーされる鉄板メニュー</dd></dl>
+        <dl class="term"><dt>お住まい/お勤め先/肩書き</dt><dd>ひととなりを知る</dd></dl>
+        <dl class="term"><dt>趣味/趣向</dt><dd>興味のある物事を知る</dd></dl>
+        <dl class="term"><dt>外見/お名前/ご一緒の方/家族構成/お子様/ペット</dt><dd>本人や周りの人たちを知る</dd></dl>
+        <dl class="term"><dt>来店目的</dt><dd>いつも少しずつ違うはずなので</dd></dl>
+      </div>
+      <h3 class="block-title">お名前GET6つの方法</h3>
+      <div class="term-list">
+        <dl class="term"><dt>予約/テイクアウト予約</dt><dd>お名前を呼びやすい</dd></dl>
+        <dl class="term"><dt>ウェイティング</dt><dd>ご案内した先のテーブルまで把握できるとなお良い</dd></dl>
+        <dl class="term"><dt>カード会計</dt><dd>飲食店以外の多くのお店が行っています</dd></dl>
+        <dl class="term"><dt>名刺交換</dt><dd>交換してすぐにお呼びすると覚えます</dd></dl>
+        <dl class="term"><dt>お客様から名前を呼ばれる</dt><dd>お店やサービスを気に入ってもらえた証拠なので、逆に伺える</dd></dl>
+        <dl class="term"><dt>常連様のお連れ様を紹介していただく</dt><dd>早めにお連れ様も巻き込む</dd></dl>
+      </div>
+      <h3 class="block-title">＜応用実践例＞</h3>
+      <div class="copy-block"><p>“そのお客様だけ”の特別感がポイントです。</p></div>
+      <div class="talk-list">
+        <div class="talk"><p class="scene">お名前</p><p class="line">「○○様」 とお名前でお呼びする（予約・紹介・以前のご来店から）</p></div>
+        <div class="talk"><p class="scene">来店回数</p><p class="line">「いつもありがとうございます」 で特別感を演出</p></div>
+        <div class="talk"><p class="scene">好きな料理</p><p class="line">「本日もトマト系、ございますよ」「最初はいつも通りビールでいいですか？」で興味を引く</p></div>
+        <div class="talk"><p class="scene">席の好み</p><p class="line">「この前と同じ席でご案内しますね」</p></div>
+        <div class="talk"><p class="scene">同伴者の特徴</p><p class="line">「いつも通り辛み抜きでご用意してます（お子様用）」</p></div>
+        <div class="talk"><p class="scene">会話の記憶</p><p class="line">「旅行はいかがでしたか？」</p></div>
+      </div>
+      <div class="copy-block"><p>＊スタッフ全員で共有して、チームの“記憶力”にすることがカギ！</p></div>
+
+      <h3 class="block-title">―パーソナライズサービス＝“認知”から“喜び”へ ―</h3>
+      <div class="copy-block"><p><span class="accent">パーソナライズサービスポイント＝6TYPE×8Timing＝48アクション</span></p></div>
+      <div class="grid-2">
+        <div class="mini"><strong>お客様の６タイプ</strong><span>おひとり様<br>カップル<br>友人<br>ファミリー<br>ビジネス①（同じ会社、同僚、上司・部下）<br>ビジネス②（違う会社、接待）</span></div>
+        <div class="mini"><strong>８タイミング</strong><span>入店（ご来店）<br>1stタッチ<br>1stオーダー<br>提供<br>2ndオーダー<br>中間バッシング<br>お会計<br>お見送り</span></div>
+      </div>
+      <h3 class="block-title">アンティシペイション×リコグニション＝感動を生むパーソナライズサービス</h3>
+      <div class="copy-block">
+        <p>この2つの力が合わさることで、お客様は「このお店に来てよかった」と感じます。</p>
+        <p>初来店のお客様には、アンティシペイションはもちろん最大限発揮し、その日の満足度を最大値までもっていきます。そうすることにより次回のご来店に繋がり、その際にリコグニションを駆使する。それを“チーム”で実践できることで、そのお客様は感動し、お店のファンになってくれます。</p>
+        <p>人は「認知されている」「気にかけてもらっている」ことに、何より居心地の良さを感じます。</p>
+      </div>
+      <div class="key-message">サービスの“神髄”は「言われて動く」ではなく、「言われる前に察して、提供する」こと。</div>
+      <div class="copy-block"><p>お客様の呼び動作にある表情・行動・会話の中にある“サイン”を読み取って、お客様の想像を超え感動を生むサービスを目指しましょう。</p></div>
+      <p class="to-top"><a href="#contents">↑ 8ACTION一覧へ</a></p>
+    </section>
+
+    <!-- ===================== ACTION 7 ===================== -->
+    <section class="page" id="action-7">
+      <div class="page-number">09 / 11</div>
+      <p class="page-kicker">Action 7</p>
+      <div class="action-head">
+        <span class="action-num">7</span>
+        <h2>ハイスタンダードな<br>オペレーション</h2>
+      </div>
+      <div class="tag-row"><span class="tag">ポイント</span><span class="tag">いつでも・誰でも</span><span class="tag">仕組みでつくる</span><span class="tag">意識で決まる</span></div>
+      <div class="goal-box">
+        <p class="goal-label">ゴール設定</p>
+        <ul>
+          <li>サービスのブレを無くし、安定した“感動”を提供出来るための“仕組みと意識づくり”</li>
+        </ul>
+      </div>
+
+      <h3 class="block-title">―“誰でも”“いつでも”ベストが当たり前―</h3>
+      <div class="copy-block">
+        <p>「サービスの質」は“現場の仕組み”で決まります。<br>美味しい料理、丁寧なサービス、感動のお出迎え──<br>それを「いつも・誰でも・どんな時でも」提供できて初めて、本当のサービスと言えます。</p>
+        <p>「ハイスタンダードなオペレーション」とは、サービスのブレ、ばらつきをなくし、安定して感動を提供するための仕組みです。</p>
+      </div>
+
+      <h3 class="block-title">―ハイスタンダードの定義―</h3>
+      <div class="statement">
+        <p class="statement-copy">“誰がいても、いなくても、どんな状況の日でも、お客様の満足度が高い水準で変わらない”。</p>
+      </div>
+      <div class="copy-block">
+        <p>それがハイスタンダードの定義であり、必要とする理由です。</p>
+        <p>忙しい時、通常のお店であれば目が行き届かずバタつくが、ハイスタンダードが定着していれば、忙しくてもいつも通りに、クオリティの変わらない落ち着いたサービスができます。</p>
+        <p>また、人員不足が起こると、個々のサービスの質が下がってしまうのが普通であるが、ハイスタンダードなオペレーションが組めている店舗であれば、チームでカバーし、一定のクオリティを保つことが出来ます。</p>
+      </div>
+
+      <h3 class="block-title">【仕組み】ハイスタンダードを支える「６つのポイント」</h3>
+      <div class="point-list">
+        <div class="point"><h3><span class="pn">①</span>セッティング8割</h3><p>営業前にセッティングは終わっているのが当たり前です。セッティングが営業を決めます。営業中も「定位置管理」の徹底です。</p></div>
+        <div class="point"><h3><span class="pn">②</span>ストップを出さない体制</h3><p>ドリンク・備品・仕込み・人員が“不足”しないように予測を立て、感動のきっかけを切らさないように心掛けます。</p></div>
+        <div class="point"><h3><span class="pn">③</span>ピーク時の集中力</h3><p>①を行う事により、ピーク時でも目の前のお客様だけにこだわれる環境を整えます。</p></div>
+        <div class="point"><h3><span class="pn">④</span>情報共有</h3><p>空席／予約／ストップ／レフトなどを全員が把握し、必要に応じて連携に活かします。</p></div>
+        <div class="point"><h3><span class="pn">⑤</span>キャスティング</h3><p>それぞれの得意・不得意を考慮し、ヒトを活かした人員配置でサービスにあたります。</p></div>
+        <div class="point"><h3><span class="pn">⑥</span>日々の修正と予測</h3><p>昨日の反省と、今日の改善をすぐに営業に反映させます。意識的に見直すクセが８アクションの精度を高めます。</p></div>
+      </div>
+
+      <h3 class="block-title">【意識】ハイスタンダードの営業で大切な「５つの姿勢」</h3>
+      <div class="point-list">
+        <div class="point"><h3><span class="pn">①</span>魅せる意識</h3><p>歩き方や立ち振る舞いを常に意識する</p></div>
+        <div class="point"><h3><span class="pn">②</span>1way3job</h3><p>1回の行動でより多くの仕事が出来る</p></div>
+        <div class="point"><h3><span class="pn">③</span>忙しいときほど笑顔</h3><p>忙しさがお客様にバレた時点で“負け”という意識を持ちましょう</p></div>
+        <div class="point"><h3><span class="pn">④</span>人の差を感じさせない</h3><p>新人もベテランも、サービスのクオリティは“統一”が基本</p></div>
+        <div class="point"><h3><span class="pn">⑤</span>時間帯ごとに必要とされる対応力</h3><p>スピード・回転重視のランチタイム。リセットや仕込み、補充や清掃に充てるアイドルタイム。空気を読み、お客様に合わせた対応が必要とされるディナータイム。状況に応じて「切り替えられる現場力」こそ、オペレーションのレベルの証明。</p></div>
+      </div>
+
+      <h3 class="block-title">ダメなオペレーションの改善例</h3>
+      <div class="point-list">
+        <div class="point"><p>開店時にセッティングが終わってない→営業の質が下がる<br><span class="arrow-line">セッティング完了を時間で区切る（10時半までに〇〇。11時までに□□）</span></p></div>
+        <div class="point"><p>ドリンクが毎回遅い→お客様へのストレス・不安感<br><span class="arrow-line">レシピ・道具・動線・定位置の見直しを行う</span></p></div>
+        <div class="point"><p>役割分担が曖昧→誰かに依存すると崩れる<br><span class="arrow-line">情報と役割をチームで共有</span></p></div>
+        <div class="point"><p>リセットに時間がかかる→お待たせする時間が長くなる<br><span class="arrow-line">中間バッシングの徹底。リセットに必要な備品の定位置管理。</span></p></div>
+      </div>
+
+      <h3 class="block-title">ハイスタンダードは“仕組みと意識”でつくれる</h3>
+      <div class="term-list">
+        <dl class="term"><dt>仕組み</dt><dd>準備をしっかり行い、誰がいても円滑な動線・役割</dd></dl>
+        <dl class="term"><dt>意識</dt><dd>忙しくても焦らない・笑顔を忘れないマインド</dd></dl>
+        <dl class="term"><dt>結果</dt><dd>安定した「感動」＋「信頼」＝お客様のリピートに直結</dd></dl>
+      </div>
+      <div class="copy-block">
+        <p>ハイスタンダードとは、<br>サービスの良し悪しや知識量ではなく、<br><span class="accent">【お客様にブレなく安定した価値を届けることができるか】</span>です。</p>
+        <p>お店の空気感、動きの美しさ、連携の自然さ、そしてブレないサービス。<br>それを生み出せるのが、「仕組み＋意識＋チーム力」によるオペレーションなのです。</p>
+        <p>「安定して高水準」こそが、信頼されるお店の条件。</p>
+      </div>
+      <div class="key-message">「誰がいてもいなくても、どんな状況の日でも、誰がやっても同じ感動」をチームで目指しましょう！</div>
+      <p class="to-top"><a href="#contents">↑ 8ACTION一覧へ</a></p>
+    </section>
+
+    <!-- ===================== ACTION 8 ===================== -->
+    <section class="page" id="action-8">
+      <div class="page-number">10 / 11</div>
+      <p class="page-kicker">Action 8</p>
+      <div class="action-head">
+        <span class="action-num">8</span>
+        <h2>心温まる<br>お見送り</h2>
+      </div>
+      <div class="tag-row"><span class="tag">ポイント</span><span class="tag">笑顔と声のトーン</span><span class="tag">なるべく多くのスタッフで</span><span class="tag">10秒会話</span></div>
+      <div class="goal-box">
+        <p class="goal-label">ゴール設定</p>
+        <ul>
+          <li>入口の外まで複数人でのお見送り。そのお客様へのパーソナルな会話で次のご来店に繋げる</li>
+        </ul>
+      </div>
+
+      <h3 class="block-title">― 「心温まるお見送り」は“退店”ではなく“再来店の始まり” ―</h3>
+      <div class="copy-block">
+        <p>「最後の印象」で今日の評価が決まります。<br>「美味しかった」「楽しかった」でも、お見送りが素っ気なかったら、どんないい体験も心に残らないです。</p>
+        <p>逆を言えば、お見送りが心に残れば、「また来ようね」「いい店だったね」この言葉をお客様から引き出すことが出来、いい印象の“再確認”をして頂けます。</p>
+        <p>つまり、お見送りは“店の印象を決定づける”大切な瞬間なのです。</p>
+        <p>「心温まるお見送り」をする事によって、食後の満足感をさらに高め、「また来たい」「紹介したい」のきっかけを作ります。</p>
+      </div>
+
+      <h3 class="block-title">お見送りで実践すべき“5つのアクション”</h3>
+      <div class="point-list">
+        <div class="point"><h3><span class="pn">①</span>「今日」を話す</h3><p>食事の内容や会話を少しだけ振り返る：<br>「ご予約ありがとうございます。デザートも気にいっていただけてよかったです」</p></div>
+        <div class="point"><h3><span class="pn">②</span>「次回」を話す</h3><p>再来店のきっかけをつくる：<br>「次は秋の限定メニューもぜひ」「来月から〇〇フェアをやります」など</p></div>
+        <div class="point"><h3><span class="pn">③</span>外まで出る</h3><p>店の入口で終わらず、一歩でも外まで出てお見送りをする。<br>その際は先回りをし「ドアを触らせない」</p></div>
+        <div class="point"><h3><span class="pn">④</span>複数人で行う</h3><p>スタッフ全員の「感謝」を届けるチャンスです。時間が許す限り、キッチンを含めた1人でも多くのスタッフで入口までお見送りを！</p></div>
+        <div class="point"><h3><span class="pn">⑤</span>見えなくなるまでお辞儀・アイコンタクト</h3><p>後ろ姿にも「ありがとう」を届ける。振り返った時にアイコンタクトがあると感動が増します</p></div>
+      </div>
+      <div class="copy-block">
+        <p>※「感動のお出迎え」具体的行動パターン①〜⑤参照</p>
+        <p>➡「終わりよければすべてよし」効果 滞在中のミスやケアが行き届かなかった事も最後に挽回するチャンスがあります</p>
+      </div>
+
+      <h3 class="block-title">こんな一言で印象が変わる（10秒会話）</h3>
+      <div class="talk-list">
+        <div class="talk"><p class="scene">カウンターのお一人様</p><p class="line">「またゆっくりしたい時は是非いらしてください」</p></div>
+        <div class="talk"><p class="scene">ご家族連れ</p><p class="line">「今度は是非おにいちゃんもご一緒に！」</p></div>
+        <div class="talk"><p class="scene">常連様</p><p class="line">「○○様、いつもありがとうございます。次は来月ですね！」</p></div>
+        <div class="talk"><p class="scene">雨の日</p><p class="line">「お足元悪い中、ありがとうございました。気をつけてお帰り下さい」</p></div>
+        <div class="talk"><p class="scene">閉店間際</p><p class="line">「おやすみなさい」</p></div>
+        <div class="talk"><p class="scene">時間制のテーブル</p><p class="line">「お時間の無いお席で申し訳ありませんでした」</p></div>
+        <div class="talk"><p class="scene">誕生日</p><p class="line">「〇〇さん、お誕生日おめでとうございました」</p></div>
+      </div>
+      <div class="copy-block"><p>➡“あなたの言葉で”お客様の心に触れることが、お見送りの醍醐味でもあります。</p></div>
+      <div class="ng-box">
+        <p>＊NGパターン<br>・席を立たれた瞬間をスタッフが気付いていない<br>・お見送りで目が合わない<br>・振り返ってもスタッフがいない</p>
+      </div>
+
+      <h3 class="block-title">お見送りは“次の来店”への仕掛け</h3>
+      <div class="copy-block">
+        <p>「感動するお出迎え」から、最高の料理とサービスを提供し、心のこもったお見送りで“意図的に”お店を印象に残すことで、「来て良かった」では終わらせずに「また来よう」「紹介しよう」に繋げるのが、本当の意味での「心温まるお見送り」です。</p>
+        <p>接客の最後（お見送り）が丁寧なだけで、「このお店で過ごせてよかった」と思ってもらえます。</p>
+        <p>あなたの笑顔と最後の一言が、その日一日の体験を最高の記憶に変える力を持っています。</p>
+      </div>
+      <div class="key-message">お見送りは“退店”ではなく、“再来店のはじまり”という考え方を持ちましょう</div>
+      <p class="to-top"><a href="#contents">↑ 8ACTION一覧へ</a></p>
+    </section>
+
+    <!-- ===================== 用語集 ===================== -->
+    <section class="page" id="glossary">
+      <div class="page-number">11 / 11</div>
+      <p class="page-kicker">付録</p>
+      <h2>現場で使える<br>サービス用語集</h2>
+      <div class="term-list">
+        <dl class="term"><dt>ASAP</dt><dd>ASAP（アサップ）は、As soon as possible の略で、意味は「できるだけ早く」「可能な限り早く」「なるはやで」。</dd></dl>
+        <dl class="term"><dt>CHILD</dt><dd>お子様用で、辛さなし・早め提供をご希望の場合に使用する。</dd></dl>
+        <dl class="term"><dt>URGENT</dt><dd>不手際などを理由に、最優先で急ぎ対応すること。</dd></dl>
+        <dl class="term"><dt>AFTER</dt><dd>ご提供を遅らせる際に使用する。必ずお客様に確認してからAFTERをかける。</dd></dl>
+        <dl class="term"><dt>SAME</dt><dd>料理を同じタイミングでご提供すること。</dd></dl>
+        <dl class="term"><dt>SHARED</dt><dd>取り分け前提のため、SAMEでなくてもよいこと。</dd></dl>
+        <dl class="term"><dt>STRAIGHT</dt><dd>順番を問わず、出来上がった料理からご提供すること。</dd></dl>
+        <dl class="term"><dt>アプレ</dt><dd>冷菜→温菜→グリル→メインの順でご提供すること。</dd></dl>
+        <dl class="term"><dt>SKIP</dt><dd>その商品は作らなくてよい、という意味。</dd></dl>
+        <dl class="term"><dt>DONE</dt><dd>「完了」「終了」の意味。<br>お会計が終わったテーブルを共有する際に、「〇〇卓DONEです」と使用する。</dd></dl>
+        <dl class="term"><dt>チェック</dt><dd>お会計のこと</dd></dl>
+        <dl class="term"><dt>シーティング</dt><dd>配席</dd></dl>
+        <dl class="term"><dt>ウォークイン</dt><dd>予約なしで直接来店されたお客様のこと</dd></dl>
+        <dl class="term"><dt>ウェイティング</dt><dd>waiting[待つこと、待機]を意味し席が空くのを待つお客様がいらっしゃる状態</dd></dl>
+        <dl class="term"><dt>ホスト</dt><dd>招待する側・接待する側・主催者</dd></dl>
+        <dl class="term"><dt>ゲスト</dt><dd>招待される側・接待される側</dd></dl>
+        <dl class="term"><dt>□分の△<br>(お待ち合わせ)</dt><dd>お店（店内）でお待ち合わせのお客様は□（予約人数）分の△（来店人数）で表す</dd></dl>
+        <dl class="term"><dt>□+△<br>(お子様の人数)</dt><dd>お子様連れのお客様は□（大人の人数）＋（プラ）△（お子様の人数）で表す</dd></dl>
+        <dl class="term"><dt>RC</dt><dd>ロイヤルカスタマーの略。来店頻度が高く、お店のファンとして継続的にご利用してくださるお客様のこと。</dd></dl>
+        <dl class="term"><dt>セパる</dt><dd>Separation（セパレーション）の略で、意味は分離<br>テーブルを分けて新たに席を作る時に使う</dd></dl>
+        <dl class="term"><dt>1C（チェイサー）</dt><dd>チェイサー＝お冷のことで、必要な個数プラスCで表す</dd></dl>
+        <dl class="term"><dt>リフィル</dt><dd>refill[詰め替え、補充]を意味し、お冷やワインのグラスが少なくなっていたり、空いていたら継ぎ足すこと</dd></dl>
+        <dl class="term"><dt>ドリ待ち</dt><dd>ドリンク待ちの略、ファーストドリンクより先にフードアップされた場合に使うことが多い</dd></dl>
+        <dl class="term"><dt>ポジショニング</dt><dd>レディ、ジェント、お子様、T1のP1など個人を指すこと</dd></dl>
+        <dl class="term"><dt>ラウンド</dt><dd>テーブルを回り、空いたお皿やグラスのバッシング、リフィル確認、お客様の様子を確認すること。</dd></dl>
+        <dl class="term"><dt>１Way３Job</dt><dd>一つの行動で、三つ以上の仕事を行なって戻ること。<br>（例）<br>①料理をご提供する<br>②ドリンクの追加オーダーを伺う<br>③空いたお皿やグラスを下げる</dd></dl>
+        <dl class="term"><dt>セクション</dt><dd>エキスパ（エキスパタイザー）<br>レセ（レセプション）<br>メンダイ（メインダイニング）<br>サブ（サブダイニング）<br>ラウンジ<br>バー（BAR）</dd></dl>
+        <dl class="term"><dt>チップ</dt><dd>chip[欠ける］が語源。グラスやお皿が欠けている状態のこと</dd></dl>
+        <dl class="term"><dt>TC</dt><dd>トイレチェックの略で、最低2時間ごとに行うトイレ清掃のこと</dd></dl>
+        <dl class="term"><dt>４番</dt><dd>トイレを指す隠語<br>例「4番行ってきます」</dd></dl>
+        <dl class="term"><dt>ビジネス</dt><dd>主にランチタイムの会社員のお客様のことを指す。ASAPと同義で使われる。</dd></dl>
+        <dl class="term"><dt>レフト</dt><dd>商品の残数を伝える際に使う。例：「オイスター レフト3です」</dd></dl>
+      </div>
+      <p class="to-top"><a href="#contents">↑ 8ACTION一覧へ</a></p>
+      <div class="page-footer-nav">
+        <a class="back-link" href="index.html#learning-menu">← Learning Menuへ戻る</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
