@@ -1,0 +1,1287 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="差し込み 2026年12月 年末季節メニュー 商品知識・一言サービス スタッフ教育資料">
+  <title>差し込み｜2026年12月 年末季節メニュー</title>
+  <style>
+    /* =========================================================
+       Seasonal Menu / 2026 December
+       差し込み（年末季節メニュー）。他の商品知識ページと同じブランドブック調です。
+       ========================================================= */
+    :root {
+      --color-bg: #fffdf8;
+      --color-bg-soft: #fbf4e8;
+      --color-card: rgba(255, 255, 255, 0.88);
+      --color-text: #2d2a26;
+      --color-text-strong: #1f1d1a;
+      --color-muted: #6f665c;
+      --color-gold: #b89b5e;
+      --color-gold-deep: #b98b3f;
+      --color-wine: #7b1f1d;
+      --color-wine-deep: #4a1717;
+      --line-gold: rgba(185, 139, 63, 0.24);
+      --shadow-card: 0 14px 34px rgba(58, 43, 28, 0.08);
+      --radius-card: 8px;
+      --container: min(100% - 28px, 720px);
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      overflow-x: hidden;
+      background:
+        radial-gradient(circle at 88% 4%, rgba(214, 194, 138, 0.24) 0, rgba(214, 194, 138, 0.00) 30%),
+        radial-gradient(circle at 6% 38%, rgba(123, 31, 29, 0.08) 0, rgba(123, 31, 29, 0.00) 30%),
+        linear-gradient(180deg, #fffdf8 0%, #fbf4e8 44%, #fffdf8 100%);
+      color: var(--color-text);
+      font-family:
+        "Hiragino Kaku Gothic ProN",
+        "Yu Gothic",
+        "YuGothic",
+        "Noto Sans JP",
+        Meiryo,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        sans-serif;
+      font-size: 15.5px;
+      line-height: 1.85;
+      letter-spacing: 0;
+      -webkit-text-size-adjust: 100%;
+      text-rendering: optimizeLegibility;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    h1,
+    h2,
+    h3,
+    p,
+    figure,
+    blockquote,
+    dl,
+    dd,
+    ul {
+      margin: 0;
+    }
+
+    ul {
+      padding: 0;
+      list-style: none;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+      -webkit-tap-highlight-color: rgba(184, 155, 94, 0.18);
+    }
+
+    .training-page {
+      width: var(--container);
+      margin: 0 auto;
+      padding: 18px 0 42px;
+    }
+
+    .hero,
+    .section-card {
+      position: relative;
+      isolation: isolate;
+      overflow: hidden;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(255, 253, 248, 0.94)),
+        var(--color-bg);
+      box-shadow: var(--shadow-card);
+    }
+
+    .hero::before,
+    .section-card::before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      inset: 18px;
+      border: 1px solid rgba(184, 155, 94, 0.16);
+      border-radius: 999px;
+      opacity: 0.62;
+      pointer-events: none;
+    }
+
+    .hero::after,
+    .section-card::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, transparent, rgba(184, 155, 94, 0.72), rgba(123, 31, 29, 0.22), transparent);
+      pointer-events: none;
+    }
+
+    .hero {
+      min-height: calc(100svh - 36px);
+      padding: 26px 20px 24px;
+      background:
+        radial-gradient(circle at 82% 14%, rgba(214, 194, 138, 0.25) 0, rgba(214, 194, 138, 0.00) 34%),
+        radial-gradient(circle at 15% 82%, rgba(123, 31, 29, 0.10) 0, rgba(123, 31, 29, 0.00) 34%),
+        linear-gradient(135deg, #fffdf8 0%, #fbf4e8 54%, #efe5d4 100%);
+    }
+
+    .page-label {
+      position: relative;
+      z-index: 1;
+      margin: 6px 0 22px;
+      color: var(--color-wine-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    .hero-card {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      gap: 16px;
+    }
+
+    .series-title {
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      line-height: 1.45;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      color: var(--color-text-strong);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: clamp(34px, 9.4vw, 60px);
+      font-weight: 500;
+      line-height: 1.04;
+      letter-spacing: 0;
+      word-break: normal;
+      line-break: strict;
+      overflow-wrap: break-word;
+      text-wrap: balance;
+    }
+
+    .hero-copy {
+      color: var(--color-text-strong);
+      font-size: clamp(18px, 4.8vw, 26px);
+      font-weight: 800;
+      line-height: 1.52;
+      word-break: normal;
+      line-break: strict;
+      overflow-wrap: break-word;
+      text-wrap: balance;
+    }
+
+    .hero-image,
+    .dish-image {
+      overflow: hidden;
+      border: 1px solid rgba(184, 155, 94, 0.26);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(135deg, rgba(251, 244, 232, 0.88), rgba(255, 253, 248, 0.88)),
+        var(--color-bg-soft);
+      box-shadow: 0 12px 28px rgba(58, 43, 28, 0.08);
+    }
+
+    .hero-image {
+      aspect-ratio: 16 / 9;
+      margin-top: 4px;
+    }
+
+    .hero-image img,
+    .dish-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-text,
+    .text-block p,
+    .section-lead,
+    .point-card p,
+    .service-box p,
+    .info-list dd,
+    .check-list li,
+    .footer a {
+      color: var(--color-muted);
+      font-size: 15.5px;
+      font-weight: 500;
+      line-height: 1.9;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .toc {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 9px;
+      margin-top: 22px;
+      padding-top: 20px;
+      border-top: 1px solid var(--line-gold);
+    }
+
+    .toc a {
+      display: grid;
+      min-height: 44px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.72);
+      color: var(--color-text-strong);
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1.45;
+      text-align: center;
+      transition:
+        transform 180ms ease,
+        border-color 180ms ease,
+        background 180ms ease;
+    }
+
+    .toc a:hover,
+    .toc a:focus-visible {
+      transform: translateY(-2px);
+      border-color: var(--color-gold);
+      background: #ffffff;
+      outline: none;
+    }
+
+    .section-card {
+      margin-top: 22px;
+      padding: 30px 20px 26px;
+      scroll-margin-top: 18px;
+    }
+
+    .section-number {
+      display: inline-grid;
+      min-width: 38px;
+      min-height: 34px;
+      margin-bottom: 14px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: 50%;
+      background: rgba(255, 253, 248, 0.78);
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 13px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    h2 {
+      color: var(--color-text-strong);
+      font-size: clamp(22px, 5.7vw, 32px);
+      font-weight: 800;
+      line-height: 1.42;
+      letter-spacing: 0;
+      word-break: normal;
+      line-break: strict;
+      overflow-wrap: break-word;
+      text-wrap: balance;
+    }
+
+    h3 {
+      color: var(--color-text-strong);
+      font-size: clamp(16px, 4.1vw, 19px);
+      font-weight: 800;
+      line-height: 1.52;
+      letter-spacing: 0;
+      word-break: normal;
+      line-break: strict;
+      overflow-wrap: break-word;
+      text-wrap: balance;
+    }
+
+    .text-block {
+      display: grid;
+      gap: 15px;
+      margin-top: 18px;
+    }
+
+    .emphasis {
+      margin-top: 22px;
+      padding: 18px 16px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-left: 4px solid var(--color-gold);
+      border-radius: var(--radius-card);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.22), transparent 38%),
+        linear-gradient(180deg, #fffefa, #fbf4e8);
+      color: var(--color-text-strong);
+      font-size: clamp(16px, 4.3vw, 20px);
+      font-weight: 800;
+      line-height: 1.72;
+      word-break: normal;
+      overflow-wrap: break-word;
+      box-shadow: 0 12px 26px rgba(58, 43, 28, 0.08);
+    }
+
+    .point-grid {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .point-card {
+      position: relative;
+      padding: 17px 16px 17px 58px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.78);
+      box-shadow: 0 10px 22px rgba(58, 43, 28, 0.06);
+    }
+
+    .point-number {
+      position: absolute;
+      top: 17px;
+      left: 16px;
+      display: grid;
+      width: 32px;
+      height: 32px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.42);
+      border-radius: 50%;
+      background: rgba(255, 253, 248, 0.84);
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .point-card h3 {
+      margin-bottom: 5px;
+    }
+
+    .section-lead {
+      margin-top: 12px;
+    }
+
+    .product-list {
+      display: grid;
+      gap: 18px;
+      margin-top: 22px;
+    }
+
+    .dish-card {
+      overflow: hidden;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.92), rgba(255, 253, 248, 0.92)),
+        var(--color-card);
+      box-shadow: 0 12px 28px rgba(58, 43, 28, 0.08);
+    }
+
+    .dish-image {
+      aspect-ratio: 4 / 3;
+      border-width: 0 0 1px;
+      border-radius: 0;
+      box-shadow: none;
+    }
+
+    .dish-content {
+      display: grid;
+      gap: 12px;
+      padding: 17px 16px 18px;
+    }
+
+    .dish-brand {
+      width: fit-content;
+      max-width: 100%;
+      padding: 3px 9px;
+      border: 1px solid rgba(123, 31, 29, 0.18);
+      border-radius: 999px;
+      background: rgba(123, 31, 29, 0.055);
+      color: var(--color-wine);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 11px;
+      font-weight: 800;
+      line-height: 1.4;
+      letter-spacing: 0.08em;
+    }
+
+    .card-top {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      justify-content: space-between;
+    }
+
+    .dish-number {
+      display: grid;
+      min-width: 38px;
+      min-height: 30px;
+      place-items: center;
+      border: 1px solid rgba(184, 155, 94, 0.42);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.84);
+      color: var(--color-gold-deep);
+      font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      justify-content: flex-end;
+    }
+
+    .tag-list li {
+      padding: 4px 9px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-radius: 999px;
+      background: rgba(251, 244, 232, 0.78);
+      color: var(--color-gold-deep);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.45;
+    }
+
+    .service-box {
+      padding: 14px;
+      border-radius: var(--radius-card);
+    }
+
+    .service-box.required {
+      border: 1px solid rgba(123, 31, 29, 0.15);
+      background: rgba(123, 31, 29, 0.045);
+    }
+
+    .service-box.value {
+      border: 1px solid rgba(184, 155, 94, 0.30);
+      background: rgba(251, 244, 232, 0.74);
+    }
+
+    .service-box .box-label {
+      margin-bottom: 6px;
+      color: var(--color-wine);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .service-box p {
+      word-break: normal;
+      overflow-wrap: break-word;
+      max-width: 100%;
+    }
+
+    .service-box.required p:last-child {
+      color: var(--color-wine-deep);
+      font-size: 16px;
+      font-weight: 800;
+    }
+
+    .service-box.value p:last-child {
+      color: var(--color-text-strong);
+      font-weight: 700;
+    }
+
+    .info-list {
+      display: grid;
+      gap: 10px;
+      padding-top: 2px;
+    }
+
+    .info-list div {
+      display: grid;
+      gap: 4px;
+      padding-top: 10px;
+      border-top: 1px solid var(--line-gold);
+    }
+
+    .info-list dt {
+      color: var(--color-gold-deep);
+      font-size: 12px;
+      font-weight: 800;
+      line-height: 1.5;
+    }
+
+    .speech-list {
+      display: grid;
+      gap: 12px;
+      margin-top: 22px;
+    }
+
+    .speech-list blockquote {
+      position: relative;
+      padding: 16px 16px 16px 19px;
+      border: 1px solid rgba(184, 155, 94, 0.28);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.82);
+      color: var(--color-text);
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.9;
+      word-break: normal;
+      overflow-wrap: break-word;
+      box-shadow: 0 10px 22px rgba(58, 43, 28, 0.06);
+    }
+
+    .speech-list blockquote:nth-child(even) {
+      background: rgba(251, 244, 232, 0.72);
+    }
+
+    .speech-list blockquote::before {
+      content: "";
+      position: absolute;
+      top: 15px;
+      bottom: 15px;
+      left: -1px;
+      width: 4px;
+      border-radius: 99px;
+      background: linear-gradient(180deg, var(--color-gold), rgba(123, 31, 29, 0.32));
+    }
+
+    .check-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 22px;
+    }
+
+    .check-list li {
+      position: relative;
+      min-height: 44px;
+      padding: 13px 13px 13px 45px;
+      border: 1px solid var(--line-gold);
+      border-radius: var(--radius-card);
+      background: rgba(255, 253, 248, 0.78);
+      color: var(--color-text-strong);
+      font-weight: 700;
+      box-shadow: 0 8px 18px rgba(58, 43, 28, 0.05);
+    }
+
+    .check-list li::before {
+      content: "";
+      position: absolute;
+      top: 17px;
+      left: 16px;
+      width: 16px;
+      height: 16px;
+      border: 2px solid var(--color-gold);
+      border-radius: 4px;
+      background: #fffdf8;
+    }
+
+    .summary-section {
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.22), transparent 36%),
+        linear-gradient(180deg, rgba(255, 253, 248, 0.96), rgba(251, 244, 232, 0.98)),
+        var(--color-bg);
+    }
+
+    .final-copy {
+      margin-top: 22px;
+      padding: 21px 18px;
+      border: 1px solid rgba(184, 155, 94, 0.34);
+      border-left: 4px solid var(--color-gold);
+      border-radius: var(--radius-card);
+      background:
+        radial-gradient(circle at 100% 0%, rgba(214, 194, 138, 0.24), transparent 38%),
+        linear-gradient(180deg, #fffefa, #fbf4e8);
+      box-shadow: 0 14px 30px rgba(58, 43, 28, 0.08);
+      color: var(--color-text-strong);
+      font-size: clamp(17px, 4.8vw, 22px);
+      font-weight: 800;
+      line-height: 1.62;
+      word-break: normal;
+      overflow-wrap: break-word;
+    }
+
+    .footer {
+      padding: 24px 0 4px;
+      text-align: center;
+    }
+
+    .footer a {
+      display: inline-grid;
+      min-height: 44px;
+      place-items: center;
+      padding: 10px 16px;
+      border: 1px solid rgba(184, 155, 94, 0.36);
+      border-radius: 999px;
+      background: rgba(255, 253, 248, 0.76);
+      color: var(--color-text-strong);
+      font-size: 13px;
+      font-weight: 800;
+      text-decoration: none;
+    }
+
+
+    /* ---- 差し込みページ用の追加スタイル ---- */
+    .dish-image { position: relative; }
+    .dish-image.no-photo img,
+    .hero-image.no-photo img { display: none; }
+    .dish-image.no-photo::after,
+    .hero-image.no-photo::after {
+      content: "PHOTO COMING SOON";
+      position: absolute; inset: 0; display: grid; place-items: center;
+      color: var(--color-gold-deep); font-family: Georgia, "Times New Roman", serif;
+      font-size: 12px; font-weight: 700; letter-spacing: 0.16em;
+    }
+    .hero-image { position: relative; }
+    .price-row { display: flex; flex-wrap: wrap; gap: 8px; align-items: baseline; justify-content: space-between; }
+    .price { color: var(--color-wine); font-family: Georgia, "Times New Roman", serif; font-size: 18px; font-weight: 700; }
+    .allergy { display: flex; flex-wrap: wrap; gap: 6px; }
+    .allergy li { padding: 3px 9px; border-radius: 999px; background: rgba(123, 31, 29, 0.08); border: 1px solid rgba(123, 31, 29, 0.18); color: var(--color-wine-deep); font-size: 12px; font-weight: 800; }
+    .allergy li.none { background: rgba(251,244,232,.78); border-color: var(--line-gold); color: var(--color-muted); }
+    .service-box.caution { border: 1px solid rgba(123, 31, 29, 0.35); background: rgba(123, 31, 29, 0.08); }
+    .service-box.caution p:last-child { color: var(--color-wine-deep); font-weight: 800; }
+    .pairing { padding: 12px 14px; border: 1px dashed rgba(184,155,94,.5); border-radius: var(--radius-card); background: rgba(255,253,248,.8); }
+    .pairing .box-label { margin-bottom: 4px; color: var(--color-gold-deep); font-size: 12px; font-weight: 800; }
+    .pairing .wine { color: var(--color-text-strong); font-weight: 800; line-height: 1.6; }
+    .pairing .why { margin-top: 4px; color: var(--color-muted); font-size: 14px; line-height: 1.8; }
+    .table-wrap { margin-top: 22px; overflow-x: auto; border: 1px solid var(--line-gold); border-radius: var(--radius-card); background: rgba(255,253,248,.86); }
+    table { width: 100%; border-collapse: collapse; font-size: 14px; line-height: 1.7; }
+    th, td { padding: 10px 12px; border-bottom: 1px solid var(--line-gold); text-align: left; vertical-align: top; }
+    th { background: rgba(251,244,232,.9); color: var(--color-gold-deep); font-size: 12px; font-weight: 800; white-space: nowrap; }
+    td:first-child { color: var(--color-text-strong); font-weight: 800; white-space: nowrap; }
+    tr:last-child td { border-bottom: 0; }
+    .list-table td:nth-child(2) { min-width: 15em; color: var(--color-text-strong); font-weight: 700; }
+    .list-table td:nth-child(n+3) { white-space: nowrap; }
+    /* 写真はメニューPOP（1501×1176）なので、文字が切れないよう同じ比率で表示 */
+    .dish-image, .hero-image { aspect-ratio: 1501 / 1176; }
+    .term-list { display: grid; gap: 8px; margin-top: 4px; }
+    .term-list .term { display: block; padding: 9px 11px; border: 0; border-radius: 6px; background: rgba(251, 244, 232, 0.78); }
+    .term-list dt { color: var(--color-wine); font-size: 13px; font-weight: 800; line-height: 1.5; }
+    .term-list dd { margin: 2px 0 0; color: var(--color-muted); font-size: 14px; line-height: 1.75; }
+    .note { margin-top: 14px; color: var(--color-muted); font-size: 13px; line-height: 1.8; }
+    .note strong { color: var(--color-wine); }
+
+    @media (min-width: 700px) {
+      :root {
+        --container: min(100% - 56px, 760px);
+      }
+
+      body {
+        font-size: 16px;
+      }
+
+      .training-page {
+        padding: 32px 0 58px;
+      }
+
+      .hero {
+        padding: 36px 38px 34px;
+      }
+
+      .section-card {
+        margin-top: 28px;
+        padding: 36px 38px 34px;
+      }
+
+      .hero-text,
+      .text-block p,
+      .section-lead,
+      .point-card p,
+      .service-box p,
+      .info-list dd,
+      .check-list li {
+        font-size: 16px;
+      }
+
+      .point-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+      }
+
+      .point-card {
+        padding: 58px 16px 18px;
+      }
+
+      .point-number {
+        top: 17px;
+        left: 16px;
+      }
+
+      .product-list {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 360px) {
+      :root {
+        --container: min(100% - 20px, 720px);
+      }
+
+      .hero,
+      .section-card {
+        padding-right: 16px;
+        padding-left: 16px;
+      }
+
+      .hero::before,
+      .section-card::before {
+        inset: 15px 12px;
+      }
+
+      .toc {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+      }
+    }
+    </style>
+</head>
+<body>
+  <main class="training-page">
+    <header class="hero" id="top">
+      <div class="page-label">Brillante Tavola Dai Staff Training</div>
+      <div class="hero-card">
+        <p class="series-title">差し込み ／ 2026 December</p>
+        <h1>年末季節メニュー</h1>
+        <p class="hero-copy">「今」しか味わえない価値を、一言で届ける。</p>
+        <figure class="hero-image">
+          <img src="images/seasonal-koubako-paella.jpg" alt="2026年12月 年末季節メニュー" onerror="this.parentElement.classList.add('no-photo')">
+        </figure>
+        <p class="hero-text">
+          2026年12月の年末季節メニュー全9品の商品知識・一言サービス・提供備品・ワインペアリングをまとめています。<br>
+          料理の特徴を覚えるだけでなく、提供時の一言と動作でお客様の食体験を高めることが目的です。
+        </p>
+      </div>
+
+      <nav class="toc" aria-label="ページ内目次">
+        <a href="#list">商品一覧</a>
+        <a href="#items">商品別</a>
+        <a href="#pairing">ペアリング</a>
+        <a href="#checklist">チェック</a>
+        <a href="#summary">まとめ</a>
+      </nav>
+    </header>
+
+    <section class="section-card" id="list">
+      <div class="section-number">01</div>
+      <h2>商品・アレルギー・提供備品一覧</h2>
+      <p class="section-lead">営業前の確認用。価格はすべて税込です。</p>
+      <div class="table-wrap">
+        <table class="list-table">
+          <thead><tr><th>No.</th><th>商品名</th><th>価格</th><th>アレルギー</th><th>提供備品</th></tr></thead>
+          <tbody>
+<tr><td>01</td><td>昆布締めしたヒラメとあん肝のカルパッチョ</td><td>¥1,760</td><td>大豆</td><td>トング</td></tr>
+<tr><td>02</td><td>とちあいかとフルーツトマトのカプレーゼ</td><td>¥1,650</td><td>乳</td><td>スプーン</td></tr>
+<tr><td>03</td><td>高知県産「極鮪」とアボカドのピンチョス</td><td>¥770</td><td>小麦・大豆</td><td>ナイフ</td></tr>
+<tr><td>04</td><td>真鱈と白子のベニエ スジ青海苔のソース</td><td>¥1,760</td><td>小麦</td><td>トング・レンゲ</td></tr>
+<tr><td>05</td><td>カリフラワーのブランマンジェ 甘海老とカブのタルタルを乗せて</td><td>¥660</td><td>乳・海老・カニ</td><td>ティースプーン</td></tr>
+<tr><td>06</td><td>京鴨と冬野菜のロースト 青山椒香る赤ワインソース</td><td>¥2,860</td><td>乳</td><td>ナイフ</td></tr>
+<tr><td>07</td><td>カナダ産ムール貝と蒸し鮑のパスタ サフランクリームソース</td><td>¥2,530</td><td>小麦・乳</td><td>パスタトング・殻入れ</td></tr>
+<tr><td>08</td><td>香箱蟹のパエリア</td><td>¥3,630</td><td>カニ</td><td>サーバースプーン・トング・ティースプーン</td></tr>
+<tr><td>09</td><td>ホワイトチョコのバスクチーズケーキ</td><td>¥935</td><td>乳・小麦</td><td>デザートスプーン</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note"><strong>アレルギー対応の際は</strong>、実際の原材料や調理環境を必ずキッチンに再確認してください。</p>
+    </section>
+
+
+    <section class="section-card products-section" id="items">
+      <div class="section-number">02</div>
+      <h2>商品別 商品知識・一言サービス</h2>
+      <p class="section-lead">提供時は「一言サービス」「提供備品」「ペアリング」をセットで確認します。聞き慣れない言葉は各商品の「用語解説」で確認できます。</p>
+      <div class="product-list">
+
+        <article class="dish-card" id="dish-01">
+          <figure class="dish-image">
+            <img src="images/seasonal-hirame-ankimo.jpg" alt="昆布締めしたヒラメとあん肝のカルパッチョ" loading="lazy" onerror="this.parentElement.classList.add('no-photo')">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">01</p>
+              <ul class="tag-list" aria-label="商品タグ"><li>昆布締め</li><li>あん肝</li></ul>
+            </div>
+            <p class="dish-brand">2026 WINTER</p>
+            <h3>昆布締めしたヒラメとあん肝のカルパッチョ</h3>
+            <div class="price-row">
+              <p class="price">¥1,760<small style="font-size:12px;"> 税込</small></p>
+              <ul class="allergy" aria-label="アレルギー"><li>大豆</li></ul>
+            </div>
+
+            <div class="service-box required">
+              <p class="box-label">一言サービス</p>
+              <p>「昆布で旨味を引き出したヒラメに、濃厚なあん肝を合わせています。上に添えた菜の花も一緒にお召し上がりください。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>提供備品</dt>
+                <dd>トング</dd>
+              </div>
+              <div>
+                <dt>商品知識</dt>
+                <dd>昆布締めしたヒラメの薄造りに、あん肝と菜花を合わせた和をイメージしたカルパッチョ。<br>あん肝は醤油とみりんを使ったカエシで味付けしています。</dd>
+              </div>
+              <div>
+                <dt>用語解説</dt>
+                <dd><dl class="term-list"><div class="term"><dt>昆布締め</dt><dd>昆布で食材を挟み、余分な水分を抜きながら昆布の旨味を移す調理技法</dd></div><div class="term"><dt>あん肝</dt><dd>アンコウの肝臓。濃厚な旨味とクリーミーな食感から「海のフォアグラ」とも呼ばれる</dd></div><div class="term"><dt>カエシ</dt><dd>醤油・みりんなどを合わせた調味液。今回はあん肝の味付けに使用</dd></div></dl></dd>
+              </div>
+            </dl>
+
+            <div class="pairing">
+              <p class="box-label">ワインペアリング</p>
+              <p class="wine">ヴァイングート・シュヴァルツベック リースリング</p>
+              <p class="why">爽やかな酸味があん肝の濃厚さを引き締め、ヒラメの繊細な旨味を引き立てます。</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="dish-card" id="dish-02">
+          <figure class="dish-image">
+            <img src="images/seasonal-tochiaika-caprese.jpg" alt="とちあいかとフルーツトマトのカプレーゼ" loading="lazy" onerror="this.parentElement.classList.add('no-photo')">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">02</p>
+              <ul class="tag-list" aria-label="商品タグ"><li>苺</li><li>マルドン</li></ul>
+            </div>
+            <p class="dish-brand">2026 WINTER</p>
+            <h3>とちあいかとフルーツトマトのカプレーゼ</h3>
+            <div class="price-row">
+              <p class="price">¥1,650<small style="font-size:12px;"> 税込</small></p>
+              <ul class="allergy" aria-label="アレルギー"><li>乳</li></ul>
+            </div>
+
+            <div class="service-box required">
+              <p class="box-label">一言サービス</p>
+              <p>「すっきりとした甘みが特徴の苺とフルーツトマトを使ったカプレーゼです。お皿の周りに添えているマルドンというイギリス産のシーソルトをつけていただくと、より甘みが引き立ちます。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">提供動作とセットで覚える</p>
+              <p>マルドンの塩をつけることで、甘みの変化を楽しんでもらう</p>
+            </div>
+            <dl class="info-list">
+              <div>
+                <dt>提供備品</dt>
+                <dd>スプーン</dd>
+              </div>
+              <div>
+                <dt>商品知識</dt>
+                <dd>甘みが強く酸味が控えめな「とちあいか」とフルーツトマトをチーズと合わせたカプレーゼ。<br>トマトのコンソメを使用したジュレを合わせ、お皿の周囲にはイギリス産のマルドンシーソルトを添えています。</dd>
+              </div>
+              <div>
+                <dt>用語解説</dt>
+                <dd><dl class="term-list"><div class="term"><dt>とちあいか</dt><dd>栃木県で開発された苺の品種。甘みが強く酸味が控えめ</dd></div><div class="term"><dt>マルドン</dt><dd>イギリス・エセックス地方の海塩。ピラミッド状の薄い結晶とサクサクした食感が特徴</dd></div></dl></dd>
+              </div>
+            </dl>
+
+            <div class="pairing">
+              <p class="box-label">ワインペアリング</p>
+              <p class="wine">ラリエ R.021 ／ ポテンツァ（オレンジワイン）</p>
+              <p class="why">シャンパーニュの酸と泡が、苺とトマトの甘酸っぱさやチーズのコクに調和します。</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="dish-card" id="dish-03">
+          <figure class="dish-image">
+            <img src="images/seasonal-gokumaguro-pintxos.jpg" alt="高知県産「極鮪」とアボカドのピンチョス" loading="lazy" onerror="this.parentElement.classList.add('no-photo')">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">03</p>
+              <ul class="tag-list" aria-label="商品タグ"><li>極鮪</li><li>青リンゴ</li></ul>
+            </div>
+            <p class="dish-brand">2026 WINTER</p>
+            <h3>高知県産「極鮪」とアボカドのピンチョス</h3>
+            <div class="price-row">
+              <p class="price">¥770<small style="font-size:12px;"> 税込</small></p>
+              <ul class="allergy" aria-label="アレルギー"><li>小麦</li><li>大豆</li></ul>
+            </div>
+
+            <div class="service-box required">
+              <p class="box-label">一言サービス</p>
+              <p>「高知県産の生マグロ『極鮪』を使用したピンチョスです。青リンゴの甘みと、シーアスパラの程よい塩味もお楽しみください。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>提供備品</dt>
+                <dd>ナイフ</dd>
+              </div>
+              <div>
+                <dt>商品知識</dt>
+                <dd>高知県宿毛産の生本マグロ「極鮪」を使用。釣り上げてから神経締め・血抜き・内臓処理まで迅速に行うことで、濃い赤身の色と締まった身質が特徴です。<br>生マグロの赤身と青リンゴのタルタルをアボカドペースト、サクサクの揚げパンに合わせ、シーアスパラの塩味をアクセントにしています。</dd>
+              </div>
+              <div>
+                <dt>用語解説</dt>
+                <dd><dl class="term-list"><div class="term"><dt>極鮪</dt><dd>高知県宿毛産の生本マグロ。迅速な鮮度管理による締まった身質と濃い赤身の色が特徴</dd></div><div class="term"><dt>シーアスパラ</dt><dd>塩分を含む環境に育つ植物。シャキシャキした食感と自然な塩味が特徴</dd></div></dl></dd>
+              </div>
+            </dl>
+
+            <div class="pairing">
+              <p class="box-label">ワインペアリング</p>
+              <p class="wine">メタル ソーヴィニヨン・ブラン ／ ラ・フルール・ソリテール</p>
+              <p class="why">ソーヴィニヨン・ブランの爽やかな酸味が、青リンゴの風味やアボカドのコクと好相性です。</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="dish-card" id="dish-04">
+          <figure class="dish-image">
+            <img src="images/seasonal-madara-shirako-beignet.jpg" alt="真鱈と白子のベニエ スジ青海苔のソース" loading="lazy" onerror="this.parentElement.classList.add('no-photo')">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">04</p>
+              <ul class="tag-list" aria-label="商品タグ"><li>白子</li><li>カラスミ</li></ul>
+            </div>
+            <p class="dish-brand">2026 WINTER</p>
+            <h3>真鱈と白子のベニエ スジ青海苔のソース</h3>
+            <div class="price-row">
+              <p class="price">¥1,760<small style="font-size:12px;"> 税込</small></p>
+              <ul class="allergy" aria-label="アレルギー"><li>小麦</li></ul>
+            </div>
+
+            <div class="service-box required">
+              <p class="box-label">一言サービス</p>
+              <p>「真鱈と白子のフリットに、仕上げとしてカラスミをかけています。アサリの出汁とスジ青海苔を使った、あんかけ風のソースに絡めてお召し上がりください。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>提供備品</dt>
+                <dd>トング・レンゲ（準備漏れ注意）</dd>
+              </div>
+              <div>
+                <dt>商品知識</dt>
+                <dd>マリネして水分を抜いた真鱈と、その白子をサクサクのベニエにしています。<br>高知県宿毛産スジ青海苔とアサリ出汁を使った香り高いソースに合わせ、仕上げのカラスミがアクセントになっています。</dd>
+              </div>
+              <div>
+                <dt>用語解説</dt>
+                <dd><dl class="term-list"><div class="term"><dt>ベニエ</dt><dd>フランス料理の揚げ物。食材に衣をつけて揚げる調理方法</dd></div><div class="term"><dt>白子</dt><dd>魚の精巣。今回は真鱈の白子で、濃厚でクリーミーな味わいが特徴</dd></div><div class="term"><dt>スジ青海苔</dt><dd>香りの強い青海苔の一種。今回の料理には高知県宿毛産を使用</dd></div><div class="term"><dt>カラスミ</dt><dd>主にボラの卵巣を塩漬け・乾燥させた食材。濃厚な旨味と塩味が特徴</dd></div></dl></dd>
+              </div>
+            </dl>
+
+            <div class="pairing">
+              <p class="box-label">ワインペアリング</p>
+              <p class="wine">ラリエ R.021</p>
+              <p class="why">シャンパーニュの酸と泡が、白子のクリーミーなコクや揚げ衣の油分をすっきりとまとめます。</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="dish-card" id="dish-05">
+          <figure class="dish-image">
+            <img src="images/seasonal-cauliflower-blancmange.jpg" alt="カリフラワーのブランマンジェ 甘海老とカブのタルタルを乗せて" loading="lazy" onerror="this.parentElement.classList.add('no-photo')">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">05</p>
+              <ul class="tag-list" aria-label="商品タグ"><li>宝石箱</li><li>1人1皿</li></ul>
+            </div>
+            <p class="dish-brand">2026 WINTER</p>
+            <h3>カリフラワーのブランマンジェ 甘海老とカブのタルタルを乗せて</h3>
+            <div class="price-row">
+              <p class="price">¥660<small style="font-size:12px;"> 税込</small></p>
+              <ul class="allergy" aria-label="アレルギー"><li>乳</li><li>海老</li><li>カニ</li></ul>
+            </div>
+
+            <div class="service-box required">
+              <p class="box-label">一言サービス</p>
+              <p>「なめらかなカリフラワーのブランマンジェに、甘海老とカブのタルタル、カニのビスクで作ったジュレを合わせています。ぜひ下まで一緒にすくってお召し上がりください。」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">提供動作とセットで覚える</p>
+              <p>底まで一緒にすくって、複数の食材とジュレを楽しんでもらう</p>
+            </div>
+            <dl class="info-list">
+              <div>
+                <dt>提供備品</dt>
+                <dd>ティースプーン</dd>
+              </div>
+              <div>
+                <dt>商品知識</dt>
+                <dd>アサリ出汁を使用したなめらかなカリフラワーのブランマンジェに、甘海老とカブのタルタル、カニのビスクジュレを合わせています。<br>海老・カニ・貝の旨味を詰め込んだ宝石箱をイメージした一皿です。量が多くないため、お一人様一皿での注文もおすすめです。</dd>
+              </div>
+              <div>
+                <dt>用語解説</dt>
+                <dd><dl class="term-list"><div class="term"><dt>ブランマンジェ</dt><dd>フランス語で「白い食べ物」。牛乳やクリームなどを使用したなめらかな冷製料理</dd></div><div class="term"><dt>ビスク</dt><dd>海老やカニなど甲殻類から旨味を引き出したフランス料理のスープ・ソース</dd></div></dl></dd>
+              </div>
+            </dl>
+
+            <div class="pairing">
+              <p class="box-label">ワインペアリング</p>
+              <p class="wine">ラ・フルール・ソリテール ／ スリーブロックス シャルドネ</p>
+              <p class="why">魚介の旨味とブランマンジェのなめらかさに、ほどよい厚みを持つ白ワインが調和します。</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="dish-card" id="dish-06">
+          <figure class="dish-image">
+            <img src="images/seasonal-kyogamo-roast.jpg" alt="京鴨と冬野菜のロースト 青山椒香る赤ワインソース" loading="lazy" onerror="this.parentElement.classList.add('no-photo')">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">06</p>
+              <ul class="tag-list" aria-label="商品タグ"><li>京鴨</li><li>青山椒</li></ul>
+            </div>
+            <p class="dish-brand">2026 WINTER</p>
+            <h3>京鴨と冬野菜のロースト 青山椒香る赤ワインソース</h3>
+            <div class="price-row">
+              <p class="price">¥2,860<small style="font-size:12px;"> 税込</small></p>
+              <ul class="allergy" aria-label="アレルギー"><li>乳</li></ul>
+            </div>
+
+            <div class="service-box required">
+              <p class="box-label">一言サービス</p>
+              <p>「しっとりとした肉質が特徴の京鴨に、ローストしたカブとネギ、サボイキャベツを合わせています。青山椒香る赤ワインソースと絡めてお召し上がりください。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>提供備品</dt>
+                <dd>ナイフ</dd>
+              </div>
+              <div>
+                <dt>商品知識</dt>
+                <dd>鴨特有の強い香りが少なく、しっとりと柔らかな肉質と融点の低い脂が特徴の京鴨を使用。<br>ソースには赤ワイン・マルサラ酒・青山椒を使い、爽やかな香りを後味に残します。付け合わせには低温で火入れしたカブ、白ネギのロースト、サボイキャベツ（ちりめんキャベツ）を添えています。</dd>
+              </div>
+              <div>
+                <dt>用語解説</dt>
+                <dd><dl class="term-list"><div class="term"><dt>京鴨</dt><dd>今回使用する京鴨は、柔らかくしっとりした肉質と上品な脂が特徴</dd></div><div class="term"><dt>青山椒</dt><dd>若い山椒の実。爽やかな香りとピリッとした刺激が特徴</dd></div><div class="term"><dt>マルサラ酒</dt><dd>イタリア・シチリア島の酒精強化ワイン。ソースにコクや香りを加える</dd></div><div class="term"><dt>サボイキャベツ</dt><dd>葉が縮れたキャベツ。「ちりめんキャベツ」とも呼ばれる</dd></div></dl></dd>
+              </div>
+            </dl>
+
+            <div class="pairing">
+              <p class="box-label">ワインペアリング</p>
+              <p class="wine">グラディウム テンプラニーリョ ／ シャトー プティ フレイロン</p>
+              <p class="why">赤ワインの果実味と渋みが鴨の脂や旨味に合い、赤ワインソースのコクとも調和します。</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="dish-card" id="dish-07">
+          <figure class="dish-image">
+            <img src="images/seasonal-moules-awabi-pasta.jpg" alt="カナダ産ムール貝と蒸し鮑のパスタ サフランクリームソース" loading="lazy" onerror="this.parentElement.classList.add('no-photo')">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">07</p>
+              <ul class="tag-list" aria-label="商品タグ"><li>鮑</li><li>サフラン</li></ul>
+            </div>
+            <p class="dish-brand">2026 WINTER</p>
+            <h3>カナダ産ムール貝と蒸し鮑のパスタ サフランクリームソース</h3>
+            <div class="price-row">
+              <p class="price">¥2,530<small style="font-size:12px;"> 税込</small></p>
+              <ul class="allergy" aria-label="アレルギー"><li>小麦</li><li>乳</li></ul>
+            </div>
+
+            <div class="service-box required">
+              <p class="box-label">一言サービス</p>
+              <p>「肉厚の鮑を柔らかく蒸し上げ、ムール貝の旨味が詰まったクリームソースを合わせています。サフランの上品な香りとともにお楽しみください。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>提供備品</dt>
+                <dd>パスタトング・殻入れ</dd>
+              </div>
+              <div>
+                <dt>商品知識</dt>
+                <dd>酒蒸しで柔らかく仕上げた肉厚の鮑と、カナダ産の活ムール貝を使用。<br>鮑の出汁とアサリエキスを加え、貝の旨味を詰め込んだクリームソースにサフランの香りを移しています。鮑は仕上げにソースと合わせることで柔らかさを保っています。</dd>
+              </div>
+              <div>
+                <dt>用語解説</dt>
+                <dd><dl class="term-list"><div class="term"><dt>サフラン</dt><dd>サフランの花の雌しべを乾燥させたスパイス。独特の香りと黄金色が特徴</dd></div></dl></dd>
+              </div>
+            </dl>
+
+            <div class="pairing">
+              <p class="box-label">ワインペアリング</p>
+              <p class="wine">ラリエ R.021 ／ ラ・フルール・ソリテール</p>
+              <p class="why">シャンパーニュの酸味がクリームのコクを引き締め、魚介の旨味とサフランの香りを引き立てます。</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="dish-card" id="dish-08">
+          <figure class="dish-image">
+            <img src="images/seasonal-koubako-paella.jpg" alt="香箱蟹のパエリア" loading="lazy" onerror="this.parentElement.classList.add('no-photo')">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">08</p>
+              <ul class="tag-list" aria-label="商品タグ"><li>香箱蟹</li><li>11〜12月限定</li></ul>
+            </div>
+            <p class="dish-brand">2026 WINTER</p>
+            <h3>香箱蟹のパエリア</h3>
+            <div class="price-row">
+              <p class="price">¥3,630<small style="font-size:12px;"> 税込</small></p>
+              <ul class="allergy" aria-label="アレルギー"><li>カニ</li></ul>
+            </div>
+
+            <div class="service-box required">
+              <p class="box-label">一言サービス</p>
+              <p>「この時期しか味わえない香箱蟹を丸ごと使った贅沢なパエリアです。蟹の旨味がパエリア全体に行き渡るように、混ぜ合わせてもよろしいでしょうか？」</p>
+            </div>
+
+            <div class="service-box value">
+              <p class="box-label">提供動作とセットで覚える</p>
+              <p>お客様に確認したうえで、目の前で蟹を混ぜ合わせる</p>
+            </div>
+            <div class="service-box caution">
+              <p class="box-label">提供時の注意</p>
+              <p>パエリアパンは高温のため、お客様に必ず注意を促してください。</p>
+            </div>
+            <dl class="info-list">
+              <div>
+                <dt>提供備品</dt>
+                <dd>サーバースプーン・トング・ティースプーン（準備漏れ注意）</dd>
+              </div>
+              <div>
+                <dt>商品知識</dt>
+                <dd>11〜12月の限られた時期に味わえる雌のズワイガニ「香箱蟹」を丸ごと1杯使用。<br>甲羅の内側にある濃厚な内子と、お腹に抱えたプチプチ食感の外子が特徴です。<br>可能であればウェイターがお客様の目の前で蟹を混ぜ合わせ、蟹の旨味をパエリア全体に行き渡らせてから取り分けます。</dd>
+              </div>
+              <div>
+                <dt>用語解説</dt>
+                <dd><dl class="term-list"><div class="term"><dt>香箱蟹</dt><dd>雌のズワイガニの呼称。冬の限られた時期に楽しめ、内子と外子が特徴</dd></div><div class="term"><dt>内子</dt><dd>雌蟹の甲羅の内側にある未成熟の卵巣。濃厚なコクと旨味が特徴</dd></div><div class="term"><dt>外子</dt><dd>雌蟹がお腹に抱えている卵。プチプチとした食感が特徴</dd></div></dl></dd>
+              </div>
+            </dl>
+
+            <div class="pairing">
+              <p class="box-label">ワインペアリング</p>
+              <p class="wine">ラリエ R.021 ／ メタル ソーヴィニヨン・ブラン</p>
+              <p class="why">シャンパーニュの爽やかな酸味と繊細な泡が、蟹の甘みや内子の濃厚な旨味を引き立てます。</p>
+            </div>
+          </div>
+        </article>
+
+        <article class="dish-card" id="dish-09">
+          <figure class="dish-image">
+            <img src="images/seasonal-white-choco-basque.jpg" alt="ホワイトチョコのバスクチーズケーキ" loading="lazy" onerror="this.parentElement.classList.add('no-photo')">
+          </figure>
+          <div class="dish-content">
+            <div class="card-top">
+              <p class="dish-number">09</p>
+              <ul class="tag-list" aria-label="商品タグ"><li>クリスマス</li><li>苺ソース</li></ul>
+            </div>
+            <p class="dish-brand">2026 WINTER</p>
+            <h3>ホワイトチョコのバスクチーズケーキ</h3>
+            <div class="price-row">
+              <p class="price">¥935<small style="font-size:12px;"> 税込</small></p>
+              <ul class="allergy" aria-label="アレルギー"><li>乳</li><li>小麦</li></ul>
+            </div>
+
+            <div class="service-box required">
+              <p class="box-label">一言サービス</p>
+              <p>「当店人気のバスクチーズケーキを、ホワイトチョコレートを使ったクリスマス仕様に仕上げました。苺のソースと一緒にお楽しみください。」</p>
+            </div>
+
+            <dl class="info-list">
+              <div>
+                <dt>提供備品</dt>
+                <dd>デザートスプーン</dd>
+              </div>
+              <div>
+                <dt>商品知識</dt>
+                <dd>既存の人気商品であるバスクチーズケーキを、ホワイトチョコレートを使ったクリスマス仕様にアレンジ。<br>濃厚でミルキーなホワイトチョコレートの味わいに、酸味のある苺ソースと岩塩を合わせています。</dd>
+              </div>
+            </dl>
+
+            <div class="pairing">
+              <p class="box-label">ワインペアリング</p>
+              <p class="wine">未設定</p>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+
+    <section class="section-card" id="pairing">
+      <div class="section-number">03</div>
+      <h2>ワインペアリング早見表</h2>
+      <p class="section-lead">12月15日までの共有ペアリング案に基づく内容です。</p>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>料理</th><th>第1候補</th><th>第2候補</th></tr></thead>
+          <tbody>
+<tr><td>ヒラメとあん肝</td><td>ヴァイングート・シュヴァルツベック リースリング</td><td>―</td></tr>
+<tr><td>とちあいかとフルーツトマト</td><td>ラリエ R.021</td><td>ポテンツァ（オレンジ）</td></tr>
+<tr><td>極鮪とアボカド</td><td>メタル ソーヴィニヨン・ブラン</td><td>ラ・フルール・ソリテール</td></tr>
+<tr><td>真鱈と白子</td><td>ラリエ R.021</td><td>―</td></tr>
+<tr><td>カリフラワーのブランマンジェ</td><td>ラ・フルール・ソリテール</td><td>スリーブロックス シャルドネ</td></tr>
+<tr><td>京鴨と冬野菜</td><td>グラディウム テンプラニーリョ</td><td>シャトー プティ フレイロン</td></tr>
+<tr><td>ムール貝と蒸し鮑</td><td>ラリエ R.021</td><td>ラ・フルール・ソリテール</td></tr>
+<tr><td>香箱蟹のパエリア</td><td>ラリエ R.021</td><td>メタル ソーヴィニヨン・ブラン</td></tr>
+<tr><td>ホワイトチョコのバスクチーズケーキ</td><td>未設定</td><td>―</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="note">相性の説明は料理の構成とワインの一般的な特徴を踏まえた提案です。実際の試飲や仕上がりに応じて調整してください。</p>
+    </section>
+
+    <section class="section-card" id="checklist">
+      <div class="section-number">04</div>
+      <h2>スタッフ用チェックリスト</h2>
+      <ul class="check-list">
+        <li>9品の商品名を正式に伝えられる</li>
+        <li>各商品のアレルギー（特に海老・カニ・小麦・乳）を即答できる</li>
+        <li>アレルギー対応時はキッチンに再確認している</li>
+        <li>提供備品を正しく準備できる（ベニエ・香箱蟹は特に注意）</li>
+        <li>ブランマンジェは「下まで一緒にすくって」と伝えられる</li>
+        <li>カプレーゼはマルドンの塩の楽しみ方を伝えられる</li>
+        <li>香箱蟹のパエリアは混ぜる前にお客様へ確認し、パンの熱さを注意できる</li>
+        <li>料理に合うワインを第1候補・第2候補で提案できる</li>
+      </ul>
+    </section>
+
+    <section class="section-card summary-section" id="summary">
+      <div class="section-number">05</div>
+      <h2>まとめ</h2>
+      <div class="text-block">
+        <p>年末季節メニューは、この時期にしか味わえない食材と仕立てが魅力です。</p>
+        <p>一言サービスと提供動作で、その価値をお客様の記憶に残る体験に変えましょう。</p>
+      </div>
+      <p class="final-copy">差し込みは、「今」しか味わえない価値を伝える一皿。</p>
+    </section>
+
+    <footer class="footer">
+      <a href="index.html">トップページに戻る</a>
+    </footer>
+  </main>
+</body>
+</html>
